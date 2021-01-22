@@ -1,0 +1,12 @@
+                var smtpSettings = Config.Get<SystemConfig>().SmtpSettings;
+                MailMessage message = new MailMessage();                
+                message.From = new MailAddress(smtpSettings.UserName);
+                message.To.Add(new MailAddress(toEmail));
+                StringBuilder sb = new StringBuilder();
+                sb.AppendFormat(body);
+                message.Subject = subject;
+                message.Body = sb.ToString();
+                message.IsBodyHtml = true;
+                message.BodyEncoding = Encoding.Unicode;
+                message.SubjectEncoding = Encoding.Unicode;
+                EmailSender.Get().Send(message);

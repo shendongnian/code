@@ -1,0 +1,14 @@
+    System.Web.Mvc.ContentResult
+    System.Web.Mvc.EmptyResult
+    System.Web.Mvc.FileResult
+    	System.Web.Mvc.FileContentResult
+    	System.Web.Mvc.FilePathResult
+    	System.Web.Mvc.FileStreamResult
+    System.Web.Mvc.HttpUnauthorizedResult
+    System.Web.Mvc.JavaScriptResult
+    System.Web.Mvc.JsonResult
+    System.Web.Mvc.RedirectResult
+    System.Web.Mvc.RedirectToRouteResult
+    System.Web.Mvc.ViewResultBase
+    	System.Web.Mvc.PartialViewResult
+    	System.Web.Mvc.ViewResult

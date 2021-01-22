@@ -1,0 +1,113 @@
+			ParameterExpression listParameter = Expression.Parameter(
+				typeof(ITypedList),
+				"list"
+			);
+			ParameterExpression propertyDescriptorVariable = Expression.Variable(
+				typeof(PropertyDescriptor),
+				"propertyDescriptor"
+			);
+			ParameterExpression indexVariable = Expression.Variable(
+				typeof(int),
+				"index"
+			);
+			ParameterExpression resultVariable = Expression.Variable(
+				typeof(bool),
+				"result"
+			);
+			LabelTarget @break = Expression.Label();
+			Expression<Func<ITypedList, bool>> lambdaExpression = Expression.Lambda<Func<ITypedList, bool>>(
+				Expression.Block(
+					new[] { propertyDescriptorVariable, indexVariable, resultVariable },
+					Expression.Assign(
+						propertyDescriptorVariable,
+						Expression.Property(
+							Expression.Call(
+								listParameter,
+								typeof(ITypedList).GetMethod(
+									"GetItemProperties",
+									BindingFlags.Instance | BindingFlags.Public
+								),
+								Expression.Default(
+									typeof(PropertyDescriptor[])
+								)
+							),
+							typeof(PropertyDescriptorCollection).GetProperty(
+								"Item",
+								typeof(PropertyDescriptor),
+								new[] { typeof(string) }
+							),
+							Expression.Constant(
+								"Name"
+							)
+						)
+					),
+					Expression.Assign(
+						indexVariable,
+						Expression.Constant(
+							0,
+							typeof(int)
+						)
+					),
+					Expression.Assign(
+						resultVariable,
+						Expression.Constant(
+							true
+						)
+					),
+					Expression.Loop(
+						Expression.IfThenElse(
+							Expression.LessThan(
+								indexVariable,
+								Expression.Property(
+									Expression.Convert(
+										listParameter,
+										typeof(ICollection)
+									),
+									"Count"
+								)
+							),
+							Expression.IfThenElse(
+								Expression.Equal(
+									Expression.Constant(
+										null
+									),
+									Expression.Call(
+										propertyDescriptorVariable,
+										"GetValue",
+										Type.EmptyTypes,
+										Expression.Property(
+											Expression.Convert(
+												listParameter,
+												typeof(IList)
+											),
+											"Item",
+											indexVariable
+										)
+									)
+								),
+								Expression.Block(
+									Expression.Assign(
+										resultVariable,
+										Expression.Constant(
+											false
+										)
+									),
+									Expression.Break(
+										@break
+									)
+								),
+								Expression.PostIncrementAssign(
+									indexVariable
+								)
+							),
+							Expression.Break(
+								@break
+							)
+						),
+						@break
+					),
+					resultVariable
+				),
+				listParameter
+			);
+			bool isEveryNameNotNull = lambdaExpression.Compile().Invoke(list);

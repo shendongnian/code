@@ -1,0 +1,16 @@
+    Console.WriteLine(theArray[0,0]);
+    Console.WriteLine(theArray[1,0]);
+    Console.WriteLine(theArray[2,0]);
+    Console.WriteLine(theArray[3,0]);
+    Console.WriteLine(theArray[3,1]);
+    Console.WriteLine(theArray[3,2]);
+    Console.WriteLine(theArray[3,3]);
+    Console.WriteLine(theArray[2,3]);
+    Console.WriteLine(theArray[1,3]);
+    Console.WriteLine(theArray[0,3]);
+    Console.WriteLine(theArray[0,2]);
+    Console.WriteLine(theArray[0,1]);
+    Console.WriteLine(theArray[1,1]);
+    Console.WriteLine(theArray[2,1]);
+    Console.WriteLine(theArray[2,2]);
+    Console.WriteLine(theArray[1,2]);

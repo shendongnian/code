@@ -1,0 +1,11 @@
+        public static Type GetEnumerableArgumentType(Type type)
+        {
+            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+                return type.GetGenericArguments()[0];
+            else
+                return null;            
+        }        
+        public static bool EnumerableContainsArgumentType(Type tEnumerable, Type tGenArg)
+        {
+            return GetEnumerableArgumentType(tEnumerable) == tGenArg;
+        }

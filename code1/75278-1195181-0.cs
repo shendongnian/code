@@ -1,0 +1,12 @@
+    IEventRaiser _raiser;
+    MockRepository Mockery = new MockRepository();
+    TFactory _tFac;
+    IView _view;
+    Presenter _presenter = new Presenter();
+    IBC _bc = Mockery.DynamicMock<IBC>();
+    _bc.MessageRaised += null;
+    _raiser = LastCall.GetEventRaiser();
+    Controller _controller = new Controller(_bc);
+    Mockery.BackToRecord(_bc,BackToRecordOptions.None);
+    _tFac = new TFactory(Mockery);
+    _tFac.Create(ref _view, ref _presenter, ref _controller);

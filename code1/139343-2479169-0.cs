@@ -1,0 +1,11 @@
+    Image image = new Image();
+    image.Source = new BitmapImage(new Uri(@"c:\test\rectangle.png"));
+    image.Stretch = Stretch.None;
+    image.HorizontalAlignment = HorizontalAlignment.Left;
+    Image imageSticker = new Image();
+    imageSticker.Source = new BitmapImage(new Uri(@"c:\test\sticker.png"));
+    imageStiker.Margin = new Thickness(10, 10, 0, 0);
+    Grid grid = new Grid();
+    grid.Children.Add(image);
+    grid.Children.Add(imageSticker);
+    TheContent.Content = grid;

@@ -1,0 +1,7 @@
+    namespace SprocGenerator
+    {
+        namespace Generators
+        {
+            ...
+        }
+    }

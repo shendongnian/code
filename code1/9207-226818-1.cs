@@ -1,0 +1,14 @@
+    <Tables>
+        <Orders>
+            <row>
+                <sku>12345</sku>
+                <quantity>2</quantity>
+                <price>5.95</price>
+            </row>
+            <row>
+                <sku>54321</sku>
+                <quantity>3</quantity>
+                <price>2.95</price>
+            </row>
+        </Orders>
+    </Tables>

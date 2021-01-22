@@ -1,0 +1,9 @@
+    ServiceHost businessHost = new ServiceHost(typeof(DHTestBusinessService));
+    ServiceEndpoint endpoint = businessHost.Description.Endpoints[0];
+    BindingElementCollection bindingElements = endpoint.Binding.CreateBindingElements();
+    SslStreamSecurityBindingElement sslElement = bindingElements.Find<SslStreamSecurityBindingElement>();
+    sslElement.RequireClientCertificate = true; //Turn on client certificate validation
+    CustomBinding newBinding = new CustomBinding(bindingElements);
+    NetTcpBinding oldBinding = (NetTcpBinding)endpoint.Binding;
+    newBinding.Namespace = oldBinding.Namespace;
+    endpoint.Binding = newBinding;

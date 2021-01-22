@@ -1,0 +1,11 @@
+            FieldBuilder campoBld = claseContenedoraBld.DefineField("x", typeof(int), FieldAttributes.Public | FieldAttributes.Static);
+            il.Emit(OpCodes.Ldc_I4, 2);
+            il.Emit(OpCodes.Stsfld, campoBld);
+            FieldBuilder campoBld1 = claseContenedoraBld.DefineField("x1", typeof(int), FieldAttributes.Public | FieldAttributes.Static);
+            il.Emit(OpCodes.Ldc_I4, 2);
+            il.Emit(OpCodes.Stsfld, campoBld1);
+            il.Emit(OpCodes.Ldsfld, campoBld);
+            il.Emit(OpCodes.Ldsfld, campoBld1);
+            il.Emit(OpCodes.Add);
+            il.Emit(OpCodes.Pop);
+            il.Emit(OpCodes.Ret);

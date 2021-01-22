@@ -1,0 +1,15 @@
+            Excel.Worksheet worksheet = new Excel.Worksheet();
+            Excel.Sheets sheets;
+            Excel.Workbook theWorkbook;
+            string SheetName;
+            Excel.Application ExcelObj = null;
+            ExcelObj = new Excel.Application();
+            theWorkbook = ExcelObj.Workbooks.Open(txtpath.Text, 0, false, 5, "", "", true, Excel.XlPlatform.xlWindows, "\t", true, true, 0, true, 1, 0);
+            sheets = theWorkbook.Worksheets;
+            worksheet = (Excel.Worksheet)theWorkbook.Worksheets.get_Item(1);
+            SheetName = worksheet.Name.Trim();
+            OleDbConnection conn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\"" + txtpath.Text + "\";Extended Properties=\"Excel 12.0 Xml;HDR=Yes;\";");
+            conn.Open();
+            OleDbDataAdapter da = new OleDbDataAdapter("Select * FROM [" + SheetName + "$]", conn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);

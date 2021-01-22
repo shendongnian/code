@@ -1,0 +1,10 @@
+            BindingSource bs = new BindingSource();
+            string connstring = "Data Source=MyDatabase.sdf;Persist Security Info=False";
+            string sqlqry = "SELECT * from diamond where p_Id=" + p_Id;
+            SqlCeConnection conn = new SqlCeConnection(connstring);
+            SqlCeCommand cmd = new SqlCeCommand(sqlqry, conn);
+            conn.Open();
+            SqlCeDataReader rdr = cmd.ExecuteReader();
+            bs.DataSource = rdr;
+            rdr.Close();
+            conn.Close();

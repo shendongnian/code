@@ -1,0 +1,15 @@
+    SmtpClient MyMail = new SmtpClient();
+                MailMessage MyMsg = new MailMessage();
+                MyMail.Host = "mail.eraygan.com";
+                MyMsg.Priority = MailPriority.High;
+                MyMsg.To.Add(new MailAddress(Mail));
+                MyMsg.Subject = Subject;
+                MyMsg.SubjectEncoding = Encoding.UTF8;
+                MyMsg.IsBodyHtml = true;
+                MyMsg.From = new MailAddress("username", "password");
+                MyMsg.BodyEncoding = Encoding.UTF8;
+                MyMsg.Body = Body;
+                MyMail.UseDefaultCredentials = false;
+                NetworkCredential MyCredentials = new NetworkCredential("username", "password");
+                MyMail.Credentials = MyCredentials;
+                MyMail.Send(MyMsg);

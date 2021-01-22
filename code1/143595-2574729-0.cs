@@ -1,0 +1,6 @@
+    private Dictionary<int, PropertyInfo> propertyDictionary = new ...
+    MyClass()
+    {
+        this.propertyDictionary.Add(0, this.GetType().GetProperty("FirstProperty");
+        ...
+    }

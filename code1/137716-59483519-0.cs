@@ -1,0 +1,14 @@
+            Person p = new Person();
+            p.Age = 35;
+            p.Gender = Gender.Male;
+            //1.  male="Male";
+            string male = Gender.Male.ToString();
+            p.Gender = Gender.Female;
+            //2.  female="Female";
+            string female = Enum.GetName(typeof(Gender), p.Gender);
+            JObject jobj = new JObject();
+            jobj["Age"] = p.Age;
+            jobj["Gender"] = male;
+            jobj["Gender2"] = female;
+            //you result:  josn= {"Age": 35,"Gender": "Male","Gender2": "Female"}
+            string json = jobj.ToString();

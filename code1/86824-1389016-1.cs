@@ -1,0 +1,10 @@
+     Table nTable = new Table(); 
+     nTable.Name = "PersonData"; 
+     nTable.Columns.Append("LastName", DataTypeEnum.adVarWChar, 25);
+     nTable.Columns.Append("FirstName", DataTypeEnum.adVarWChar, 25);
+     nTable.Columns.Append("Address 1", DataTypeEnum.adVarWChar, 45);
+     nTable.Columns.Append("Address 2", DataTypeEnum.adVarWChar, 45); 
+     nTable.Columns.Append("City", DataTypeEnum.adVarWChar, 25);
+     nTable.Columns.Append("State", DataTypeEnum.adVarWChar, 2);
+     nTable.Columns.Append("Zip", DataTypeEnum.adVarWChar, 9);
+     cat.Tables.Append(nTable);

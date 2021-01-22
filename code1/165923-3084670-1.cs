@@ -1,0 +1,7 @@
+     foreach (Control ctrl in container.Controls)
+     {
+       if (ctrl is TextBox)
+       {
+         ((TextBox)ctrl).TextChanged += new System.EventHandler(TextBox_TextChanged);
+       }
+     }

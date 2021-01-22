@@ -1,0 +1,10 @@
+        DataTable dt = new DataTable("MyTable");
+        dt.Columns.Add(new DataColumn("MyCol1", typeof(string)));
+        dt.Columns.Add(new DataColumn("MyCol2", typeof(int)));
+        DataSet ds = new DataSet();
+        ds.Tables.Add(dt);
+        dt.Rows.Add("Val1", 5);
+        dt.Rows.Add("Val2", 6);
+        ds.WriteXml("data.xml");
+        DataSet ds2 = new DataSet();
+        ds2.ReadXml("data.xml");

@@ -1,0 +1,16 @@
+		Accordion acc = new Accordion();
+		acc.CheckBoxMargin = new Padding(2);
+		acc.ContentMargin = new Padding(15, 5, 15, 5);
+		acc.ContentPadding = new Padding(1);
+		acc.Insets = new Padding(5);
+		acc.ControlBackColor = Color.White;
+		acc.ContentBackColor = Color.CadetBlue;
+		TableLayoutPanel tlp = new TableLayoutPanel { Dock = DockStyle.Fill, Padding = new Padding(5) };
+		tlp.TabStop = true;
+		tlp.Controls.Add(new Label { Text = "First Name", TextAlign = ContentAlignment.BottomLeft }, 0, 0);
+		tlp.Controls.Add(new TextBox(), 1, 0);
+		tlp.Controls.Add(new Label { Text = "Last Name", TextAlign = ContentAlignment.BottomLeft }, 0, 1);
+		tlp.Controls.Add(new TextBox(), 1, 1);
+		acc.Add(tlp,"Contact Info", "Enter the client's information.", 0, true);
+		acc.Add(new TextBox { Dock = DockStyle.Fill, Multiline = true, BackColor = Color.White }, "Memo", "Additional Client Info", 1, true, contentBackColor:Color.Transparent);
+		acc.Add(new Control(), "Other Info", "Miscellaneous information.");

@@ -1,0 +1,7 @@
+   at ConsoleApplication15.SuperException.get_StackTrace()
+   at ConsoleApplication15.Program.InternalMethod()
+   at ConsoleApplication15.Program.Main(String[] args)
+   at System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()

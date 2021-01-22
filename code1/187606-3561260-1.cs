@@ -1,0 +1,10 @@
+    ISpatialReferenceFactory srFactory = new SpatialReferenceEnvironmentClass();
+    IGeographicCoordinateSystem gcs = srFactory.CreateGeographicCoordinateSystem((int)esriSRGeoCSType.esriSRGeoCS_WGS1984);
+    ISpatialReference sr1 = gcs;
+    IPoint point = new PointClass() as IPoint;
+    point.PutCoords(-92.96000, 44.9227);
+    IGeometry geometryShape;
+    geometryShape = point;
+    geometryShape.SpatialReference = sr1;
+    geometryShape.Project(mapControl.SpatialReference);
+    mapControl.DrawShape(geometryShape);

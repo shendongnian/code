@@ -1,0 +1,12 @@
+            Datagridtest.Width = 600;
+            Datagridtest.GridLines = GridLines.Both;
+            Datagridtest.CellPadding = 1;
+            ButtonColumn bc = new ButtonColumn();
+            bc.CommandName = "add";
+            bc.HeaderText = "Event Details";
+            bc.Text = "Details";
+            bc.ButtonType = System.Web.UI.WebControls.ButtonColumnType.PushButton;
+            Datagridtest.Columns.Add(bc);
+            PlaceHolder1.Controls.Add(Datagridtest);
+            Datagridtest.DataSource = dt;
+            Datagridtest.DataBind();

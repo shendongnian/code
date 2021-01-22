@@ -1,0 +1,11 @@
+    SqlConnection _sqlConnection = new SqlConnection ();
+    _sqlConnection.ConnectionString = @"Data Source=<SQL_Server/Instance>; Initial Catalog=<database_name>; Integrated Security=False; User ID=<user_id>;Password=<passowrd>";
+    _sqlConnection.Open ();
+    SqlCommand _sqlCommand = new SqlCommand ( "select * from DatabaseName.dbo.viewName", _sqlConnection ); 
+    _dataSet = new DataSet ();
+    _sqlDataAdapter = new SqlDataAdapter ( _sqlCommand );
+    _sqlDataAdapter.Fill ( _dataSet );
+    _schemaTable = new DataTable ();
+    _sqlDataAdapter.FillSchema ( _schemaTable, SchemaType.Source );
+    dataGridView.DataSource = _schemaTable;
+    _sqlConnection.Close ();

@@ -1,0 +1,19 @@
+    string[] GetArray(string input)
+    {
+        string[] vals = input.Split(',');
+    
+        List<string> entries = new List<string>();
+    
+        string s;
+        for(int i=vals.Length - 1; i > 0; i--)
+        {
+            s = vals[i];
+    
+            if(i < vals.Length - 1)
+               s += "," +  entries[(vals.Length - 2) - i];
+            
+            entries.Add(s);
+        }
+    
+       return entries.ToArray();
+    }

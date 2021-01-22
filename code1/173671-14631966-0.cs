@@ -1,0 +1,13 @@
+    protected override void Draw(GameTime gameTime)
+    {
+         GraphicsDevice.SetRenderTarget(_renderTarget);
+         
+         //...
+         //Perform Rendering to the specified target
+         //...
+         GraphicsDevice.SetRenderTarget(null);
+         GraphicsDevice.Clear(Color.CornflowerBlue);
+         //...
+         //Code that draws to the users screen goes here
+         //...
+    }

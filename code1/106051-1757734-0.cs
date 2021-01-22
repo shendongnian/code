@@ -1,0 +1,11 @@
+    DataGridTemplateColumn col1 = new DataGridTemplateColumn();
+    col1.Header = "MyHeader";
+    FrameworkElementFactory factory1 = new FrameworkElementFactory(typeof(CheckBox));
+    Binding b1 = new Binding("IsSelected");
+    b1.Mode = BindingMode.TwoWay;
+    factory1.SetValue(CheckBox.IsCheckedProperty, b1);
+    factory1.AddHandler(CheckBox.CheckedEvent, new RoutedEventHandler(chkSelect_Checked));
+    DataTemplate cellTemplate1 = new DataTemplate();
+    cellTemplate1.VisualTree = factory1;
+    col1.CellTemplate = cellTemplate1;
+    dgTransportReqsts.DataGrid.Columns.Add(col1);

@@ -1,0 +1,11 @@
+    List<Employee> employees = new List<Employee>();
+    employees.Add(new Employee(1, null, "Tom Smith"));
+    employees.Add(new Employee(2, null, "Susan Jones"));
+    employees.Add(new Employee(3, 1, "Sally Davis"));
+    employees.Add(new Employee(4, 1, "Robert Roberts"));
+    employees.Add(new Employee(5, 3, "John Smith"));
+    employees.Add(new Employee(6, 2, "Tonya Little"));
+    employees.Add(new Employee(7, 3, "Ty Bell"));
+    employees.Add(new Employee(8, 4, "Helen Andrews"));
+    employees.Add(new Employee(9, 2, "Matt Huang"));
+    employees.Add(new Employee(10, 6, "Lisa Wilson"));

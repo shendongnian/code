@@ -1,0 +1,17 @@
+    ...
+    System.Windows.Controls.TreeView.ChangeSelection
+    ...
+    System.Windows.Controls.TreeViewItem.OnGotFocus
+    ...
+    System.Windows.Input.FocusManager.SetFocusedElement
+    System.Windows.Input.KeyboardNavigation.UpdateFocusedElement
+    System.Windows.FrameworkElement.OnGotKeyboardFocus
+    System.Windows.Input.KeyboardFocusChangedEventArgs.InvokeEventHandler
+    ...
+    System.Windows.Input.InputManager.ProcessStagingArea
+    System.Windows.Input.InputManager.ProcessInput
+    System.Windows.Input.KeyboardDevice.ChangeFocus
+    System.Windows.Input.KeyboardDevice.TryChangeFocus
+    System.Windows.Input.KeyboardDevice.Focus
+    System.Windows.Input.KeyboardDevice.ReevaluateFocusCallback
+    ...

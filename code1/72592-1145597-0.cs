@@ -1,0 +1,10 @@
+    var infinity = 100d / 0;
+    Console.WriteLine("Infinity is NaN: {0}", double.IsNaN(infinity));
+    Console.WriteLine("Infinity is Infinity: {0}", double.IsInfinity(infinity));
+    var negInfinity = -100d / 0;
+    Console.WriteLine("Negative Infinity is NaN: {0}", double.IsNaN(negInfinity));
+    Console.WriteLine("Negative Infinity is Infinity: {0}", double.IsInfinity(negInfinity));
+    var notANumber = infinity + negInfinity;
+    Console.WriteLine("Negative Infinity plus Infinity is NaN: {0}", double.IsNaN(notANumber));
+    var notANumber2 = infinity + 3;
+    Console.WriteLine("tHREE plus Infinity is NaN: {0}", double.IsNaN(notANumber));

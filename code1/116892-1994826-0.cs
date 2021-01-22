@@ -1,0 +1,6 @@
+    using System.Reflection;
+    ....
+    public object DataSource;
+    ...
+    Debug.Assert( DataSource != null );
+    var properties = DataSource.GetType().GetProperties();

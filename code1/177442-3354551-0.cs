@@ -1,0 +1,12 @@
+    var watch = new Stopwatch();
+    var strList = Enumerable.Repeat(10, 10000000);
+    watch.Start();
+    var result = strList.Sum();
+    watch.Stop();
+    Console.WriteLine("Linear: {0}", watch.ElapsedMilliseconds);
+    watch.Reset();
+    watch.Start();
+    var parallelResult = strList.AsParallel().Sum();
+    watch.Stop();
+    Console.WriteLine("Parallel: {0}", watch.ElapsedMilliseconds);
+    Console.ReadKey();

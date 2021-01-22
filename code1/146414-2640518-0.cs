@@ -1,0 +1,10 @@
+        DataSet ds = new DataSet("Records");
+        DataTable dt = new DataTable("Person");
+        ds.Tables.Add(dt);
+        dt.Columns.Add("ID");
+        dt.Columns.Add("Name");
+        dt.Rows.Add(new object[] { 1, "Jack" });
+        dt.Rows.Add(new object[] { 2, "Frank" });
+        StringWriter sw = new StringWriter();
+        dt.WriteXml(sw);
+        MessageBox.Show(sw.ToString());

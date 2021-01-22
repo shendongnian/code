@@ -1,0 +1,11 @@
+    ArrayList ar = new ArrayList();
+            ar.Add(1);
+            ar.Add(5);
+            ar.Add(25);
+            ar.Add(37);
+            ar.Add(6);
+            ar.Add(11);
+            ar.Add(35);
+            Random r = new Random();
+            int index = r.Next(0,ar.Count-1);
+            MessageBox.Show(ar[index].ToString());

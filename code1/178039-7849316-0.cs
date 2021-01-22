@@ -1,0 +1,10 @@
+    String FileName = filename;
+    String FilePath = filepath;
+    System.Web.HttpResponse response = System.Web.HttpContext.Current.Response;
+    response.ClearContent();
+    response.Clear();
+    response.ContentType = "text/plain";
+    response.AddHeader("Content-Disposition", "attachment; filename=" + FileName + ";");
+    response.TransmitFile(FilePath + FileName);
+    response.Flush();
+    response.End();

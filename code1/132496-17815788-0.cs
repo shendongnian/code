@@ -1,0 +1,11 @@
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.ErrorDialog = false;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.UseShellExecute = false;
+            process.ErrorDataReceived += (sendingProcess, errorLine) => error.AppendLine(errorLine.Data);
+            process.OutputDataReceived += (sendingProcess, dataLine) => SetMessage(dataLine.Data);
+            process.Start();
+            process.BeginErrorReadLine();
+            process.BeginOutputReadLine();
+            process.WaitForExit();

@@ -1,0 +1,11 @@
+    using System.Reflection;
+    using System.Security;
+    using System.Security.Permissions;
+    using System.Security.Policy;
+    PermissionSet permissions = new PermissionSet(PermissionState.None);
+    permissions.AddPermission(new FileIOPermission(PermissionState.Unrestricted));
+    permissions.AddPermission(new SecurityPermission(SecurityPermissionFlag.Execution));
+    rv.LocalReport.SetBasePermissionsForSandboxAppDomain(permissions);
+    Assembly asm = Assembly.Load("MyLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
+    AssemblyName asm_name = asm.GetName();
+    rv.LocalReport.AddFullTrustModuleInSandboxAppDomain(new StrongName(new StrongNamePublicKeyBlob(asm_name.GetPublicKeyToken()), asm_name.Name, asm_name.Version));

@@ -1,0 +1,17 @@
+    string credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(_username + ":" + _password));
+    HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(Request);
+    webRequest.Headers.Add("Authorization", string.Format("Basic {0}", credentials));
+    webRequest.ContentType = "application/x-www-form-urlencoded";
+    webRequest.Method = WebRequestMethods.Http.Post;
+    webRequest.AllowAutoRedirect = true;
+    webRequest.Proxy = null;
+    string data = "phone_number=19735559042"; 
+    byte[] dataStream = Encoding.UTF8.GetBytes(data);
+    request.ContentLength = dataStream.Length;
+    Stream newStream = webRequest.GetRequestStream();
+    newStream.Write(dataStream, 0, dataStream.Length);
+    newStream.Close();
+    HttpWebResponse response = (HttpWebResponse)webRequest.GetResponse();
+    Stream stream = response.GetResponseStream();
+    StreamReader streamreader = new StreamReader(stream);
+    string s = streamreader.ReadToEnd();

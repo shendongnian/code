@@ -1,0 +1,101 @@
+    public static Boolean HasTransparency(Bitmap bitmap)
+    {
+        Int32 flags = bitmap.Flags;
+        // not an alpha-capable color format.
+        if ((flags & (Int32)ImageFlags.HasAlpha) == 0)
+            return false;
+        // Indexed formats. Special case because one index on their palette is configured as THE transparent color.
+        if (bitmap.PixelFormat == PixelFormat.Format8bppIndexed || bitmap.PixelFormat == PixelFormat.Format4bppIndexed)
+        {
+            ColorPalette pal = bitmap.Palette;
+            // no transparency info in the palette.
+            if ((bitmap.Palette.Flags & 1) == 0)
+                return false;
+            // Find the transparent index on the palette.
+            Int32 transCol = -1;
+            for (int i = 0; i < pal.Entries.Length; i++)
+            {
+                Color col = pal.Entries[i];
+                if (col.A != 255)
+                {
+                    // Color palettes should only have one index acting as transparency. Not sure if there's a better way of getting it...
+                    transCol = i;
+                    break;
+                }
+            }
+            // none of the entries in the palette have transparency information.
+            if (transCol == -1)
+                return false;
+            // Check pixels for existence of the transparent index.
+            Int32 colDepth = Image.GetPixelFormatSize(bitmap.PixelFormat);
+            BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadWrite, bitmap.PixelFormat);
+            Int32 stride = data.Stride;
+            Byte[] bytes = new Byte[bitmap.Height * stride];
+            Marshal.Copy(data.Scan0, bytes, 0, bytes.Length);
+            if (colDepth == 8)
+            {
+                // Line size. Note that this is 1-indexed.
+                Int32 lineMax = bitmap.Width;
+                for (Int32 i = 0; i < bytes.Length; i++)
+                {
+                    // Last position to processed; 1-indexed like the max we made before.
+                    Int32 linepos = (i + 1) % stride;
+                    // Passed last image byte of the line. Abort and go on with loop.
+                    if (linepos > lineMax)
+                        continue;
+                    Byte b = bytes[i];
+                    if (b == transCol)
+                        return true;
+                }
+            }
+            else if (colDepth == 4)
+            {
+                // line size in bytes
+                Int32 lineMax = bitmap.Width /2;
+                // Check if end of line ends on half a byte.
+                Boolean halfByte = bitmap.Width % 2 != 0;
+                // If it ends on half a byte, add a byte.
+                if (halfByte)
+                    lineMax++;
+                for (Int32 i = 0; i < bytes.Length; i++)
+                {
+                    // Last position to processed; 1-indexed like the max we made before.
+                    Int32 linepos = (i + 1) % stride;
+                    // Passed last image byte of the line. Abort and go on with loop.
+                    if (linepos > lineMax)
+                        continue;
+                    Byte b = bytes[i];
+                    if ((b & 0x0F) == transCol)
+                        return true;
+                    if (halfByte && linepos == lineMax) // reached last byte of the line. If only half a byte to check on that, abort and go on with loop.
+                        continue;
+                    if (((b & 0xF0) >> 4) == transCol)
+                        return true;
+                }
+            }
+            return false;
+        }
+        if (bitmap.PixelFormat == PixelFormat.Format32bppArgb || bitmap.PixelFormat == PixelFormat.Format32bppPArgb)
+        {
+            BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadWrite, bitmap.PixelFormat);
+            byte[] Bytes = new byte[bitmap.Height * data.Stride];
+            Marshal.Copy(data.Scan0, Bytes, 0, Bytes.Length);
+            for (int p = 3; p < Bytes.Length; p += 4)
+            {
+                if (Bytes[p] != 255)
+                    return true;
+            }
+            return false;
+        }
+        // Final "screw it all" method. This is pretty slow, but it won't ever be used, unless you
+        // encounter some really esoteric types not handled above, like 16bppArgb1555 and 64bppArgb.
+        for (Int32 i = 0; i < bitmap.Width; i++)
+        {
+            for (Int32 j = 0; j < bitmap.Height; j++)
+            {
+                if (bitmap.GetPixel(i, j).A != 255)
+                    return true;
+            }
+        }
+        return false;
+    }

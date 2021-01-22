@@ -1,0 +1,10 @@
+                DataGridViewColumn oldCol = dgViewCategory.Columns["mycolumn"];
+                int chkIdx = oldCol.Index;
+                DataGridViewCheckBoxColumn chkCol = new DataGridViewCheckBoxColumn();
+                chkCol.HeaderText = oldCol.HeaderText;
+                chkCol.FalseValue = "False";
+                chkCol.TrueValue = "True";
+                chkCol.DataPropertyName = oldCol.DataPropertyName;
+                chkCol.Name = oldCol.Name;
+                dgViewCategory.Columns.RemoveAt(chkIdx);
+                dgViewCategory.Columns.Insert(chkIdx, chkCol);

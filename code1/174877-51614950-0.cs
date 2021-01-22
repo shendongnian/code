@@ -1,0 +1,10 @@
+    var dataTable = new DataTable();
+    var idCol = dataTable.Columns.Add("Id", typeof(Int32));
+    dataTable.Columns.Add("Code", typeof(string));
+    dataTable.Columns.Add("Name", typeof(string));
+    dataTable.Columns.Add("RepeatedCode", typeof(string));
+    dataTable.Columns.Add("FormationDate", typeof(DateTime));
+    dataTable.Columns.Add("Income", typeof(Decimal));
+    dataTable.Columns.Add("ChildCount", typeof(Int32));
+    dataTable.Columns.Add("Foreign", typeof(Boolean));
+    dataTable.PrimaryKey = new DataColumn[1] { idCol };

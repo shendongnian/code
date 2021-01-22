@@ -1,0 +1,25 @@
+    IPerson
+    {
+       string Name {get; set;}
+       string LastName {get; set;}
+       // whatever else - such as sizeOfShoe, dob, etc
+    }
+    IHaveParents
+    {
+       List<IPerson> Parents {get; set;}
+    }
+    IHaveChildren
+    {
+       List<IPerson> Children {get; set;}
+    }
+    IHaveSpouse
+    {
+       IPerson Spouse {get; set;}
+    }
+    public class DudeWithParentsAndChildren : IHaveParents, IHaveChildren, IHaveSpouse
+    {       
+       public void AskMoneyToParents(){throw new Exception("Implement me!");}
+       public void SlapChildren(){}
+       private void CheatOnSpouse(){}
+       // some other stuff that such a dude can do
+    }

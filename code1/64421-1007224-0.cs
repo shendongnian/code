@@ -1,0 +1,26 @@
+    ///
+    /// Consts defined in WINBASE.H
+    ///
+    internal enum MoveFileFlags
+    {
+        MOVEFILE_REPLACE_EXISTING = 1,
+        MOVEFILE_COPY_ALLOWED = 2,
+        MOVEFILE_DELAY_UNTIL_REBOOT = 4,
+        MOVEFILE_WRITE_THROUGH  = 8
+    }
+     
+     
+    /// <summary>
+    /// Marks the file for deletion during next system reboot
+    /// </summary>
+    /// <param name="lpExistingFileName">The current name of the file or directory on the local computer.</param>
+    /// <param name="lpNewFileName">The new name of the file or directory on the local computer.</param>
+    /// <param name="dwFlags">MoveFileFlags</param>
+    /// <returns>bool</returns>
+    /// <remarks>http://msdn.microsoft.com/en-us/library/aa365240(VS.85).aspx</remarks>
+    [System.Runtime.InteropServices.DllImportAttribute("kernel32.dll",EntryPoint="MoveFileEx")]
+    internal static extern bool MoveFileEx(string lpExistingFileName, string lpNewFileName,
+    MoveFileFlags dwFlags);
+     
+    //Usage for marking the file to delete on reboot
+    MoveFileEx(fileToDelete, null, MoveFileFlags.MOVEFILE_DELAY_UNTIL_REBOOT);

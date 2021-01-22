@@ -1,0 +1,42 @@
+    [Flags][Serializable]
+    public enum ScopeType : int
+    {
+        Unknown = 0,
+        Global = 1,
+        Namespace = Global << 1,
+        Class = Namespace << 1,
+        Struct = Class << 1,
+        Interface = Struct << 1,
+        Enum = Interface << 1,
+        Function = Enum << 1,
+        Property = Function << 1,
+        PropertyGetter = Property << 1,
+        PropertySetter = PropertyGetter << 1,
+        Using = PropertySetter << 1,
+        If = Using << 1,
+        ElseIf = If << 1,
+        Else = ElseIf << 1,
+        Switch = Else << 1,
+        Case = Switch << 1,
+        For = Case << 1,
+        While = For << 1,
+        DoWhile = While << 1,
+        Lambda = DoWhile << 1,
+        Try = Lambda << 1,
+        Catch = Try << 1,
+        Finally = Catch << 1,
+        Initializer = Finally << 1,
+        Checked = Initializer << 1,
+        Unchecked = Checked << 1,
+        Unsafe = Unchecked << 1,
+        Lock = Unsafe << 1,
+        Fixed = Lock << 1,
+        // I can also group flags together using bitwise-OR.
+        PropertyAccessor = PropertyGetter | PropertySetter,
+        TypeDefinition = Class | Struct | Interface | Enum,
+        TryCatchFinally = Try | Catch | Finally,
+        Conditional = If | ElseIf | Else,
+        Branch = Conditional | Case | TryCatchFinally,
+        Loop = For | While | DoWhile
+    }
+NOTE: Since the enumeration inherits from System.Int32, I can only define 32 flags. If you need more you will have to use a larger integer (System.Int64), create more than one enumeration and chain them together, or just create a class with a bunch of boolean values.

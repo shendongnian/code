@@ -1,0 +1,10 @@
+				var FA = new FileAssociation();
+				FA.Extension = "blah";
+				FA.ContentType = "application/blah";
+				FA.FullName = "blah Project File";
+				FA.ProperName = "blahFile";
+				FA.AddCommand("open", string.Format("\"{0}\" \"%1\"", System.Reflection.Assembly.GetExecutingAssembly().Location));
+				//"C:\\mydir\\myprog.exe %1");
+				FA.IconPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+				FA.IconIndex = 0;
+				FA.Create();
