@@ -1,0 +1,10 @@
+            MyEntity a = new MyEntity { Foo = "hello", Bar = 42 };
+            MyEntity b = new MyEntity { Foo = "world", Bar = 5 };
+            EntityWrapper<MyEntity> wa = new EntityWrapper<MyEntity>(a);
+            EntityWrapper<MyEntity> wb = new EntityWrapper<MyEntity>(b);
+            var fooA = wa.GetProperties()["Foo"];
+            var fooB = wb.GetProperties()["Foo"];
+            wa.ReadOnly["Foo"] = false;
+            wb.ReadOnly["Foo"] = true;
+            Console.WriteLine("Property Foo of object a is read-only : {0}", fooA.IsReadOnly);
+            Console.WriteLine("Property Foo of object b is read-only : {0}", fooB.IsReadOnly);

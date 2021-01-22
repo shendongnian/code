@@ -1,0 +1,21 @@
+    // MY TESTING WOULD Indicate  SEE // NOT SUPPORTED comment
+        public const string Boolean = "System.Boolean";
+        public const string Byte = "System.Byte";
+        public const string ByteArray = "System.Byte[]";
+        public const string SByte = "System.SByte";    // NOT SUPPORTED
+        public const string Char = "System.Char";     // NOT SUPPORTED
+        public const string Decimal = "System.Decimal";
+        public const string Double = "System.Double";
+        public const string Single = "System.Single";
+        public const string Int32 = "System.Int32";
+        public const string UInt32 = "System.UInt32";// NOT SUPPORTED
+        public const string Int64 = "System.Int64";
+        public const string UInt64 = "System.UInt64";// NOT SUPPORTED
+        public const string Int16 = "System.Int16";
+        public const string UInt16 = "System.UInt16";
+        public const string String = "System.String";
+        public const string DateTimeOffset = "System.DateTimeOffset";
+        public const string DateTime = "System.DateTime";
+        public const string Guid = "System.Guid";
+        public const string Enum = "System.Enum";
+        public const string Type = "System.Type";// NOT SUPPORTED

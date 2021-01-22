@@ -1,0 +1,12 @@
+    Table upperTable = new Table(1);
+    upperTable.Border = Rectangle.NO_BORDER;
+    upperTable.DefaultCell.Border = Rectangle.NO_BORDER;
+    upperTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+    upperTable.AddCell(new Phrase("some text" + '\n', font3));
+    d.Add(upperTable);
+    Table lowerTable= new Table(1);
+    lowerTable.Border = Rectangle.NO_BORDER;
+    lowerTable.DefaultCell.Border = Rectangle.NO_BORDER;
+    lowerTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+    lowerTable.AddCell(new Phrase('\n' + "some other text", font3));
+    d.Add(lowerTable);

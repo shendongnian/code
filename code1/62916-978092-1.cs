@@ -1,0 +1,11 @@
+    System.Func<TReturn> // (no arg, with return value)
+    System.Func<T, TReturn> // (1 arg, with return value)
+    System.Func<T1, T2, TReturn> // (2 arg, with return value)
+    System.Func<T1, T2, T3, TReturn> // (3 arg, with return value)
+    System.Func<T1, T2, T3, T4, TReturn> // (4 arg, with return value)
+    
+    System.Action // (no arg, no return value)
+    System.Action<T> // (1 arg, no return value)
+    System.Action<T1, T2> // (2 arg, no return value)
+    System.Action<T1, T2, T3> // (3 arg, no return value)
+    System.Action<T1, T2, T3, T4> // (4 arg, no return value)

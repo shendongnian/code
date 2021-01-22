@@ -1,0 +1,14 @@
+            byte[] rendered = uxReportViewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamIds, out warnings);
+            Response.Buffer = true;
+            Response.Clear();
+            Response.ClearHeaders();
+            Response.ContentType = mimeType;
+            Response.CacheControl = "public";
+            Response.AddHeader("Pragma", "public");
+            Response.AddHeader("Expires", "0");
+            Response.AddHeader("Cache-Control", "must-revalidate, post-check=0, pre-check=0");
+            Response.AddHeader("Content-Description", "Report Export");
+            Response.AddHeader("Content-Disposition", "attachment; filename=\"" + filename + "." + extension + "\"");
+            Response.BinaryWrite(rendered);
+            Response.Flush();
+            Response.End();

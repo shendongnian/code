@@ -1,0 +1,11 @@
+            SystemInfo sysinfo = new SystemInfo();
+            sysinfo.RUN();
+            XmlSerializer mySerializer = new XmlSerializer(typeof(SystemInfo));
+            MemoryStream memStream = new MemoryStream();
+                mySerializer.Serialize(memStream, sysinfo);
+                memStream.Seek(0, System.IO.SeekOrigin.Begin);
+                XmlDocument doc = new XmlDocument();
+                doc.Load(memStream);
+            memStream.Close();
+            localhost.WS_Agente dasdsa = new localhost.WS_Agente();
+            dasdsa.Reports(doc.InnerXml);

@@ -1,0 +1,10 @@
+    ListItem li;
+    li = new ListItem("Test", null);
+    Console.WriteLine(li.Value.ToString());
+    li.Value = null;
+    Console.WriteLine(li.Value.ToString());
+    DropDownList ddl = new DropDownList();
+    ddl.Items.Add(li);
+    ddl.SelectedIndex = 0;
+    Console.WriteLine(ddl.SelectedValue);
+    Console.ReadLine();

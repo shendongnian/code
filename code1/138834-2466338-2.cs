@@ -1,0 +1,10 @@
+			this.gridResults1.AllowUserToAddRows = false;
+			this.gridResults1.AllowUserToDeleteRows = false;
+			this.gridResults1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+			this.gridResults1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.gridResults1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.gridResults1.Location = new System.Drawing.Point(3, 3);
+			this.gridResults1.Name = "gridResults1";
+			this.gridResults1.ReadOnly = true;
+			this.gridResults1.Size = new System.Drawing.Size(1023, 242);
+			this.gridResults1.TabIndex = 0;

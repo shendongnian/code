@@ -1,0 +1,6 @@
+    public class myControl : Control
+    {
+      ...
+      public int myIntValue {get; set;}
+      ...
+    }

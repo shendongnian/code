@@ -1,0 +1,26 @@
+    using System;
+    using System.IO;
+    using System.Reflection;
+    using System.Runtime.InteropServices;
+    using Microsoft.Office.Tools.Excel;
+    using Microsoft.VisualStudio.Tools.Applications.Runtime;
+    using Excel = Microsoft.Office.Interop.Excel;
+    using Office = Microsoft.Office.Core;
+    using System.Diagnostics;
+    using Microsoft.Win32;
+    Excel.Application excel2;
+    Excel.Workbook DataSource;
+    Excel.Worksheet DataSheet;
+    excel2 = new Excel.Application();
+    DataSource = (Excel.Workbook)excel2.Workbooks.Add(1);
+    string tempFolder = System.IO.Path.GetTempPath();
+    string FileName = openFileDialog1.FileName.ToString();
+    DataSource = excel2.Workbooks.Open(FileName, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+    DataSheet = DataSource.Worksheets.get_Item(1);
+    Object xl_app;
+    xl_app = GetObj(1, "Excel.Application");  
+    Excel.Application xlApp = (Excel.Application)xl_app;
+    Excel.Application ReportPage = (Excel.Application)System.Runtime.InteropServices.Marshal.GetActiveObject("Excel.Application");
+    Excel.Workbook Copy_To_Excel = ReportPage.ActiveWorkbook;
+    //Copy from the Data Source(Your XML file) to the Copy_To_Excel element by element
+    //then Copy_To_Excel.Close();

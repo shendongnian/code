@@ -1,0 +1,6 @@
+    public class MyHandler : IHttpHandler {
+        public void ProcessRequest(System.Web.HttpContext context) {
+            context.Response.ContentType = "application/pdf";
+            // ...
+            PdfWriter.getInstance(document, context.Response.OutputStream);
+            // ...

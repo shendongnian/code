@@ -1,0 +1,12 @@
+        XmlDocument originalXml = new XmlDocument();
+        originalXml.Load(path);
+        XmlNode menu = originalXml.SelectSingleNode("//Settings");
+        XmlNode newSub = originalXml.CreateNode(XmlNodeType.Element, "Setting", null);
+        XmlAttribute xa = originalXml.CreateAttribute("name");
+        xa.Value = "qwerty";
+        XmlAttribute xb = originalXml.CreateAttribute("value");
+        xb.Value = "555";
+        newSub.Attributes.Append(xa);
+        newSub.Attributes.Append(xb);
+        menu.AppendChild(newSub);
+        originalXml.Save(path);

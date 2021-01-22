@@ -1,0 +1,11 @@
+       SqlDataAdapter da = new SqlDataAdapter("select * from Sells", con.connection);
+       da.SelectCommand.CommandType = CommandType.Text;
+       DataSet ds = new DataSet();
+       con.connection.Open();
+       da.Fill(ds);
+       con.connection.Close();
+       TotalSellsReport rpt = new TotalSellsReport();
+       rpt.SetDataSource(ds);
+       SellsPrinting sp = new SellsPrinting();
+       sp.crystalReportViewer1.ReportSource = rpt;
+       sp.Show();

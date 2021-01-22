@@ -1,0 +1,10 @@
+                    SPWebApplication wappCurrent = (SPWebApplication)properties.Feature.Parent;
+                    SPWebConfigModification modAuthorizedType = new SPWebConfigModification();
+                    modAuthorizedType.Name = "authorizedType[@Assembly='Infowise.AssociatedTasks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23853b1f8d5855a5']";
+                    modAuthorizedType.Owner = "Infowise.Actions";
+                    modAuthorizedType.Path = "configuration/System.Workflow.ComponentModel.WorkflowCompiler/authorizedTypes";
+                    modAuthorizedType.Type = SPWebConfigModification.SPWebConfigModificationType.EnsureChildNode;
+                    modAuthorizedType.Value = @"<authorizedType Assembly=""Infowise.AssociatedTasks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23853b1f8d5855a5"" Namespace=""Infowise.Sharepoint.V3.Fields.Workflow"" TypeName=""*"" Authorized=""True"" />";
+                    wappCurrent.WebConfigModifications.Add(modAuthorizedType);
+                    wappCurrent.Update();
+                    wappCurrent.Farm.Services.GetValue<SPWebService>().ApplyWebConfigModifications();

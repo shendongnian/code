@@ -1,0 +1,12 @@
+    DataSet ds = new DataSet("MyTables");
+    ds.Tables.Add("Users");
+    DatTable userTable = ds.Tables["Users"];
+    userTable.Columns.Add("ID");
+    userTable.Columns.Add("Name");
+    userTable.Columns.Add("Email");
+    userTable.Rows.Add(0,"Ace","ace@example.com";
+    userTable.Rows.Add(1,"Biff","biff@example.com";
+    userTable.Rows.Add(2,"Chuck","chuck@example.com";
+    userTable.Rows.Add(2,"Dick","dick@example.com";
+    myGrid.DataSource = userTable;
+    myGrid.DataBind();

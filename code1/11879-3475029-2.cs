@@ -1,0 +1,11 @@
+    string unformattedXml;
+    string formattedXml;
+    unformattedXml = "<?xml version=\"1.0\"?><book><author>Lewis, C.S.</author><title>The Four Loves</title></book>";
+    System.Xml.XmlDocument doc = new System.Xml.XmlDocument();
+    doc.LoadXml(unformattedXml);
+    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+    System.Xml.XmlWriter xw = System.Xml.XmlTextWriter.Create(sb, new System.Xml.XmlWriterSettings() { Indent = true });
+    doc.WriteTo(xw);
+    xw.Flush();
+    formattedXml = sb.ToString();
+    Console.WriteLine(formattedXml);

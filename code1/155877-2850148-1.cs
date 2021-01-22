@@ -1,0 +1,7 @@
+    namespace Dealer
+    {
+        class Dealer
+        {
+            ...
+        }
+    }

@@ -1,0 +1,11 @@
+     ListView lV = new listView(); 
+     ListViewItem Item = new ListViewItem(); 
+     WrapPanel wrap = new WrapPanel(); 
+     Image image = new image();
+     image.Source = <<yourSource>>;
+     Label label = new Label();
+     label.Content = "W/E you want";
+     wrap.Children.Add(image);
+     wrap.Children.Add(label);
+     Item.Content = wrap;
+     lV.Items.Add(Item); 

@@ -1,0 +1,14 @@
+    var processStartInfo = new ProcessStartInfo("someoldapp.exe", "-p someparameters");
+    processStartInfo.UseShellExecute = false;
+    processStartInfo.ErrorDialog = false;
+    processStartInfo.RedirectStandardError = true;
+    processStartInfo.RedirectStandardInput = true;
+    processStartInfo.RedirectStandardOutput = true;
+    processStartInfo.CreateNoWindow = true;
+    Process process = new Process();
+    process.StartInfo = processStartInfo;
+    bool processStarted = process.Start();
+    StreamWriter inputWriter = process.StandardInput;
+    StreamReader outputReader = process.StandardOutput;
+    StreamReader errorReader = process.StandardError;
+    process.WaitForExit();

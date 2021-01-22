@@ -1,0 +1,5 @@
+ 	mscorlib.dll!System.Reflection.Assembly.nLoad(System.Reflection.AssemblyName fileName, string codeBase, System.Security.Policy.Evidence assemblySecurity, System.Reflection.Assembly locationHint, ref System.Threading.StackCrawlMark stackMark, bool throwOnFileNotFound, bool forIntrospection) + 0x2c bytes	
+ 	mscorlib.dll!System.Reflection.Assembly.InternalLoad(System.Reflection.AssemblyName assemblyRef, System.Security.Policy.Evidence assemblySecurity, ref System.Threading.StackCrawlMark stackMark, bool forIntrospection) + 0x80 bytes	
+ 	mscorlib.dll!System.Reflection.Assembly.Load(System.Reflection.AssemblyName assemblyRef) + 0x1d bytes	
+ 	System.Xml.dll!System.Xml.Serialization.TempAssembly.LoadGeneratedAssembly(System.Type type = {Name = "StringCollection" FullName = "System.Collections.Specialized.StringCollection"}, string defaultNamespace = null, out System.Xml.Serialization.XmlSerializerImplementation contract = null) + 0xcd bytes	
+ 	System.Xml.dll!System.Xml.Serialization.XmlSerializer.XmlSerializer(System.Type type = {Name = "StringCollection" FullName = "System.Collections.Specialized.StringCollection"}, string defaultNamespace = null) + 0x105 bytes	

@@ -1,0 +1,21 @@
+    case 48: Console.WriteLine("0");
+        break; 
+    case 49: Console.WriteLine("1");
+        break; 
+    case 50: Console.WriteLine("2");
+        break; 
+    case 51: Console.WriteLine("3");
+        break;
+    case 52: Console.WriteLine("4");
+        break; 
+    case 53: Console.WriteLine("5");
+        break; 
+    case 54: Console.WriteLine("6");
+        break; 
+    case 55: Console.WriteLine("7");
+        break; 
+    case 56: Console.WriteLine("8");
+        break; 
+    case 57: Console.WriteLine("9"); 
+        break;
+    }

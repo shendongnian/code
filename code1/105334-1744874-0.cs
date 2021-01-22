@@ -1,0 +1,5 @@
+    var usersQuery = new Select(new SubSonic.TableSchema.TableColumn[] { User.UserIdColumn, User.NameColumn })
+                .From(User.Schema)            
+                .WhereExpression(User.UserIdColumn.ColumnName).IsEqualTo(1).Or(User.UserIdColumn).IsEqualTo(2)
+                .CloseExpression()
+                .And(User.NameColumn).Like("a")

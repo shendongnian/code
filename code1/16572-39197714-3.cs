@@ -1,0 +1,16 @@
+    public sealed class MyClassInterfaces<T1, T2, T3>
+    where T1 : ...
+    where T2 : ... 
+    where T3 : ... {
+       public interface Interface { Interface SomeMethod(); }
+    }
+    sealed class MyClass<T1, T2, T3> :
+       MyClassInterfaces<T1, T2, T3>.Interface
+    where T1 : ...
+    where T2 : ... 
+    where T3 : ... {
+       MyClassInterfaces<T1, T2, T3>.Interface
+       MyClassInterfaces<T1, T2, T3>.Interface.SomeMethod() {
+          ...
+       }
+    }

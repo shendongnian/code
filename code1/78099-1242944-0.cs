@@ -1,0 +1,11 @@
+    DataTable dtbl = new DataTable();
+        DataColumn PID = new DataColumn();
+        dtbl.Columns.Add(PID);
+        DataColumn PName = new DataColumn();
+        dtbl.Columns.Add(PName);
+        DataRow dr = dtbl.NewRow();
+        dr["PID"] = "1";
+        dr["PName"] = "product Name";
+        dtbl.Rows.Add(dr);
+        yourGridView.DataSource = dtbl.DefaultView;
+        yourGridView.DataBind();

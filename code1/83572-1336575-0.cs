@@ -1,0 +1,163 @@
+    using Microsoft.Win32;
+    using System.Runtime.InteropServices;
+    
+    public class Kiosk : IDisposable
+    {
+    #region "IDisposable"
+    
+    	//' Implementing IDisposable since it might be possible for
+    	//' someone to forget to cause the unhook to occur.  I didn''t really
+    	//' see any problems with this in testing, but since the SDK says
+    	//' you should do it, then here''s a way to make sure it will happen.
+    
+    	public void IDisposable.Dispose()
+    	{
+    		Dispose(true);
+    		GC.SuppressFinalize(this);
+    	}
+    
+    	protected virtual void Dispose(bool disposing)
+    	{
+    		if (disposing) {
+    			//' Free other state (managed objects).
+    		}
+    		if (m_hookHandle != 0) {
+    			UnhookWindowsHookEx(m_hookHandle);
+    			m_hookHandle = 0;
+    		}
+    		if (m_taskManagerValue > -1) {
+    			EnableTaskManager();
+    		}
+    	}
+    
+    	protected override void Finalize()
+    	{
+    		Dispose(false);
+    	}
+    #endregion
+    
+    	static void main()
+    	{
+    
+    	}
+    	private delegate int LowLevelHookDelegate(int code, int wParam, ref KeyboardLowLevelHookStruct lParam);
+    
+    	private const int Hc_Action = 0;
+    	private const int WindowsHookKeyboardLowLevel = 13;
+    	private const int LowLevelKeyboardHfAltDown = 0x20;
+    
+    	private enum WindowsMessage
+    	{
+    		KeyDown = 0x100,
+    		KeyUp = 0x101,
+    		SystemKeyDown = 0x104,
+    		SystemKeyUp = 0x105
+    	}
+    
+    	private enum Vk
+    	{
+    		Tab = 0x9,
+    		Escape = 0x1b,
+    		Shift = 0x10,
+    		Control = 0x11,
+    		Menu = 0x12,
+    		//' ALT key.
+    		Alt = 0x12,
+    		Pause = 0x13,
+    		LeftWindows = 0x5b,
+    		//' Left Windows key (Microsoft® Natural® keyboard).
+    		RightWindows = 0x5c,
+    		//' Right Windows key (Natural keyboard).
+    		Applications = 0x5d
+    		//' Applications key (Natural keyboard).
+    	}
+    
+    	private struct KeyboardLowLevelHookStruct
+    	{
+    		public int VirtualKeyCode;
+    		public int ScanCode;
+    		public int Flags;
+    		public int Time;
+    		public UInt32 ExtraInfo;
+    	}
+    
+    
+     // ERROR: Not supported in C#: DeclareDeclaration
+     // ERROR: Not supported in C#: DeclareDeclaration
+     // ERROR: Not supported in C#: DeclareDeclaration
+     // ERROR: Not supported in C#: DeclareDeclaration
+    	private int m_hookHandle;
+    
+    	private int LowLevelHook(int code, int wParam, ref KeyboardLowLevelHookStruct lParam)
+    	{
+    
+    		if (code == Hc_Action) {
+    
+    			if ((wParam == WindowsMessage.KeyDown) || (wParam == WindowsMessage.SystemKeyDown) || (wParam == WindowsMessage.KeyUp) || (wParam == WindowsMessage.SystemKeyUp)) {
+    
+    				//'Dim alt As Boolean = (GetAsyncKeyState(Vk.Alt) And &H8000) = &H8000
+    				//'Dim shift As Boolean = (GetAsyncKeyState(Vk.Shift) And &H8000) = &H8000
+    				bool control = (GetAsyncKeyState(Vk.Control) & 0x8000) == 0x8000;
+    
+    				bool suppress;
+    
+    				//' CTRL+ESC
+    				if (control && lParam.VirtualKeyCode == Vk.Escape) {
+    					suppress = true;
+    				}
+    
+    				//' ALT+TAB
+    				if ((lParam.Flags & LowLevelKeyboardHfAltDown) == LowLevelKeyboardHfAltDown && lParam.VirtualKeyCode == Vk.Tab) {
+    					suppress = true;
+    				}
+    
+    				//' ALT+ESC
+    				if ((lParam.Flags & LowLevelKeyboardHfAltDown) == LowLevelKeyboardHfAltDown && lParam.VirtualKeyCode == Vk.Escape) {
+    					suppress = true;
+    				}
+    
+    				//' Left Windows button.
+    				if (lParam.VirtualKeyCode == Vk.LeftWindows) {
+    					suppress = true;
+    					MessageBox.Show("Pressed Left windows key");
+    				}
+    
+    				//' Right Windows button.
+    				if (lParam.VirtualKeyCode == Vk.RightWindows) {
+    					suppress = true;
+    					MessageBox.Show("Pressed Right windows key");
+    				}
+    
+    				//' Applications button.
+    				if (lParam.VirtualKeyCode == Vk.Applications) {
+    					suppress = true;
+    				}
+    
+    				if (suppress) {
+    					return 1;
+    				}
+    
+    			}
+    
+    			return CallNextHookEx(m_hookHandle, code, wParam, lParam);
+    
+    		}
+    
+    	}
+    
+    	public void Disable()
+    	{
+    		if (m_hookHandle == 0) {
+    			m_hookHandle = SetWindowsHookEx(WindowsHookKeyboardLowLevel, LowLevelHook, Marshal.GetHINSTANCE(System.Reflection.Assembly.GetExecutingAssembly.GetModules()(0)).ToInt32, 0);
+    		}
+    	}
+    
+    	public void Enable()
+    	{
+    		if (m_hookHandle != 0) {
+    			UnhookWindowsHookEx(m_hookHandle);
+    			m_hookHandle = 0;
+    		}
+    	}
+    
+    }

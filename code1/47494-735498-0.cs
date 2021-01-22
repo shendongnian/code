@@ -1,0 +1,6 @@
+    public string ConvertToCSV(Func<CheckBox, string> cb_prop) {
+        ...
+        buffer.Append(cb_prop(cb)).Append(",");
+        ...
+    }
+    ConvertToCSV(c => c.Tag);

@@ -1,0 +1,32 @@
+        listView1.Items.Clear();
+        
+        listView1.View = View.Details;
+        ColumnHeader ch1 = listView1.Columns.Add("Index");
+        ColumnHeader ch2 = listView1.Columns.Add("Column1");
+        ColumnHeader ch3 = listView1.Columns.Add("Column2");
+        ColumnHeader ch4 = listView1.Columns.Add("Column3");
+        
+        ListViewItem lvi1 = listView1.Items.Add("1");    
+        lvi1.SubItems.Add("1");
+        lvi1.SubItems.Add("v1    v2");
+        lvi1.SubItems.Add("vl1");
+        ListViewItem lvi2 = listView1.Items.Add("2");
+        lvi2.SubItems.Add("");
+        lvi2.SubItems.Add("");
+        lvi2.SubItems.Add("vl2");
+        ListViewItem lvi3 = listView1.Items.Add("3");
+        lvi3.SubItems.Add("");
+        lvi3.SubItems.Add("");
+        lvi3.SubItems.Add("vl3");
+        ListViewItem lvi4 = listView1.Items.Add("4");
+        lvi4.SubItems.Add("2");
+        lvi4.SubItems.Add("v3    v4");
+        lvi4.SubItems.Add("vl4");
+        ListViewItem lvi5 = listView1.Items.Add("5");
+        lvi5.SubItems.Add("");
+        lvi5.SubItems.Add("");
+        lvi5.SubItems.Add("vl5");
+        ListViewItem lvi6 = listView1.Items.Add("6");
+        lvi6.SubItems.Add("");
+        lvi6.SubItems.Add("");
+        lvi6.SubItems.Add("vl6");

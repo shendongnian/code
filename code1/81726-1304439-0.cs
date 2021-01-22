@@ -1,0 +1,13 @@
+        DataTable test = new DataTable();
+        test.TableName = "test";
+        test.Columns.Add("foo", typeof(string));
+        test.Columns.Add("bar", typeof(int));
+        test.Rows.Add("abc", 123);
+        test.Rows.Add("def", 456);
+        ComboBox cbo = new ComboBox();
+        cbo.DataSource = test;
+        cbo.DisplayMember = "foo";
+        cbo.ValueMember = "bar";
+        Form form = new Form();
+        form.Controls.Add(cbo);
+        Application.Run(form);

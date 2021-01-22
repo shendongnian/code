@@ -1,0 +1,30 @@
+You can use [System.Management.MangementObjectSearcher][1] to get the process ID of a service and [System.Diagnostics.Process][2] to get the corresponding Process instance and kill it.
+The KillService() in the following program shows how to do this:
+using System;
+using System.Diagnostics;
+using System.Management;
+namespace KillProcessApp 
+{
+    class Program 
+    {
+        static void KillService(string serviceName) 
+        {
+            var query = string.Format(
+                "SELECT ProcessId FROM Win32_Service WHERE Name='{0}'", 
+                serviceName);
+            var searcher = new ManagementObjectSearcher(query);
+            foreach (var obj in searcher.Get()) 
+            {
+                var processId = (uint) obj["ProcessId"];
+                var process = Process.GetProcessById((int)processId);
+                Console.WriteLine(process.Id);
+                Console.ReadLine();
+                process.Kill();
+            }
+        }
+        static void Main() 
+        {
+            KillService("YourServiceName");
+        }
+    }
+}

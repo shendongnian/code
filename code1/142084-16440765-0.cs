@@ -1,0 +1,20 @@
+    public delegate void Action<T1, T2, T3, T4, T5>(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    public delegate void Action<T1, T2, T3, T4, T5, T6>(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+    public static class MoqExtensions
+    {
+        public static ICallbackResult Callback<T1, T2, T3, T4, T5>(this ICallback call, Action<T1, T2, T3, T4, T5> callback)
+        {
+            call.SetCallbackWithArguments(callback);
+            return (ICallbackResult)call;
+        }
+        public static ICallbackResult Callback<T1, T2, T3, T4, T5, T6>(this ICallback call, Action<T1, T2, T3, T4, T5, T6> callback)
+        {
+            call.SetCallbackWithArguments(callback);
+            return (ICallbackResult)call;
+        }
+        public static void SetCallbackWithArguments(this ICallback call, Delegate callback)
+        {
+            MethodInfo methodInfo = call.GetType().GetMethod("SetCallbackWithArguments", BindingFlags.NonPublic | BindingFlags.Instance);
+            methodInfo.Invoke(call, new object[] { callback });
+        }
+    }

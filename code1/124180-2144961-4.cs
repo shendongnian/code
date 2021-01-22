@@ -1,0 +1,6 @@
+    protected int CalculateDamage(Character target)
+    {
+        // ...
+        int backstabBonus = Environment.Current.Battle.IsFlanking(this, target);
+        // ...
+    }

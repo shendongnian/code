@@ -1,0 +1,114 @@
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Reflection;
+    using System.Runtime.Serialization;
+    using System.Xml;
+    using System.Xml.Serialization;
+    
+    namespace Xml.Serialization
+    {
+        class XmlCallbackSerializer : XmlSerializer
+        {
+            public XmlCallbackSerializer(Type type)
+                : base(type)
+            {
+            }
+    
+            public new object Deserialize(Stream stream)
+            {
+                var result = base.Deserialize(stream);
+    
+                CheckForDeserializationCallbacks(result);
+    
+                return result;
+            }
+    
+            public new object Deserialize(TextReader textReader)
+            {
+                var result = base.Deserialize(textReader);
+    
+                CheckForDeserializationCallbacks(result);
+    
+                return result;
+            }
+    
+            public new object Deserialize(XmlReader xmlReader)
+            {
+                var result = base.Deserialize(xmlReader);
+    
+                CheckForDeserializationCallbacks(result);
+    
+                return result;
+            }
+    
+            public new object Deserialize(XmlSerializationReader reader)
+            {
+                var result = base.Deserialize(reader);
+    
+                CheckForDeserializationCallbacks(result);
+    
+                return result;
+            }
+    
+            public new object Deserialize(XmlReader xmlReader, string encodingStyle)
+            {
+                var result = base.Deserialize(xmlReader, encodingStyle);
+    
+                CheckForDeserializationCallbacks(result);
+    
+                return result;
+            }
+    
+            public new object Deserialize(XmlReader xmlReader, XmlDeserializationEvents events)
+            {
+                var result = base.Deserialize(xmlReader, events);
+    
+                CheckForDeserializationCallbacks(result);
+    
+                return result;
+            }
+    
+            public new object Deserialize(XmlReader xmlReader, string encodingStyle, XmlDeserializationEvents events)
+            {
+                var result = base.Deserialize(xmlReader, encodingStyle, events);
+    
+                CheckForDeserializationCallbacks(result);
+    
+                return result;
+            }
+    
+            private void CheckForDeserializationCallbacks(object deserializedObject)
+            {
+                var deserializationCallback = deserializedObject as IDeserializationCallback;
+    
+                if (deserializationCallback != null)
+                {
+                    deserializationCallback.OnDeserialization(this);
+                }
+    
+                var properties = deserializedObject.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
+    
+                foreach (var propertyInfo in properties)
+                {
+                    if (propertyInfo.PropertyType.GetInterface(typeof(IEnumerable<>).FullName) != null)
+                    {
+                        var collection = propertyInfo.GetValue(deserializedObject) as IEnumerable;
+    
+                        if (collection != null)
+                        {
+                            foreach (var item in collection)
+                            {
+                                CheckForDeserializationCallbacks(item);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        CheckForDeserializationCallbacks(propertyInfo.GetValue(deserializedObject));
+                    }
+                }
+            }
+        }
+    }

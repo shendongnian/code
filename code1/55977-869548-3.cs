@@ -1,0 +1,15 @@
+    Foo<string> f = new Foo<string>("hello");
+    Assert.AreEqual("--hello--", f.Value);
+    Foo<int> g = new Foo<int>(10);
+    Assert.AreEqual("10", g.Value);
+    Type t = typeof(Foo<string>);
+    t = t.GetGenericTypeDefinition();
+    Assert.AreEqual(2, t.GetConstructors().Length);
+    System.Reflection.ConstructorInfo c = t.GetConstructors()[0];
+    System.Reflection.ParameterInfo[] parms = c.GetParameters();
+    Assert.AreEqual(1, parms.Length);
+    Assert.IsTrue(parms[0].ParameterType.IsGenericParameter);
+    c = t.GetConstructors()[1];
+    parms = c.GetParameters();
+    Assert.AreEqual(1, parms.Length);
+    Assert.IsFalse(parms[0].ParameterType.IsGenericParameter);

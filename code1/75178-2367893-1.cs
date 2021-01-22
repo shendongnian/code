@@ -1,0 +1,6 @@
+        m_Assembly1 = Reflection.Assembly.LoadFile(IO.Path.Combine(System.Environment.CurrentDirectory, "Old Version\Some.dll"))
+        m_Assembly2 = Reflection.Assembly.LoadFile(IO.Path.Combine(System.Environment.CurrentDirectory, "New Version\Some.dll"))
+        Console.WriteLine("Old Version: " & m_Assembly1.GetName.Version.ToString)
+        Console.WriteLine("New Version: " & m_Assembly2.GetName.Version.ToString)
+        m_OldObject = m_Assembly1.CreateInstance("FullClassName")
+        m_NewObject = m_Assembly2.CreateInstance("FullClassName")

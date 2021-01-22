@@ -1,0 +1,11 @@
+    SerialPort sp = new SerialPort();
+    sp.PortName = "COM" + connectedDevice.LocalComPort.ToString();
+    sp.BaudRate = 9600;
+    sp.DataBits = 8;
+    sp.Parity = Parity.None;
+    sp.StopBits = StopBits.One;
+    sp.Open();
+    sp.Open();
+    sp.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
+    sp.ErrorReceived += new SerialErrorReceivedEventHandler(sp_ErrorReceived);
+    sp.WriteLine(textBoxSend.Text);

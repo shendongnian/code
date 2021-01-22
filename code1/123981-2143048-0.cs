@@ -1,0 +1,11 @@
+    try
+    {
+        conn.Open();
+        comm.ExecuteNonQuery();
+        ...
+    }
+    finally
+    {
+        comm.Dispose();
+        conn.Dispose();
+    }

@@ -1,0 +1,11 @@
+            var page = new Page();
+            var sw = new StringWriter();
+            var control = (UserControl)page.LoadControl("~/.../someUC.ascx");
+            var type = control.GetType();
+            type.GetProperty("Prop1").SetValue(control, value, null);
+            page.Controls.Add(control);
+            context.Server.Execute(page, sw, false);
+            context.Response.ContentType = "text/html";
+            context.Response.Write(sw.ToString());
+            context.Response.Flush();
+            context.Response.Close();

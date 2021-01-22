@@ -1,0 +1,11 @@
+            int TimestampFrom = 1546336800; //2019.1.1 10:00
+            int TimestampTo = 1547555400;   //2019.1.15 12:30
+            DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            long dateFromunixTimeStampInTicks = (long)(TimestampFrom * TimeSpan.TicksPerSecond);
+            DateTime dateFrom = new DateTime(unixStart.Ticks + dateFromunixTimeStampInTicks, System.DateTimeKind.Utc);
+            long dateTounixTimeStampInTicks = (long)(TimestampTo * TimeSpan.TicksPerSecond);
+            DateTime dateTo = new DateTime(unixStart.Ticks + dateTounixTimeStampInTicks, System.DateTimeKind.Utc);
+            TimeSpan Period = dateTo - dateFrom;
+            int days = Convert.ToInt32(Period.TotalDays);       //>14
+            int hours = Convert.ToInt32(Period.TotalHours);     //>338
+            int seconds = Convert.ToInt32(Period.TotalSeconds); //>1218600

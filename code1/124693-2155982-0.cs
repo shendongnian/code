@@ -1,0 +1,10 @@
+         StringBuilder sb = new StringBuilder();
+         sb.Append("def helloworld():\r\n");
+         sb.Append("    print \"hello world\"\r\n");
+         string code = sb.ToString();
+         ScriptEngine engine = Python.CreateEngine();         
+         ScriptSource source = engine.CreateScriptSourceFromString(code, SourceCodeKind.File);
+         ScriptScope scope = engine.CreateScope();
+         source.Execute(scope);
+         Func<object> func = scope.GetVariable<Func<object>>("helloworld");
+         Console.WriteLine(func());

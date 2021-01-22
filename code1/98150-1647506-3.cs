@@ -1,0 +1,32 @@
+    public static Dictionary<SqlDbType, Func<string, object>>  TypeMapper = new Dictionary<SqlDbType, Func<string, object>>
+    {
+        { SqlDbType.BigInt, s => Int64.Parse(s)},
+        { SqlDbType.Binary, s => null },  // TODO: what parser?
+        { SqlDbType.Bit, s => Boolean.Parse(s) },
+        { SqlDbType.Char, s => s },
+        { SqlDbType.Date, s => DateTime.Parse(s) },
+        { SqlDbType.DateTime, s => DateTime.Parse(s) },
+        { SqlDbType.DateTime2, s => DateTime.Parse(s) },
+        { SqlDbType.DateTimeOffset, s => DateTimeOffset.Parse(s) },
+        { SqlDbType.Decimal, s => Decimal.Parse(s) },
+        { SqlDbType.Float, s => Double.Parse(s) },
+        { SqlDbType.Int, s => Int32.Parse(s) },
+        { SqlDbType.Money, s => Decimal.Parse(s) },
+        { SqlDbType.NChar, s => s },
+        { SqlDbType.NText, s => s },
+        { SqlDbType.NVarChar, s => s },
+        { SqlDbType.Real, s => Single.Parse(s) },
+        { SqlDbType.SmallInt, s => Int16.Parse(s) },
+        { SqlDbType.SmallMoney, s => Decimal.Parse(s) },
+        { SqlDbType.Structured, s => null }, // TODO: what parser?
+        { SqlDbType.Text, s => s },
+        { SqlDbType.Time, s => TimeSpan.Parse(s) },
+        { SqlDbType.Timestamp, s => null },  // TODO: what parser?
+        { SqlDbType.TinyInt, s => Byte.Parse(s) },
+        { SqlDbType.Udt, s => null },  // consider exception instead
+        { SqlDbType.UniqueIdentifier, s => new Guid(s) },
+        { SqlDbType.VarBinary, s => null },  // TODO: what parser?
+        { SqlDbType.VarChar, s => s },
+        { SqlDbType.Variant, s => null }, // TODO: what parser?
+        { SqlDbType.Xml, s => s }, 
+    };

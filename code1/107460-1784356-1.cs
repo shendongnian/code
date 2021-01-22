@@ -1,0 +1,13 @@
+    public partial class MyUserControl : UserControl
+    {
+        public MyUserControl() : this(-1, string.Empty)
+        {
+        }
+    
+        public MyUserControl(int parm1, string parm2)
+        {
+            // We'll do something with the parms, I promise
+            if (parm1 == -1) { ... }
+            InitializeComponent();
+        }
+    }

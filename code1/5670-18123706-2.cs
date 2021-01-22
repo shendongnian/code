@@ -1,0 +1,12 @@
+     var cloned = Utils.PropertyCopy<TKTicket, TKTicket>.Copy(_tmp, dbsave,
+                                                                "Creation",
+                                                                "Description",
+                                                                "IdTicketStatus",
+                                                                "IdUserCreated",
+                                                                "IdUserInCharge",
+                                                                "IdUserRequested",
+                                                                "IsUniqueTicketGenerated",
+                                                                "LastEdit",
+                                                                "Subject",
+                                                                "UniqeTicketRequestId",
+                                                                "Visibility");

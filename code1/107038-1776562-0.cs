@@ -1,0 +1,10 @@
+    ListItem item1 = new ListItem("1", "1");
+    ListItem item2 = new ListItem("2", "2");
+    ListItem item3 = new ListItem("3", "3");
+    ddlTest.Items.Add(item1);
+    ddlTest.Items.Add(item2);
+    ddlTest.Items.Add(item3);
+    ddlTest2.Items.Add(item1);
+    ddlTest2.Items.Add(item2);
+    ddlTest2.Items.Add(item3);
+    ddlTest2.SelectedValue = "2";

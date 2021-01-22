@@ -1,0 +1,10 @@
+            OleDbConnectionStringBuilder oledbConn = new OleDbConnectionStringBuilder();
+            oledbConn.Provider = "Microsoft.Jet.OLEDB.4.0";
+            oledbConn.DataSource = @"C:\Users\Utente\Documents\visual studio 2013\Projects\How to implement the1\Debug\Test.mdb";
+            EntityConnectionStringBuilder entityBuilder = new EntityConnectionStringBuilder();
+            entityBuilder.Provider = "System.Data.EntityClient";
+            string connectionString = string.Format("metadata=res://*/School.csdl|res://*/School.ssdl|res://*/School.msl;provider=System.Data.OleDb;provider connection string='{0}'", oledbConn);
+            entityBuilder.ConnectionString = connectionString;
+            EntityConnection ec = new EntityConnection(entityBuilder.ToString());
+            ec.Open();
+            ec.Close();

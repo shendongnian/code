@@ -1,0 +1,14 @@
+            List<UInt32> a = new List<UInt32>();
+            a.Add(1);
+            a.Add(11);
+            List<UInt32> b = new List<UInt32>();
+            b.Add(2);
+            b.Add(22);
+            List<UInt32> c = new List<UInt32>();
+            c.Add(3);
+            c.Add(33);
+            List<List<UInt32>> temp = new List<List<UInt32>>();
+            temp.Add(a);
+            temp.Add(b);
+            temp.Add(c);
+            temp.RemoveAt(0);

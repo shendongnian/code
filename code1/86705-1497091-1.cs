@@ -1,0 +1,10 @@
+    Int32 StartTime = 60 * 1000;
+    Int32 EndTime = 120 * 1000;
+    String SourceName = "original.mp3";
+    String DestinationName = "split.mp3";
+    WMEncBasicEdit SplitFile = new WMEncBasicEdit();
+    SplitFile.MediaFile = SourceName;
+    SplitFile.OutputFile = DestinationName;
+    SplitFile.MarkIn = StartTime;
+    SplitFile.MarkOut = EndTime;
+    SplitFile.Start();

@@ -1,0 +1,11 @@
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.imgur.com/3/image");
+            request.Headers.Add("Authorization", "Client-ID xxxxxxx");
+            request.Method = "POST";
+            ASCIIEncoding enc = new ASCIIEncoding();
+            string postData = Convert.ToBase64String(imageData);
+            byte[] bytes = enc.GetBytes(postData);
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = bytes.Length;
+            Stream writer = request.GetRequestStream();
+            writer.Write(bytes, 0, bytes.Length);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();

@@ -1,0 +1,17 @@
+            int num = 3000000;
+            int num10Pct = (int)(num / 10);
+            Console.WriteLine(String.Format("Setting up arrays of {0} strings overlapping by {1}", num, num10Pct));
+            string[] list1 = Enumerable.Range(1, num).Select((a) => a.ToString()).ToArray();
+            string[] list2 = Enumerable.Range(num - num10Pct, num + num10Pct).Select((a) => a.ToString()).ToArray();
+            Console.WriteLine("Starting Hashset...");
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            string[] merged = new HashSet<string>(list1).Union(list2).ToArray();
+            sw.Stop();
+            Console.WriteLine("HashSet: " + sw.Elapsed);
+            Console.WriteLine("Starting Concat/Distinct...");
+            sw.Reset();
+            sw.Start();
+            string[] merged2 = list1.Concat(list2).Distinct().ToArray();
+            sw.Stop();
+            Console.WriteLine("Concat/Distinct: " + sw.Elapsed);

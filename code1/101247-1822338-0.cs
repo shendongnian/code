@@ -1,0 +1,17 @@
+    var aName = new AssemblyName("temp");
+    var appDomain = Threading.Thread.GetDomain();
+    var aBuilder = appDomain.DefineDynamicAssembly(aName, AssemblyBuilderAccess.Run);
+    var mBuilder = aBuilder.DefineDynamicModule(aName.Name);
+    var tBuilder = mBuilder.DefineType("GeneratedObject", TypeAttributes.Public | TypeAttributes.Class);
+    tBuilder.AddInterfaceImplementation(typeof(IObject));
+    var methBuilder = tBuilder.DefineMethod("Get", MethodAttributes.Public | MethodAttributes.Final | MethodAttributes.Virtual);
+    var typeParam = mb.DefineGenericParameters(new string[] { "T" })[0];
+    methBuilder.SetParameters(new Type[] { typeof(string) });
+    methBuilder.SetReturnType(typeParam);
+    var ilg = methBuilder.GetILGenerator();
+    let lBuilder = ilg.DeclareLocal(typeParam);
+    ilg.Emit(OpCodes.Ldloca_S, (byte)0);
+    ilg.Emit(OpCodes.Initobj, typeParam);
+    ilg.Emit(OpCodes.Ldloc_0);
+    ilg.Emit(OpCodes.Ret);
+    var generatedType = tBuilder.CreateType();

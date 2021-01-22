@@ -1,0 +1,52 @@
+    public class CustomReportViewerMessages : IReportViewerMessages
+    {
+        public string NullCheckBoxText { get { return "All"; } }
+        public string NullCheckBoxToolTip { get { return "All"; } }
+        
+        public string DocumentMapButtonToolTip { get { return "DocumentMapButtonToolTip"; } }
+        public string ParameterAreaButtonToolTip { get { return "ParameterAreaButtonToolTip"; } }
+        public string FirstPageButtonToolTip { get { return "FirstPageButtonToolTip"; } }
+        public string PreviousPageButtonToolTip { get { return "PreviousPageButtonToolTip"; } }
+        public string CurrentPageTextBoxToolTip { get { return "CurrentPageTextBoxToolTip"; } }
+        public string PageOf { get { return "PageOf"; } }
+        public string NextPageButtonToolTip { get { return "NextPageButtonToolTip"; } }
+        public string LastPageButtonToolTip { get { return "LastPageButtonToolTip"; } }
+        public string BackButtonToolTip { get { return "BackButtonToolTip"; } }
+        public string RefreshButtonToolTip { get { return "RefreshButtonToolTip"; } }
+        public string PrintButtonToolTip { get { return "PrintButtonToolTip"; } }
+        public string ExportButtonToolTip { get { return "ExportButtonToolTip"; } }
+        public string ZoomControlToolTip { get { return "ZoomControlToolTip"; } }
+        public string SearchTextBoxToolTip { get { return "SearchTextBoxToolTip"; } }
+        public string FindButtonToolTip { get { return "FindButtonToolTip"; } }
+        public string FindNextButtonToolTip { get { return "FindNextButtonToolTip"; } }
+        public string ZoomToPageWidth { get { return "ZoomToPageWidth"; } }
+        public string ZoomToWholePage { get { return "ZoomToWholePage"; } }
+        public string FindButtonText { get { return "FindButtonText"; } }
+        public string FindNextButtonText { get { return "FindNextButtonText"; } }
+        public string ViewReportButtonText { get { return "ViewReportButtonText"; } }
+        public string ProgressText { get { return "ProgressText"; } }
+        public string TextNotFound { get { return "TextNotFound"; } }
+        public string NoMoreMatches { get { return "NoMoreMatches"; } }
+        public string ChangeCredentialsText { get { return "ChangeCredentialsText"; } }
+        public string NullValueText { get { return "NullValueText"; } }
+        public string TrueValueText { get { return "TrueValueText"; } }
+        public string FalseValueText { get { return "FalseValueText"; } }
+        public string SelectAValue { get { return "SelectAValue"; } }
+        public string UserNamePrompt { get { return "UserNamePrompt"; } }
+        public string PasswordPrompt { get { return "PasswordPrompt"; } }
+        public string SelectAll { get { return "SelectAll"; } }
+        public string PrintLayoutButtonToolTip { get { return "PrintLayoutButtonToolTip"; } }
+        public string PageSetupButtonToolTip { get { return "PageSetupButtonToolTip"; } }
+        public string TotalPagesToolTip { get { return "TotalPagesToolTip"; } }
+        public string StopButtonToolTip { get { return "StopButtonToolTip"; } }
+        public string DocumentMapMenuItemText { get { return "DocumentMapMenuItemText"; } }
+        public string BackMenuItemText { get { return "BackMenuItemText"; } }
+        public string RefreshMenuItemText { get { return "RefreshMenuItemText"; } }
+        public string PrintMenuItemText { get { return "PrintMenuItemText"; } }
+        public string PrintLayoutMenuItemText { get { return "PrintLayoutMenuItemText"; } }
+        public string PageSetupMenuItemText { get { return "PageSetupMenuItemText"; } }
+        public string ExportMenuItemText { get { return "ExportMenuItemText"; } }
+        public string StopMenuItemText { get { return "StopMenuItemText"; } }
+        public string ZoomMenuItemText { get { return "ZoomMenuItemText"; } }
+        public string ViewReportButtonToolTip { get { return "ViewReportButtonToolTip"; } }
+    }

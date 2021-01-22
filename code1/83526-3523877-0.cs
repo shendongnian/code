@@ -1,0 +1,25 @@
+    public interface ILinkedListNode
+    {
+        ILinkedListNode Next { get; set; }
+        ILinkedListNode Previous { get; set; }
+    }
+    public class LinkedList<T> : System.Collections.Generic.LinkedList<T> 
+        where T : ILinkedListNode 
+    {
+        /*.... override methods here ...*/
+    }
+    public class Node : ILinkedListNode
+    {
+        public Node Next { get; set; }
+        public Node Previous { get; set; }
+        ILinkedListNode ILinkedListNode.Next
+        {
+            get { return this.Next; }
+            set { this.Next = (Node)value; }
+        }
+        ILinkedListNode ILinkedListNode.Previous
+        {
+            get { return this.Previous; }
+            set { this.Previous = (Node)value; }
+        }
+    }
