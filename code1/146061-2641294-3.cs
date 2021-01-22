@@ -1,6 +1,0 @@
-    public EnumExpansion SelectedOptionsExpansion { get; set; }
-      ...
-      SelectedOptionsExpansion = new EnumExpansion();
-      BindingOperations.SetBinding(SelectedOptionsExpansion, EnumExpansion.EnumValueProperty,
-        new Binding { Path = "SelectedOptions", Source = this });
-      ...

@@ -1,5 +1,0 @@
-    var engine = IronRuby.Ruby.CreateEngine()
-    engine.ExecuteFile("test.rb")
-    var klass = engine.Runtime.Globals.GetVariable("MetaDataFactory")
-    var instance = engine.Operations.CreateInstance(klass)
-    engine.Operations.InvokeMember(instance, "return_meta_data")

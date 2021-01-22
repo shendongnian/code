@@ -1,9 +1,0 @@
-    ...
-    using (TransactionScope ts = new TransactionScope())
-    {
-       //Do Transactional Work
-       ...
-       ...
-       //Commit your transaction
-       ts.Complete();
-     }

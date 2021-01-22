@@ -1,6 +1,0 @@
-    public MockRoleService ()
-    {
-         Roles = OverridenRolesObjectThatAlwaysReturnsTrue;
-    }
-}
- 

@@ -1,6 +1,0 @@
-    var dt = new DataTable();
-    dt.Columns.Add("ColumnName");
-    ....
-    Add rows in Datatable.
-    ....
-    dt.Rows[0].GetColumnValue("ColumnName);

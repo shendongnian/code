@@ -1,5 +1,0 @@
-    userRepository.FindRolesByUserId(int userID)
-    userRepository.AddUserToRole(int userID)
-    userRepository.FindAllUsers()
-    userRepository.FindAllRoles()
-    userRepository.GetUserSettings(int userID)

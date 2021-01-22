@@ -1,7 +1,0 @@
-    criteria.Add(Expression.In("OperationTypes", operationTypeId))
-    .CreateCriteria("Operation")
-                            .Add(Expression.Eq("IsPublished", true))
-                            .Add(Expression.Eq("IsActive", true))
-                            .Add(Expression.Le("AdvertisingStartDate", DateTime.Now))
-                            .Add(Expression.Ge("AdvertisingEndDate", DateTime.Now))
-                            .SetResultTransformer(new DistinctRootEntityResultTransformer())

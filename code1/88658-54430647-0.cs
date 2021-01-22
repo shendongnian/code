@@ -1,6 +1,0 @@
-        public virtual async Task<IList<Defect>> LoadDefects(Inspection inspection)
-        {
-           var results ...
-           // ....
-            return results;
-        }

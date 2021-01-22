@@ -1,9 +1,0 @@
-        ...
-        new UIPropertyMetadata(
-            default(string), 
-            new PropertyChangedCallback(TextBox_TextChanged)
-        )
-        ...
-        static void TextBox_TextChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e) {
-            ...
-        }

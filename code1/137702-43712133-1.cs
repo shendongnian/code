@@ -1,6 +1,0 @@
-    public void ConfigureServices(IServiceCollection services)
-    {
-        ...
-        services.AddJsonFormatters(f => f.Converters.Add(new StringEnumConverter()));
-        ...
-    }

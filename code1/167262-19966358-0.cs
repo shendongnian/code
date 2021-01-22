@@ -1,9 +1,0 @@
-    ...
-    using System.Web.SessionState;
-    public class Data : IHttpHandler, IReadOnlySessionState
-    {
-    
-        var b = context.Session["data"]; 
-        ...
-        ...
-    }

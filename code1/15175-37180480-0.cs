@@ -1,9 +1,0 @@
-    try
-    {
-        YourMethodCall();
-        Assert.IsTrue(true);
-    }
-    catch{
-        Assert.IsTrue(false);
-    }
-}

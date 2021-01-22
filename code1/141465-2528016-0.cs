@@ -1,9 +1,0 @@
-    public void ChangeColor(int RGBValue)
-    {
-        switch(...)
-        {
-            case ...
-            case ...
-            case ...
-        }
-    }
