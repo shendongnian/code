@@ -1,0 +1,12 @@
+        string ss = "[0-9A-Z~`!@#$%^& *()-_+={[}]|\\:;<,>.?/";
+            // does not match ~ ss = ss + Regex.Escape("\"");
+            // does not match ~ ss = ss + Regex.Escape("\'");
+        ss = ss + "]";
+        Regex rx = new Regex(ss);
+            // rx = new Regex("[" + Regex.Escape("\"") + "]");
+            // works just as well as the line above ~ rx = new Regex("[\"]");
+            // rx = new Regex("[" + Regex.Escape("'") + "]");
+        rx = new Regex("[']");
+        string s = "ste've";
+        Console.WriteLine("search string {0}", ss);
+        Console.WriteLine("IsMatch {0}", rx.IsMatch(s));

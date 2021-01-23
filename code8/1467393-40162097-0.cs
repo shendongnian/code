@@ -1,0 +1,10 @@
+        DiscreteObjectKeyFrame dk;
+        ObjectAnimationUsingKeyFrames ok;
+        ok = new ObjectAnimationUsingKeyFrames();
+        dk = new DiscreteObjectKeyFrame();
+        Storyboard.SetTarget(ok, myGrid);
+        Storyboard.SetTargetProperty(ok, new PropertyPath(Grid.VisibilityProperty));
+        dk.KeyTime = TimeSpan.FromSeconds(0.1);
+        dk.Value = Visibility.Hidden;
+        ok.KeyFrames.Add(dk);
+        sb.Children.Add(ok);

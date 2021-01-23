@@ -1,0 +1,6 @@
+	var interfaceProperties = typeof(Bus)
+		.GetProperties().Select(p => p.Name)
+		.Intersect(typeof(Bus)
+			.GetInterfaces()
+			.SelectMany(i => i.GetProperties())
+			.Select(p => p.Name))

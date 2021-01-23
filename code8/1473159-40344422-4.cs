@@ -1,0 +1,13 @@
+	public ActionResult Login(LoginViewModel loginViewModel)
+	{
+		...
+		
+		if (!result.Error)
+		{
+			...
+			MvcApplication.AuthenticateUser(result.User);
+			...
+		}
+		...
+	}
+	

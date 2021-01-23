@@ -1,0 +1,6 @@
+    public class YourModel
+    {
+       ...
+       public string SelectedProfessionalRelation { get; set; }
+       ...
+    }

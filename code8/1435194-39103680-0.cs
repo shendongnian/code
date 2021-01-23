@@ -1,0 +1,9 @@
+    System.Text.UTF8Encoding UTF8 = new System.Text.UTF8Encoding();
+    AesManaged tdes = new AesManaged();
+    tdes.Key = UTF8.GetBytes(keyValue);
+    tdes.Mode = CipherMode.ECB;
+    tdes.Padding = PaddingMode.PKCS7;
+    ICryptoTransform crypt = tdes.CreateEncryptor();
+    byte[] plain = Encoding.UTF8.GetBytes(text);
+    byte[] cipher = crypt.TransformFinalBlock(plain, 0, plain.Length);
+    String encryptedText = Convert.ToBase64String(cipher);

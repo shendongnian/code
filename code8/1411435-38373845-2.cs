@@ -1,0 +1,9 @@
+                WeakEventManager<IBase, EventArgs>.AddHandler(test, "IBaseEvent", (s, e) => { }); // works
+                WeakEventManager<IBase, EventArgs>.AddHandler(test, "ITestEvent", (s, e) => { }); // exception 
+                WeakEventManager<IBase, EventArgs>.AddHandler(test, "TestEvent", (s, e) => { }); // exception
+                WeakEventManager<ITest, EventArgs>.AddHandler(test, "IBaseEvent", (s, e) => { }); // exception
+                WeakEventManager<ITest, EventArgs>.AddHandler(test, "ITestEvent", (s, e) => { }); // works 
+                WeakEventManager<ITest, EventArgs>.AddHandler(test, "TestEvent", (s, e) => { }); // exception
+                WeakEventManager<Test, EventArgs>.AddHandler(test, "IBaseEvent", (s, e) => { }); // exception
+                WeakEventManager<Test, EventArgs>.AddHandler(test, "ITestEvent", (s, e) => { }); // exception 
+                WeakEventManager<Test, EventArgs>.AddHandler(test, "TestEvent", (s, e) => { }); // works

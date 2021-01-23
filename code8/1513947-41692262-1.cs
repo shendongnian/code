@@ -1,0 +1,10 @@
+	void SampleMethod(string name, string lastName, string database)
+	{
+		using(var connection = new SqlConnection(MY_CONNECTION_STRING))
+		{
+			var resultListOfRows = connection.Query<ReturnObject>(MY_STORED_PROCEDURE, new { 
+				name = name,
+				lastName = lastName,
+				database = database}, commandType: System.Data.CommandType.StoredProcedure);
+		}
+	}

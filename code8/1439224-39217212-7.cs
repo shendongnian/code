@@ -1,0 +1,6 @@
+                MSILTextBox.Clear();
+                // Retireve them given the selected index...
+                // ... the returned value will be the Tag content of the ...
+                // ... previously saved item.
+                string getTag= ((ListBoxItem)listBox.SelectedItem).Tag.ToString();
+                MSILTextBox.Text = getTag;

@@ -1,0 +1,6 @@
+    public static void Export(string fileName, GridView gv, Page page)
+    {
+        ...
+        Page.Controls.Add(form);
+        ...
+    }

@@ -1,0 +1,13 @@
+    $.ajax({
+        ....
+        data: {
+            Name: "Test Name",
+            Description: "Test Desc",
+            ....
+            VMConnection.Connection: "IPAddress goes here",
+            VMConnection.Username: "Username",
+            ....
+            Interactions[0].Name: "Method",
+            Interactions[0].Fields[0].InputOutput: "INPUT OR OUTPUT HERE",
+            ....
+        },

@@ -1,0 +1,10 @@
+        SqlConnection connection = new SqlConnection("[your connection string goes here]");
+        connection.Open();
+        SqlCommand cmd = new SqlCommand("INSERT INTO tblAdd_Subject(Subject1, Subject2, Subject3, Subject4, Subject5) values(@Subject1, @Subject2, @Subject3, @Subject4, @Subject5)", connection);
+        cmd.Parameters.Clear();
+        cmd.Parameters.AddWithValue("@Subject1", chk1.Checked ? "some value for subject 1" : string.Empty);
+        cmd.Parameters.AddWithValue("@Subject2", chk2.Checked ? "some value for subject 2" : string.Empty);
+        cmd.Parameters.AddWithValue("@Subject3", chk3.Checked ? "some value for subject 3" : string.Empty);
+        cmd.Parameters.AddWithValue("@Subject4", chk4.Checked ? "some value for subject 4" : string.Empty);
+        cmd.Parameters.AddWithValue("@Subject5", chk5.Checked ? "some value for subject 5" : string.Empty);
+        cmd.ExecuteNonQuery();

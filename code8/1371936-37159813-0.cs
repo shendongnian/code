@@ -1,0 +1,15 @@
+     cell = new PdfPCell(new Phrase(0, subComp.DescriptionMin, _nfDescr));
+                                cell.MinimumHeight = 50;
+                                cell.Padding = 5;
+                                cell.BorderColor = BaseColor.WHITE;
+                                cell.BackgroundColor = new BaseColor(233, 240, 242);
+                                table.AddCell(cell);
+                                cell = new PdfPCell();
+                                cell.CellEvent = new CellEvents(subComp);
+                                cell.BorderColor = BaseColor.WHITE;
+                                table.AddCell(cell);
+                                cell = new PdfPCell(new Phrase(subComp.DescriptionMax, _nfDescr));
+                                cell.Padding = 5;
+                                cell.BorderColor = BaseColor.WHITE;
+                                cell.BackgroundColor = new BaseColor(233, 240, 242);
+                                table.AddCell(cell);

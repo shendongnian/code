@@ -1,0 +1,10 @@
+    var colText = new DataGridViewTextBoxColumn();
+    colText.DataPropertyName = "dbTextColName";
+    colText.HeaderText = "MyTextColumn";
+    colText.Name = "dbTextColName";
+    var colDateTime = new DataGridViewCalendarColumn();
+    colDateTime.DataPropertyName = "dbDateTimeColName";
+    colDateTime.HeaderText = "MyDateTimeColumn";
+    colDateTime.Name = "dbDateTimeColName";
+    yourDataGridView.Columns.AddRange(new DataGridViewColumn[] {colText, colDateTime});
+    yourDataGridView.DataSource = dt;

@@ -1,0 +1,14 @@
+            string[,] saNames = new string[500, 500];
+            saNames[0, 0] = txtUsername1.Text;
+            saNames[0, 1] = txtWorkName1.Text;
+            saNames[0, 2] = cbxManufac.Text;
+            saNames[0, 3] = cbxMachType.Text;
+            saNames[0, 4] = txtModel.Text;
+            saNames[0, 5] = txtSerial.Text;
+            saNames[0, 6] = txtCPU.Text;
+            saNames[0, 7] = cbxRAM.Text;
+            saNames[0, 8] = cbxOS.Text;
+            saNames[0, 9] = txtVersion.Text;
+            saNames[0, 10] = txtMcstOffice.Text;
+            saNames[0, 11] = txtRecomend.Text;
+            saNames[0, 12] = txtComments.Text;

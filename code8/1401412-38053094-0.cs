@@ -1,0 +1,7 @@
+    class PaperInfo
+    {
+        public int Paper_ID { get; set; }
+        public int CoAuthor_ID { get; set; }
+        public int Paper_Category { get; set; }
+        public int Venue_ID { get; set; }
+    }

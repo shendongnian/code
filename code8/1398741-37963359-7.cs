@@ -1,0 +1,19 @@
+    public class SomeTopClass
+    {
+       
+        // ...
+        
+        public class FileSizeFormatProvider : IFormatProvider, ICustomFormatter
+        {
+            // ...
+        }           
+    }
+    // now you can, because it is not nested inside some other class
+    public static class ExtensionMethods
+    {
+        public static string ToFileSize(this long l)
+        {
+            // note the SomeTopClass before FileSizeFormatProvider!!
+            return String.Format(new SomeTopClass.FileSizeFormatProvider(), "{0:fs}", l);
+        }
+    }

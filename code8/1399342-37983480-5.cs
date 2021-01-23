@@ -1,0 +1,6 @@
+    public static void MyMethod()
+    {
+        ...
+        string name = nameof(MyMethod);
+        ...
+    }

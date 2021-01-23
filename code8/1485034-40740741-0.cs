@@ -1,0 +1,11 @@
+                    DateTime startDate = DateTime.Now;
+                    DateTime expiryDate = startDate.AddDays(365);
+                    X509V3CertificateGenerator certGen = new X509V3CertificateGenerator();
+                    certGen.SetSerialNumber(BigInteger.ValueOf(DateTime.Now.Millisecond));
+                    certGen.SetIssuerDN(_caCertificate.CertificateProp.SubjectDN);
+                    certGen.SetNotBefore(startDate);
+                    certGen.SetNotAfter(expiryDate);
+                    certGen.SetSubjectDN(_subjectInfo);
+                    certGen.SetPublicKey(_subjectPublicKey.GetKey);
+                    certGen.SetSignatureAlgorithm("SHA1WithRSAEncryption");
+                    X509Certificate newCertificate = certGen.Generate(_caPrivateKey.GetKey);

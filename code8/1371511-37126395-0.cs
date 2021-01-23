@@ -1,0 +1,6 @@
+    for (int i = 0; i < Model.Cart.Items.Count; i++)
+    {
+        ....
+        @Html.DropDownListFor(m => m.Cart.Items[i].Quantity, new SelectList(Model.Quantities, "Value", "Text", Model.Cart.Items[i].Quantity)
+        ....
+    }

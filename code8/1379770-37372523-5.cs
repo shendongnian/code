@@ -1,0 +1,13 @@
+            var list = new List<Student>();
+            list.Add(new Student() { Id = 1, Name = "Prasad", Gender = "M", Nationality = "India", Grade = GRADE.A });
+            list.Add(new Student() { Id = 2, Name = "Raja", Gender = "M", Nationality = "India", Grade = GRADE.B });
+            list.Add(new Student() { Id = 3, Name = "Hindu", Gender = "F", Nationality = "India", Grade = GRADE.A });
+            list.Add(new Student() { Id = 4, Name = "Hamed", Gender = "M", Nationality = "India", Grade = GRADE.C });
+            list.Add(new Student() { Id = 5, Name = "Priya", Gender = "F", Nationality = "India", Grade = GRADE.D });
+            list.Add(new Student() { Id = 6, Name = "Meera", Gender = "F", Nationality = "India", Grade = GRADE.B });
+            var sumGrades = new Func<IEnumerable<Student>, int>(p => p.Sum(l => (int)l.Grade));
+            var aveGrades = new Func<IEnumerable<Student>, double>(p => p.Average(k => (int)k.Grade));
+            var count = new Func<IEnumerable<Student>, int>(p => p.Count());
+            var c = GetAggregateValues(list, count);
+            var s = GetAggregateValues(list, sumGrades);
+            var a = GetAggregateValues(list, aveGrades);

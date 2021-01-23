@@ -1,0 +1,39 @@
+         private static string _key = "foo";
+         private static readonly MemoryCache _cache = MemoryCache.Default;
+        
+         //Store Stuff in the cache  
+       public static void StoreItemsInCache()
+       {
+          List<string> itemsToAdd = new List<string>();
+             
+          //Do what you need to do here. Database Interaction, Serialization,etc.
+           var cacheItemPolicy = new CacheItemPolicy()
+           {
+             //Set your Cache expiration.
+             AbsoluteExpiration = DateTime.Now.AddDays(1)
+            };
+             //remember to use the above created object as third parameter.
+           _cache.Add(_key, itemsToAdd, cacheItemPolicy);
+        }
+    
+        //Get stuff from the cache
+        public static List<string> GetItemsFromCache()
+        {
+          if (!_cache.Contains(_key))
+                   StoreItemsInCache();
+            
+            return _cache.Get(_key) as List<string>;
+        }
+        //Remove stuff from the cache. If no key supplied, all data will be erased.
+        public static void RemoveItemsFromCache(_key)
+        {
+          if (string.IsNullOrEmpty(_key))
+            {
+                _cache.Dispose();
+            }
+            else
+            {
+                _cache.Remove(_key);
+            }
+        }
+             

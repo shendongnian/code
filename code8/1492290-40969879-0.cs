@@ -1,0 +1,6 @@
+        public ActionResult _MemberInfoPartial(string parentAction)
+        {
+            //...
+            ViewBag.ParentAction = parentAction;
+            //...
+        }

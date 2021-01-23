@@ -1,0 +1,31 @@
+    Windows.Networking.Sockets.StreamSocket socket = new Windows.Networking.Sockets.StreamSocket();
+    Windows.Networking.HostName serverHost = new Windows.Networking.HostName(hostTextBox.Text);
+    string serverPort = portTextBox.Text;
+    await socket.ConnectAsync(serverHost, serverPort);
+    //Write data to the server.
+    DataWriter writer = new DataWriter(socket.OutputStream);
+    byte[] data = Encoding.Unicode.GetBytes(messageTextBox.Text);
+    byte[] size = new byte[4];
+    ushort x = (ushort)(data.Length >> 16);
+    ushort y = (ushort)(data.Length);
+    size[0] = (byte)(x / 256);
+    size[1] = (byte)(x % 256);
+    size[2] = (byte)(y / 256);
+    size[3] = (byte)(y % 256);
+    writer.WriteBytes(size);
+    writer.WriteBytes(data);
+    await writer.StoreAsync();
+    await writer.FlushAsync();
+    writer.DetachStream();
+    //Read response.
+    var bytes = new byte[4];
+    DataReader reader = new DataReader(socket.InputStream);
+    await reader.LoadAsync(4);
+    reader.ReadBytes(bytes);
+    int length = bytes[0] * 256 * 256 * 256 + bytes[1] * 256 * 256 + bytes[2] * 256 + bytes[3];
+    byte[] dat = new byte[length];
+    var count = await reader.LoadAsync((uint)length);
+    reader.ReadBytes(dat);
+    responseTextBlock.Text = Encoding.Unicode.GetString(dat);
+    reader.DetachStream();
+    socket.Dispose();

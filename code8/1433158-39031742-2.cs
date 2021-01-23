@@ -1,0 +1,9 @@
+        try
+        {
+            predicate(input);
+        }
+        finally
+        {
+            input.Dispose();
+        }
+    }

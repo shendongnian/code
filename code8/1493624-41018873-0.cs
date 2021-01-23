@@ -1,0 +1,6 @@
+     modelBuilder.Entity("IdentityProvider.Models.ApplicationUser", b =>
+    {
+    ...
+      b.Property<string>("UserSalt");
+    ... 
+    }

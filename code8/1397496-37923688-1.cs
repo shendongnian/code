@@ -1,0 +1,6 @@
+    public static void Export(string fileName, GridView gv, System.Web.UI.Control parentControl)
+    {
+        ...
+        parentControl.Controls.Add(form);
+        ...
+    }

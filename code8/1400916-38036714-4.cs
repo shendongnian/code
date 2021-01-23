@@ -1,0 +1,9 @@
+       public class MyObject {
+         ...
+         // in order to be overriden in a derived class, base method should be 
+         // explictly declared as virtual or abstract
+         public virtual void myMethod(int args){
+           ... 
+         } 
+         ...
+       }

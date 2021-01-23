@@ -1,0 +1,19 @@
+     private void ExportDataSet(System.Data.DataTable dataTable, bool isActive)
+        {
+            string path = string.Empty;
+            var lines = new List<string>();
+            if (isActive )
+            {               
+                savingFileName = path+".one";
+                isActive = false;
+                string[] columnNames = dataTable.Columns.Cast<DataColumn>().
+                                            Select(column => column.ColumnName).
+                                            ToArray();
+                var header = string.Join(",", columnNames);
+                lines.Add(header);
+                var valueLines = dataTable.AsEnumerable()
+                                   .Select(row => string.Join(",", row.ItemArray));
+                lines.AddRange(valueLines);
+                File.WriteAllLines(savingFileName, lines);
+            }
+        }

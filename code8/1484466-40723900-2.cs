@@ -1,0 +1,6 @@
+    public void HandleClient(NetworkStream client)
+    {
+        ...
+        MyMessageType message = bf.Deserialize(client).ToString();
+        ...
+    }

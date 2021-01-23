@@ -1,0 +1,14 @@
+            string commandString = "INSERT INTO DATABASENAME(USERNAME, UPDATE_DATE) VALUES ('?','?')";
+            OdbcConnection con = new OdbcConnection(conString);
+            OdbcCommand command = new OdbcCommand(commandString, con);
+            OdbcParameter p1 = command.CreateParameter();
+            p1.DbType = DbType.AnsiString;
+            p1.Value = userName;
+            command.Parameters.Add(p1);
+            OdbcParameter p2 = command.CreateParameter();
+            p2.DbType = DbType.AnsiString;
+            p2.Value = updateDate.ToString("yyyy-MM-dd HH:mm:ss");
+            command.Parameters.Add(p2);
+            con.Open();
+            command.ExecuteNonQuery();
+            con.Close();

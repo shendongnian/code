@@ -1,0 +1,24 @@
+    Signer signer = new Signer();
+    // add radio buttons
+    Radio rYes = new Radio();
+    rYes.AnchorString = @"\cb_yes\";
+    rYes.AnchorXOffset = "0";
+    rYes.AnchorYOffset = "-15";
+    rYes.TabId = Guid.NewGuid().ToString(); 
+    rYes.Value = "X";
+    rYes.Selected = "true";
+    Radio rNo = new Radio();
+    rNo.AnchorString = @"\cb_no\";
+    rNo.AnchorXOffset = "0";
+    rNo.AnchorYOffset = "-15";
+    rNo.TabId = Guid.NewGuid().ToString(); 
+    rNo.Selected = "false";
+    List<Radio> radioVals = new List<Radio>();
+    radioVals.Add(rYes);
+    radioVals.Add(rNo);
+    RadioGroup rg = new RadioGroup();
+    rg.GroupName = "radioGroup";
+    rg.Radios = radioVals;
+    List<RadioGroup> radioGroupTabs = new List<RadioGroup>();
+    signer.Tabs.RadioGroupTabs = radioGroupTabs;
+    signer.Tabs.RadioGroupTabs.Add(rg);

@@ -1,0 +1,10 @@
+    var initTable = new List<Tuple<DateTime, int>>();
+                    initTable.Add(Tuple.Create(new DateTime(2016, 12, 30), 322));
+                    initTable.Add(Tuple.Create(new DateTime(2016, 12, 29), 322));
+                    initTable.Add(Tuple.Create(new DateTime(2016, 12, 28), 322));
+                    initTable.Add(Tuple.Create(new DateTime(2016, 12, 4), 541));
+                    initTable.Add(Tuple.Create(new DateTime(2016, 12, 3), 541));
+                    initTable.Add(Tuple.Create(new DateTime(2016, 12, 2), 541));
+                    initTable.Add(Tuple.Create(new DateTime(2016, 12, 1), 322));
+                    initTable.Add(Tuple.Create(new DateTime(2016, 11, 30), 322));
+                    initTable.Add(Tuple.Create(new DateTime(2016, 11, 29), 322));

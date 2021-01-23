@@ -1,0 +1,36 @@
+    @model Enum
+    
+    @* To display enum value in the view as it is givn by the data annotation Display[] method*@
+    
+    @if (EnumHelper.IsValidForEnumHelper(ViewData.ModelMetadata))
+    {
+        // Display Enum using same names (from [Display] attributes) as in editors
+        string displayName = null;
+        foreach (SelectListItem item in EnumHelper.GetSelectList(ViewData.ModelMetadata, (Enum)Model))
+        {
+            if (item.Selected)
+            {
+                displayName = item.Text ?? item.Value;
+            }
+        }
+    
+        // Handle the unexpected case that nothing is selected
+        if (String.IsNullOrEmpty(displayName))
+        {
+            if (Model == null)
+            {
+                displayName = String.Empty;
+            }
+            else
+            {
+                displayName = Model.ToString();
+            }
+        }
+    
+        @Html.DisplayTextFor(model => displayName)
+    }
+    else
+    {
+        // This Enum type is not supported.  Fall back to the text.
+        @Html.DisplayTextFor(model => model)
+    }

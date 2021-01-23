@@ -1,0 +1,15 @@
+	Example par = new Example();
+	List<Site> parList = new List<Site>();
+	Site site = new Site();
+	Product sw = new Product();
+	List<Product> swList = new List<Product>();
+	par.retailer = "The retailer";
+	site.id = "1234";
+	site.Sitename = "Microsoft";
+	site.website = "www.microsoft.com";
+	par.sites = parList;
+	sw.Name = "Visual Studio";
+	sw.Year = DateTime.Now.Year.ToString();
+	swList.Add(sw);
+	par.Products = swList;
+	parList.Add(site);	

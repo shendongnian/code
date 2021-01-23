@@ -1,0 +1,5 @@
+    [Serializable]
+    public class customer
+    {
+//....
+}

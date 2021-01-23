@@ -1,0 +1,6 @@
+    .... other code inside your Form1,Form2,Form3 classes...
+    public void ChangeLabel(string newText)
+    {
+        this.Label1.Text = newText;
+    }
+    .... other code inside your Form1,Form2,Form3 classes...

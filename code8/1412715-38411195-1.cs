@@ -1,0 +1,24 @@
+    Dim xe As XElement = <root>
+                             <data>
+                                 <dataname>A</dataname>
+                                 <property>
+                                     <name>One</name>
+                                     <value>1</value>
+                                 </property>
+                                 <property>
+                                     <name>Two</name>
+                                     <value>2</value>
+                                 </property>
+                             </data>
+                             <data>
+                                 <dataname>B</dataname>
+                                 <property>
+                                     <name>One</name>
+                                     <value>11</value>
+                                 </property>
+                                 <property>
+                                     <name>Two</name>
+                                     <value>22</value>
+                                 </property>
+                             </data>
+                         </root>

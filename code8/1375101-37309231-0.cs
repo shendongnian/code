@@ -1,0 +1,10 @@
+    ─ src
+       ├─ Microsoft.AspNetCore.Mvc
+       ├─ Microsoft.AspNetCore.Mvc.Abstractions
+       ├─ Microsoft.AspNetCore.Mvc.Core
+       └─ Microsoft.AspNetCore.Mvc.Razor
+    ─ test
+       ├─ Microsoft.AspNetCore.Mvc.Abstractions.Test
+       ├─ Microsoft.AspNetCore.Mvc.Core.Test
+       ├─ Microsoft.AspNetCore.Mvc.Razor.Test
+       └─ Microsoft.AspNetCore.Mvc.Test

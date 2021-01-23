@@ -1,0 +1,10 @@
+    PdfPTable subTable2 = new PdfPTable(5);
+    subTable2.setTotalWidth(new float[]{200, 100, 200, 200, 300});
+    subTable2.setLockedWidth(true);
+    subTable2.addCell("test 1");
+    subTable2.addCell("test 2");
+    subTable2.addCell("test 3");
+    subTable2.addCell("test 4");
+    subTable2.addCell("test 5");
+    PdfPCell cell2 = new PdfPCell(subTable2);
+    mainTable.addCell(cell2);

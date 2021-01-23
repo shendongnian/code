@@ -1,0 +1,16 @@
+	var Obs1 = new Subject<string>();
+	var Obs2 = new Subject<string>();
+	var query = Obs2.Publish(pobs2 => Obs1.Select(x => pobs2.Skip(1)).Switch());
+	query.Subscribe(Console.WriteLine);
+	Obs1.OnNext("X0");
+	Obs2.OnNext("Y0");
+	Obs2.OnNext("Y1");
+	Obs2.OnNext("Y2");
+	Obs1.OnNext("X1");
+	Obs2.OnNext("Y3");
+	Obs2.OnNext("Y4");
+	Obs1.OnNext("X2");
+	Obs2.OnNext("Y5");
+	Obs2.OnNext("Y6");
+	Obs2.OnNext("Y7");
+	Obs2.OnNext("Y8");

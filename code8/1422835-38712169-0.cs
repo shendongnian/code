@@ -1,0 +1,9 @@
+    System.Threading.Monitor.Enter(myLock);
+    try 
+    { 
+        //code
+    }
+    finally 
+    { 
+        System.Threading.Monitor.Exit(myLock); 
+    }

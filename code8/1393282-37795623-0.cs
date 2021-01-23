@@ -1,0 +1,11 @@
+    Texture2D tex = Resources.Load<Texture2D>("pig") as Texture2D;
+    Sprite sprite = new Sprite();
+    sprite = Sprite.Create(tex, new Rect(0, 0, 250, 150), new Vector2(0.5f, 0.5f), 40);
+    GameObject newSprite = new GameObject();
+    newSprite.AddComponent<Rigidbody2D>();
+    newSprite.GetComponent<Rigidbody2D>().gravityScale = 0f;
+    //newSprite.AddComponent<ObjectMovement>();
+    newSprite.AddComponent<SpriteRenderer>();
+    SR = newSprite.GetComponent<SpriteRenderer>();
+    SR.sprite = sprite;
+    SR.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f), Camera.main.nearClipPlane));

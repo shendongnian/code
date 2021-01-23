@@ -1,0 +1,10 @@
+    List<MyModel> modelList = new List<MyModel>();
+	modelList.Add(new MyModel());
+	modelList.Add(new MyModel());
+	modelList.Add(new MyModel());
+	modelList.Add(new MyModel());
+	modelList[0].ID = 1; modelList[0].GroupID = 5;
+	modelList[1].ID = 2; modelList[1].GroupID = 5;
+	modelList[2].ID = 3; modelList[2].GroupID = 6;
+	modelList[3].ID = 4; modelList[3].GroupID = 6;
+	var list = from ml in modelList group ml by ml.ID into r select new { ID = r.Key, MaxGroupID = r.Max() };

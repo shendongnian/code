@@ -1,0 +1,13 @@
+    string lastname = Request.QueryString["lastname"];
+    string location = Request.QueryString["location"];
+    string speciality = Request.QueryString["speciality"];
+    SqlConnection cnn = new SqlConnection("Server=.;Database=db;Trusted_Connection=True;");
+    SqlDataAdapter adp = new SqlDataAdapter("select * from Table where lastname=@lname,location=@loc,speciality=@spec",cnn);
+    cnn.Open();
+    adp.SelectCommand.Parameters.AddWithValue("@lname", lastname);
+    adp.SelectCommand.Parameters.AddWithValue("@loc", location);
+    adp.SelectCommand.Parameters.AddWithValue("@spec", speciality);
+    DataTable dt = new DataTable();
+    adp.Fill(dt);
+    GridView1.DataSource = dt;
+    GridView1.DataBind();

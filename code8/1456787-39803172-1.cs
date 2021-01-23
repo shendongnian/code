@@ -1,0 +1,19 @@
+    public class AttributeItemNode : IComparable<AttributeNode> {
+        public override int CompareTo(AttributeItemNode other) {
+            // compare the Ids in appropriate order
+        }
+    }
+    public class NodeCollection {
+        protected List<AttributeItemNode> nodes;
+        public void AddNode() { }
+        public void Sort() { 
+           nodes.Sort();
+           this.CalcDepth();
+        }
+        public void CalcDepth {
+            foreach (var node in nodes)
+              if (node.IsParent) { node.Depth = 0; return; }
+              //use the various Ids that are now in sorted order
+              // and calculate the item's Depth.
+        }
+    }

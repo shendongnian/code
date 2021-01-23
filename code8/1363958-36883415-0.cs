@@ -1,0 +1,10 @@
+    IWebDriver driver = new OpenQA.Selenium.PhantomJS.PhantomJSDriver("D:/Testing/");
+    driver.Navigate().GoToUrl(suburl);
+    Thread.Sleep(50000);
+    var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(1000));
+    driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(20));
+    HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+    doc.LoadHtml(driver.PageSource);
+    driver.SwitchTo().Frame(driver.FindElement(By.Id("blockrandom")));
+    HtmlAgilityPack.HtmlDocument iframeDoc = new HtmlAgilityPack.HtmlDocument();
+    iframeDoc.LoadHtml(driver.PageSource);

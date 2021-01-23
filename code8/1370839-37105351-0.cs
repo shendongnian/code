@@ -1,0 +1,11 @@
+    c.Open();
+    DateTime startDateTime = Convert.ToDateTime(textBox1.Text);
+    DateTime endDateTime = Convert.ToDateTime(textBox2.Text);
+    string query = "SELECT * FROM People_Tracking WHERE Enter_Exit_Time BETWEEN @startDateTime AND @endDateTime ;";
+    SqlCommand cmd = new SqlCommand(query, c);
+    cmd.Parameters.Add("@startDateTime", SqlDbType.DateTime).Value = startDateTime;
+    cmd.Parameters.Add("@endDateTime", SqlDbType.DateTime).Value = endDateTime;
+    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+    DataTable t = new DataTable();
+    adapter.Fill(t);
+    dataGridView1.DataSource = t;

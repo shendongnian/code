@@ -1,0 +1,11 @@
+    driver.SwitchTo().Frame(driver.FindElement(By.TagName("iframe")));
+    var emailAddressLogin = driver.FindElement(By.Id("email"));
+    emailAddressLogin.SendKeys("EMailAddress");
+    var password = driver.FindElement(By.Id("password"));
+    password.SendKeys("Password");
+    var login = driver.FindElement(By.Id("btnLogin"));
+    login.Click();
+    driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
+    driver.SwitchTo().Window(driver.WindowHandles.Last());
+    var ContinueButton = driver.FindElement(By.XPath("//*[@id=\"confirmButtonTop\"]"));
+    ContinueButton.Click();

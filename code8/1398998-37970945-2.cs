@@ -1,0 +1,21 @@
+    using System;
+    using System.Text.RegularExpressions;
+    
+	
+	public class Program
+	{
+		public static void Main()
+		{
+			String test = "this is a @test & when ist asd*sd";
+			
+			Match match = Regex.Match(test, "([@&\\*])");
+			
+			int i = 0;
+			while (match.Success)
+			{
+				Console.Out.WriteLine("Index of Match Nr."+ i.ToString()+ ": "+match.Index.ToString());
+				match = match.NextMatch();
+				i++;
+			}
+		}
+	}

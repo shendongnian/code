@@ -1,0 +1,10 @@
+    MailMessage mail = new MailMessage("bob@internalhost.com", "Toemai@email.com");
+    mail.Subject = "Subject";
+    mail.IsBodyHtml = true;
+    mail.Body = "this is email body";
+    SmtpClient client = new SmtpClient("172.22.0.20");
+    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+    client.UseDefaultCredentials = false;
+    client.Credentials = new System.Net.NetworkCredential("bob@internalhost.com", "password");
+    client.Port = 25;
+    client.Send(mail);

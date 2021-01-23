@@ -1,0 +1,5 @@
+      Dim authCookie As HttpCookie = FormsAuthentication.GetAuthCookie(iMembersID, False)
+                Dim ticket As FormsAuthenticationTicket = FormsAuthentication.Decrypt(authCookie.Value)
+                Dim newTicket As FormsAuthenticationTicket = New FormsAuthenticationTicket(ticket.Version, ticket.Name, ticket.IssueDate, ticket.Expiration, ticket.IsPersistent, "Member")
+                authCookie.Value = FormsAuthentication.Encrypt(newTicket)
+                Response.Cookies.Add(authCookie)

@@ -1,0 +1,10 @@
+            Console.WriteLine( "Welcome to the game. What is your name?" );
+            Console.Write( "It's " );
+            var name = Console.ReadLine( );
+            Console.WriteLine( $"Hello {name}, How old are you?" );
+            Console.Write( "I'm " );
+            Console.ReadLine( );
+            Console.WriteLine( "OK. You will be taught some basic mathematics. Get ready..." );
+            Console.WriteLine( "When you're ready, press any key!" );
+            Console.ReadKey( );
+            Console.Clear( );

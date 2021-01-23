@@ -1,0 +1,20 @@
+            clsDataSource.mycon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\...");
+            clsDataSource.mycon.Open();
+            clsDataSource.myset = new DataSet();
+            current = 0;
+            OleDbCommand mycommand = new OleDbCommand("SELECT AreaSize.*, Bathrooms.*, Cities.*, Prices.*,Properties.*, Rooms.*, Types.*, Users.* FROM Users INNER JOIN (Types INNER JOIN (Rooms INNER JOIN (Prices INNER JOIN (Cities INNER JOIN (Bathrooms INNER JOIN (AreaSize INNER JOIN Properties ON AreaSize.AreaSizeID = Properties.AreaSize) ON Bathrooms.BathroomID = Properties.Bathrooms) ON Cities.CityID = Properties.City) ON Prices.PriceID = Properties.Price) ON Rooms.RoomID = Properties.Rooms) ON Types.TypeID = Properties.PropertyType) ON Users.UserID = Properties.AgentID WHERE Properties.PropertyType=@propertyType AND Properties.City=@city AND Properties.Rooms=@rooms AND Properties.AreaSize=@areasize AND Properties.Price=@price AND Properties.Bathrooms=@bathrooms AND (Properties.BoolAgent = true)", clsDataSource.mycon);
+            mycommand.Parameters.Add("@propertyType", OleDbType.Integer).Value = clsHouses.type;
+            mycommand.Parameters.Add("@city", OleDbType.Integer).Value = clsHouses.location;
+            mycommand.Parameters.Add("@rooms", OleDbType.Integer).Value = clsHouses.bedrooms;
+            mycommand.Parameters.Add("@areasize", OleDbType.Integer).Value = clsHouses.surface;
+            mycommand.Parameters.Add("@price", OleDbType.Integer).Value = clsHouses.price;
+            mycommand.Parameters.Add("@bathrooms", OleDbType.Integer).Value = clsHouses.bathrooms;
+            mycommand.Parameters.Add("@address", OleDbType.VarChar).Value = txtAddress.Text;
+            mycommand.Parameters.Add("@description", OleDbType.VarChar).Value = txtDescription.Text;
+            mycommand.CommandType = CommandType.Text;
+            myadaptL = new OleDbDataAdapter(mycommand);
+            myadaptL.Fill(clsDataSource.myset, "Properties");
+            tbListing = clsDataSource.myset.Tables["Properties"];
+            //FillCombobox();
+            TAB2TXT(current);
+                 

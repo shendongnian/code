@@ -1,0 +1,9 @@
+    ServiceMessage(
+        service.Context.ServiceName.ToString(),
+        service.Context.ServiceTypeName,
+        service.Context.ReplicaId,
+        service.Context.PartitionId,
+        service.Context.CodePackageActivationContext.ApplicationName,
+        service.Context.CodePackageActivationContext.ApplicationTypeName,
+        service.Context.NodeContext.NodeName,
+        finalMessage);

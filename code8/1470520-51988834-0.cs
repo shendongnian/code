@@ -1,0 +1,9 @@
+    using Microsoft.AspNetCore.Mvc.TagHelpers;
+    using System.Text.Encodings.Web;
+    ...
+    public override void Process(TagHelperContext context, TagHelperOutput output)
+    {
+        ...
+        output.AddClass("active", HtmlEncoder.Default);
+        ...
+    }

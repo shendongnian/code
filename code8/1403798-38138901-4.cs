@@ -1,0 +1,15 @@
+    StreamWriter sw11 = new StreamWriter(fileName, false, Encoding.UTF8);
+    sw11.WriteLine("^XA");
+    sw11.WriteLine("^FO40,100");
+    sw11.WriteLine("^AQ,50,30");
+    sw11.WriteLine(string.Format(CultureInfo.InvariantCulture, "^FO200,50^A0,40,40^FD{0}^FS", m.No));
+    sw11.WriteLine(string.Format(CultureInfo.GetCultureInfo("tr-TR"), "^FO200,100^A0,30,25^FD{0}^FS", m.DescriptionTR));
+    sw11.WriteLine(string.Format(CultureInfo.GetCultureInfo("en-US"), "^FO200,135^A0,30,25^FD{0}^FS", m.DescriptionENG));
+    sw11.WriteLine(string.Format(CultureInfo.GetCultureInfo("ru-RU"), "^FO200,170^A0,30,25^FD{0}^FS", m.DescriptionRUS));
+    sw11.WriteLine(string.Format(CultureInfo.GetCultureInfo("en-US"), "^FO200,205^A0,30,25^FD{0}^FS", m.Model));
+    sw11.WriteLine("^FO100,300^BY2");
+    sw11.WriteLine("^BCN,60,Y,N,Y,N");
+    sw11.WriteLine(string.Format(CultureInfo.InvariantCulture, "^FD{0}^FS", m.No));
+    sw11.WriteLine("^XZ");
+    sw11.Close();
+    RawPrinterHelper.SendFileToPrinter(printerName, fileName);

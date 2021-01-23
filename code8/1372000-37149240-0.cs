@@ -1,0 +1,11 @@
+    var reply = context.MakeMessage();
+    reply.Text = "Test actions";
+    reply.Attachments = new List<Attachment>();
+    var actions = new List<Microsoft.Bot.Connector.Action>();
+    actions.Add(new Microsoft.Bot.Connector.Action() { Title = "button1", Message = "message1" });
+    actions.Add(new Microsoft.Bot.Connector.Action() { Title = "button2", Url = "http://bing.com" });
+    actions.Add(new Microsoft.Bot.Connector.Action() { Title = "button3", Message = "message3" });
+    Attachment at = new Attachment();
+    at.Title = "Choose One:";
+    at.Actions = actions;
+    reply.Attachments.Add(at);

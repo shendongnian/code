@@ -1,0 +1,18 @@
+    Axis ay = chart1.ChartAreas[0].AxisY;
+    ay.Minimum = 0;
+    ay.Maximum = 100;
+    StripLine sl0 = new StripLine();
+    sl0.BackColor = Color.FromArgb(64, Color.LightSeaGreen);
+    sl0.StripWidth = 30;
+    sl0.IntervalOffset = 0;
+    StripLine sl1 = new StripLine();
+    sl1.BackColor = Color.FromArgb(64, Color.LightGoldenrodYellow);
+    sl1.StripWidth = 40;
+    sl1.IntervalOffset = 30;
+    StripLine sl2 = new StripLine();
+    sl2.BackColor = Color.FromArgb(64, Color.LightSalmon);
+    sl2.StripWidth = 30;
+    sl2.IntervalOffset = 70;
+    chart1.ChartAreas[0].AxisY.StripLines.Add(sl0);
+    chart1.ChartAreas[0].AxisY.StripLines.Add(sl1);
+    chart1.ChartAreas[0].AxisY.StripLines.Add(sl2);

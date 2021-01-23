@@ -1,0 +1,6 @@
+    public partial class AnaSchemiPallettizzazioneDet
+    {
+...    
+        public virtual AnaMateriali AnaMateriali { get; set; }
+        public virtual ...
+    }

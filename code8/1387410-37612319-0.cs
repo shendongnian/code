@@ -1,0 +1,10 @@
+        List<ResponseObject> myresponse = JsonConvert.DeserializeObject<List<ResponseObject>>(responseFromServer);
+        List<string> DomainList = new List<string>();
+        for (int i = 0; i < myresponse.Count; i++)
+        {
+            for (int j = 0; j < myresponse[i].EmailAddressSuffixes.Count; j++)
+            {
+                DomainList.Add(myresponse[i].EmailAddressSuffixes[j]);
+            }
+        }
+        var DomainArray = DomainList.ToArray();

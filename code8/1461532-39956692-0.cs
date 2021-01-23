@@ -1,0 +1,10 @@
+                System.Data.OleDb.OleDbConnection MyConnection;
+                System.Data.DataSet DtSet;
+                System.Data.OleDb.OleDbDataAdapter MyCommand;
+                MyConnection = new System.Data.OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source='D:\\C# Projects\\ex.xlsx';Extended Properties=Excel 8.0;");
+                MyCommand = new System.Data.OleDb.OleDbDataAdapter("select * from [Sheet1$]", MyConnection);
+                MyCommand.TableMappings.Add("tbl_info", "tbl_info");
+                DtSet = new System.Data.DataSet();
+                MyCommand.Fill(DtSet);
+                dgv.DataSource = DtSet.Tables[0];
+                MyConnection.Close();

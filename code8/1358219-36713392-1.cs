@@ -1,0 +1,6 @@
+    public JsonResult OneMovie(int Id)
+    {
+    ...
+    var items = db.Movies.Where...
+    return Json(items , JsonRequestBehavior.AllowGet);
+    }

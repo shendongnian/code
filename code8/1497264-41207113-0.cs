@@ -1,0 +1,10 @@
+    TagLib.File f = new TagLib.Mpeg.AudioFile(*yourfile*);
+    TagLib.IPicture pic = f.Tag.Pictures[0];
+    MemoryStream ms = new MemoryStream(pic.Data.Data);
+    ms.Seek(0, SeekOrigin.Begin);
+    BitmapImage bitmap = new BitmapImage();
+    bitmap.BeginInit();
+    bitmap.StreamSource = ms;
+    bitmap.EndInit();
+    System.Windows.Controls.Image CoverArt = new System.Windows.Controls.Image();
+    CoverArt.Source = bitmap;

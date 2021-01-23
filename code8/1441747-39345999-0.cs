@@ -1,0 +1,14 @@
+        TeamSettingsConfigurationService tscs = tpc.GetService<TeamSettingsConfigurationService>();
+        IEnumerable<TeamFoundationTeam> teams = tts.QueryTeams(projectInfo.Uri);
+        TeamFoundationTeam team = teams.Where(a => a.Name == "Area 51").FirstOrDefault();
+        var teamconfigs = tscs.GetTeamConfigurations(new[] { team.Identity.TeamFoundationId });
+        TeamConfiguration tconfig = teamconfigs.FirstOrDefault();
+        Console.WriteLine(tconfig.TeamName);
+        TeamSettings ts = tconfig.TeamSettings;
+        ts.IterationPaths = new string[] { string.Format("\\Onboarding\\Iteration 1") };
+        ts.BacklogIterationPath = string.Format("\\Onboarding\\Iteration 1");
+        TeamFieldValue tfv = new TeamFieldValue();
+        tfv.IncludeChildren = true;
+        tfv.Value = projectInfo.Name;
+        ts.TeamFieldValues = new TeamFieldValue[] { tfv};
+        tscs.SetTeamSettings(tconfig.TeamId,ts);

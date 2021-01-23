@@ -1,0 +1,12 @@
+    this.lblTit1.AutoSize = true;
+    this.lblTit1.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(129)));
+    this.lblTit1.Location = new System.Drawing.Point(12, 10);
+    this.lblTit1.Text = "Ch";
+    this.lblTit2.AutoSize = true;
+    this.lblTit2.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(129)));
+    this.lblTit2.Location = new System.Drawing.Point(lblTit1.Location.X + lblTit1.Width, 10);
+    this.lblTit2.Text = "ọ";
+    this.lblTit3.AutoSize = true;
+    this.lblTit3.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(129)));
+    this.lblTit3.Location = new System.Drawing.Point(lblTit2.Location.X + lblTit2.Width, 10);
+    this.lblTit3.Text = "n";

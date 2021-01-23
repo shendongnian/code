@@ -1,0 +1,6 @@
+    public MemoryCacheManager(...
+            ICacheTracker cacheTracker)
+    {
+        ...
+        cacheTracker.AddCache(this);
+    }

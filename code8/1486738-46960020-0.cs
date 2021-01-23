@@ -1,0 +1,12 @@
+            System.Web.HttpResponse Response = System.Web.HttpContext.Current.Response;
+            Response.Clear();
+            Response.ClearHeaders();
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + pFileData.FileName);
+            Response.AddHeader("Content-Length", pFileData.FileData.Length.ToString());
+            Response.BufferOutput = false;
+            Response.BinaryWrite(pFileData.FileData);
+            Response.Flush();
+            Response.SuppressContent = true;
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+            Response.End();

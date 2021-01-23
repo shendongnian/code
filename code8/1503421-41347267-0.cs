@@ -1,0 +1,12 @@
+                inicial = new PointLatLng(googleGeoCoding(txtorigin.Text).Item2,googleGeoCoding(txtorigin.Text).Item3);
+                final = new PointLatLng(googleGeoCoding(txtdest.Text).Item2, googleGeoCoding(txtdest.Text).Item3);
+                GDirections routedir;
+                var routefromtable = GMapProviders.GoogleMap.GetDirections(out routedir, inicial, final, chbxhighways.Checked, chbxtolls.Checked, rbtnwalking.Checked, false, false);
+                GMapRoute tablemaproute = new GMapRoute(routedir.Route, "Ruta ubication");
+                GMapOverlay tablerouteoverlay = new GMapOverlay("Capa de la ruta");
+                tablerouteoverlay.Routes.Add(tablemaproute);
+                gMapControl1.Overlays.Add(tablerouteoverlay);
+                gMapControl1.Zoom = gMapControl1.Zoom + 1;
+                gMapControl1.Zoom = gMapControl1.Zoom - 1;
+                double distance = tablemaproute.Distance;
+                MessageBox.Show(distance.ToString());

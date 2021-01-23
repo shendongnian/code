@@ -1,0 +1,10 @@
+     var scopeDesc = new DbSyncScopeDescription("MyScope");
+     var tbl = new DbSyncTableDescription("TestTable");
+     var pkColumn = new DbSyncColumnDescription("Id", "int");
+     pkColumn.IsPrimaryKey = true;
+     tbl.Columns.Add(pkColumn);
+     tbl.Columns.Add(new DbSyncColumnDescription("Name", "nvarchar(254)"));
+     scopeDesc.Tables.Add(tbl);
+     var clientConn = new SqlCeConnection(@"Data Source=test.sdf;Persist Security Info=False;");
+     var clientProvision = new SqlCeSyncScopeProvisioning(clientConn, scopeDesc);
+     clientProvision.Apply();

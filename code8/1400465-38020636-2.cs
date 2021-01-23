@@ -1,0 +1,20 @@
+      var min = new Mock<YourObject>();
+      var max = new Mock<YourObject>();
+      var val = new Mock<YourObject>();
+      var range = new Range<YourObject>(min.Object, max.Object);
+    
+      min.Setup(m => m.CompareTo(It.IsAny<YourObject>())).Returns(-1);
+      max.Setup(m => m.CompareTo(It.IsAny<YourObject>())).Returns(1);
+      Assert.True(range.Contains(val.Object));
+      min.Setup(m => m.CompareTo(It.IsAny<YourObject>())).Returns(0);
+      max.Setup(m => m.CompareTo(It.IsAny<YourObject>())).Returns(1);
+      Assert.True(range.Contains(val.Object));
+      min.Setup(m => m.CompareTo(It.IsAny<YourObject>())).Returns(-1);
+      max.Setup(m => m.CompareTo(It.IsAny<YourObject>())).Returns(0);
+      Assert.True(range.Contains(val.Object));
+      min.Setup(m => m.CompareTo(It.IsAny<YourObject>())).Returns(1);
+      max.Setup(m => m.CompareTo(It.IsAny<YourObject>())).Returns(1);
+      Assert.False(range.Contains(val.Object));
+      min.Setup(m => m.CompareTo(It.IsAny<YourObject>())).Returns(-1);
+      max.Setup(m => m.CompareTo(It.IsAny<YourObject>())).Returns(-1);
+      Assert.False(range.Contains(val.Object));

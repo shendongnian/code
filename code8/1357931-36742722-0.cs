@@ -1,0 +1,14 @@
+	var connectionString = "...";
+	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+	var key = "Test";
+	var queueDesc = await namespaceManager.GetQueueAsync(key).ConfigureAwait(false);
+	var queueClient = QueueClient.CreateFromConnectionString(connectionString, key);
+	var message = await queueClient.ReceiveAsync().ConfigureAwait(false);
+	queueDesc.Status = EntityStatus.ReceiveDisabled;
+	await namespaceManager.UpdateQueueAsync(queueDesc).ConfigureAwait(false);
+	Console.WriteLine($"Message Started: { message.GetBody<string>() }");
+	await Task.Delay(5000);
+	await message.CompleteAsync().ConfigureAwait(false);
+	Console.WriteLine($"Message Done: { message.GetBody<string>() }");
+	queueDesc.Status = EntityStatus.Active;
+	await namespaceManager.UpdateQueueAsync(queueDesc).ConfigureAwait(false);

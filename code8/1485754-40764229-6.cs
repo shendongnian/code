@@ -1,0 +1,9 @@
+    Dictionary<Customers, List<Orders>> dic = dc.Customers.Join(dc.Orders.OrderBy(o => o.DateTime).Take(10),
+                                c => c.Id,
+                                o => o.CustomerId,
+                                (c, o) => new { Customers = c, Orders = o }
+                                )
+                                .GroupBy(x => x.Customers)
+                                .ToDictionary(x => x.Key, x => x.Select(y=>y.Orders)
+                                                                .DefaultIfEmpty()
+                                                                .ToList());

@@ -1,0 +1,6 @@
+    public class ApplicationUser
+    {
+        //...
+        public virtual Supplier Supplier {get;set;}
+        //...
+    }

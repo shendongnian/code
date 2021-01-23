@@ -1,0 +1,9 @@
+    {...
+        ....
+        fs.Close();
+        Response.ContentType = "application/octet-stream";
+        Response.AppendHeader("Content-Disposition","attachment; filename=abc.html");
+        Response.TransmitFile( sFileFullName );
+        Response.End();
+        ....
+    }

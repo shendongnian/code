@@ -1,0 +1,12 @@
+    String dateString = "20160622";
+        int year = Int32.Parse(dateString.Substring(0, 4));
+        Console.WriteLine("year is " + year.ToString("D4"));
+        Console.ReadKey();
+    
+        int month = Int32.Parse(dateString.Substring(4, 2));
+        Console.WriteLine("month is " + month.ToString("D2"));
+        Console.ReadKey();
+    
+        int jour = Int32.Parse(dateString.Substring(6, 2));
+        Console.WriteLine("day is  " + jour.ToString("D2"));
+        Console.ReadKey();

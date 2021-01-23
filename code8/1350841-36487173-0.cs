@@ -1,0 +1,15 @@
+            Console.Write("Enter your Length: ");
+            int length = new int();
+            length = Convert.ToInt16(Console.ReadLine());
+            Console.Write("Enter your Width: ");
+            int width = new int();
+            width = Convert.ToInt16(Console.ReadLine());
+            Console.Write("Enter your Height: ");
+            int height = new int();
+            height = Convert.ToInt16(Console.ReadLine());
+            decimal totalDims = new decimal();
+            totalDims = length * width * height;
+            decimal cubicFeet = new decimal();
+            cubicFeet = totalDims / 1728;
+            Console.WriteLine("Your total cubic feet is " + cubicFeet);
+            Console.ReadLine();

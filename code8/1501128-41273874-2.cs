@@ -1,0 +1,11 @@
+    var windowQuery = app.Query().First();
+	var topLeftXCoordinate = windowQuery.Rect.X;
+	var topLeftYCoordinate = windowQuery.Rect.Y;
+	var topRightXCoordinate = windowQuery.Rect.X + windowQuery.Rect.Width;
+	var topRightYCoordinate = windowQuery.Rect.Y;
+	var bottomLeftXCoordinate = windowQuery.Rect.X;
+	var bottomLeftYCoordinate = windowQuery.Rect.Y + windowQuery.Rect.Height;
+	var bottomRightXCoordinate = windowQuery.Rect.X + windowQuery.Rect.Width;
+	var bottomRightYCoordinate = windowQuery.Rect.Y + windowQuery.Rect.Height;
+    var centerXCoordinate = windowQuery.Rect.CenterX;
+    var centerYCoordinate = windowQuery.Rect.CenterY;

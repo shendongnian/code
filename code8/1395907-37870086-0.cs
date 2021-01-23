@@ -1,0 +1,14 @@
+    public async Task<IList<AsyncFileProcessingQueue>> GetAsyncFileProcessingQueue()
+    {
+       IList<Unit> result;
+       using (IDbConnection conn = new SqlConnection(DataConnectionString))
+       {
+          conn.Open();
+    
+          var entities = await conn.QueryAsync<AsyncFileProcessingQueue>
+              ("SELECT * FROM YOUR_TABLE");
+    
+          result = entities.ToList();
+       }
+       return result;
+    }

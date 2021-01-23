@@ -1,0 +1,10 @@
+	var myTable = new DataTable();
+	myTable.Columns.Add("A1", typeof(string));
+	myTable.Columns.Add("A2", typeof(string));
+	myTable.Columns.Add("A3", typeof(string));
+	myTable.Columns.Add("A4", typeof(string));
+	myTable.Columns.Add("B1", typeof(string));
+	myTable.Columns.Add("B2", typeof(string));
+	myTable.Columns.Add("B3", typeof(string));
+	myTable.Columns.Add("B4", typeof(string));
+	myTable.Rows.Add("ROW1", "DATA1", "DATA2", "DATA3", "ROW2", "DATA4", "DATA5", "DATA6");

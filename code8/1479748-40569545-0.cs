@@ -1,0 +1,10 @@
+    using System.Text.RegularExpressions;
+     string input = "for(i=0;i<10;i++)";
+            string pattern = @"^(\w+)(\W)(\w)(\W).*$";
+            MatchCollection matches = Regex.Matches(input, pattern);
+            string cycle = matches[0].Groups[1].Value;
+            string agrupation = matches[0].Groups[2].Value;
+            string variable = matches[0].Groups[3].Value;
+            string asignation = matches[0].Groups[4].Value;
+            string test = string.Format("cycle: {0}, agrupation: {1}, variable={2}, asignation: {3}", cycle, agrupation, variable, asignation);
+            Console.WriteLine(test);

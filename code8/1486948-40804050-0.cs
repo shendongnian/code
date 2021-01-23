@@ -1,0 +1,9 @@
+    var table = new DataTable();
+    table.Columns.Add("UTC Date", typeof(DateTime)).DateTimeMode = DataSetDateTime.Utc;
+    table.Columns.Add("Local Date", typeof(DateTime)).DateTimeMode = DataSetDateTime.Local;
+    table.Columns.Add("UTC From Local", typeof(DateTime)).DateTimeMode = DataSetDateTime.Utc;
+    var newRow = table.NewRow();
+    var aux = new DateTime(2016, 11, 06, 06, 30, 0, DateTimeKind.Utc);
+    newRow["UTC Date"] = aux;
+    newRow["Local Date"] = aux.ToLocalTime();
+    newRow["UTC From Local"] = Convert.ToDateTime(newRow["Local Date"]).ToUniversalTime();

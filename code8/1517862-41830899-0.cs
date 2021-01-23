@@ -1,0 +1,10 @@
+    private Expression<Func<Dictionary<string, object>, bool>> GenerateWhereExpression(Dictionary<string, object> filterParams)
+    {
+    	var pe = Expression.Parameter(typeof(Dictionary<string, object>), "x");
+    	var dictPropery = Expression.Call(pe, typeof(Dictionary<string, object>).GetMethod("get_Item"), Expression.Constant("name")); // Dictonary value with respect to the name key			
+    
+    	var castProperty = Expression.Convert(dictPropery, typeof(string));
+    	var methodCall = Expression.Call(castProperty, typeof(string).GetMethod("Contains"), Expression.Constant(filterParams["name"], typeof(string)));
+    	var lambda = Expression.Lambda<Func<Dictionary<string, object>, bool>>(methodCall, pe);
+    	return lambda;
+    }

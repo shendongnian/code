@@ -1,0 +1,10 @@
+            MailMessage mailMessage = new MailMessage("abc@xyz.in", "receiver@xyz.in");
+            mailMessage.Priority = System.Net.Mail.MailPriority.High;
+            mailMessage.Body = "message";
+            mailMessage.IsBodyHtml = true;
+            SmtpClient smtpClient = new SmtpClient("host/IP", 25);
+            NetworkCredential credentials = new NetworkCredential("abc@xyz.in", "password");
+            smtpClient.Credentials = credentials;
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.Credentials = credentials;
+            smtpClient.Send(mailMessage);

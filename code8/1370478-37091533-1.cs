@@ -1,0 +1,18 @@
+    public class StringToVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            var buttonText = (string) value;
+            switch (buttonText.ToLower())
+            {
+                case "stop":
+                    return Visibility.Visible;
+                default:
+                    return Visibility.Collapsed;
+            }
+        }
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException(); 
+        }
+    }

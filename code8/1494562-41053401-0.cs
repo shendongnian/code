@@ -1,0 +1,11 @@
+                orderData.Tables.Add(tableSalesOrder);
+                orderData.Tables.Add(tableDetail);
+                DataColumn[] parent1 = { tableSalesOrder.Columns["ItemCode"], tableSalesOrder.Columns["UOM"], tableSalesOrder.Columns["Location"] };
+                DataColumn[] child1 = { tableDetail.Columns["ItemCode"], tableDetail.Columns["UOM"], tableDetail.Columns["Location"] };
+                orderData.Relations.Add("PurchaseDetails", parent1, child1, false);
+                orderData.Tables.Add(tableDetail2);
+                DataColumn[] parent2 = { tableSalesOrder.Columns["ItemCode"], tableSalesOrder.Columns["UOM"], tableSalesOrder.Columns["Location"] };
+                DataColumn[] child2 = { tableDetail2.Columns["ItemCode"], tableDetail2.Columns["UOM"], tableDetail2.Columns["Location"] };
+                orderData.Relations.Add("SalesDetails", parent2, child2, false);
+                gridControl1.ShowOnlyPredefinedDetails = false;
+                gridControl1.DataSource = tableSalesOrder;

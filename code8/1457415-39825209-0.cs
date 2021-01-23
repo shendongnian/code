@@ -1,0 +1,11 @@
+     string mystring = "What is your name?";
+            Console.WriteLine(mystring);
+            string UserInput = Console.ReadLine();
+            string Name = UserInput;
+            Console.WriteLine("Hello " + Name);
+            Console.WriteLine("Would you like to run a program?");
+            string UserIput2= Console.ReadLine();
+            if (UserIput2.ToLower() == "yes") Console.WriteLine("What would you like to run? (Type help for a list of valid programs)");
+            else if (UserIput2.ToLower() == "no") Console.WriteLine("Goodbye");
+            Console.ReadLine();
+            Console.ReadLine();

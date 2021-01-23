@@ -1,0 +1,5 @@
+    [SystemAdmin]
+    public SysAdminController : Controller
+    {
+    }
+         

@@ -1,0 +1,10 @@
+    colors.Add(Color.LightCoral);
+    colors.Add(Color.LightCyan);
+    colors.Add(Color.LightGreen);
+    ViewPorts.Add(new Rectangle(  0,   0, 200, 250));
+    ViewPorts.Add(new Rectangle(100, 100, 100,  50));
+    ViewPorts.Add(new Rectangle(210, 200, 100,  50));
+    Timer t = new Timer();
+    t.Interval = 250;
+    t.Tick += (ss, ee) => { drawPanel1.Invalidate(); };
+    t.Start();

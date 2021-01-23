@@ -1,0 +1,13 @@
+    FilterCriteria criteria = new FilterCriteria();
+    criteria.Condition = new BooleanCondition();
+    criteria.Condition.Type = "NOT_BLANK";
+    IDictionary<string, FilterCriteria> criteriaDictionary = new Dictionary<string, FilterCriteria>();
+    criteriaDictionary.Add("8", criteria);
+    Request request = new Request();
+    request.AddFilterView = new AddFilterViewRequest();
+    request.AddFilterView.Filter = new FilterView();
+    request.AddFilterView.Filter.FilterViewId = 0;
+    request.AddFilterView.Filter.Title = "Hide rows with errors";
+    request.AddFilterView.Filter.Range = range1;
+    request.AddFilterView.Filter.Criteria = criteriaDictionary;
+    requests.Add(request);

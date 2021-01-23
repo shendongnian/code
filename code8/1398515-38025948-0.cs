@@ -1,0 +1,47 @@
+    Application: devenv.exe
+    Framework Version: v4.0.30319
+    Description: The process was terminated due to an unhandled exception.
+    Exception Info: System.Xml.XmlException
+       at System.Xml.XmlTextReaderImpl.Throw(System.Exception)
+       at System.Xml.XmlTextReaderImpl.ParseDocumentContent()
+       at System.Xml.XmlTextReaderImpl.Read()
+       at System.Xml.XmlTextReader.Read()
+       at System.Configuration.XmlUtil..ctor(System.IO.Stream, System.String, Boolean, System.Configuration.ConfigurationSchemaErrors)
+       at System.Configuration.BaseConfigurationRecord.InitConfigFromFile()
+    
+    Exception Info: System.Configuration.ConfigurationErrorsException
+       at System.Configuration.ConfigurationSchemaErrors.ThrowIfErrors(Boolean)
+       at System.Configuration.BaseConfigurationRecord.ThrowIfParseErrors(System.Configuration.ConfigurationSchemaErrors)
+       at System.Configuration.BaseConfigurationRecord.ThrowIfInitErrors()
+       at System.Configuration.ClientConfigurationSystem.OnConfigRemoved(System.Object, System.Configuration.Internal.InternalConfigEventArgs)
+       at Microsoft.VisualStudio.Telemetry.WindowsErrorReporting.WatsonReport.GetClrWatsonExceptionInfo(System.Exception)
+    
+    Exception Info: System.Configuration.ConfigurationErrorsException
+       at Microsoft.VisualStudio.Services.VsTask.InternalGetResult(Boolean)
+       at Microsoft.VisualStudio.Services.VsTask.GetResult()
+       at Microsoft.VisualStudio.Shell.Connected.ConnectedUser.ConnectedUserManager+<ResolveFWLinkThroughVsWebProxy>d__79.MoveNext()
+       at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(System.Threading.Tasks.Task)
+       at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(System.Threading.Tasks.Task)
+       at Microsoft.VisualStudio.Shell.Connected.ConnectedUser.ConnectedUserManager+<ResolveFWLinkAsync>d__47.MoveNext()
+       at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(System.Threading.Tasks.Task)
+       at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(System.Threading.Tasks.Task)
+       at Microsoft.VisualStudio.Shell.Connected.ConnectedUser.BaseUserContext+<PrepareToConnectAndComputeCodeMarker>d__57.MoveNext()
+       at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(System.Threading.Tasks.Task)
+       at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(System.Threading.Tasks.Task)
+       at Microsoft.VisualStudio.Shell.Connected.ConnectedUser.BaseUserSession+<ConnectAsyncImpl>d__48.MoveNext()
+       at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(System.Threading.Tasks.Task)
+       at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(System.Threading.Tasks.Task)
+       at Microsoft.VisualStudio.Shell.Connected.ConnectedUser.BaseUserSession+<ConnectAsync>d__37.MoveNext()
+       at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(System.Threading.Tasks.Task)
+       at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(System.Threading.Tasks.Task)
+       at Microsoft.VisualStudio.Shell.Connected.ConnectedUser.BaseUserSession+<PollConnectAsync>d__49.MoveNext()
+       at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(System.Threading.Tasks.Task)
+       at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(System.Threading.Tasks.Task)
+       at Microsoft.VisualStudio.Shell.Connected.ConnectedUser.Poller+<PollAsync>d__13.MoveNext()
+       at System.Runtime.CompilerServices.AsyncMethodBuilderCore+<>c.<ThrowAsync>b__6_1(System.Object)
+       at System.Threading.QueueUserWorkItemCallback.WaitCallback_Context(System.Object)
+       at System.Threading.ExecutionContext.RunInternal(System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object, Boolean)
+       at System.Threading.ExecutionContext.Run(System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object, Boolean)
+       at System.Threading.QueueUserWorkItemCallback.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+       at System.Threading.ThreadPoolWorkQueue.Dispatch()
+       at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()

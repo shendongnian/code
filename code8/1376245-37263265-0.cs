@@ -1,0 +1,10 @@
+    var pal1 = new Rectangle(5, 5, 30, 90);
+    g.FillRectangle(p1, pal1);
+    var pal2 = new Rectangle(65, 40, 60, 90);
+    g.FillRectangle(p2, pal2);
+    var pal3 = new Rectangle(65, 35, 90, 90);
+    g.FillRectangle(p3, pal3);
+    var pal4 = new Rectangle(95, 50, 120, 90);
+    g.FillRectangle(p4, pal4);
+    var pal5 = new Rectangle(195, 5, 150, 95);
+    g.FillRectangle(p4, pal5);

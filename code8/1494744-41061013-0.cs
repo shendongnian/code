@@ -1,0 +1,6 @@
+    return new MsgBoard
+    {
+      // ...
+      Color = System.Drawing.ColorTranslator.FromHtml([alias +"POST_COLOR"]),
+      // ...
+    }

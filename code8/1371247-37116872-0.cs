@@ -1,0 +1,11 @@
+      SqlConnection uniConn = null;
+        SqlCommand cmd = null;
+        SqlDataAdapter sda = null;
+        DataTable dt = new DataTable();
+        uniConn = new SqlConnection("server=localhost;" + "Trusted_Connection=yes;" + "database=Production; " + "connection timeout=30");
+        cmd = new SqlCommand("UPDATE Budget(id, Name, Quantity, Rate, Time)", uniConn);
+        uniConn.Open();
+        sda = new SqlDataAdapter(cmd);
+        sda.Fill(dt);
+        BudgetGrid.ItemsSource = dt.DefaultView;
+       uniConn.Close();

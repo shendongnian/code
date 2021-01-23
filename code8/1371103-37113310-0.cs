@@ -1,0 +1,10 @@
+        bindgriddata();    
+        Response.ClearContent();
+        Response.Buffer = true;
+        Response.AddHeader("content-disposition", string.Format("attachment; filename={0}", "Customers.xls"));
+        Response.ContentType = "application/ms-excel";
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter ht = new HtmlTextWriter(sw);
+        Grd_MidData.RenderControl(ht);
+        Response.Write(sw.ToString());
+        Response.End();

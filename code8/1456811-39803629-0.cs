@@ -1,0 +1,12 @@
+     roomTableAdapter.Connection.Open();
+    string s = string.Format("INSERT INTO `room` ([number], [priceroom]) VALUES  (@param1,@param2);");
+    System.Data.OleDb.OleDbCommand cmd = new System.Data.OleDb.OleDbCommand(s, roomTableAdapter.Connection);
+    cmd.Parameters.AddWithValue("@param1", textBoxX4.Text);
+    cmd.Parameters.AddWithValue("@param2", "4000");
+    roomTableAdapter.Adapter.InsertCommand = cmd;
+    roomTableAdapter.Adapter.InsertCommand.ExecuteNonQuery();
+     roomTableAdapter.Adapter.Fill(this.database3DataSet5);
+    roomTableAdapter.Update(database3DataSet5.room);
+     dataGridViewX1.Update();
+    dataGridViewX1.Refresh();
+    roomTableAdapter.Connection.Close();

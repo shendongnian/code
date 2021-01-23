@@ -1,0 +1,6 @@
+    Fluently.Configure()
+        // ...
+        .Mappings(m => m
+            .FluentMappings.AddFromAssemblyOf<MyClass>()
+            .Conventions.Add(FluentNHibernate.Conventions.Helpers.DefaultLazy.Never()))
+        // ...

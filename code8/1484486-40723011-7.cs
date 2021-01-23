@@ -1,0 +1,6 @@
+    public void myMethod(INamespaceManagerWrapper mockableObj)
+    {
+       ...
+       mockableObj.CreateConsumerGroup(description);
+       ...
+    }

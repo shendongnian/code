@@ -1,0 +1,12 @@
+            IConnectableObservable<int> a = null;
+            IConnectableObservable<char> b = null;
+            IConnectableObservable<bool> c = null;            
+            a = Observable.Defer(() => b.Select(x => (int)x)).Publish();
+            b = Observable.Defer(() => Observable.Generate('A', x => x < 255, x => (char)(x + 1), x => x).TakeUntil(c)).Publish();
+            c = Observable.Defer(() => a.SkipWhile(x => x < 70).Select(_ => true)).Publish();
+            a.Subscribe(x => Console.WriteLine($"from a: {x}"));
+            b.Subscribe(x => Console.WriteLine($"from b: {x}"));
+            c.Connect();
+            a.Connect();
+            b.Connect();
+            Console.ReadKey(true);

@@ -1,0 +1,16 @@
+                    PickDatafromTextFile();
+                    myProgressBar.Value += 14;
+                    CallRichtextbox();
+                    myProgressBar.Value += 14;
+                    GenerateExcel();
+                    myProgressBar.Value += 14;
+                    DeleteExcelRows();
+                    myProgressBar.Value += 14;
+                    SplitDateandTime();
+                    myProgressBar.Value += 14;
+                    SortDateandTime();
+                    myProgressBar.Value += 14;
+                    CombineDataoftwoExcel();
+                    myProgressBar.Value += 14;
+                    UpdateExcelFile();
+                    myProgressBar.Value = 100;

@@ -1,0 +1,16 @@
+    int count = A();
+    for (int i = 0; i < count; i++)
+    {
+      System.Web.UI.HtmlControls.HtmlGenericControl createDiv = ...
+    }
+    
+    public int A()
+    {
+      ...
+      using ( ...
+        using ( ...
+        {
+          ...
+          return count;
+        }
+    }

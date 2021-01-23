@@ -1,0 +1,33 @@
+    INSERT INTO MY_TABLE (
+        pEmpNo1,
+        pEmpNo2,
+        pEmpNo3,
+        pEmpNo4,
+        pEmpNo5,
+        pEmpNo6,
+        pEmpNo7,
+        pEmpNo8,
+        pEmpNo9,
+        pEmpNo10,
+        pEmpNo11,
+        pEmpNo12,
+        pEmpNo13,
+        pEmpNo14,
+        pEmpNo15
+    ) VALUES (
+        :pEmpNo1,
+        :pEmpNo2,
+        :pEmpNo3,
+        :pEmpNo4,
+        :pEmpNo5,
+        :pEmpNo6,
+        :pEmpNo7,
+        :pEmpNo8,
+        :pEmpNo9,
+        :pEmpNo10,
+        :pEmpNo11,
+        :pEmpNo12,
+        :pEmpNo13,
+        :pEmpNo14,
+        :pEmpNo15
+    );

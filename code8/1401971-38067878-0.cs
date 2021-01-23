@@ -1,0 +1,13 @@
+And it will assign a value to aTimer.
+    public class Example
+    {
+        private static Timer aTimer;
+        ...
+        public static void Main()
+        {
+            ...
+            aTimer = new Timer(5);
+            ...
+        }
+        ...
+    }

@@ -1,0 +1,12 @@
+     B b1 = new B(schedulerPair.ConcurrentScheduler);
+     B b2 = new B(schedulerPair.ConcurrentScheduler);
+     B b3 = new B(schedulerPair.ConcurrentScheduler);
+     A.OnIntChange += b1.RaiseAsyncEvent;    
+     A.OnIntChange += b2.RaiseAsyncEvent;    
+     A.OnIntChange += b3.RaiseAsyncEvent;    
+     A.a = 10;
+     schedulerPair.Complete();
+     schedulerPair.Completion.Wait();
+     Assert.AreEqual(10, b1.c);
+     Assert.AreEqual(10, b2.c);
+     Assert.AreEqual(10, b3.c);

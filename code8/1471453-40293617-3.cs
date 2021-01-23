@@ -1,0 +1,6 @@
+    public async Task CallingMethod()
+    {
+         // ...
+         string address = await GetExternalIP();
+         // ...
+    }

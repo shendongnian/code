@@ -1,0 +1,10 @@
+    string connetionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=your .mdb file;";
+            string sql = "SELECT * FROM Authors";
+            OleDbConnection connection = new OleDbConnection(connetionString);
+            OleDbDataAdapter dataadapter = new OleDbDataAdapter(sql, connection);
+            DataSet ds = new DataSet();
+            connection.Open();
+            dataadapter.Fill(ds, "Authors_table");
+            connection.Close();
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Authors_table";

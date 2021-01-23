@@ -1,0 +1,6 @@
+    private void UpdateExistingBindingRedirects(XElement runtimeNode, IDictionary<AssemblyName, string> redirects)
+    {    
+        ...
+        var publicKeyToken = assemblyIdentity.Attribute("publicKeyToken");
+        var publicKeyTokenValue = publicKeyToken.Value;
+        ...

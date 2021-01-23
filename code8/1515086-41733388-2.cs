@@ -1,0 +1,33 @@
+    internal class MyJsonConverter : CustomCreationConverter<IControl>
+    {
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            var jObject = JObject.Load(reader);
+            var controlType = jObject["CustomProperty"]?.Value<string>();
+    
+            IControl control = null;
+    
+            if (!string.IsNullOrWhiteSpace(controlType))
+            {
+                switch (controlType.ToLowerInvariant())
+                {
+                    case "controla":
+                        control = Activator.CreateInstance(typeof(ControlA)) as IControl;
+                        break;
+                    case "controlb":
+                        control = Activator.CreateInstance(typeof(ControlB)) as IControl;
+                        break;
+                }
+            }
+            if (controlType == null)
+                throw new SerializationException($"Unable to deserialize property. {controlType}");
+    
+            serializer.Populate(jObject.CreateReader(), control);
+            return control;
+        }
+    
+        public override IControl Create(Type objectType)
+        {
+            return null;
+        }
+    }

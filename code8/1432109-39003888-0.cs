@@ -1,0 +1,12 @@
+            Server myServer = new Server("ServerName");
+            myServer.ConnectionContext.LoginSecure = true;
+            myServer.ConnectionContext.Connect();
+            Database db = myServer.Databases["dbName"];
+            Table myTable = db.Tables["TableName", "SchemaName"];
+            Statistic stat = default(Statistic);
+            stat = new Statistic(myTable, "StatisticName");
+            StatisticColumn statcol = default(StatisticColumn);
+            statcol = new StatisticColumn(stat, "FieldName");
+            stat.StatisticColumns.Add(statcol);
+            stat.Refresh();
+            var x = stat.LastUpdated;

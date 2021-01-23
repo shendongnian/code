@@ -1,0 +1,16 @@
+        string dataPath = Server.MapPath("Your DataPath");
+        string ConString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + dataPath + ";Persist Security Info=True";            
+        OleDbConnection Con = new OleDbConnection(ConString);
+        OleDbCommand Command = Con.CreateCommand();
+        Con.Open();
+        Command.CommandText = "Insert into Table1(type, from, to, depart, arrival, remain) Values (@type, @from, @to, @depart, @arrival, @remain);      
+        TimeSpan time = new TimeSpan(10, 7, 00);
+        DateTime t = new DateTime(2016, 5, 5, 5, 4, 3);
+        command.Parameters.AddWithValue("@type", "test");
+        command.Parameters.AddWithValue("@from", "tet");
+        command.Parameters.AddWithValue("@to", "te");
+        command.Parameters.AddWithValue("@depart", t);
+        command.Parameters.AddWithValue("@arrival", t);
+        command.Parameters.AddWithValue("@remain", 4);
+        command.ExecuteNonQuery();
+        Con.Close();

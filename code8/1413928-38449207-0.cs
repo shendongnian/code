@@ -1,0 +1,10 @@
+    private static Question UnansweredQuestion1 = new Question();
+    private static Question UnansweredQuestion2 = new Question();
+    private static Question UnansweredQuestion3 = new Question();
+    private static Question UnansweredQuestion4 = new Question();
+    private static Question UnansweredQuestion5 = new Question();
+    private static Question UnansweredQuestion6 = new Question();
+    private static Question UnansweredQuestion7 = new Question();
+    private static Question UnansweredQuestion8 = new Question();
+    private static Question UnansweredQuestion9 = new Question();
+    private static Question UnansweredQuestion10 = new Question();

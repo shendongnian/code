@@ -1,0 +1,12 @@
+                Axis xAxis = (Excel.Axis)chart.Axes(Excel.XlAxisType.xlCategory);
+                TickLabels ticks = xAxis.TickLabels;
+                xAxis.MinimumScale = timeSeriesRange.Value2[1, 1];
+                xAxis.MaximumScale = timeSeriesRange.Value2[timeSeriesRange.Count, 1];
+                xAxis.MajorTickMark = XlTickMark.xlTickMarkCross;
+                xAxis.MinorTickMark = XlTickMark.xlTickMarkInside;
+                xAxis.MajorUnit = 0.005;
+                xAxis.HasMinorGridlines = true;
+                xAxis.HasMajorGridlines = true;
+                ticks.Orientation = XlTickLabelOrientation.xlTickLabelOrientationUpward;
+                chart.PlotArea.Select();
+                chart.PlotArea.Height = 300;

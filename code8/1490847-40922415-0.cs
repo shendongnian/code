@@ -1,0 +1,5 @@
+    public async Task<bool> WebService1()
+    public async Task<bool> WebService2()
+    public async Task<bool> WebService3()
+    public async Task<bool> WebService4()
+    public void PostProcessing()

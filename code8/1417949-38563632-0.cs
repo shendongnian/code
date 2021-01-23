@@ -1,0 +1,27 @@
+    public class JsonNetResult : JsonResult
+    {
+        public override void ExecuteResult(ControllerContext context)
+        {
+            if (context == null)
+                throw new ArgumentNullException("context");
+            if (this.JsonRequestBehavior == JsonRequestBehavior.DenyGet && string.Equals(context.HttpContext.Request.HttpMethod, "GET", StringComparison.OrdinalIgnoreCase))
+                throw new InvalidOperationException("JSON GET is not allowed");
+            HttpResponseBase response = context.HttpContext.Response;
+            response.ContentType = string.IsNullOrEmpty(this.ContentType) ? "application/json" : this.ContentType;
+            if (this.ContentEncoding != null)
+                response.ContentEncoding = this.ContentEncoding;
+            if (this.Data == null)
+                return;
+            if (Data != null)
+            {
+                var writer = new JsonTextWriter(response.Output);
+                var serializer = JsonSerializer.Create(new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                    DateFormatHandling = DateFormatHandling.IsoDateFormat
+                });
+                serializer.Serialize(writer, Data);
+                writer.Flush();
+            }
+        }
+    }

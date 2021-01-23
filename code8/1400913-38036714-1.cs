@@ -1,0 +1,6 @@
+        public class MyOverridenObject: MyObject {
+         ...
+         public override void myMethod(int args){
+           ... 
+         } 
+       }

@@ -1,0 +1,12 @@
+    var dt = new DataTable();
+    dt.Columns.Add("Column1", typeof(int));
+    dt.Columns.Add("Column2", typeof(int));
+    dt.Rows.Add(1, 2);
+    dt.Rows.Add(2, 1);
+    dt.Rows.Add(1, 3);
+    dt.Rows.Add(3, 1);
+    var bs1 = new BindingSource() { DataSource = dt };
+    this.dataGridView1.DataSource = bs1;
+    var bs2 = new BindingSource() { DataSource = dt };
+    this.dataGridView2.DataSource = bs2;
+    bs2.Filter = "Column1 > Column2";

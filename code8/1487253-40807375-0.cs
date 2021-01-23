@@ -1,0 +1,6 @@
+    // ...
+    var p = e.Type.GetProperty("Id");
+    if (p.ReflectedType != p.DeclaringType)
+        p = p.DeclaringType.GetProperty(p.Name);
+    Expression bin = Expression.MakeMemberAccess(e, p);
+    // ...

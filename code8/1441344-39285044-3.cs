@@ -1,0 +1,10 @@
+    DataTable table = new DataTable("childTable");
+        DataColumn column;    
+        column = new DataColumn();
+        column.DataType= System.Type.GetType("System.Int32");
+        column.ColumnName = "ChildID";
+        column.AutoIncrement = true;
+        column.Caption = "ID";
+        column.ReadOnly = true;
+        column.Unique = true;
+    table.Columns.Add(column);

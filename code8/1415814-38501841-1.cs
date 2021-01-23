@@ -1,0 +1,9 @@
+    cmd3.Parameters.Add("@challan_no", SqlDbType.Int);
+    cmd3.Parameters.Add("@job_name", SqlDbType.NVarChar);
+    cmd3.Parameters.Add("@paper_stock_name", SqlDbType.NVarChar);
+    cmd3.Parameters.Add("@size", SqlDbType.NVarChar);
+    cmd3.Parameters.Add("@quantity", SqlDbType.Int);
+    cmd3.Parameters.Add("@rate", SqlDbType.Int);
+    cmd3.Parameters.Add("@amount", SqlDbType.Int);
+    cmd3.Parameters.Add("@sno", SqlDbType.Int);
+    cmd3.Parameters.Add("@book_no", SqlDbType.Int);

@@ -1,0 +1,6 @@
+    public class ReWeekRowModel
+    {
+       ...
+       public virtual ICollection<ReDayModel> Days { get; set; }
+       ...
+    }

@@ -1,0 +1,14 @@
+     <products>
+      <product>
+        <territory>A</territory>
+      </product>
+      <product>
+        <territory>B</territory>
+      </product>
+      <product>
+        <territory>C</territory>
+      </product>
+      <product>
+        <territory>E</territory>
+      </product>
+    </products>

@@ -1,0 +1,13 @@
+                        var fileName = Path.GetFileName(file.FileName);
+                        var combinedVirtualPath = Path.Combine("~/Content/uploads", fileName);
+                        var phisicalPath = Server.MapPath(combinedVirtualPath);
+                        file.SaveAs(phisicalPath);
+                        DriverReg newRecord = new DriverReg();
+                        newRecord.FullName = model.FullName;
+                        newRecord.Address = model.Address;
+                        newRecord.Postcode = model.Postcode;
+                        newRecord.Contact = model.Contact;
+                        newRecord.Email = model.Email;
+                        newRecord.County = model.County;
+                        newRecord.File = combinedVirtualPath;
+                        newRecord.Date = DateTime.Now;

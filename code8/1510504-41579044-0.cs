@@ -1,0 +1,14 @@
+    var childIssues = (from i in Issues
+                 join li in LinkedIssues
+                      on i.IssueID equals li.IssueId
+                 where LinkedIssues.Any(   (li.IssueId == 28438 || li.ChildIssueId == 28438) 
+				                        && (li.IssueId == i.IssueId || li.ChildIssueId == i.IssueId)
+                 select new LinkedIssuesModel()
+                 {
+                     IssueID = li.ChildIssueId,
+                     CustomerName = i.Room.Location.Customer.CustomerName,
+                     LocationName = i.Room.Location.LocationName,
+                     ReceivedDate = i.ReceivedDate,
+                     IssueSummary = i.IssueSummary,
+                     IssueDescription = i.IssueDescription
+                 }).ToList();

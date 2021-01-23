@@ -1,0 +1,11 @@
+    public class UserRepository : IUserRepository
+    {
+        public User async GetByIdAsync(int id)
+        {
+            using (var dbContext = new MyDbContext())
+            {
+                var data = await dbContext.FindAsync((User user) => user.Id == id);
+                return new User(data);
+            }
+        }
+    }

@@ -1,0 +1,15 @@
+    XDocument doc = new XDocument(
+        new XDeclaration("1.0", "UTF-8", null),
+        new XElement("Root",
+            new XElement("Asset",
+                new XAttribute("InternalID", a.InternalID),
+                new XAttribute("LastSaveDate", a.lastSaveDate),
+                new XAttribute("LastSaveTime", a.lastSaveTime),
+                new XAttribute("AssetType", a.AssetType),
+                new Element("type_metadata",
+                    new XElement("FIELD",
+                        new XAttribute("name", "filename"),
+                        a.filename),
+                    new XElement("FIELD",
+                        new XAttribute("name", "duration"),
+                        a.duration)))));

@@ -1,0 +1,18 @@
+    DataTable table1 = new DataTable();
+    table1.Columns.Add("Account", typeof(int));
+    table1.Columns.Add("Day01", typeof(decimal));
+    table1.Rows.Add(1234, 11);
+    table1.Rows.Add(4567, 22);
+    table1.Rows.Add(0909, 33);
+    DataTable table2 = new DataTable();
+    table2.Columns.Add("Account", typeof(int));
+    table2.Columns.Add("Day02", typeof(decimal));
+    table2.Rows.Add(1234, 12);
+    table2.Rows.Add(0909, 34);
+    table2.Rows.Add(5578, 99);
+    table2.Rows.Add(0065, 34);
+    DataTable table3 = new DataTable();
+    table3.Columns.Add("Account", typeof(int));
+    table3.Columns.Add("Day03", typeof(decimal));
+    table3.Rows.Add(1234, 13);
+    table3.Rows.Add(7777, 44);

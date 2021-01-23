@@ -1,0 +1,13 @@
+    user.FirstName = model.FirstName;
+    user.LastName = model.LastName;
+    user.Address1 = model.Address1;
+    user.Address2 = model.Address2;
+    user.City = model.City;
+    user.State = model.State;
+    user.Zip = model.Zip;
+    user.Company = model.Company;
+    user.Country = model.Country;
+    user.SetDisplayName();
+    user.SetProfileID();
+    _dbContext.Attach(user).State = EntityState.Modified;
+    _dbContext.SaveChanges();

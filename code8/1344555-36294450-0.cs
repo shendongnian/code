@@ -1,0 +1,9 @@
+    private static DataBaseService_instance;
+    // public property
+    public static DataBaseService Instance
+    {
+        get
+        {
+            return _instance ?? (_instance = new DataBaseService());
+        }
+    }

@@ -1,0 +1,9 @@
+    public class WeatherResult ()
+    {
+        public string nik {get; set;}
+    
+          public string username_reg {get; set;}
+         ...
+         ...
+         ...
+    }

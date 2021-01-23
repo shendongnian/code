@@ -1,0 +1,6 @@
+    public static int UserMaxValue = 0; 
+    // ...
+    SelectedNumber = ran.Next(0, UserMaxValue);
+    // ...
+    Console.WriteLine("What is the maximum number you want to guess from?");
+            UserMaxValue = Convert.ToInt32(Console.ReadLine());

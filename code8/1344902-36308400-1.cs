@@ -1,0 +1,12 @@
+    command.Connection = connection;
+    command.CommandText = "INSERT INTO statement workers values(?,?,?,?,?,?,?,?,?)";
+    command.Parameters.Add("@Tab", OleDbType.Integer).Value = Convert.ToInt32( tabtextBox1.Text);
+    command.Parameters.Add("@User", OleDbType.VarWChar).Value = usertextBox2.Text;
+    command.Parameters.Add("@Pass", OleDbType.VarWChar).Value = passtextBox4.Text;
+    command.Parameters.Add("@Names", OleDbType.VarWChar).Value = namestextBox3.Text;
+    command.Parameters.Add("@Tele", OleDbType.Integer).Value = Convert.ToInt32(teletextBox6.Text);
+    command.Parameters.Add("@Job", OleDbType.VarWChar).Value ? jobtextBox9.Text;
+    command.Parameters.Add("@Date", OleDbType.Date).Value = dateofdateTimePicker2.Value;
+    command.Parameters.Add("@DOB", OleDbType.Date).Value =dateTimePicker1.Value);
+    command.Parameters.Add("@Pay", OleDbType.Decimal).Value = Convert.ToDecimal(paytextBox7.Text);
+    command.ExecuteNonQuery();

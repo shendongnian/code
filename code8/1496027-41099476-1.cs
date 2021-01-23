@@ -1,0 +1,6 @@
+    public abstract class BaseItem {
+        // rest of code here ...
+        [ItemAttribute("Agility")]
+        int Agility;
+        // rest of code here ...
+    }

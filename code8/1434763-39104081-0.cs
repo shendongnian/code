@@ -1,0 +1,10 @@
+            DataTable scoreTable = new DataTable();
+            scoreTable.Columns.Add("UnixTS", typeof(DateTime));
+            scoreTable.Columns.Add("Score", typeof(int));
+            scoreTable.Rows.Add(DateTime.Now.AddMinutes(-30), 10);
+            scoreTable.Rows.Add(DateTime.Now.AddMinutes(-130), 40);
+            scoreTable.Rows.Add(DateTime.Now.AddMinutes(-59), 20);
+            scoreTable.Rows.Add(DateTime.Now.AddMinutes(-59), 20);
+            scoreTable.Rows.Add(DateTime.Now.AddMinutes(-20), 25);
+            DataTable scoreTableNew = scoreTable.AsEnumerable().Where(x => x.Field<DateTime>("UnixTS") > DateTime.Now.AddHours(-1)).OrderByDescending(y => y["Score"]).Take(1).CopyToDataTable();
+            Response.Write(Convert.ToDateTime(scoreTableNew.Rows[0][0]).ToShortDateString() + " - " + scoreTableNew.Rows[0][1].ToString());

@@ -1,0 +1,12 @@
+            S7Client client = new S7Client();
+            int res = client.ConnectTo("192.168.0.10", 0, 0);
+            int DBNumber;
+            int Size;
+            int Result;
+            byte[] buffer = new byte[2];
+            DBNumber = System.Convert.ToInt32(1);
+            Size = System.Convert.ToInt32(2);
+            Result = client.DBWrite(DBNumber, 0, Size, buffer);
+            buffer[0] = 1;
+            buffer[1] = 1;
+            Result = client.DBWrite(DBNumber, 0, Size, buffer);

@@ -1,0 +1,13 @@
+    string fileName = openFileDialog.FileName;
+    BitmapImage bitmap = new BitmapImage(new Uri(fileName, UriKind.Absolute));
+    BlockUIContainer blockUI = new BlockUIContainer();
+    Image img = new Image();
+    img.Source = bitmap;
+    Viewbox vb = new Viewbox();
+    vb.StretchDirection = StretchDirection.DownOnly;
+    vb.Stretch = Stretch.Uniform;
+    vb.HorizontalAlignment = HorizontalAlignment.Center;
+    vb.VerticalAlignment = VerticalAlignment.Center;
+    vb.Child = img;
+    blockUI.Child = vb;
+    rt.Document.Blocks.Add(blockUI);

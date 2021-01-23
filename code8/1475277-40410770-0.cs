@@ -1,0 +1,13 @@
+            OracleConnectionStringBuilder sb = new OracleConnectionStringBuilder();
+            sb.DataSource = "localhost";
+            sb.UserID = "something";
+            sb.Password = "pass";         
+           OracleConnection conn = new OracleConnection(sb.ToString());
+            conn.Open();
+                OracleCommand cmd = new OracleCommand("ADD_USER");
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = conn;
+                cmd.Parameters.Add("NAME", OracleDbType.Varchar2).Value = txtName.Text;
+                cmd.Parameters.Add("NAME2", OracleDbType.Varchar2).Value = txtName2.Text;
+                cmd.Parameters.Add("ID", OracleDbType.Int32).Value = txtID.Text;
+                cmd.ExecuteNonQuery();

@@ -1,0 +1,22 @@
+     protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                lblServerDateTime.Text = DateTime.Now.ToString("dd MMMM");
+                // Sets current date on initially.
+            }
+        }
+        protected void btnUp_Click(object sender, EventArgs e)
+        {
+            //Up button click will increase the date by one day
+            DateTime d;
+            DateTime.TryParse(lblServerDateTime.Text, out d);
+            lblServerDateTime.Text = d.AddDays(1).ToString("dd MMMM");
+        }
+        protected void btnDown_Click(object sender, EventArgs e)
+        {
+            //Up button click will decrease the date by one day
+            DateTime d;
+            DateTime.TryParse(lblServerDateTime.Text, out d);
+            lblServerDateTime.Text = d.AddDays(-1).ToString("dd MMMM");
+        }

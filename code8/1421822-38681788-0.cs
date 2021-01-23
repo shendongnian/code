@@ -1,0 +1,9 @@
+    try
+    {
+        connection.Open();
+        sqlCmd.ExecuteNonQuery();
+    }
+    finally
+    {
+        connection.Close();
+    }

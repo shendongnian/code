@@ -1,0 +1,14 @@
+            TableRow tr = new TableRow();
+            tblResults.Controls.Add(tr);
+            Button addButton = new Button();
+            addButtonCell = new TableCell();
+            addButtonCell.Controls.Add(addButton);
+            tr.Controls.Add(addButtonCell);
+            addButton.Width = 75;
+            addButton.Text = "Add";
+            addButton.ID = "btn_" + this.DynamicControls.Count.ToString();
+            addButton.Click += new EventHandler(addButton_Click);
+            addButton.EnableViewState = true;
+            DynamicControls.Add(addButton);
+            tr.TableSection = TableRowSection.TableBody;
+            tblResults.Rows.Add(tr);

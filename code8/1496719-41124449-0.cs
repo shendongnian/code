@@ -1,0 +1,9 @@
+    public interface IRecommenderItem {
+    ...
+    }
+    public class Restaurant : IRecommenderItem {
+    ...
+    }
+    public class Dish : IRecommenderItem {
+    ...
+    }

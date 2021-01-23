@@ -1,0 +1,10 @@
+        var aggregate = collection.Aggregate()
+            .Match(Builders<Filing>.Filter.In("Orders", ordersList))
+            .Match(x => x.UniqueNumber>= UniqueNumberList)
+            .Match(Builders<Filing>.Filter.Gt(y => y.SubRootUpdatedDate, minDate))
+            .Match(Builders<Filing>.Filter.Lt(y => y.SubRootUpdatedDate, maxDate))
+            .Sort(Builders<Filing>.Sort.Descending(x => x.UniqueNumber))
+            .Sort(Builders<Filing>.Sort.Descending(x => x.SubRootUpdatedDate))
+            .Group(z => z.RootID, h => new { h.Key })
+            .Limit(limitValue)
+            .ToList();

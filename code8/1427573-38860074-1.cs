@@ -1,0 +1,6 @@
+      namespace MyNamespace {
+        using MyEnum = AnotherNamespace.AnotherClass.MyEnum;
+    
+        ...
+        
+        MyEnum v = ...

@@ -1,0 +1,11 @@
+	join.Subscribe(t => Console.WriteLine($"{t.Item1} {t.Item2}"), () => Console.WriteLine("No more names!"));
+	firstNameSource.OnNext(new FirstNameMessage{Id = 1, Name = "John" });
+	lastNameSource.OnNext(new LastNameMessage{Id = 1, Name = "Smith" });
+	lastNameSource.OnNext(new LastNameMessage { Id = 2, Name = "Jones" });
+	await Task.Delay(TimeSpan.FromMilliseconds(500));
+	firstNameSource.OnNext(new FirstNameMessage { Id = 2, Name = "Paul" });
+	firstNameSource.OnNext(new FirstNameMessage { Id = 3, Name = "Larry" });
+	await Task.Delay(TimeSpan.FromMilliseconds(1500));
+	lastNameSource.OnNext(new LastNameMessage { Id = 3, Name = "Fail" });
+	firstNameSource.OnNext(new FirstNameMessage { Id = 4, Name = "Won't Work" });
+	lastNameSource.OnNext(new LastNameMessage { Id = 4, Name = "Subscription terminated" });

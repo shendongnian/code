@@ -1,0 +1,35 @@
+    <?xml version="1.0" encoding="utf-16"?>
+    <Parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <UserProfileState>0</UserProfileState>
+      <Parameter>
+        <Name>County</Name>
+        <Type>String</Type>
+        <Nullable>False</Nullable>
+        <AllowBlank>False</AllowBlank>
+        <MultiValue>True</MultiValue>
+        <UsedInQuery>True</UsedInQuery>
+        <State>MissingValidValue</State>
+        <Prompt>County</Prompt>
+        <DynamicPrompt>False</DynamicPrompt>
+        <PromptUser>True</PromptUser>
+        <DynamicValidValues>True</DynamicValidValues>
+        <DynamicDefaultValue>True</DynamicDefaultValue>
+      </Parameter>
+      <Parameter>
+        <Name>City</Name>
+        <Type>String</Type>
+        <Nullable>False</Nullable>
+        <AllowBlank>False</AllowBlank>
+        <MultiValue>True</MultiValue>
+        <UsedInQuery>True</UsedInQuery>
+        <State>MissingValidValue</State>
+        <Prompt>City</Prompt>
+        <DynamicPrompt>False</DynamicPrompt>
+        <PromptUser>True</PromptUser>
+        <Dependencies>
+          <Dependency>Country</Dependency>
+        </Dependencies>
+        <DynamicValidValues>True</DynamicValidValues>
+        <DynamicDefaultValue>True</DynamicDefaultValue>
+      </Parameter>
+    </Parameters>

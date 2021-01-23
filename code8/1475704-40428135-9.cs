@@ -1,0 +1,21 @@
+    chart.BackColor = Color.DarkSlateGray;
+    ChartArea ca = chart.ChartAreas[0];
+    chart.Legends[0].Alignment = StringAlignment.Center;
+    chart.Legends[0].Docking = Docking.Top;
+    chart.Legends[0].BackColor =  chart.BackColor;
+    chart.Legends[0].ForeColor = Color.White;
+    Legend L = chart.Legends[0];
+    L.CustomItems.Add(Color.Silver, "Sum");
+    ca.BackColor = Color.LightSteelBlue;
+    ca.Position = new ElementPosition(2, 8, 93, 70);  // make room
+    ca.Area3DStyle.Enable3D = true;
+    ca.Area3DStyle.PointDepth = 25;
+    ca.Area3DStyle.WallWidth = 0;
+    ca.AxisX.MajorGrid.Enabled = false;
+    ca.AxisY.MajorGrid.LineColor = Color.White;
+    ca.AxisY.LineColor = Color.White;
+    ca.AxisY.LabelStyle.ForeColor = Color.White;
+    ca.AxisY.MajorTickMark.LineColor = Color.White;
+    ca.AxisX.LabelStyle.Enabled = false;
+    ca.AxisX.LineColor = Color.White;
+    ca.AxisX.MajorTickMark.Enabled = false;

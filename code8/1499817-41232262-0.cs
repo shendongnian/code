@@ -1,0 +1,9 @@
+    services.AddTransient<ILogger, DatabaseLogger>();
+    services.AddTransient<IDbLoggerDependency1, DbLoggerDependency1>();
+    services.AddTransient<IDbLoggerDependency2, DbLoggerDependency2>();
+    services.AddTransient<IDbLoggerDependency3, DbLoggerDependency3>();
+    services.AddTransient<IDbLoggerDependency4, DbLoggerDependency4>();
+    services.AddTransient<IOtherDemoClassDependency, OtherDemoClassDependency>();
+    services.AddTransient<IOtherDependencyDependency1, OtherDependencyDependency1>();
+    services.AddTransient<IOtherDependencyDependency2, OtherDependencyDependency2>();
+    services.AddTransient<IDemoClass, DemoClass>();

@@ -1,0 +1,10 @@
+        String pathOfFile = Server.MapPath("~/ActualPathOfYourFile/" +  fileNameComingFromDatabse);
+        byte[] bts = System.IO.File.ReadAllBytes(pathOfFile);
+        Response.Clear();
+        Response.ClearHeaders();
+        Response.AddHeader("Content-Type", "Application/octet-stream");
+        Response.AddHeader("Content-Length", bts.Length.ToString());
+        Response.AddHeader("Content-Disposition", "attachment; filename=" + fileNameComingFromDatabse);
+        Response.BinaryWrite(bts);
+        Response.Flush();
+        Response.End();

@@ -1,0 +1,27 @@
+    public static IEnumerable<IEnumerable<T>> AscendingSubsets<T>(this IEnumerable<T> superset) where T :IComparable<T>
+	{
+		if (!superset.Any())
+		{
+			yield break;
+		}            
+		 
+		var supersetEnumerator = superset.GetEnumerator();
+		supersetEnumerator.MoveNext();            
+		T oldItem = supersetEnumerator.Current;
+		List<T> subset = new List<T>() { oldItem };
+		while (supersetEnumerator.MoveNext())
+		{
+			T currentItem = supersetEnumerator.Current;
+			if (currentItem.CompareTo(oldItem) > 0)
+			{
+				subset.Add(currentItem);
+			}
+			else
+			{
+				yield return subset;
+				subset = new List<T>() { supersetEnumerator.Current };
+			}
+			oldItem = supersetEnumerator.Current;
+		}
+		yield return subset;
+	}
