@@ -1,0 +1,10 @@
+    <Dictionary>
+         <Acronyms>
+           <CasingExceptions>
+              <Acronym>De</Acronym>
+              ...
+           </CasingExceptions>
+           ...
+        </Acronyms>
+        ...
+    </Dictionary>

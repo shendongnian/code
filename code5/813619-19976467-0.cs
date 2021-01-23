@@ -1,0 +1,27 @@
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Pos Venda");
+                #region tabelaPrincipal
+                worksheet.Cells[1, 1, 1, 9].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                worksheet.Cells[1, 1, 1, 9].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(149, 179, 215));
+                worksheet.Cells[1, 1, 1, 9].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium, System.Drawing.Color.Black);
+                worksheet.Cells[1, 1].Value = "N. O.S.";
+                worksheet.Cells[1, 2].Value = "DATA";
+                worksheet.Cells[1, 3].Value = "TECNICO";
+                worksheet.Cells[1, 4].Value = "TEMPO";
+                worksheet.Cells[1, 5].Value = "ATIVIDADE";
+                worksheet.Cells[1, 6].Value = "COMO";
+                worksheet.Cells[1, 7].Value = "EMPRESA";
+                worksheet.Cells[1, 8].Value = "VALOR";
+                worksheet.Cells[1, 9].Value = "SITUACAO";
+                package.Workbook.Properties.Title = "Relatório de Pós Venda";
+                package.Workbook.Properties.Author = "SGP";
+                package.Workbook.Properties.Company = "Libracom Automação Industrial Ltda.";
+                Response.Clear();
+                Response.ClearContent();
+                Response.ClearHeaders();
+                Response.ContentType = "application/x-msexcel";
+                Response.AddHeader("Content-Disposition", String.Format("attachment;filename=\"{0}\"", "Relatorio" + DateTime.Now.ToString("ddMMyyyyHHmmss") + ".xlsx"));
+                Response.BinaryWrite(package.GetAsByteArray());
+                Response.Flush();
+                Response.SuppressContent = true;
+                ApplicationInstance.CompleteRequest();
+                Response.End();

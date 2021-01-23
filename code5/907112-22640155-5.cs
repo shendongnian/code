@@ -1,0 +1,8 @@
+    Enum.ToString()
+      Enum.InternalFormat(RuntimeType, object)
+        Enum.GetName(RuntimeType, object)
+          Type.GetEnumName(object)
+            Type.GetEnumRawConstantValues()
+              Type.GetEnumData(out string[], out Array)
+            Type.GetEnumNames()
+              Type.GetEnumData(out string[], out Array)

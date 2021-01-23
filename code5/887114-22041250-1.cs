@@ -1,0 +1,20 @@
+    <ns0:ElementList xmlns:ns0="http://BizTalk_Server_Project1.Schema2">
+      <Element>
+        <ID>1</ID>
+      </Element>
+      <Element>
+        <ID>2</ID>
+      </Element>
+      <Element>
+        <ID>10</ID>
+      </Element>
+      <Element>
+        <ID>20</ID>
+      </Element>
+      <Element>
+        <ID>30</ID>
+      </Element>
+      <Element>
+        <ID>40</ID>
+      </Element>
+    </ns0:ElementList>

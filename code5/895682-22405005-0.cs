@@ -1,0 +1,11 @@
+    var newContact = new Contact();
+    newContact.FirstName = "Test";
+    newContact.LastName = "Test";
+    newContact.Addresses.Add(new ContactAddress() { StreetAddress = "Main Street 15",
+                                                    Country = "Exampleland",
+                                                    PostalCode = "1337",
+                                                    Locality = "Capital City" });
+    newContact.Phones.Add(new ContactPhone() { Description = "Home
+                                               Number = "+666 465465464",
+                                               Kind = ContactPhoneKind.Home });
+    newContact.Emails.Add(new ContactEmail() { Address = "Test@gmail.com" });

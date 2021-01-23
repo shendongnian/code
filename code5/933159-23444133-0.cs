@@ -1,0 +1,11 @@
+    MailMessage mail = new MailMessage();
+    SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+    mail.From = new MailAddress(Username);
+    mail.To.Add(TxtEmail.Text);
+    mail.Subject = Subject;
+    mail.Body = Body;
+    SmtpServer.Port = 587;
+    SmtpServer.Credentials = new System.Net.NetworkCredential(Username, Password);
+    SmtpServer.EnableSsl = true;
+    SmtpServer.Timeout = 20000;
+    SmtpServer.Send(mail);

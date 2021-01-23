@@ -1,0 +1,23 @@
+    string sql =
+            "INSERT INTO [order] (user_id, date) VALUES (@user_id, @date); "
+            + "SELECT CAST(scope_identity() AS int)";
+         
+         using (SqlConnection conn = new SqlConnection(connString))
+            {
+                
+           using (SqlCommand cmd = new SqlCommand(sql , cmd))
+             {
+                cmd.Parameters.Add("@user_id", SqlDbType.VarChar);
+                cmd.Parameters.Add("@date", SqlDbType.DateTime).Value = DateTime.Now;
+        
+                try
+                {
+                    conn.Open();
+                    ord_id = (Int32)cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+        	 }
+            }

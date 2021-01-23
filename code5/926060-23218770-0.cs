@@ -1,0 +1,10 @@
+    <ListOfMyClass>
+        <MyClass>
+            <Property>1</Property>
+            ...
+        </MyClass>
+        <MyClass>
+            <Property>2</Property>
+            ...
+        </MyClass>
+    </ListOfMyClass>

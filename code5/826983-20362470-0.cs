@@ -1,0 +1,18 @@
+        SqlCommand command = new SqlCommand();
+        command.Connection = connection;
+        command.CommandText = "SELECT F.* FROM rz_ibsv.dbo.INTGR_INSTLD_BASE_SRVC_CNTRCT_F AS F WHERE F.UPD_GMT_TS >= @StartDate AND F.UPD_GMT_TS < @EndDate ";
+        command.CommandType = CommandType.Text;
+        SqlParameter parameter = new SqlParameter();
+        parameter.ParameterName = "StartDate";
+        parameter.SqlDbType = SqlDbType.DateTime;
+        parameter.Direction = ParameterDirection.Input;
+        parameter.Value = Start_Date;
+        command.Parameters.Add(parameter);
+        parameter = new SqlParameter();
+        parameter.ParameterName = "EndDate";
+        parameter.SqlDbType = SqlDbType.DateTime;
+        parameter.Direction = ParameterDirection.Input;
+        parameter.Value = End_Date;
+        command.Parameters.Add(parameter);
+        connection.Open();
+        SqlDataReader reader = command.ExecuteReader();

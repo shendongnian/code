@@ -1,0 +1,11 @@
+       SqlConnection sqlConnection = new SqlConnection();
+       SqlCommand sqlCommand = new SqlCommand();
+       sqlConnection.ConnectionString = "Data Source=SERVERNAME;Initial    Catalog=DATABASENAME;Integrated Security=True";
+       sqlConnection.Open();
+       sqlCommand.Connection = sqlConnection;
+       sqlCommand.CommandType = CommandType.StoredProcedure;
+       sqlCommand.CommandText = "SPName";
+       sqlCommand.Parameters.Add("@param1", SqlDbType.VarChar).Value = value1;
+       sqlCommand.Parameters.Add("@param2", SqlDbType.VarChar).Value = value2;
+       sqlCommand.Parameters.Add("@Param3", SqlDbType.VarChar).Value = value3;
+       sqlCommand.ExecuteNonQuery();

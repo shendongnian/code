@@ -1,0 +1,11 @@
+            ComboBox cb = new ComboBox();
+            List<string> items = new List<string>();
+            items.Add("1");
+            items.Add("2");
+            items.Add("3");
+            items.Add("5");
+            items.Add("7");
+            items.Add("8");
+            cb.ItemsSource = items;
+            cb.MaxDropDownHeight = 20;
+            childGrid.Children.Add(cb);

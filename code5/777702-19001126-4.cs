@@ -1,0 +1,6 @@
+    ...
+    test = (10 -(sum % 10));
+    // Console.WriteLine("{0}", test);
+    test = double.Parse(Console.ReadLine());
+    Console.ReadLine();
+    ...

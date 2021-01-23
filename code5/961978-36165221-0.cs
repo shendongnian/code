@@ -1,0 +1,6 @@
+    public override async Task PreAuthenticate(IHttpClient client, IHttpRequestMessage request, ICredentials credentials)
+    {
+    ...
+        // set proxy field by reflection here
+    ...
+    }

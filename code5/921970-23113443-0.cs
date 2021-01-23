@@ -1,0 +1,11 @@
+        var cars = (EdmEntitySet)edmModel.EntityContainers().Single().FindEntitySet("Cars");
+        var parts = (EdmEntitySet)edmModel.EntityContainers().Single().FindEntitySet("Parts");
+        var carType = (EdmEntityType)edmModel.FindDeclaredType("MyNamespace.Car");
+        var partType = (EdmEntityType)edmModel.FindDeclaredType("MyNamespace.Part");
+        var partsProperty = new EdmNavigationPropertyInfo();
+        partsProperty.TargetMultiplicity = EdmMultiplicity.Many;
+        partsProperty.Target = partType;
+        partsProperty.ContainsTarget = false;
+        partsProperty.OnDelete = EdmOnDeleteAction.None;
+        partsProperty.Name = "Parts";
+        cars.AddNavigationTarget(carType.AddUnidirectionalNavigation(partsProperty), parts);

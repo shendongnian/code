@@ -1,0 +1,6 @@
+    TestTile.Measure( new Size( 366,366 ) );
+    TestTile.Arrange( new Rect( 0, 0, 366, 366 ) );
+    TestTile.UpdateLayout();
+    
+    ...
+    WritableBitmap...

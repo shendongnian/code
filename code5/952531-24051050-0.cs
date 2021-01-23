@@ -1,0 +1,6 @@
+    //...
+    WebClient client = new WebClient();
+    string getString = client.DownloadString(url);
+    var obj = JObject.Parse(asd);
+    var classIds = obj.SelectTokens("$.rgDescriptions.*.classid").Select(x => x.Value<string>()).ToList();  //[253033065,166354998]
+    //...

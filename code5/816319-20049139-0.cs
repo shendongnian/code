@@ -1,0 +1,9 @@
+    public bool IsReadOnly { get; set; } // Implement INotifyPropertyChanged here
+    ...
+ 
+    <TextBox Grid.Row="0" IsReadOnly="{Binding IsReadOnly}" ... />
+    ...
+    <TextBox Grid.Row="3" IsReadOnly="{Binding IsReadOnly}" ... />
+    <TextBox Grid.Row="4" ... /> <!--Never readonly-->
+    ...
+     IsReadOnly = true;

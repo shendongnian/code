@@ -1,0 +1,6 @@
+    DataColumn KeyCol = new DataColumn("Key", typeof(int));
+    //...
+    Table.Constraints.Add("keyCon", KeyCol, true);
+    //...
+    Table.Rows.Add(0, "A", "B");
+    Table_2.Rows.Add(0, DBNull.Value, DBNull.Value, "C");

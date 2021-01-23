@@ -1,0 +1,11 @@
+    <Dictionary>
+          <Words>
+             <Recognized>
+                <Word>DeCartaSuchAndSuch1</Word>
+                <Word>DeCartaSuchAndSuch2</Word>
+                ...
+             </Recognized>
+             ...
+          </Words>
+          ...
+    </Dictionary>

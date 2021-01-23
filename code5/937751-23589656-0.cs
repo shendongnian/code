@@ -1,0 +1,15 @@
+      Microsoft.JScript.COMCharStream
+      System.Data.OracleClient.OracleBFile
+      System.Data.OracleClient.OracleLob
+      System.Data.SqlTypes.SqlFileStream
+      System.IO.BufferedStream
+      System.IO.Compression.DeflateStream
+      System.IO.Compression.GZipStream
+      System.IO.FileStream
+      System.IO.MemoryStream
+      System.IO.Pipes.PipeStream
+      System.IO.UnmanagedMemoryStream
+      System.Net.Security.AuthenticatedStream
+      System.Net.Sockets.NetworkStream
+      System.Printing.PrintQueueStream
+      System.Security.Cryptography.CryptoStream

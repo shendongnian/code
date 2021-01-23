@@ -1,0 +1,6 @@
+    public object GetValue(string template, params object[] args)
+    {
+        ...
+        string sql = string.Format(template, args);
+        ...
+    }

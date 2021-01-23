@@ -1,0 +1,15 @@
+            var cityResponse = new CityResponse();
+            cityResponse.status = "okay";
+            cityResponse.result = new List<City>();
+            var city = new City();
+            city.Status = "0";
+            city.Id = "1";
+            city.Country = "2";
+            city.Region = "3";
+            city.MainCity = "4";
+            city.Latitude = "5";
+            city.Longitude = "6";
+            city.Comment = "7";
+            city.WasThereAnError = false;
+            cityResponse.result.Add(city);
+            var jsonString = JsonConvert.SerializeObject(cityResponse);

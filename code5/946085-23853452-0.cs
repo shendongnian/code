@@ -1,0 +1,19 @@
+        private Timer _aTimer;
+        public void OnSomethingHappens()
+        {  
+            if (_aTimer != null)
+            {
+                _aTimer.Enabled = true;
+                return;
+            }
+            _aTimer = new Timer();
+            _aTimer.Elapsed += (sender, e) => DoSomethingElse(sender, e);
+            _aTimer.Interval = 1000;
+            // start
+            _aTimer.Enabled = true;
+        }
+        private void DoSomethingElse(object sender, ElapsedEventArgs e)
+        {    // stop
+            _aTimer.Enabled = false;
+            // ... do w/e you want
+        }

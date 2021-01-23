@@ -1,0 +1,6 @@
+    public ActionResult Index()
+     {
+    ...
+    ...
+      ViewBag.DropDownBag=oList;
+    }

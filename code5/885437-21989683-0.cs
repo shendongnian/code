@@ -1,0 +1,11 @@
+     string fName = @"D:\Error.txt";
+     System.IO.FileStream fs = System.IO.File.Open(fName, System.IO.FileMode.Open);
+     byte[] btFile = new byte[fs.Length];
+     fs.Read(btFile, 0, Convert.ToInt32(fs.Length));
+     fs.Close();
+     context.Response.Clear();
+     context.Response.ClearHeaders();
+     context.Response.AddHeader("Content-disposition", "attachment; 
+               filename=" + HttpUtility.UrlEncode(fname, System.Text.Encoding.UTF8));
+     context.Response.ContentType = "text/plain";  
+     context.Response.BinaryWrite(btFile);           

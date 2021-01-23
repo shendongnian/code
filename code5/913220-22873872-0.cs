@@ -1,0 +1,15 @@
+    var facebookOptions = new Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions{...};
+    facebookOptions.Scope.Add("email");
+    facebookOptions.Scope.Add("user_about_me");
+    facebookOptions.Scope.Add("user_events");
+    facebookOptions.Scope.Add("user_groups");
+    facebookOptions.Scope.Add("user_likes");
+    facebookOptions.Scope.Add("user_photos");
+    facebookOptions.Scope.Add("user_videos");
+    facebookOptions.Scope.Add("user_checkins");
+    facebookOptions.Scope.Add("user_friends");
+    facebookOptions.Scope.Add("user_location");
+    facebookOptions.Scope.Add("user_photo_video_tags");
+    facebookOptions.Scope.Add("user_actions.music");
+    facebookOptions.Scope.Add("user_activities");
+    app.UseFacebookAuthentication(facebookOptions);

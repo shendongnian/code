@@ -1,0 +1,9 @@
+    var n0 = System.Diagnostics.Process.GetCurrentProcess().PrivateMemorySize64;
+    var n1 = System.Diagnostics.Process.GetCurrentProcess().WorkingSet64;
+    var n2 = System.Diagnostics.Process.GetCurrentProcess().VirtualMemorySize64;
+    float f0 = ((float)n0)/(1000*1000);
+    float f1 = ((float)n1)/(1000*1000);
+    float f2 = ((float)n2)/(1000*1000);
+    Console.WriteLine("private = " + f0 + " MB");
+    Console.WriteLine("working = " + f1 + " MB");
+    Console.WriteLine("virtual = " + f2 + " MB");

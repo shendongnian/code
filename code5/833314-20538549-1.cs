@@ -1,0 +1,14 @@
+        var tw = new StringWriter();
+        var hw = new System.Web.UI.HtmlTextWriter(tw);
+        var dgGrid = new DataGrid();
+        dgGrid.DataSource = dataTable;
+        dgGrid.DataBind();
+        dgGrid.RenderControl(hw);
+      var  attachment = "attachment; filename=" + fileName + ".xls";
+        Response.Charset = "UTF-8";
+        Response.ContentType = "application/vnd.ms-excel";
+        Response.AppendHeader("content-disposition", attachment);
+        // outputResponse = tw.ToString();
+        Response.Output.Write(tw.ToString());
+        Response.Flush();
+        Response.End();

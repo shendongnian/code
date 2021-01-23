@@ -1,0 +1,14 @@
+    DataSet1TableAdapters.Mas_SubItemTableAdapter object_customer = new DataSet1TableAdapters.Mas_SubItemTableAdapter();
+            DataSet1.Mas_SubItemDataTable table = object_customer.GetData();
+            DataGrid dg = new DataGrid();
+            dg.DataSource = table;
+            dg.DataBind();
+            Response.ClearContent();
+            Response.AddHeader("content-disposition", "attachment; filename= Subitem.xls");
+            Response.ContentType = "application/excel";
+            //[].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+            System.IO.StringWriter sw = new System.IO.StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            dg.RenderControl(htw);
+            Response.Write(sw.ToString());
+            Response.End();

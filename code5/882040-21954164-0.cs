@@ -1,0 +1,14 @@
+    @*
+       This shape is displayed for a TermPart when in a Taxonomy details page.
+    
+       Alternates:
+       - TaxonomyItemLink__[HtmlClassifiedTaxonomyName]
+       - TaxonomyItemLink__[HtmlClassifiedTaxonomyName]__[HtmlClassifiedTermName]
+    *@
+    @using Orchard.Taxonomies.Models
+    @{
+       TermPart part = Model.ContentPart;
+    }
+    
+    <span> This is the number of content items with this Term @part.Count </span>   
+    @Html.ItemDisplayLink(part)

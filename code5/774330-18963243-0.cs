@@ -1,0 +1,11 @@
+       sb.Append("             <td class=\"rowTextLeft\" width=\"25%\">SPR/JDHF Allotment:</td>");
+       sb.Append("             <td class = \"rowText\" td width=\"75%\">"); 
+                                                       lc3 = new LiteralControl(sb.ToString()); 
+                                                       Controls.Add(lc3); 
+                                                       TextBox JDHFTxt = new TextBox(); 
+                                                       JDHFTxt.ID = "txtJDHF"; 
+                                                       JDHFTxt.Enabled = false; 
+                                                       JDHFTxt.Value = ConvertToAllocation(DrACE["SPRAllotment"].ToString()); 
+                                                       Controls.Add(JDHFTxt); 
+                                                       sb = new StringBuilder();
+       sb.Append("</td>");

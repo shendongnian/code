@@ -1,0 +1,11 @@
+        HttpResponse response = HttpContext.Current.Response; 
+        response.Clear();
+        response.Buffer = false;
+        response.BufferOutput = false;
+        response.Charset = "UTF-8";
+        response.ContentEncoding = System.Text.Encoding.UTF8;           
+        response.AppendHeader("Content-disposition", "attachment; filename=" + fileName);
+        response.Write(excelXml);
+        response.Flush();
+        response.End();
+        HttpContext.Current.Response.End();

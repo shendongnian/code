@@ -1,0 +1,13 @@
+            var grid = new GridView();
+            grid.DataSource = candidates;
+            grid.DataBind();
+            Response.ClearContent();
+            Response.AddHeader("content-disposition", "attachment; filename=candidates.xls");
+            Response.ContentType = "application/excel";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            grid.RenderControl(htw);
+            string style = @"<style> td { mso-number-format:\@;} </style>";
+            Response.Write(style);
+            Response.Write(sw.ToString());
+            Response.End();

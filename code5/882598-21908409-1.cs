@@ -1,0 +1,24 @@
+    var chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+	var chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			
+	chart1.BackColor = System.Drawing.Color.Black;               
+	chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+	chartArea1.AxisY.MinorGrid.Enabled = true;
+	chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+	chartArea1.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+	chartArea1.AxisX2.MinorGrid.Enabled = true;
+	chartArea1.AxisX.LineColor = System.Drawing.Color.Green;
+	chartArea1.AxisX2.LineColor = System.Drawing.Color.Green;
+	chartArea1.AxisX2.LineWidth = 1;
+	chartArea1.AxisX2.MinorGrid.Interval = 0.25D;
+	chartArea1.AxisX2.MinorGrid.IntervalOffset = -0.01D;
+	chartArea1.AxisX2.MinorGrid.LineColor = System.Drawing.Color.Green;
+	chartArea1.AxisY.LineColor = System.Drawing.Color.Green;
+	chartArea1.AxisY.LineWidth = 1;
+	chartArea1.AxisY.Maximum = 2D;
+	chartArea1.AxisY.MaximumAutoSize = 100F;
+	chartArea1.AxisY.Minimum = -2D;           
+	chartArea1.AxisY.MinorGrid.Interval = 0.25D;
+	chartArea1.AxisY.MinorGrid.IntervalOffset = -0.01D;
+	chartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.Green;          
+	chart1.ChartAreas.Add(chartArea1);

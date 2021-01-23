@@ -1,0 +1,13 @@
+    Image anImage = new Image();
+    anImage.Visibility = Visibility.Visible;
+    anImage.Width = 120;
+    anImage.Height = 310;
+    anImage.HorizontalAlignment = HorizontalAlignment.Left;
+    anImage.VerticalAlignment = VerticalAlignment.Top;
+    BitmapImage bmImage = new BitmapImage(new Uri(@"pack://application:,,,/yournameSpace;component/Subfolder/balloonB.png"));
+    bmImage.BeginInit();
+    bmImage.EndInit();
+    anImage.Source = bmImage;
+    anImage.Stretch = Stretch.None;
+    this.AddVisualChild(anImage);
+    this.InvalidateVisual();

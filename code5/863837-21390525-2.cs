@@ -1,0 +1,36 @@
+    protected void btnValiderModifier_Click(object sender, EventArgs e)
+    {
+    	using(SqlConnection conn = new SqlConnection(connString))
+    	{
+                string myid;
+                for (int i = 0; i < gv_enfant.Rows.Count; i++)
+                {
+                    CheckBox chbox = (CheckBox)gv_enfant.Rows[i].Cells[0].FindControl("CheckBoxenfant");
+                    if (chbox.Checked)
+                    {
+                        myid = ((HiddenField)gv_enfant.Rows[i].Cells[0].FindControl("codeenfant")).Value;
+                    }
+                }
+    		try
+    		{
+    			conn.Open();
+    			SqlCommand cmd = new SqlCommand("update Enfants set prenom =@prenom,  DateNaissance=@dateNaissance, Scolarise=@scolarise, Activite=@activite where codeEnfants=@codeEnfants", conn);
+    			cmd.Parameters.AddWithValue("@prenom", TextBox_NPmodif.Text);
+    			cmd.Parameters.AddWithValue("@DateNaissance", TextBox_DNmodif.Text);
+    			cmd.Parameters.AddWithValue("@Scolarise", TextBox_Scolarisemodif.Text);
+    			cmd.Parameters.AddWithValue("@Activite", TextBox_Activitemodif.Text);
+    			cmd.Parameters.AddWithValue("@codeEnfants", myid);
+    			cmd.ExecuteNonQuery();
+                //success!
+    			Response.Write("<script>alert('Opération reussie')</script>");
+                gv_enfant.DataBind();
+    		}
+    		catch(SqlException sqlEx)
+    		{
+                //fail!
+    			//what is the point of cacthing if you do use the exception?
+    			Response.Write("error" + sqlEx.Message);
+    			Response.Write("<script>alert ('Erreur lors de la modif!')</script>");
+    		}
+    	}
+    }

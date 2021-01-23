@@ -1,0 +1,11 @@
+    con.Open();
+    OracleCommand cmd = new OracleCommand("Frm_Dealer_list_Prc_2_4", con);
+    cmd.Parameters.Add("DlrID", OracleType.Cursor).Direction = ParameterDirection.Output;
+    DataSet ds = new DataSet();
+    OracleDataAdapter da = new OracleDataAdapter();
+    da.SelectCommand = HaCommand;
+    da.Fill(ds);
+    comboBox1.DataSource = ds.Tables[0];
+    comboBox1.ValueMember = ds.Tables[0].Columns["DlrCODE"];
+    comboBox1.DisplayMember = ds.Tables[0].Columns["DlrNAME"];
+    comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;

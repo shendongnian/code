@@ -1,0 +1,12 @@
+    var table = new DataTable();
+    table.Columns.Add("id", typeof(int));
+    table.Columns.Add("name", typeof(string));
+    table.Columns.Add("parentId", typeof(int));
+    table.Rows.Add(1, "One", (int?)null);
+    table.Rows.Add(2, "OneA", 1);
+    table.Rows.Add(3, "OneB", 1);
+    table.Rows.Add(4, "Two", (int?)null);
+    table.Rows.Add(5, "TwoA", 4);
+    table.Rows.Add(6, "TwoB", 4);
+    table.Rows.Add(7, "TwoAA", 5);
+    table.Rows.Add(8, "TwoAB", 5);

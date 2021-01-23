@@ -1,0 +1,10 @@
+    textbox.Add(reader.GetString(reader.GetOrdinal("FReqID")));
+    textbox.Add(reader.GetString(reader.GetOrdinal("OrderDate")));
+    textbox.Add(reader.GetString(reader.GetOrdinal("OrderTime")));
+    textbox.Add(reader.GetString(reader.GetOrdinal("ReqIP")));
+    textbox.Add(reader.GetString(reader.GetOrdinal("Status")));
+    textbox.Add(reader.GetString(reader.GetOrdinal("FileCode")));
+    textbox.Add(reader.GetString(reader.GetOrdinal("Type")));
+    textbox.Add(reader.GetString(reader.GetOrdinal("DOI")));
+    textbox.Add(reader.GetString(reader.GetOrdinal("PubMedID")));
+    textbox.Add(reader.GetString(reader.GetOrdinal("PaperCode")));

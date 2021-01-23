@@ -1,0 +1,41 @@
+    public ActionResult ExportToCsv()
+    {
+        string Path = @"C:\\5Newwithdate.xls";
+        OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source= '" + Path + "';Extended Properties=" + (char)34 + "Excel 8.0;IMEX=1;" + (char)34 + "");
+        OleDbDataAdapter da = new OleDbDataAdapter("select * from [Sheet1$]", con);
+        con.Close();
+        System.Data.DataTable data = new System.Data.DataTable();
+        da.Fill(data);
+        SQLDBBillingProvider sql = new SQLDBBillingProvider();
+        List<TopPlayed> daa = new List<TopPlayed>();
+    
+        // Create a memory stream and a TextWriter that uses it for its output
+        var sw = new StreamWriter(new MemoryStream());
+        TextWriter tw = new TextWriter(sw);
+    
+        // Write the header row
+        tw.WriteLine("\"ID\", \"Track\", \"Artist\", \"Plays\"");
+        // Write the data here..
+        foreach (DataRow p in data.Rows)
+        {
+            TopPlayed top = new TopPlayed()
+            {
+                TrackID = p.Field<double>("ID").ToString(),
+                TrackName = p.Field<string>("Track Name"),
+                ArtistName = p.Field<string>("Artist Name"),
+                Times = p.Field<double>("NoOfPlays").ToString()
+            };
+            // Write a single CSV line
+            tw.WriteLine(string.Format("\"{0}\", \"{1}\", \"{2}\", \"{3}\"", top.TrackID, top.TrackName, top.ArtistName, top.Times);
+        }
+        // Now return the stream to the client/browser    
+        HttpContext.Response.ClearContent();
+        HttpContext.Response.AddHeader("content-disposition", "attachment; filename=TopTracks.csv");
+        HttpContext.Response.AddHeader("Expires", "0");
+        gridvw.RenderControl(tw);
+        // Flush the stream and reset the file cursor to the start
+        sw.Flush();
+        sw.BaseStream.Seek(0, SeekOrigin.Begin);
+        // return the stream with Mime type
+        return new FileStreamResult(sw.BaseStream, "text/csv");
+    }

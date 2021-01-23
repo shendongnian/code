@@ -1,0 +1,6 @@
+    public class ListItem
+    {
+    	....
+    	public bool IsDuplicate { get; set; }
+    	....
+    }

@@ -1,0 +1,25 @@
+                // start
+                DisposalEscrow disposal = new DisposalEscrow("temp1");
+                CobaltFilePartitionConfig content = new CobaltFilePartitionConfig();
+                content.IsNewFile = false;
+                content.HostBlobStore = new FileSystemHostBlobStore("C:\\src\\filestore\\", "filestore", new FileSystemHostBlobStore.Config(), disposal, true, false);
+                content.cellSchemaIsGenericFda = true;
+                content.CellStorageConfig = new CellStorageConfig();
+                content.Schema = CobaltFilePartition.Schema.ShreddedCobalt;
+                content.PartitionId = FilePartitionId.Content;
+                CobaltFilePartitionConfig wacupdate = new CobaltFilePartitionConfig();
+                wacupdate.IsNewFile = false;
+                wacupdate.HostBlobStore = new FileSystemHostBlobStore("C:\\src\\wacstore\\", "wacstore", new FileSystemHostBlobStore.Config(), disposal, true, false);
+                wacupdate.cellSchemaIsGenericFda = false;
+                wacupdate.CellStorageConfig = new CellStorageConfig();
+                wacupdate.Schema = CobaltFilePartition.Schema.ShreddedCobalt;
+                wacupdate.PartitionId = FilePartitionId.WordWacUpdate;
+                Dictionary<FilePartitionId, CobaltFilePartitionConfig> pd = new Dictionary<FilePartitionId, CobaltFilePartitionConfig>();
+                pd.Add(FilePartitionId.Content, content);
+                pd.Add(FilePartitionId.WordWacUpdate, wacupdate);
+                cobaltFile = new CobaltFile(disposal, pd, new CustomHostLockingStore(), null);
+                var src = FileAtom.FromExisting("C:\\src\\Test.docx", disposal);
+                Cobalt.Metrics o1;
+                cobaltFile.GetCobaltFilePartition(FilePartitionId.Content).SetStream(RootId.Default.Value, src, out o1);
+                cobaltFile.GetCobaltFilePartition(FilePartitionId.Content).GetStream(RootId.Default.Value).Flush();
+                cobaltFile.CommitChanges();

@@ -1,0 +1,11 @@
+    DataTable _table = (dataGridView1.DataSource as DataTable);
+    DataColumn dc = new DataColumn("string", typeof(string));
+    DataColumn dc2 = new DataColumn("Progress", typeof(ProgressBar));
+    _table.Columns.Add(dc);
+    _table.Columns.Add(dc2);
+    DataRow dr = _table.NewRow();
+    dr["string"] = 1;
+    ProgressBar p = new ProgressBar();
+    p.Value = 35;
+    dr["Progress"] = p;
+    _table.Rows.Add(dr);

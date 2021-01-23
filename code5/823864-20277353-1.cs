@@ -1,0 +1,20 @@
+    List<int> nos = new List<int>(10);
+    nos.AddWeightedNo(1, 3);
+    nos.AddWeightedNo(2, 2);
+    nos.AddWeightedNo(3, 6);
+    //...
+    nos.AddWeightedNo(9, 3);
+    nos.AddWeightedNo(10, 3);
+    Random rnd = new Random();
+    int n1 = rnd.Next(nos.Count);
+    Console.WriteLine(nos[n1].ToString());
+    nos.RemoveWeightedNo(nos[n1]);
+    int n2 = rnd.Next(nos.Count);
+    Console.WriteLine(nos[n2].ToString());
+    nos.RemoveWeightedNo(nos[n2]);
+    int n3 = rnd.Next(nos.Count);
+    Console.WriteLine(nos[n3].ToString());
+    nos.RemoveWeightedNo(nos[n3]);
+    int n4 = rnd.Next(nos.Count);
+    Console.WriteLine(nos[n4].ToString());
+    nos.RemoveWeightedNo(nos[n4]);

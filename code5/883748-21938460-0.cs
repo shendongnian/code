@@ -1,0 +1,10 @@
+    WebClient wc = new WebClient();
+    byte[] data = wc.DownloadData(context.Request.QueryString.Get("url"));
+    MemoryStream memstream = new MemoryStream(data);
+    Image img = Image.FromStream(memstream);
+    img = resize(img, new System.Drawing.Size(100, 100));
+    context.Response.Clear();
+    context.Response.ClearHeaders();
+    img.Save(context.Response.OutputStream, ImageFormat.Jpeg);
+    context.Response.ContentType = "image/jpeg";
+    HttpContext.Current.ApplicationInstance.CompleteRequest();

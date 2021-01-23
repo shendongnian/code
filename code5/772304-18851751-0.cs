@@ -1,0 +1,11 @@
+    byte[] imagedata =(byte[]) Session["ImageBytes"];
+    string attachment = "attachment; filename="+txtJobNumber.Text+"_Image.jpg";
+    HttpContext.Current.Response.Clear();
+    HttpContext.Current.Response.ClearHeaders();
+    HttpContext.Current.Response.ClearContent();
+    HttpContext.Current.Response.AddHeader("content-disposition", attachment);
+    HttpContext.Current.Response.ContentType = "image/jpeg";
+    HttpContext.Current.Response.AddHeader("Pragma", "public");
+    HttpContext.Current.Response.BinaryWrite(imagedata);
+    HttpContext.Current.Response.Flush();
+    HttpContext.Current.Response.Close();

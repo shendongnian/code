@@ -1,0 +1,6 @@
+    ParameterExpression pe = Expression.Parameter(typeof(Contact), "c");
+    // ...
+    Expression left = Expression.Property(pe, typeof(Contact).GetProperty("ContactID"));
+    Expression right = Expression.Constant(38, typeof(int));
+    Expression e1 = Expression.Equal(left, right);
+    // And so on...

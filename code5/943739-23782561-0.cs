@@ -1,0 +1,7 @@
+    var results = ppl.GroupBy(x => x.houseid);
+                     .Where(g => g.Count() < 5)
+                     .Select(g => new { Id = g.Key, Count = g.Count());
+    foreach (var house in results)
+    {
+        Console.WriteLine("House {0} has a population of {1}", house.Id, house.Count);
+    }

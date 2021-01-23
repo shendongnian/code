@@ -1,0 +1,5 @@
+    Users.Where(u => u.UserId == userId)
+         .SelectMany(u => u.CollectionOfPermissions)
+         .Union(Users.Where(u => u.UserId == userId)
+                     .Select(u => u.CollectionOfGroups)
+                     .SelectMany(g => g.Permissions))

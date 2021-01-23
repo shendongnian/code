@@ -1,0 +1,6 @@
+    public ProblemClass
+    {
+        // public string Name { get; set; }
+        // ...
+        // ...
+    }

@@ -1,0 +1,10 @@
+    <GasRoot>
+        <GasInfoEntries>
+          <Gallons>123</Gallons>
+          <Price>456</Price>
+        </GasInfoEntries>
+        <GasInfoEntries>
+          <Gallons>123</Gallons>
+          <Price>456</Price>
+        </GasInfoEntries>
+    </GasRoot>

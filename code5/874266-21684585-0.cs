@@ -1,0 +1,14 @@
+    GrammarBuilder state = new GrammarBuilder();
+    state.Append(new Choices("on", "off"));
+    state.Culture = ri.Culture;
+    GrammarBuilder noun = new GrammarBuilder();
+    noun.Append(new Choices("lamp"));
+    noun.Culture = ri.Culture;
+    GrammarBuilder verb = new GrammarBuilder();
+    verb.Append(new Choices("turn"));
+    verb.Culture = ri.Culture;   
+    GrammarBuilder grammar = new GrammarBuilder();
+    grammar.Append(verb);
+    grammar.Append(lamp);
+    grammar.Append(state);
+    Grammar g = new Grammar(grammar);

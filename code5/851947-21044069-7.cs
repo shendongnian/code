@@ -1,0 +1,11 @@
+    var tblCompany = new DataTable();
+    tblCompany.Columns.Add("Company", typeof(string));
+    tblCompany.Columns.Add("Manager", typeof(string));
+    tblCompany.Columns.Add("Location", typeof(string));
+    tblCompany.Columns.Add("Count1", typeof(int));
+    tblCompany.Columns.Add("Count2", typeof(int));
+    tblCompany.Columns.Add("Count3", typeof(int));
+    tblCompany.Rows.Add("C1", "Mgr", "LocName", 1, 0, 0);
+    tblCompany.Rows.Add("C1", "Mgr", "LocName", 1, 3, 0);
+    tblCompany.Rows.Add("C1", "Mgr", "LocName", 0, 0, 7);
+    tblCompany.Rows.Add("C2", "Mgr2", "LocName2", 0, 0, 5);

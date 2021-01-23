@@ -1,0 +1,13 @@
+    var authenticator = new ClientLoginAuthenticator("ApplicationName", ServiceNames.Documents, new GDataCredentials("Username", "Password"));
+    var service = new DocumentsService("ApplicationName");
+    var entry = new DocumentEntry();
+    entry.Title.Text = fileName;
+    entry.MediaSource = new MediaFileSource(filePath, "application/pdf");
+    var createUploadUrl = new Uri(String.Format(UploadPath, "uploadFileId"));
+    var link = new AtomLink(createUploadUrl.AbsoluteUri);
+    link.Rel = ResumableUploader.CreateMediaRelation;
+    entry.Links.Add(link);
+    entry.Service = service;
+    var uploader = new ResumableUploader();
+    var response = uploader.Insert(authenticator, entry);
+    return response.ResponseUri.AbsolutePath;

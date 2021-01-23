@@ -1,0 +1,12 @@
+            data.Columns.Add(new DataColumn("Value", typeof(string)));
+            data.Columns.Add(new DataColumn("Description", typeof(string)));
+            data.Rows.Add("item1");
+            data.Rows[data.Rows.Count - 1].SetField("Value", "value1");
+            data.Rows[data.Rows.Count - 1].SetField("Description", "description1");
+            data.Rows.Add("item2");
+            data.Rows[data.Rows.Count - 1].SetField("Value", "value2");
+            data.Rows[data.Rows.Count - 1].SetField("Description", "description2");
+            data.Rows.Add("item3");
+            data.Rows[data.Rows.Count - 1].SetField("Value", "value3");
+            data.Rows[data.Rows.Count - 1].SetField("Description", "description3");
+            column.DataSource = data;

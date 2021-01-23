@@ -1,0 +1,14 @@
+    Attempt to cast to interface Microsoft.VisualStudio.Shell.Interop.IVsDeferredDocView
+    Attempt to cast to interface Microsoft.VisualStudio.Shell.Interop.IVsPersistDocData2
+    Attempt to cast to interface Microsoft.VisualStudio.Shell.Interop.IVsPersistDocData
+    Attempt to cast to interface Microsoft.VisualStudio.Shell.Interop.IVsPersistDocData2
+    Attempt to cast to interface Microsoft.VisualStudio.Shell.Interop.IVsPersistDocData
+    Attempt to cast to interface Microsoft.VisualStudio.Shell.Interop.IVsPersistDocData
+    Attempt to cast to interface Microsoft.VisualStudio.Shell.Interop.IVsPersistDocData2
+    Attempt to cast to interface Microsoft.VisualStudio.Shell.Interop.IVsPersistDocData
+    Attempt to cast to interface Microsoft.VisualStudio.Shell.Interop.IVsPersistDocData
+    Attempt to cast to interface System.Runtime.InteropServices.NativeMethods+IDispatch
+    Attempt to cast to interface Microsoft.VisualStudio.Shell.Interop.IVsPersistDocData
+    Attempt to cast to interface Microsoft.VisualStudio.Shell.Interop.IVsPersistDocData
+    Attempt to cast to interface Microsoft.VisualStudio.TextManager.Interop.SVsCodeWindow
+    Attempt to cast to interface Microsoft.VisualStudio.TextManager.Interop.SVsCodeWindow

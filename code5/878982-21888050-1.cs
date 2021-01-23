@@ -1,0 +1,17 @@
+      var url = @"https://example.com/api/auth.jsp";
+                var nvc = new NameValueCollection();
+                nvc.Add("msisdn", "xxxxxxxxxxxx");
+                nvc.Add("password", "xxxx");
+                var client = new System.Net.WebClient();
+                var data = client.UploadValues(url, nvc);
+                var res = System.Text.Encoding.ASCII.GetString(data);
+                string GetResponse = res.ToString();
+                string sessionid = XDocument.Parse(res).Descendants("data").First().Value;
+                url = @"https://telenorcsms.com.pk:27677/corporate_sms2/api/sendsms.jsp";
+                nvc = new NameValueCollection();
+                nvc.Add("msisdn", "xxxxxxxxx");
+                nvc.Add("session_id",sessionid);
+                nvc.Add("to", textBox1.Text);
+                nvc.Add("text",textBox2.Text);
+                 data = client.UploadValues(url, nvc);
+                 res = System.Text.Encoding.ASCII.GetString(data);

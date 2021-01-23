@@ -1,0 +1,17 @@
+            object StartPos = 0;
+            object Endpos = 1;
+            Microsoft.Office.Interop.Word.Range rng = doc.Range(ref StartPos, ref Endpos);
+            object NewEndPos = rng.StoryLength - 1;
+            rng = doc.Range(ref NewEndPos, ref NewEndPos);
+            rng.Select();
+            var pText = doc.Paragraphs.Add();
+            pText.Format.SpaceAfter = 10f;
+            pText.Range.Text = String.Format("This is line");
+            pText.Range.InsertParagraphAfter();
+            object StartPos1 = 0;
+            object Endpos1 = 1;
+            Microsoft.Office.Interop.Word.Range rng1 = doc.Range(ref StartPos1, ref Endpos1);
+            object NewEndPos1 = rng.StoryLength - 1;
+            rng1 = doc.Range(ref NewEndPos, ref NewEndPos);
+            rng1.Select();
+            doc.InlineShapes.AddPicture(loc +@"\" + dt + ".jpeg");

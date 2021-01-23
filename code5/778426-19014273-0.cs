@@ -1,0 +1,9 @@
+    ODataModelBuilder modelBuilder = new ODataModelBuilder();
+    var products = modelBuilder.EntitySet<Product>("Products");
+    var product = products.EntityType;
+    product.HasKey(p => p.ID);
+    product.Property(p => p.Name);
+    product.Property(p => p.Price);
+    product.Property(p => p.Category);
+    products.HasIdLink((ctxt) => ctxt.Url.ODataLink(new EntitySetPathSegment("Products"), new KeyValuePathSegment(ctxt.EntityInstance.ID)));
+    IEdmModel model = modelBuilder.GetEdmModel();

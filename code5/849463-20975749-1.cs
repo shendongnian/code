@@ -1,0 +1,9 @@
+    ...
+    //property on main Form
+    public MyControlWasForm1 Form1 { get; set; }
+    ...
+    //in method
+    if(Form1 == null) Form1 = new MycontrolWasForm1(); // this is a user control
+    panel1.Controls.Clear();
+    panel1.Controls.Add(Form1);
+    ...

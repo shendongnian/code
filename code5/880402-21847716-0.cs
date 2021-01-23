@@ -1,0 +1,6 @@
+    public class RootObject
+    {
+        //...
+        public List<Evolution> evolutions { get; set; }
+       //...
+    }

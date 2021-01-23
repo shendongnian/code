@@ -1,0 +1,10 @@
+    int bign, n, t;
+    Console.WriteLine("put N");
+    string s1 = Console.ReadLine();
+    Console.WriteLine("put n");
+    string s2 = Console.ReadLine();
+    Console.WriteLine("put t");
+    string s3 = Console.ReadLine();
+    Int32.TryParse(s1, out bign);
+    Int32.TryParse(s2, out n);
+    Int32.TryParse(s3, out t);

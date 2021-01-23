@@ -1,0 +1,14 @@
+    CustomMarshalers
+    Microsoft.VisualBasic
+    Microsoft.VisualC
+    mscorlib
+    System
+    System.Configuration
+    System.Data
+    System.Data.OracleClient
+    System.Data.SqlXml
+    System.Deployment
+    System.Security
+    System.Transactions
+    System.Web.Services
+    System.Xml 

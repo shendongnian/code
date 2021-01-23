@@ -1,0 +1,10 @@
+	DataTable res = new DataTable();
+	res.Columns.Add("Shipment", typeof(string));
+	res.Columns.Add("Line", typeof(Int32));
+	res.Columns.Add("Remarks", typeof(string));
+	res.Columns.Add("ItemCode", typeof(string));
+	res.Columns.Add("TotalQty", typeof(Int32));
+	res.Columns.Add("RefNo", typeof(string));
+	res.Columns.Add("Quantity", typeof(Int32));
+	res.Columns.Add("Weight", typeof(Int32));
+	res.Columns.Add("From", typeof(string));

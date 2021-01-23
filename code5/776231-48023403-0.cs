@@ -1,0 +1,9 @@
+     var binding = new BasicHttpBinding();
+            binding.ProxyAddress = new Uri(string.Format("http://{0}:{1}", proxyAddress, proxyPort));
+            binding.UseDefaultWebProxy = false;
+            binding.Security.Mode = BasicHttpSecurityMode.Transport;
+            binding.MaxReceivedMessageSize = Int32.MaxValue; //IMPORTANT
+            binding.MaxBufferSize = Int32.MaxValue; //IMPORTANT
+            binding.MaxBufferPoolSize = Int32.MaxValue;//IMPORTANT
+            binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.None;
+            binding.Security.Transport.ProxyCredentialType = HttpProxyCredentialType.Basic;

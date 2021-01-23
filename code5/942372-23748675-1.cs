@@ -1,0 +1,11 @@
+    Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("pt-BR");
+    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("pt-BR");
+    var isoFormat = "yyyy-MM-dd'T'HH:mm:ss.fff'Z'";
+    var parameters = new Dictionary<string, string>();
+    var start = new DateTime(2014, 4, 16, 0, 0, 0, DateTimeKind.Utc);
+    var end = new DateTime(2014, 6, 19, 0, 0, 0, DateTimeKind.Utc);
+    parameters.Add("start", start.ToString(isoFormat, CultureInfo.InvariantCulture));
+    parameters.Add("end", end.ToString(isoFormat, CultureInfo.InvariantCulture));
+    var t = MobileService.GetTable<TodoItem>();
+    var items = t.WithParameters(parameters).ToListAsync().Result;
+    Console.WriteLine(string.Join(", ", items));

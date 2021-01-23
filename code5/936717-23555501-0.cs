@@ -1,0 +1,16 @@
+    byte[] imageID = null;               
+    using (FileStream fstream = new FileStream(this.pathID.Text, FileMode.Open, FileAccess.Read))
+    {
+        BinaryReader br = new BinaryReader(fstream);
+        imageID = br.ReadBytes((int)fstream.Length); 
+        string login = "server=localhost;database=id;uid=root;password=root;";
+        using (MySqlConnection conn = new MySqlConnection(login))
+        {
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO picture(`Picture_Employee`) VALUES (@EMP);";
+            cmd.Parameters.AddWithValue("@EMP", imageID);  
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Picture Added");
+        }
+    

@@ -1,0 +1,9 @@
+    var header = new Dictionary<string, object>
+    {
+     {"Id", reader.GetInt32(0)},
+     ...
+     {"CreatedAt", reader.GetDateTime(4)},
+     ...
+     {"StartDate", new DateOnly { Date =  reader.GetDateTime(7)}},
+     ...
+     };

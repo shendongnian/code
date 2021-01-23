@@ -1,0 +1,13 @@
+                lbl.Text = "Please select a cable number to duplicate:";
+                lbl.Location = new Point(12, 9);
+                lbl.Width = 200;
+                cmb.Location = new Point((lbl.Width + 17), 6);
+                cmb.Size = new System.Drawing.Size(125, 20);
+                btn.Location = new Point((lbl.Width + cmb.Width + 17), 5);
+                btn.Size = new System.Drawing.Size(90, 23);
+                btn.Text = "Add to Table";
+                this.Height = cmb.Height + 48;
+                this.Width = lbl.Width + cmb.Width + btn.Width + 34+100;
+                this.Controls.Add(lbl);
+                this.Controls.Add(cmb);
+                this.Controls.Add(btn);

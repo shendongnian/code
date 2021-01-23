@@ -1,0 +1,36 @@
+    namespace DirectorySearch
+    {
+        class DirectorySearch
+        {
+            const string PATH = @"C:\Directory Search";
+    
+            static void Main(string[] args)
+            {
+    			Console.WriteLine(PATH);
+                DirSearch(PATH);
+            }
+    
+            static void DirSearch(string dir, int depth = 1)
+            {
+                try
+                {
+    				string indent = new string('\t', depth);
+                    foreach (string f in Directory.GetFiles(dir))
+                        Console.WriteLine(indent + f.Split('\\').Last());//using split
+                        //Console.WriteLine(indent + Path.GetFileName(f));//using Get File name
+                        
+                    foreach (string d in Directory.GetDirectories(dir))
+                    {
+                        Console.WriteLine(indent + d.Split('\\').Last()); //using split
+                        //Console.WriteLine(indent + Path.GetFileName(d)); //using Get File name
+                        DirSearch(d, depth++);
+                    }
+    
+                }
+                catch (System.Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+    }

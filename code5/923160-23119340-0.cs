@@ -1,0 +1,10 @@
+    string originalContents = File.ReadAllText("original.txt");
+    string insertContents = File.ReadAllText("append.txt");
+    int index = originalContents .IndexOf("match");
+    if (index == -1) return;
+    FileStream stream = new FileStream("original.txt", FileMode.Open);
+    stream.Position = index;
+    byte[] insertBytes = Encoding.ASCII.GetBytes(insertContents);
+    stream.Write(insertBytes);
+    byte[] endBytes = Encoding.ASCII.GetBytes(originalContents.Substring(index));
+    stream.Write(endBytes);

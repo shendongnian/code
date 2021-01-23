@@ -1,0 +1,14 @@
+    var panelTemplate = new ItemsPanelTemplate();
+    var stackPanel = new FrameworkElementFactory(typeof(StackPanel));
+    stackPanel.SetValue(StackPanel.OrientationProperty, Orientation.Horizontal);
+    panelTemplate.VisualTree = stackPanel;
+    ListBox listBox = new ListBox();
+    listBox.ItemsPanel = panelTemplate;
+    listBox.Items.Add("Mon");
+    listBox.Items.Add("Tue");
+    listBox.Items.Add("Wed");
+    listBox.Items.Add("Thu");
+    listBox.Items.Add("Fri");
+    this.grid.Children.Add(listBox);
+    listBox.SetValue(Grid.RowProperty, 0);
+    listBox.SetValue(Grid.ColumnProperty, 0);

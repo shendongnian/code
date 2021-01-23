@@ -1,0 +1,17 @@
+    ServiceHost host = new ServiceHost(typeof(ExampleService));
+    ICollection<BindingElement> bindingElements = new List<BindingElement>();
+    ServerMessageEncodingBindingElement ServerMessageEncodingElement = new ServerMessageEncodingBindingElement();
+    ServerMessageEncodingElement.ContentEncryption = ContentEncryptionType.All;
+    ServerMessageEncodingElement.ContentCompression = ContentCompressionType.None;
+    HttpTransportBindingElement httpBindingElement = new HttpTransportBindingElement();
+    bindingElements.Add(ServerMessageEncodingElement);
+    bindingElements.Add(httpBindingElement);
+    CustomBinding binding = new CustomBinding(bindingElements);
+    ServiceEndpoint endpoint = host.AddServiceEndpoint(typeof(IExampleService), binding, "http://" + My.Computer.Name + "/Example");
+    dynamic col = new ReadOnlyCollection<IAuthorizationPolicy>(new IAuthorizationPolicy[] { new ChallengeAuthorizationPolicy() });
+    ServiceAuthorizationBehavior sa = host.Description.Behaviors.Find<ServiceAuthorizationBehavior>();
+    sa.ExternalAuthorizationPolicies = col;
+    sa.PrincipalPermissionMode = PrincipalPermissionMode.Custom;
+    ServiceAuthenticationBehavior sm = host.Description.Behaviors.Find<ServiceAuthenticationBehavior>();
+    sm.ServiceAuthenticationManager = new ChallengeAuthenticationManager();
+    host.Open();

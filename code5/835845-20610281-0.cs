@@ -1,0 +1,18 @@
+    XmlDocument doc = new XmlDocument();
+    doc.Load(fileKml);
+    XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+    ns.AddNamespace("x", "http://www.opengis.net/kml/2.2");
+    XmlNode nodeKmlns = doc.SelectSingleNode("/x:kml", ns); 
+    string sKmlns = nodeKmlns.InnerText;
+    XmlNode nodeName = doc.SelectSingleNode("GroundOverlay/name", ns); 
+    string sName = nodeName.InnerText;
+    XmlNode nodehref = doc.SelectSingleNode("GroundOverlay/Icon/href", ns); 
+    string shref = nodehref.InnerText;
+    XmlNode north = doc.SelectSingleNode("GroundOverlay/LatLonBox/north", ns); 
+    string snorth = north.InnerText; double yn = Convert.ToDouble(snorth);
+    XmlNode south = doc.SelectSingleNode("GroundOverlay/LatLonBox/south", ns); 
+    string ssouth = south.InnerText; double ys = Convert.ToDouble(ssouth);
+    XmlNode east = doc.SelectSingleNode("GroundOverlay/LatLonBox/east", ns); 
+    string seast = east.InnerText; double xe = Convert.ToDouble(seast);
+    XmlNode west = doc.SelectSingleNode("GroundOverlay/LatLonBox/west", ns); 
+    string swest = west.InnerText; double xw = Convert.ToDouble(swest);

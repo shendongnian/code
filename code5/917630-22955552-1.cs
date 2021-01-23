@@ -1,0 +1,12 @@
+             Process proc = new Process();               
+             proc.StartInfo.UseShellExecute = true;
+             proc.StartInfo.RedirectStandardOutput = false;
+             proc.StartInfo.RedirectStandardInput = false;
+             proc.StartInfo.FileName = "procpath";
+             proc.StartInfo.Arguments = String.Format("/someParam1:true , _NamePipe1");                                  
+             proc.Start();
+             StreamWriter writer = File.CreateText("newfile.txt");
+             writer.WriteLine(proc.StandardOutput.ReadToEnd());
+             proc.WaitForExit();
+             writer.Flush();
+             writer.Close();

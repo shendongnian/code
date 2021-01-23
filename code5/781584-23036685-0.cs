@@ -1,0 +1,9 @@
+    public abstract class MyClass {
+        …
+        public final static void myMethod1() {
+            …
+        }
+        public final static void myMethod2() {
+            …
+        }
+    }

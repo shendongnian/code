@@ -1,0 +1,7 @@
+    IEnumerable<Contact> contacts = ...
+    IEnumerable<Property> properties = ...
+    var query = from property in properties
+                from name in new[] { property.Rep, property.PropMgr }
+                join contact in contacts on name equals contact.FullName
+                select contact;
+    var result = query.Distinct().ToList();

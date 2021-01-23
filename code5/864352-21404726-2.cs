@@ -1,0 +1,6 @@
+    public class List<T> : IList<T>, ICollection<T>, IList, ICollection, IReadOnlyList<T>, IReadOnlyCollection<T>, IEnumerable<T>, IEnumerable
+    {
+        // ....
+        public T this[int index] { get; set; }
+        // ....
+    }

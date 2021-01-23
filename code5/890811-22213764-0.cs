@@ -1,0 +1,10 @@
+    sqlConnection.Open();
+    sqlCommand.Connection = sqlConnection;
+    sqlCommand.CommandType = CommandType.Text;
+    sqlCommand.CommandText = "Select * from DCR Where Comp_Date >= @CurrentDate And Comp_Date < @nextDay Order By Comp_Date Desc";
+    sqlCommand.Parameters.Add("@CurrentDate", SqlDbType.VarChar).Value = adparam[0];
+    sqlCommand.Parameters.Add("@NextDate", SqlDbType.VarChar).Value = adparam[1];
+    sqlCommand.ExecuteNonQuery();
+    sqlDataAdapter sda = new SqlDataAdapter(sqlcommand);
+    DataTable dt = new DataTable();
+    sda.Fill(dt);

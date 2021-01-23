@@ -1,0 +1,6 @@
+    // xsd foo.xsd /c
+    ...
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="foo.com")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="foo.com", IsNullable=false)]
+    public partial class Envelope {
+    ...

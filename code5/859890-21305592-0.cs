@@ -1,0 +1,17 @@
+    this.kernel.Bind<Parent>().ToSelf();
+    this.kernel.Bind<Child>().ToSelf().InCallScope();
+    this.kernel.Bind<IGrandChild>().To<GrandChild>().InCallScope();
+    var parent1 = this.kernel.Get<Parent>();
+    var parent2 = this.kernel.Get<Parent>();
+    parent1.Dispose();
+    parent1.FirstChild.Should().BeSameAs(parent1.SecondChild);
+    parent1.GrandChild.Should().BeSameAs(parent1.FirstChild.GrandChild);
+    parent1.FirstChild.Should().NotBeSameAs(parent2.FirstChild);
+    parent1.GrandChild.Should().NotBeSameAs(parent2.GrandChild);
+    parent1.FirstChild.IsDisposed.Should().BeTrue();
+    parent1.FirstChild.GrandChild.IsDisposed.Should().BeTrue();
+    parent2.FirstChild.IsDisposed.Should().BeFalse();
+    parent2.FirstChild.GrandChild.IsDisposed.Should().BeFalse();
+    parent2.Dispose();
+    parent2.FirstChild.IsDisposed.Should().BeTrue();
+    parent2.FirstChild.GrandChild.IsDisposed.Should().BeTrue();

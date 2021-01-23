@@ -1,0 +1,6 @@
+    public async void GetDetailsAsync(string url)
+    {
+      ...
+      HtmlRequest = await client.GetAsync(uri, _cts.Token);
+      ...
+    }

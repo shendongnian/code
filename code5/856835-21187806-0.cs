@@ -1,0 +1,5 @@
+     try this     
+     typeOf(TestContext).GetProperties().Select(n => n.PropertyType) // here we get all properties of contect class
+    .Where(n => typeof(DbSet).IsAssignableFrom(n)) // here we select only DBSet collections
+    .Where(n => n.GetCustomAttribute<DoNotAudit>() != null) // here we check for attribute existence
+    .Select(n => n.Name).ToList(); // here we select the names of entity classes

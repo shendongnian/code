@@ -1,0 +1,15 @@
+		XDocument xDocument = new XDocument();
+		XElement rootElement = new XElement("Users");
+		XElement userElement = new XElement("User");
+		userElement.Add(new XElement("UserName", "User1"));
+		userElement.Add(new XElement("Pass", "Pass1"));
+		userElement.Add(new XElement("Location", "Location1"));
+		userElement.Add(new XElement("Rotation", "Rotation1"));
+		rootElement.Add(userElement);
+		userElement = new XElement("User");
+		userElement.Add(new XElement("UserName", "User2"));
+		userElement.Add(new XElement("Pass", "Pass2"));
+		userElement.Add(new XElement("Location", "Location2"));
+		userElement.Add(new XElement("Rotation", "Rotation2"));
+		rootElement.Add(userElement);
+		xDocument.Add(rootElement);

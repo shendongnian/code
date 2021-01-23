@@ -1,0 +1,6 @@
+    public MessageBoxModule
+    {
+        .....
+        CtrlButtonCollectionProperty = new List<Button>();
+        .....
+    }

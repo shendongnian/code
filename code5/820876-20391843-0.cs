@@ -1,0 +1,12 @@
+                DataTable dtable = new DataTable();
+                BindingSource bsource = new BindingSource();
+                DataSet dset = new DataSet();
+                dtable.Columns.Add("Delete");
+                dtable.Columns.Add("FileName");
+                dtable.Columns.Add("FileVersion");
+                dtable.Columns.Add("FileSize");
+                dtable.Columns.Add("InstallFolder");
+                dtable.Columns.Add("fnameorig");
+                dset.Tables.Add(dtable);
+                bsource.DataSource = dset.Tables[0].DefaultView;
+                Gridview1.DataSource = bsource;

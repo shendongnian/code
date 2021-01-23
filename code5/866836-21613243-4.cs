@@ -1,0 +1,8 @@
+    public Venue GetVenue(string venueId)
+    public List<Venue> SearchVenues(Dictionary<string, string> parameters)
+    public List<Checkin> GetVenueHereNow(string venueId, Dictionary<string, string> parameters)
+    public List<Tip> GetVenueTips(string venueId, Dictionary<string, string> parameters)
+    public List<Photo> GetVenuePhotos(string venueId, Dictionary<string, string> parameters)
+    public List<Link> GetVenueLinks(string venueId)
+    public Tip GetTip(string tipId)
+    public Special GetSpecial(string specialId)

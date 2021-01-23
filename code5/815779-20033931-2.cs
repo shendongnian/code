@@ -1,0 +1,17 @@
+           string strBinaryNum=""; //To store binary number
+           int iDecimalNum; //To store decimal numbers
+           Regex r = new Regex("^[0-1]+$");
+                
+            Console.WriteLine("Enter the binary number you want to convert to decimal");
+            strBinaryNum = Console.ReadLine();
+            while(r.Match(strBinaryNum).Success)
+            {        
+            Console.WriteLine("The Binary number you have entered is " + strBinaryNum);
+            iDecimalNum = Convert.ToInt32(strBinaryNum, 2);            
+            Console.WriteLine("This converted into decimal is " + iDecimalNum);
+    
+             Console.WriteLine("Enter the binary number you want to convert to decimal");
+             strBinaryNum = Console.ReadLine();
+            }
+            Console.WriteLine("Press any key to close");
+            Console.ReadKey();

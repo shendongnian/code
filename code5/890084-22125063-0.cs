@@ -1,0 +1,5 @@
+     public class Article
+        {
+            public int Id { get; set; }
+            public string ArticleContent { get; set; }
+        }

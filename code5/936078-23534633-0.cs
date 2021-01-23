@@ -1,0 +1,7 @@
+    <system.web.webPages.razor>
+        <pages>
+          <namespaces>
+            <add namespace="System.Web.Optimization"/>
+          </namespaces>
+        </pages>
+    </system.web.webPages.razor>

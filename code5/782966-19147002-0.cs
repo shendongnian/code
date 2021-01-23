@@ -1,0 +1,12 @@
+        var program = new NonTerminal("program");
+        var command = new IdentifierTerminal("commandName");
+        var argumentList = new NonTerminal("argumentList");
+        var argument = new NonTerminal("argument");
+        var argumentName = new IdentifierTerminal("argumentName");
+        var argumentValue = new IdentifierTerminal("argumentValue");
+        Root = program;
+        program.Rule = command + argumentList;
+        argumentList.Rule = MakePlusRule(argumentList, null, argument);
+        argumentName.AddPrefix("@", IdOptions.NameIncludesPrefix);
+        argument.Rule = argumentName + argumentValue;
+        RegisterOperators(0, Associativity.Left, "@");

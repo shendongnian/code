@@ -1,0 +1,10 @@
+			Form IM = new Form();
+			IM.FormBorderStyle = FormBorderStyle.FixedSingle;
+			IM.Width = 500;
+			IM.Height = 500;
+			IM.Show();
+			System.Drawing.Graphics graphicsObj;
+			graphicsObj = IM.CreateGraphics();
+			Pen myPen = new Pen(System.Drawing.Color.Green, 5);
+			Rectangle myRectangle = new Rectangle(0, 0, 10, 10);
+			graphicsObj.DrawEllipse(myPen, myRectangle);

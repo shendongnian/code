@@ -1,0 +1,12 @@
+     MailMessage mail = new MailMessage();
+     SmtpClient SmtpServer = new SmtpClient("Smtp1.ajmanchamber.ae");
+     mail.From = new MailAddress("Coo-services@ajmanchamber.ae");
+     mail.To.Add(mailId);
+     mail.Subject = "New COO Request Created";
+     mail.Body = "New COO Request is created and your Reference Number is " + ReferenceNo;
+     SmtpServer.Port = 587;
+     SmtpServer.UseDefaultCredentials = false;
+     SmtpServer.Credentials = new NetworkCredential("user", "pasword");
+     SmtpServer.EnableSsl = false;
+     SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
+     SmtpServer.Send(mail);  

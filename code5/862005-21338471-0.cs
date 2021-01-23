@@ -1,0 +1,14 @@
+    var compeditor = new Compeditor();
+            compeditor.CompeditorId = viewModel.CompeditorId;
+            compeditor.FirstName = viewModel.FirstName;
+            compeditor.MiddleInt = viewModel.MiddleInt;
+            compeditor.LastName = viewModel.LastName;
+            compeditor.StreetAddress = viewModel.StreetAddress;
+            compeditor.City = viewModel.City;
+            compeditor.State = viewModel.State;
+            compeditor.PostalCode = viewModel.PostalCode;
+            compeditor.HomePhone = viewModel.HomePhone;
+            compeditor.CellPhone = viewModel.CellPhone;
+            compeditor.Height = viewModel.Height;
+            compeditor.Weight = viewModel.Weight;
+            compeditor.EmailAddress = viewModel.EmailAddress;

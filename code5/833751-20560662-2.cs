@@ -1,0 +1,34 @@
+    public sealed class MainWindowViewModel : ViewModelBase
+    {
+        private UserControlViewModel _userControlViewModel;
+        public MainWindowViewModel()
+        {
+            CreateUserControlViewModel = new RelayCommand(OnCreateUserControViewModel);
+            RemoveUserControlViewModel = new RelayCommand(OnRemoveUserControlViewModel);
+        }
+        public UserControlViewModel UserControlViewModel
+        {
+            get { return _userControlViewModel; }
+            private set { Set(() => UserControlViewModel, ref _userControlViewModel, value); }
+        }
+        public ICommand CreateUserControlViewModel { get; private set; }
+        public ICommand RemoveUserControlViewModel { get; private set; }
+        private void OnCreateUserControViewModel()
+        {
+            UserControlViewModel = new UserControlViewModel();
+            UserControlViewModel.Event += OnUserControlViewModelEvent;
+        }
+        private void OnUserControlViewModelEvent(object sender, EventArgs args)
+        {
+            MessageBox.Show("I got here!");
+        }
+        private void OnRemoveUserControlViewModel()
+        {
+            if (UserControlViewModel != null)
+            {
+                UserControlViewModel.Event -= OnUserControlViewModelEvent;
+                UserControlViewModel = null;
+            }
+        }
+    }
+    

@@ -1,0 +1,10 @@
+        mRecorder = new MediaRecorder();
+        mCamera.Unlock();
+        mRecorder.SetCamera(mCamera);
+        mRecorder.SetAudioSource(AudioSource.Mic);
+        mRecorder.SetVideoSource(VideoSource.Camera);
+        mRecorder.SetProfile(CamcorderProfile.Get(CamcorderQuality.High));
+        mRecorder.SetOutputFile(path);
+        mRecorder.SetMaxDuration (10000);
+        mRecorder.Prepare();
+        mRecorder.Start();

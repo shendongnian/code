@@ -1,0 +1,14 @@
+    List<DrawingData> _DrawingList = new List<DrawingData>();
+    _DrawingList.Add(new DrawingData() { DrawingName = "411000D", DrawingQty = 1 });
+    _DrawingList.Add(new DrawingData() { DrawingName = "411000D", DrawingQty = 1 });
+    _DrawingList.Add(new DrawingData() { DrawingName = "411000A", DrawingQty = 1 });
+    _DrawingList.Add(new DrawingData() { DrawingName = "411000A", DrawingQty = 1 });
+    _DrawingList.Add(new DrawingData() { DrawingName = "411000C", DrawingQty = 1 });
+    _DrawingList.Add(new DrawingData() { DrawingName = "411000C", DrawingQty = 1 });
+    _DrawingList.Add(new DrawingData() { DrawingName = "411000B", DrawingQty = 1 });
+    _DrawingList.Add(new DrawingData() { DrawingName = "411000B", DrawingQty = 1 });
+    var _WithIndex = _DrawingList.Select(x => new { DrawingData = x, Index = _DrawingList.Where(y => y.DrawingName == x.DrawingName).ToList().IndexOf(x) });
+    var _FinalOrder = _WithIndex.OrderBy(x => x.Index).ThenBy(x => x.DrawingData.DrawingName).Select(x => x.DrawingData);
+    Console.WriteLine("Final Sort:");
+    Console.WriteLine(string.Join("\n", _FinalOrder));
+    Console.ReadLine();

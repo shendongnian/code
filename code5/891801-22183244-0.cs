@@ -1,0 +1,10 @@
+    WebRequest webRequestSearch = WebRequest.Create("http://www.bnr.ro/nbrfxrates.xml");
+    WebResponse webResponseSearch = webRequestSearch.GetResponse();
+    Stream streamSearch = webResponseSearch.GetResponseStream();
+    StreamReader oReaderSearch = new StreamReader(streamSearch, Encoding.GetEncoding(1254));
+    strTempHtml = oReaderSearch.ReadToEnd();     
+    HtmlAgilityPack.HtmlDocument htmlDoc = new HtmlAgilityPack.HtmlDocument();
+    htmlDoc.LoadHtml(strTempHtml);
+    HtmlNodeCollection nodes = htmlDoc.DocumentNode.SelectNodes("//cube/rate");
+    string currency1 = nodes[0].Attributes["currency"].Value;
+    string currency1Value =nodes[0].InnerText;

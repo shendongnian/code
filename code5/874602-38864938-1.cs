@@ -1,0 +1,18 @@
+    string text = txtText.Text.Trim();
+    Bitmap bitmap = new Bitmap(1, 1);
+    Font font = new Font("Arial", 25, FontStyle.Regular, GraphicsUnit.Pixel);
+    Graphics graphics = Graphics.FromImage(bitmap);
+    int width = (int)graphics.MeasureString(text, font).Width;
+    int height = (int)graphics.MeasureString(text, font).Height;
+    bitmap = new Bitmap(bitmap, new Size(width, height));
+    graphics = Graphics.FromImage(bitmap);
+    graphics.Clear(Color.White);
+    graphics.SmoothingMode = SmoothingMode.AntiAlias;
+    graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
+    graphics.DrawString(text, font, new SolidBrush(Color.FromArgb(255, 0, 0)), 0, 0);
+    graphics.Flush();
+    graphics.Dispose();
+    string fileName = Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + ".jpg";
+    bitmap.Save(Server.MapPath("~/images/") + fileName, ImageFormat.Jpeg);
+    imgText.ImageUrl = "~/images/" + fileName;
+    imgText.Visible = true;

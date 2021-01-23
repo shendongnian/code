@@ -1,0 +1,13 @@
+        var message = new MailMessage();
+        message.From = new MailAddress("from@gmail.com");
+        MailAddress to = new MailAddress("to@gmail.com");
+        message.Subject = "Subject";       
+        string bodyString = "";
+        bodyString += "Hello";
+        message.Body = bodyString;
+        message.To.Add(to);
+        message.IsBodyHtml = true;
+        SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+        smtp.Credentials = new System.Net.NetworkCredential("user@gmail.com", "password");
+        smtp.EnableSsl = false;
+        smtp.Send(message);

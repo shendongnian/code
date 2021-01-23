@@ -1,0 +1,12 @@
+    Natural n0 = Natural.Zero;
+    Natural n1 = n0.Successor();
+    Natural n2 = n1.Successor();
+    Console.WriteLine(n0 + n0);
+    Console.WriteLine(n0 + n1);
+    Console.WriteLine(n0 + n2);
+    Console.WriteLine(n1 + n0);
+    Console.WriteLine(n1 + n1);
+    Console.WriteLine(n1 + n2);
+    Console.WriteLine(n2 + n0);
+    Console.WriteLine(n2 + n1);
+    Console.WriteLine(n2 + n2);

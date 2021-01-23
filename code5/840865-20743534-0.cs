@@ -1,0 +1,12 @@
+    string text = GetLongText();
+    byte[] ba = Encoding.UTF8.GetBytes(text);
+    MemoryStream ms1 = new MemoryStream(ba);
+    MemoryStream ms2 = new MemoryStream();
+    ZipStorer zip = ZipStorer.Create(ms2, "myzipfile");
+    zip.AddStream(ZipStorer.Compression.Deflate, "MyText.txt", ms1, DateTime.Now, "My Text");
+    zip.Close();
+    Response.Clear();
+    Response.AppendHeader("content-disposition", "attachment; filename=MyZip.zip");
+    Response.ContentType = "application/zip";
+    Response.BinaryWrite(ms2.ToArray());
+    Response.End();

@@ -1,0 +1,6 @@
+public class IdentityUser
+{
+  ... 
+  public virtual IdentityUserLogin Login { get; set; }
+  ...
+}

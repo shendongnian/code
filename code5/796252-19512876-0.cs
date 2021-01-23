@@ -1,0 +1,14 @@
+        DataTable customer = new DataTable();
+        var customerIdColumn = new DataColumn("ID", typeof(int));
+        customer.Columns.Add(customerIdColumn);
+        customer.Columns.Add("Address", typeof(string));
+        customer.PrimaryKey = new[] { customerIdColumn };
+        DataTable updatedCustomer = new DataTable();
+        var updatedCustomerIdColumn = new DataColumn("ID", typeof(int));
+        updatedCustomer.Columns.Add(updatedCustomerIdColumn);
+        updatedCustomer.Columns.Add("Address", typeof(string));
+        updatedCustomer.PrimaryKey = new[] { updatedCustomerIdColumn };
+        customer.Rows.Add(1, "London, UK");
+        customer.Rows.Add(2, "Paris, France");
+        updatedCustomer.Rows.Add(1, "Birmingham, UK");
+        customer.Merge(updatedCustomer, false);

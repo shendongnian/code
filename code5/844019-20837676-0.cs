@@ -1,0 +1,6 @@
+    public override void Configure(Funq.Container container)
+    {
+        ...
+        // Add the Error Response Filter
+        Plugins.Add(new ValidationFeature { ErrorResponseFilter = ValidationErrorFilter });
+        ...

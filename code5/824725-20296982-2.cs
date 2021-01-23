@@ -1,0 +1,9 @@
+    CheckBox chbx1 = new CheckBox();
+    chbx1.Name = "chbx1";
+    chbx1.CheckedChanged += checkBox_CheckedChanged;
+    CheckBox chbx2 = new CheckBox();
+    chbx2.Name = "chbx2";
+    chbx2.CheckedChanged += checkBox_CheckedChanged;
+    CheckBox chbx3 = new CheckBox();
+    chbx3.Name = "chbx2";
+    chbx3.CheckedChanged += checkBox_CheckedChanged;

@@ -1,0 +1,12 @@
+    Bitmap bmp;
+    Graphics objGraphics;
+    Rectangle rt;
+    Point pnt;
+    rt = this.ClientRectangle;
+    pnt = this.PointToScreen(new Point(0, 0));
+    bmp = new Bitmap(rt.Width, rt.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+    objGraphics = Graphics.FromImage(bmp);
+    objGraphics.CopyFromScreen(pnt.X, pnt.Y, 0, 0, rt.Size, CopyPixelOperation.SourceCopy);
+    objGraphics.Dispose();
+    bmp.Save("test.bmp");
+    bmp.Dispose();

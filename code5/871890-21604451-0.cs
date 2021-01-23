@@ -1,0 +1,9 @@
+    private void InitializeComponent()
+    {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+        ...
+        this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+        ...
+        this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+        ...
+     }

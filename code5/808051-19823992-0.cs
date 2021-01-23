@@ -1,0 +1,15 @@
+    var restClient = new RestClient("http://api.example.com");
+    var restRequest = new RestRequest("myResource", Method.DELETE);
+    restRequest.AddHeader("Authorization", "Basic " + "yadyadyadyada");
+    restRequest.AddHeader("X-Originator-Type", "app");
+    restRequest.AddHeader("X-Os-Type", Environment.OSVersion.Platform.ToString());
+    restRequest.AddHeader("X-Os-Version", Environment.OSVersion.Version.ToString());
+    restRequest.AddHeader("X-Device-Id", "myDeviceID");
+    restRequest.AddHeader("X-Client-Version", "1.2.3");
+    restRequest.AddHeader("Locale", System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
+    restRequest.AddHeader("If-Modified-Since", DateTime.UtcNow.ToString("u"));
+    var data = new Dictionary<string, object> { { "key1", "value1" }, { "key2", "value2" }, };
+    var json = JsonConvert.SerializeObject(data);
+    restRequest.RequestFormat = DataFormat.Json;
+    restRequest.AddParameter("application/json", json, ParameterType.RequestBody);
+    restClient.Execute(restRequest);

@@ -1,0 +1,10 @@
+        double val = 150.20;
+        double val1 = 30.50;
+        string[] temp1 = val.ToString().Split('.');
+        string[] temp2 = val1.ToString().Split('.');
+        TimeSpan ts1 = TimeSpan.FromHours(double.Parse(temp1[0])) + TimeSpan.FromMinutes(double.Parse(temp1[1] + "0"));
+        TimeSpan ts2 = TimeSpan.FromHours(double.Parse(temp2[0])) + TimeSpan.FromMinutes(double.Parse(temp2[1] + "0"));
+        TimeSpan ts = ts1.Subtract(ts2);
+        double totalHours = ts.TotalHours;
+        string[] temp = totalHours.ToString().Split('.');
+        Console.WriteLine(temp[0] + "." + double.Parse("0." + temp[1]) * 60);

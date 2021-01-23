@@ -1,0 +1,6 @@
+        private UIView inputView;
+        // ...
+        inputView = new UIView(new RectangleF());
+        // And somewhere else...
+        [Export("inputView")]
+        public new UIView InputView { get { return inputView; } }

@@ -1,0 +1,26 @@
+    <configuration>
+      <system.web>
+    <httpModules>
+      <!-- This section is used for IIS6 -->
+      <add
+        name="ContainerDisposal"
+        type="Autofac.Integration.Web.ContainerDisposalModule, Autofac.Integration.Web"/>
+      <add
+        name="PropertyInjection"
+        type="Autofac.Integration.Web.Forms.PropertyInjectionModule, Autofac.Integration.Web"/>
+    </httpModules>
+    </system.web>
+        <system.webServer>
+        <!-- This section is used for IIS7 -->
+    <modules>
+      <add
+        name="ContainerDisposal"
+        type="Autofac.Integration.Web.ContainerDisposalModule, Autofac.Integration.Web"
+        preCondition="managedHandler"/>
+      <add
+        name="PropertyInjection"
+        type="Autofac.Integration.Web.Forms.PropertyInjectionModule, Autofac.Integration.Web"
+        preCondition="managedHandler"/>
+    </modules>
+    </system.webServer>
+    </configuration>

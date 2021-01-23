@@ -1,0 +1,10 @@
+            System.Windows.Shapes.Rectangle myRect = new System.Windows.Shapes.Rectangle();
+            myRect = new System.Windows.Shapes.Rectangle();
+            myRect.Stroke = System.Windows.Media.Brushes.Yellow;
+            myRect.Fill = System.Windows.Media.Brushes.Black;
+            myRect.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+            myRect.VerticalAlignment = VerticalAlignment.Center;
+            myRect.Height = 50;
+            myRect.Width = 50;
+            myRect.Opacity = 100;
+            myGrid.AddChild(myRect);

@@ -1,0 +1,6 @@
+    var allowed_states = getAllowedStates();
+    var maxPopulation = getMaxPopulation();
+    // Instead of...
+    var cities = context.Cities.Where(c => allowed_states.Contains(c.State) && c.Population <= maxPopulation);
+    // Use...
+    var cities = context.Cities.Where(c => c.Population <= maxPopulation).WherePropertyIsIn(allowed_states, c => c.Cities);

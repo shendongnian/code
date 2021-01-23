@@ -1,0 +1,14 @@
+    double d1 = double.PositiveInfinity;
+    double d2 = double.MaxValue;
+    double d3 = 2.3e23;
+    double d4 = double.NaN;
+    double d5 = -2.3e23;
+    double d6 = double.MinValue;
+    double d7 = double.NegativeInfinity;
+    Console.WriteLine((long)d1);
+    Console.WriteLine((long)d2);
+    Console.WriteLine((long)d3);
+    Console.WriteLine((long)d4);
+    Console.WriteLine((long)d5);
+    Console.WriteLine((long)d6);
+    Console.WriteLine((long)d7);

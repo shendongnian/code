@@ -1,0 +1,6 @@
+    public class Book
+    {
+    	public string author { get; set; }
+    	........
+    	........
+    }

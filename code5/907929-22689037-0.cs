@@ -1,0 +1,16 @@
+    string filename = Path.GetFileName(FileUpload1.FileName);
+    string section = ddlSection.SelectedValue;
+    string label = txtDocLabelText.Text;
+    FileUpload1.SaveAs(Server.MapPath("~/docs/HRDocs") + filename);
+    UploadStatusLabel.Text = "Upload status: Complete!";
+    string constr = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\webvideos.mdb;";
+    string cmdstr = "INSERT INTO Docs (Filename, Label, Section) VALUES (?,?,?)";
+    OleDbConnection con = new OleDbConnection(constr);
+    OleDbCommand com = new OleDbCommand(cmdstr, con);
+    con.Open();
+    com.Parameters.AddWithValue("@Filename", filename);
+    com.Parameters.AddWithValue("@Label", label);
+    com.Parameters.AddWithValue("@Section", section);
+    com.ExecuteNonQuery();
+    con.Close();
+    Response.Redirect("ManageHRDocs.aspx");

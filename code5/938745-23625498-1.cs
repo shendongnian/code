@@ -1,0 +1,13 @@
+            double actualHeight = Application.Current.Host.Content.ActualHeight;
+            double actualWidth = Application.Current.Host.Content.ActualWidth;
+            Grid grid = new Grid();
+            grid.VerticalAlignment = VerticalAlignment.Center;
+            grid.HorizontalAlignment = HorizontalAlignment.Center;
+            grid.Height = actualHeight; //set height
+            grid.Width = actualWidth; //set width
+            grid.Background = new SolidColorBrush(Colors.White);
+            Image img = new Image();
+            img.VerticalAlignment = VerticalAlignment.Center;
+            img.HorizontalAlignment = HorizontalAlignment.Center;
+            img.Source = bitmapImage;
+            img.Tap += OnFullScreenImageTap;

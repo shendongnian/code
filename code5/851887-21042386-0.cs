@@ -1,0 +1,6 @@
+    public class A
+    {
+        public A SomeMethod();
+        ...
+    }
+    A.SomeMethod().SomeMethod()...

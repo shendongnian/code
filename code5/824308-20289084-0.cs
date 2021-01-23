@@ -1,0 +1,10 @@
+    var cfg = new NHibernate.Cfg.Configuration();
+    cfg.SetProperty(NHibernate.Cfg.Environment.ConnectionProvider, "NHibernate.Connection.DriverConnectionProvider");
+    cfg.SetProperty(NHibernate.Cfg.Environment.ConnectionDriver, "NHibernate.Driver.MySqlDataDriver");
+    cfg.SetProperty(NHibernate.Cfg.Environment.Dialect, "NHibernate.Dialect.MySQLDialect");
+    cfg.SetProperty(NHibernate.Cfg.Environment.UseSecondLevelCache, "false");
+    cfg.SetProperty(NHibernate.Cfg.Environment.UseQueryCache, "false");
+    cfg.SetProperty(NHibernate.Cfg.Environment.GenerateStatistics, "false");
+    cfg.SetProperty(NHibernate.Cfg.Environment.CommandTimeout, "300");
+    cfg.SetProperty(NHibernate.Cfg.Environment.BatchSize, "1000");
+    cfg.SetProperty(NHibernate.Cfg.Environment.BatchStrategy,  typeof(MySqlClientBatchingBatcherFactory).AssemblyQualifiedName);

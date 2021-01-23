@@ -1,0 +1,10 @@
+    string initial = "Woodstock, American" + Environment.NewLine;
+    Console.Write("Find: ");
+    string find = Console.ReadLine();
+    Console.Write("Replace: ");
+    string replace = Console.ReadLine();
+    replace = Regex.Unescape(replace);
+    string final = Regex.Replace(initial, find, replace);
+    Console.WriteLine("initial:{0}(BEGIN){0}{1}{0}(END){0}", Environment.NewLine, initial);
+    Console.WriteLine("final:{0}(BEGIN){0}{1}{0}(END){0}", Environment.NewLine, final);
+    Console.ReadLine();

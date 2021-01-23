@@ -1,0 +1,6 @@
+    protected void Application_Start()
+    {
+        ...
+        BundleTable.Bundles.Add(new StyleBundle("~/bundles/styles/cvi").Include("~/mainstyles.css"));
+        ...
+    }

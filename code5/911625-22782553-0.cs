@@ -1,0 +1,6 @@
+    // ...
+    System.Data.SqlClient.SqlCommand comm = new System.Data.SqlClient.SqlCommand(sqlstring,conn);
+    comm.Parameters.AddWithValue("@username", strUsername);
+    comm.Parameters.AddWithValue("@password", password);
+    System.Data.SqlClient.SqlDataReader reader;
+    // ...

@@ -1,0 +1,122 @@
+    using System;
+    using System.Collections.Generic;
+    using System.Runtime.ExceptionServices;
+    using System.Threading;
+    using System.Threading.Tasks;
+    
+    namespace MultipleTasks
+    {
+    	class Program
+    	{
+    		class Worker
+    		{
+    			// a single async Task
+    			async Task<object> DoTaskAsync(string id, CancellationToken token, int delay)
+    			{
+    				Console.WriteLine("Task: " + id);
+    				await Task.Delay(delay, token); // do some work
+    				return id;
+    			}
+    
+    			// DoTaskSequenceAsync depends on Task1, Task2, Task3
+    			async Task<object> DoTaskSequenceAsync(string id, CancellationToken token)
+    			{
+    				Console.WriteLine("Task: " + id);
+    				await DoTaskAsync(id + "." + "Task1", token, 1000);
+    				await DoTaskAsync(id + "." + "Task2", token, 2000);
+    				await DoTaskAsync(id + "." + "Task3", token, 3000);
+    				// do more
+    				return id;
+    			}
+    
+    			// a bad task which throws 
+    			async Task<object> BadTaskAsync(string id, CancellationToken token, int delay)
+    			{
+    				Console.WriteLine("Task: " + id);
+    				await Task.Delay(delay, token);
+    				throw new ApplicationException(id);
+    			}
+    
+    			// wraps any task and request the cancellation if it has failed 
+    			async Task<T> WrapAsync<T>(CancellationTokenSource cts, 
+    				Func<CancellationToken, Task<T>> taskFactory)
+    			{
+    				try
+    				{
+    					return await taskFactory(cts.Token);
+    				}
+    				catch (Exception e)
+    				{
+    					if (!(e is TaskCanceledException))
+    					{
+    						if (!cts.IsCancellationRequested)
+    							cts.Cancel(); // cancel the others
+    					}
+    					// rethrow
+    					throw;
+    				}
+    			}
+    
+    			// run all tasks
+    			public async Task DoWorkAsync(CancellationToken ct)
+    			{
+    				var tasks = new List<Task<object>>();
+    
+    				var cts = new CancellationTokenSource();
+    
+    				ExceptionDispatchInfo capturedException = null;
+    
+    				using (ct.Register(() => 
+    					cts.Cancel()))
+    				{
+    					try
+    					{
+    						// these tasks run in parallel
+    						tasks.Add(WrapAsync(cts, (token) => DoTaskAsync("Task1", token, 500)));
+    						tasks.Add(WrapAsync(cts, (token) => DoTaskSequenceAsync("Sequence1", token)));
+    						tasks.Add(WrapAsync(cts, (token) => DoTaskAsync("Task2", token, 1000)));
+    						tasks.Add(WrapAsync(cts, (token) => BadTaskAsync("BadTask", token, 1200)));
+    						tasks.Add(WrapAsync(cts, (token) => DoTaskSequenceAsync("Sequence2", token)));
+    						tasks.Add(WrapAsync(cts, (token) => DoTaskAsync("Task3", token, 1500)));
+    
+    						await Task.WhenAll(tasks.ToArray());
+    					}
+    					catch (Exception e)
+    					{
+    						capturedException = ExceptionDispatchInfo.Capture(e);
+    					}
+    				}
+    
+    				if (ct.IsCancellationRequested)
+    				{
+    					Console.WriteLine("Cancelled from outside.");
+    					return;
+    				}
+    
+    				if (cts.IsCancellationRequested || capturedException != null)
+    				{
+    					if (cts.IsCancellationRequested)
+    					{
+    						Console.WriteLine("Cancelled by a failed task.");
+    						// find the failed task in tasks or via capturedException
+    					}
+    					if (capturedException != null && capturedException.SourceException != null)
+    						Console.WriteLine("Source exception: " + capturedException.SourceException.ToString());
+    					return;
+    				}
+    
+    				Console.WriteLine("Results:");
+    				tasks.ForEach((task) => 
+    					Console.WriteLine(task.Result.ToString()));
+    			}
+    		}
+    
+    		static void Main(string[] args)
+    		{
+    			var cts = new CancellationTokenSource(10000);
+    			new Worker().DoWorkAsync(cts.Token).Wait();
+    			Console.WriteLine("Done.");
+    			Console.ReadLine();
+    		}
+    	}
+    }

@@ -1,0 +1,13 @@
+    public void HttpListenerCallback(IAsyncResult result)
+    {
+        HttpListener listener = (HttpListener)result.AsyncState;
+        HttpListenerContext context = listener.EndGetContext(result);
+        HttpListenerResponse Response = context.Response;
+        String dateAsString = DateTime.Now.ToString(@"MM\/dd\/yyyy h\:mm tt");
+        byte[] bOutput = System.Text.Encoding.UTF8.GetBytes(dateAsString);
+        Response.ContentType = "text/plain";
+        Response.ContentLength64 = bOutput.Length;
+        Stream OutputStream = Response.OutputStream;
+        OutputStream.Write(bOutput, 0, bOutput.Length);
+        OutputStream.Close();
+    }

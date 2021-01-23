@@ -1,0 +1,17 @@
+	var root = XDocument.Load(Server.MapPath(string.Format("~/Temp/{0}",name))).Root;
+	var cube = new CubeTestDTL();
+	cube.Srlno = int.Parse(root.Element("BatchNo.").Value);
+	cube.Accd = "ACCD";
+	cube.AvgCompStrength = 0;
+	cube.BreakingLoad = double.Parse(root.Element("UltimateForce").Value);
+	cube.CompStrength = double.Parse(root.Element("UltimateStress").Value);
+	cube.CubeArea = double.Parse(root.Element("Area").Value);
+	cube.CubeDensity = double.Parse(root.Element("Density").Value);
+	cube.CubeNo = root.Element("SpecimenID").Value;
+	cube.CubeWeight = double.Parse(root.Element("Weight").Value);
+	cube.CustDate = DateTime.Parse(root.Element("DateofCasting").Value);
+	cube.Grade = root.Element("Grade").Value;
+	cube.Location = root.Element("OperatorName").Value;
+	cube.MainAccd = "MAINACCD";
+	cube.TargetStrength = 0;
+	cube.TestOn = DateTime.Parse(root.Element("TestDate").Value);

@@ -1,0 +1,6 @@
+        public ActionResult GetFiles()
+        {
+            ...
+            string domainID = System.Web.HttpContext.Current.Request.LogonUserIdentity.Name;
+            ...
+        }

@@ -1,0 +1,12 @@
+    var b = new byte[8];
+    b[0] = 0x20;
+    b[1] = 0x64;
+    b[2] = 0xa8;
+    b[3] = 0xac;
+    b[4] = 0xb6;
+    b[5] = 0x65;
+    b[6] = 0xe4;
+    b[7] = 0x40;
+    var dbl = BitConverter.ToDouble(b, 0);
+    var dt = DateTime.FromOADate(dbl);
+    Console.WriteLine("{0:s}", dt);

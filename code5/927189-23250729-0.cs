@@ -1,0 +1,11 @@
+       System.Data.DataSet ds;
+       ds = new System.Data.DataSet();
+       ds.ReadXml("D:\\myxmlfile.xml");
+       ds.Tables[0].Columns.Remove("UserName");
+       ds.Tables[0].Columns.Remove("DateTset");
+       ds.Tables[0].Columns.Remove("FirstLength");
+       ds.Tables[0].Columns.Remove("Area");
+       ds.Tables[0].Columns.Remove("Speed");
+       ds.Tables[0].Columns.Remove("UnitX");
+       ds.Tables[0].Columns.Remove("UnitY");
+       GridView1.DataSource = ds.Tables[0];

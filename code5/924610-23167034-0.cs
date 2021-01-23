@@ -1,0 +1,13 @@
+        int id = Convert.ToInt32(comboBox2.SelectedValue.ToString());
+        //int idc = 100;
+        DataSet ptDataset = new DataSet();
+        string con = ConfigurationManager.ConnectionStrings["secaloFormulaCS"].ToString(); 
+        SqlConnection sqlCon = new SqlConnection(con);
+        sqlCon.Open();
+        SqlCommand sqlCmd = new SqlCommand("spDispProductInfo", sqlCon);
+        sqlCmd.CommandType = CommandType.StoredProcedure;
+        sqlCmd.Parameters.AddWithValue("@id", id);
+        SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
+        da.Fill(ptDataset);
+        dataGridView2.DataSource =  ptDataset.Tables[0];
+        sqlCon.Close();

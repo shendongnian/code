@@ -1,0 +1,12 @@
+    string userName = txtRegisterUsername.Text;
+    command.Parameters.AddWithValue("@Username", userName);
+    string password = txtRegisterRepeatPassword.Text;
+    command.Parameters.AddWithValue("@Password", password);
+    string questionOne = lstRegisterSecurityQuestionOne.SelectedText;
+    command.Parameters.AddWithValue("@QuestionOne", questionOne);
+    string questionTwo = lstRegisterSecurityQuestionTwo.SelectedText;
+    command.Parameters.AddWithValue("@QuestionTwo", questionTwo);
+    string answerOne = txtRegisterSecurityAnswerOne.SelectedText;
+    command.Parameters.AddWithValue("@AnswerOne", answerOne);
+    string answerTwo = txtRegisterSecurityAnswerTwo.SelectedText;
+    command.Parameters.AddWithValue("@AnswerTwo", answerTwo);

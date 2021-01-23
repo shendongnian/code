@@ -1,0 +1,12 @@
+    public static double Evaluate(string expression)
+    {
+      System.Data.DataTable table = new System.Data.DataTable();
+      table.Columns.Add("expression", string.Empty.GetType(), expression);
+      System.Data.DataRow row = table.NewRow();
+      table.Rows.Add(row);
+      return double.Parse((string)row["expression"]);
+    }
+    private void button1_Click(object sender, EventArgs e)
+    {
+      textBox2.Text = Evaluate(textBox1.Text).ToString();
+    }

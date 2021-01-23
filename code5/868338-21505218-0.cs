@@ -1,0 +1,13 @@
+    [Serializable]
+    public class myClass : ICloneable
+    {
+    
+        //fields, constructors etc here.
+        //...
+        //...
+    
+        public abstract Object Clone ();
+    
+        //...
+        //...
+    }

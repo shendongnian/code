@@ -1,0 +1,6 @@
+    public void WatchConfigFile(FileSystemEventHandler handler)
+    {
+        ...
+        this.watcher.Changed += handler;
+        ...
+    }

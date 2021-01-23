@@ -1,0 +1,11 @@
+            Expression<Func<Customer, bool>> filter = c => c.Active;
+            Expression<Func<Customer, bool>> filter2 = c => c.Visible;
+            var body = Expression.AndAlso(filter.Body, Expression.Invoke(filter2, filter.Parameters[0]));
+            filter = Expression.Lambda<Func<Customer, bool>>(body, filter.Parameters);
+            var applyFilter = filter.Compile();
+            var customer = new Customer() { Visible = true, Active = true};
+            Console.WriteLine(applyFilter(customer));
+            customer.Active = false;
+            Console.WriteLine(applyFilter(customer));
+            customer.Visible = false;
+            Console.WriteLine(applyFilter(customer));

@@ -1,0 +1,10 @@
+    System.Web.HttpResponse response = System.Web.HttpContext.Current.Response;
+    System.Drawing.Image img;
+    img = System.Drawing.Image.FromStream(stream1);
+    response.ClearContent();
+    response.Clear();
+    Response.ContentType = "image/jpg";
+    response.AddHeader("Content-Disposition", "attachment; filename= Exported.jpg;");
+    response.BinaryWrite(img);
+    response.Flush();
+    response.End();

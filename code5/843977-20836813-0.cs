@@ -1,0 +1,10 @@
+     DataTable dtReport = GetDataFromDatabase(fileID: 20);     
+     Response.Clear();
+     Response.Buffer = true;
+     Response.ContentType = Path.GetExtension(dtReport["FileName"]).ToString();
+     Response.AddHeader("content-disposition", "attachment;filename=" + Path.GetFileName(dtReport["FileName"]).ToString());
+     Response.ContentType = Path.GetExtension(dtReport["FileName"]).ToString();
+     Response.Charset = "";
+     Response.Cache.SetCacheability(HttpCacheability.NoCache);
+     Response.BinaryWrite((byte[])dtReport["Data"]);
+     Response.End();

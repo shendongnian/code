@@ -1,0 +1,51 @@
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            DataContext = new MainWindowViewModel();
+        }
+    }
+    public class MainWindowViewModel
+    {
+        public MainWindowViewModel()
+        {
+            Menu1Executed = new DelegateCommand(ShowMenu1);
+        }
+        public ICommand Menu1Executed { get; set; }
+        private void ShowMenu1(object obj)
+        {
+            // Yay!
+        }
+    }
+    public class DelegateCommand : ICommand
+    {
+        private readonly Action<object> execute;
+        private readonly Predicate<object> canExecute;
+        public DelegateCommand(Action<object> execute)
+            : this(execute, null)
+        { }
+        public DelegateCommand(Action<object> execute, Predicate<object> canExecute)
+        {
+            if (execute == null)
+                throw new ArgumentNullException("execute");
+            this.execute = execute;
+            this.canExecute = canExecute;
+        }
+        #region ICommand Members
+        [DebuggerStepThrough]
+        public bool CanExecute(object parameter)
+        {
+            return canExecute == null ? true : canExecute(parameter);
+        }
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
+        public void Execute(object parameter)
+        {
+            execute(parameter);
+        }
+        #endregion
+    }

@@ -1,0 +1,11 @@
+            CloudStorageAccount acc = new CloudStorageAccount(new StorageCredentials("account name", "account key"), false);
+            var tableClient = acc.CreateCloudTableClient();
+            var table = tableClient.GetTableReference("table name");
+            TableContinuationToken token = null;
+            var entities = new List<DynamicTableEntity>();
+            do
+            {
+                var queryResult = table.ExecuteQuerySegmented(new TableQuery(), token);
+                entities.AddRange(queryResult.Results);
+                token = queryResult.ContinuationToken;
+            } while (token != null);

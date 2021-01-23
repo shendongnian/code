@@ -1,0 +1,13 @@
+    public class WizardUserControl : UserControl
+    {
+       ...
+       // All your standard wizard code stuff/behavior/business logic/etc...
+       ...
+       ...
+    
+       public void InsertCustomizedControl(UserControl customizedControl)
+       {
+          CustomGridArea.Children.Clear();
+          CustomGridArea.Children.Add(customizedControl);
+       }
+    }

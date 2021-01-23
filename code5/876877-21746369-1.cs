@@ -1,0 +1,10 @@
+    var reminder = ScheduledActionService.Find(id) as Reminder ?? new Reminder(id);
+    reminder.Title = "...";
+    reminder.Content = "...";
+    reminder.BeginTime = yourDate;
+    reminder.ExpirationTime = yourDate;
+    reminder.RecurrenceType = oneType;
+    if (ScheduledActionService.Find(id) == null)
+       ScheduledActionService.Add(reminder);
+    else
+    ScheduledActionService.Replace(reminder);

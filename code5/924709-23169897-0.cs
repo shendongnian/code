@@ -1,0 +1,6 @@
+    public class MyClass
+    {
+        ...
+        public int ApartmentSize{get;set;}
+        ...
+    }

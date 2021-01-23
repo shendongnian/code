@@ -1,0 +1,15 @@
+                RootObject Root = new RootObject();
+                Root.OrderID = 1;
+                Root.EmployeeID = 11125;
+                Root.CustomerID = "Aravind";
+                Root.EntityKey = new EntityKey();
+                Root.EntityKey.EntitySetName = "ords";
+                Root.EntityState = 2;
+                Root.EntityKey.EntityContainerName = "MadhuDBEntities";
+                Root.EntityKey.EntityKeyValues = new List<EntityKeyValue>();
+                EntityKeyValue Enntity = new EntityKeyValue();
+                Enntity.Key = "OrderID";
+                Enntity.Value = 1;
+                Root.EntityKey.IsTemporary = false;
+                Root.EntityKey.EntityKeyValues.Add(Enntity);
+                var ObjSerialize = ObjJSerializer.Serialize(Root);

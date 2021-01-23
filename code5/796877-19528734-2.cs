@@ -1,0 +1,11 @@
+    var g  = e.Graphics;
+    var points=new PointF[] { new PointF(0, 0), new PointF(1, 0), new PointF(0, 1) };
+    var mx=g.Transform.Clone();
+    g.TranslateTransform(100f, 100f);
+    g.ScaleTransform(40f, 40f);
+    g.FillPolygon(Brushes.Olive, points);
+    g.Transform=mx;
+    g.TranslateTransform(300f, 100f);
+    g.ScaleTransform(80f, 80f);
+    g.FillPolygon(Brushes.MediumOrchid, points);
+    g.Transform=mx;

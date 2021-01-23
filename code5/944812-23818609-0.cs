@@ -1,0 +1,23 @@
+    //...
+    //...
+    foreach (int i in (doc2 as IResultsDocument).SelectedItemIds)
+    {
+        _lockToken1 = new object();
+        IWorkItemDocument widoc = docsrv2.GetWorkItem(tfscoll, i, _lockToken1);
+        if (widoc == null) continue;
+        if (!widoc.IsLoaded)
+        {
+            widoc.Load();
+            DateTime startTime = DateTime.Now;
+            while (!widoc.IsLoaded && DateTime.Now.Subtract(startTime).TotalSeconds <= 2.0)
+            {
+                Application.DoEvents();
+            }
+            //...
+            //...
+            //...
+        }
+        widoc.Item.Close();
+        widoc.Release(_lockToken1);
+        //...
+    //...

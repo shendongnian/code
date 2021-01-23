@@ -1,0 +1,29 @@
+    <?xml version="1.0" encoding="utf-8"?>
+    <configuration>
+      <configSections>
+        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+      </configSections>
+      <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+      </startup>
+      <entityFramework>
+        <defaultConnectionFactory type="System.Data.Entity.Infrastructure.SqlCeConnectionFactory, EntityFramework">
+          <parameters>
+            <parameter value="System.Data.SqlServerCe.4.0" />
+          </parameters>
+        </defaultConnectionFactory>
+        <providers>
+          <provider invariantName="System.Data.SqlServerCe.4.0" type="System.Data.Entity.SqlServerCompact.SqlCeProviderServices, EntityFramework.SqlServerCompact" />
+          <!--<provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />-->
+        </providers>
+      </entityFramework>
+      <connectionStrings>
+        <add name="ConsoleApplication1.TestContext"
+        connectionString="Data Source=TestDb.sdf"
+        providerName="System.Data.SqlServerCe.4.0"/>
+      </connectionStrings>
+    </configuration>
+  
+    Also these file: (dbContext derived and model of the only table)

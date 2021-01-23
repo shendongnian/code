@@ -1,0 +1,13 @@
+    var ab = AppDomain.CurrentDomain.DefineDynamicAssembly(new AssemblyName("Foo"), AssemblyBuilderAccess.RunAndSave);
+    var mb = ab.DefineDynamicModule(ab.GetName().Name, ab.GetName().Name + ".dll", true);
+    var tb = mb.DefineType("Foo", TypeAttributes.BeforeFieldInit | TypeAttributes.AnsiClass | TypeAttributes.Class | TypeAttributes.AutoClass | TypeAttributes.Public, typeof(VarArgTest));
+    var ctor = tb.DefineConstructor(MethodAttributes.HideBySig | MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.RTSpecialName,CallingConventions.HasThis,Type.EmptyTypes);
+    var il =ctor.GetILGenerator();
+    il.Emit(OpCodes.Ldarg_0);
+    il.Emit(OpCodes.Ldstr, "foo");
+    il.Emit(OpCodes.Ldstr, "one");
+    il.Emit(OpCodes.Ldc_I4_2);
+    func(il, OpCodes.Call, typeof(VarArgTest).GetConstructors()[0], new[] { typeof(string), typeof(int) });
+    il.Emit(OpCodes.Ret);
+    var v=Activator.CreateInstance(tb.CreateType());
+    Console.WriteLine((v as VarArgTest).CountOfArgs);

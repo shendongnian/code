@@ -1,0 +1,15 @@
+		Series = chart1.Series.Add("Test");
+		Axis yAxis = chart1.ChartAreas[0].AxisY;
+		yAxis.IsLogarithmic = true;
+		double ymin = 0.1;
+		yAxis.Minimum = ymin;
+		double ymax = 100;
+		yAxis.Maximum = ymax;
+		Series.Points.Add(new DataPoint(1, 3));
+		Series.Points.Add(new DataPoint(1, 0));
+		Series.Points.Add(new DataPoint(2, 3));
+		Series.Points.Add(new DataPoint(2, 0));
+		Series.Points.Add(new DataPoint(3, 4));
+		Series.Points.Add(new DataPoint(3, 0));
+		Series.Points.Add(new DataPoint(4, 5));
+		Series.Points.Add(new DataPoint(4, 0));

@@ -1,0 +1,6 @@
+    public class MyModel
+    {
+    	.....
+    	.....
+    	public bool? IsChecked { get; set; }
+    }

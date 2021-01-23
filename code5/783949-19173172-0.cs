@@ -1,0 +1,22 @@
+    public abstract class A
+    {
+        public virtual void Print()
+        {
+            Console.WriteLine("I'm in A!");
+        }
+    }
+    public abstract class B : A
+    {
+        public override void Print()
+        {
+            base.Print();
+        }
+    }
+    public class C : B
+    {
+        public override void Print()
+        {
+            Console.WriteLine("I'm in C!");
+            base.Print();
+        }
+    }

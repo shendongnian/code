@@ -1,0 +1,10 @@
+    GridViewRow row = new GridViewRow(0, -1, DataControlRowType.Header, DataControlRowState.Normal);
+    TableCell th = new TableHeaderCell();
+    th.HorizontalAlign = HorizontalAlign.Center;
+    th.ColumnSpan = UserGV.Columns.Count;
+    th.BackColor = Color.SteelBlue;
+    th.ForeColor = Color.White;
+    th.Font.Bold = true;
+    th.Text = "Manage Users";
+    row.Cells.Add(th);
+    InnerTable.Rows.AddAt(0, row);

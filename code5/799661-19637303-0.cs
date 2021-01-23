@@ -1,0 +1,6 @@
+    class Manager {
+        // ...
+        public static T Init<T>() {
+            // ...
+        }
+    }

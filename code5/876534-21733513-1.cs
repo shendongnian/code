@@ -1,0 +1,6 @@
+    public void FindMoreIds(IList<int> ids)
+    {
+         ...
+         ids.Add(...);
+         ...
+    }

@@ -1,0 +1,17 @@
+    ListItemCollection items = new ListItemCollection();
+    items.Add(new ListItem("January", "1"));
+    items.Add(new ListItem("February", "2"));
+    items.Add(new ListItem("March", "3"));
+    items.Add(new ListItem("April", "4"));
+    items.Add(new ListItem("May", "5"));
+    items.Add(new ListItem("June", "6"));
+    items.Add(new ListItem("July", "7"));
+    items.Add(new ListItem("August", "8"));
+    items.Add(new ListItem("September", "9"));
+    items.Add(new ListItem("October", "10"));
+    items.Add(new ListItem("November", "11"));
+    items.Add(new ListItem("December", "12"));
+    ddlStartMonth.DataSource = items;
+    ddlStartMonth.DataTextField = "Text";
+    ddlStartMonth.DataValueField = "Value";
+    ddlStartMonth.DataBind();

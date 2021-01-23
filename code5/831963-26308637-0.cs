@@ -1,0 +1,12 @@
+    videoDevice.SetCameraProperty(
+                CameraControlProperty.Zoom,
+                zoomValue,
+                CameraControlFlags.Manual);
+            videoDevice.SetCameraProperty(
+                CameraControlProperty.Focus,
+                focusValue,
+                CameraControlFlags.Manual);
+            videoDevice.SetCameraProperty(
+                CameraControlProperty.Exposure,
+                exposureValue,
+                CameraControlFlags.Manual);

@@ -1,0 +1,10 @@
+           var test = new TestClass(1);
+            var test2 = new TestClass(2);
+            var test3 = new TestClass(3);
+            List<TestClass> tests = new List<TestClass>();
+            tests.Add(test);
+            tests.Add(test2);
+            tests.Add(test3);
+            string myString = null;
+            var result = tests.Where(t => myString.Contains(t.Myint.ToString())).ToList();
+            Console.WriteLine(result.Count);

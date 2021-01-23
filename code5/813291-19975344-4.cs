@@ -1,0 +1,18 @@
+    _costElements = new List<CostElement>();
+    _costElements.Add(new CostElement() { ProjectNumber = "a", Stage = "a", DerivedCostElement = "ce6" });
+    _costElements.Add(new CostElement() { ProjectNumber = "a", Stage = "b", DerivedCostElement = "ce1" });
+    _costElements.Add(new CostElement() { ProjectNumber = "a", Stage = "x", DerivedCostElement = "ce1" });
+    _costElements.Add(new CostElement() { ProjectNumber = "a", Stage = "b", DerivedCostElement = "ce2" });
+    _costElements.Add(new CostElement() { ProjectNumber = "a", Stage = "b", DerivedCostElement = "ce3" });
+    _costElements.Add(new CostElement() { ProjectNumber = "a", Stage = "c", DerivedCostElement = "ce3" });
+    _costElements.Add(new CostElement() { ProjectNumber = "a", Stage = "d", DerivedCostElement = "ce3" });
+    _costElements.Add(new CostElement() { ProjectNumber = "b", Stage = "e", DerivedCostElement = "ce1" });
+    _costElements.Add(new CostElement() { ProjectNumber = "b", Stage = "f", DerivedCostElement = "ce1" });
+    _costElements.Add(new CostElement() { ProjectNumber = "c", Stage = "g", DerivedCostElement = "ce1" });
+    _costElements.Add(new CostElement() { ProjectNumber = "c", Stage = "h", DerivedCostElement = "ce1" });
+    _costElements.Add(new CostElement() { ProjectNumber = "c", Stage = "h", DerivedCostElement = "ce2" });
+    _costElements.Add(new CostElement() { ProjectNumber = "c", Stage = "i", DerivedCostElement = "ce2" });
+    _costElements.Add(new CostElement() { ProjectNumber = "d", Stage = "j", DerivedCostElement = "ce2" });
+    _costElements.Add(new CostElement() { ProjectNumber = "d", Stage = "k", DerivedCostElement = "ce1" });
+    _costElements.Add(new CostElement() { ProjectNumber = "d", Stage = "l", DerivedCostElement = "ce1" });
+    _costElements.Add(new CostElement() { ProjectNumber = "d", Stage = "m", DerivedCostElement = "ce1" });

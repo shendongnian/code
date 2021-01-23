@@ -1,0 +1,6 @@
+    public class Program1 
+    {
+        ILog log = LogManager.GetLogger("Program1"); …
+    public class Program2 
+    {
+        ILog log = LogManager.GetLogger("Program2"); …

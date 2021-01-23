@@ -1,0 +1,6 @@
+    public partial class App : Application
+    {
+       ...
+       public List<MyTopics> ListOfTopics { get; set; }
+       ...
+    }

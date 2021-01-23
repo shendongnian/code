@@ -1,0 +1,10 @@
+    string path=Application.StartupPath + @"\Test.xml";
+    XmlWriter writer = XmlWriter.Create(path);
+    XmlDocument doc = new XmlDocument();
+    doc.Load(path);
+    writer.WriteStartElement("Event");
+    writer.WriteString("Event Decription");
+    writer.WriteEndElement();
+    writer.WriteEndElement();
+    writer.WriteEndDocument();
+    writer.Close();

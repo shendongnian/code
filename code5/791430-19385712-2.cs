@@ -1,0 +1,10 @@
+       DataGrid table = new DataGrid();
+       table.Location = new Point(0, 0);
+       table.Size = new Size(221, 100);
+       List<KeyValuePair<object, object>> list = new List<KeyValuePair<object, object>>();
+       list.Add(new KeyValuePair<object, object>("asdfasdf", 3685745));
+       list.Add(new KeyValuePair<object, object>("sdfgsdfgsd", 54));
+       list.Add(new KeyValuePair<object, object>("xcvbxcvbxcvb", 341234));
+       list.Add(new KeyValuePair<object, object>("56785678567", 56));
+       table.DataSource = list;
+       this.Controls.Add(table); 

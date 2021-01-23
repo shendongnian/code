@@ -1,0 +1,6 @@
+    public void DrawMap(Graphics g)
+    {
+        ...
+        g.FillRectangle(whiteBrush, rectSens);
+        ...
+    }

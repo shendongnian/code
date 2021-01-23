@@ -1,0 +1,6 @@
+    public static void RegisterRoutes(RouteCollection routes)
+    {
+    	...
+    	routes.Add(new ServiceRoute("hello", new ServiceHostFactory(), typeof(YourServiceClass)));
+    	...
+    }

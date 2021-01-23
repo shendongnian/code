@@ -1,0 +1,12 @@
+    TcpListener list;
+    Int32 port1 = 40399;
+    list = new TcpListener(port1);
+    list.Start();
+    TcpClient client = list.AcceptTcpClient();
+    Console.WriteLine("Client trying to connect");
+    Stream stream = client.GetStream();
+    XmlSerializer mySerializer = new XmlSerializer(typeof(FileTransfer));
+    FileTransfer myObject = (FileTransfer)mySerializer.Deserialize(stream);
+    Console.WriteLine("name: " + myObject.Name);
+    list.Stop();
+    client.Close();
