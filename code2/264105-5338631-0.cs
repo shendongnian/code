@@ -1,0 +1,17 @@
+    this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
+    private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+    {
+        //e.DrawBackground();
+        if (e.Index < 7)
+            e.Graphics.FillRectangle(Brushes.Orange, e.Bounds);
+        else
+            e.Graphics.FillRectangle(Brushes.Pink, e.Bounds);
+        SizeF sz = e.Graphics.MeasureString(tabControl1.TabPages[e.Index].Text, e.Font);
+        e.Graphics.DrawString(tabControl1.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + (e.Bounds.Width - sz.Width) / 2, e.Bounds.Top + (e.Bounds.Height - sz.Height) / 2 + 1);
+        Rectangle rect = e.Bounds;
+        rect.Offset(0, 1);
+        rect.Inflate(0, -1);
+        e.Graphics.DrawRectangle(Pens.DarkGray, rect);
+        e.DrawFocusRectangle();
+    }
+    tabControl1.Invalidate(); // This is the method

@@ -1,0 +1,11 @@
+    string code = "echo 'test';";
+    System.Diagnostics.Process ProcessObj = new System.Diagnostics.Process();
+    ProcessObj.StartInfo.FileName = "php-win.exe";
+    ProcessObj.StartInfo.Arguments = String.Format("-r \"{0}\"", code);
+    ProcessObj.StartInfo.UseShellExecute = false;
+    ProcessObj.StartInfo.CreateNoWindow = true;
+    ProcessObj.StartInfo.RedirectStandardOutput = true;
+    ProcessObj.Start();
+    ProcessObj.WaitForExit();
+    string Result = ProcessObj.StandardOutput.ReadToEnd();
+    MessageBox.Show(Result);

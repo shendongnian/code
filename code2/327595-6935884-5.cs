@@ -1,0 +1,10 @@
+        DataSet ds = new DataSet();
+        DataTable dt = new DataTable("t1");
+        dt.Columns.Add("ID", typeof(int));
+        dt.Columns.Add("DT", typeof(DateTime));
+        dt.Rows.Add(new object[] { 1, new DateTime(2009, 1, 1) });
+        dt.Rows.Add(new object[] { 2, new DateTime(2010, 12, 23) });
+        ds.Tables.Add(dt);
+        ds.WriteXml("c:\\Standard.xml");
+        RemoveTimezoneForDataSet(ds);
+        ds.WriteXml("c:\\WithoutTimezone.xml");

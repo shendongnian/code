@@ -1,0 +1,6 @@
+    // wrong way...
+    order.CustomerID = 45; // id of the new customer
+    // BOOOOM goes the error here.
+    // right way...
+    order.Customer = db.Customer.Single(x => x.ID == 45);
+    db.SubmitChanges();

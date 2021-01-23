@@ -1,0 +1,13 @@
+    public class WSField : Attribute {
+      // ...
+      internal string xmlField;
+      public WSField(string tableField, string xmlField = null) {
+    
+    ...
+    public class FieldDefinition {
+      public FieldDefinition(FieldInfo fieldInfo) {
+        // ...
+        if (this.wsField.xmlField == null) this.wsField.xmlField = fieldInfo.Name;
+      }
+    
+    ...

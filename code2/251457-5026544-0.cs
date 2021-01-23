@@ -1,0 +1,9 @@
+    .......
+    List<Quote> quotes;
+    List<Customer> customers;
+    .....
+    quotes = Context.Quote.ToList();
+    customers = Context.Customers.ToList(); 
+    .....
+    quoteBindingSource.DataSource = quotes;
+    customersBindingSource.DataSource = customers; 

@@ -1,0 +1,6 @@
+      public static T Convert<T>(IConvertible instance, T defaultValue=default(T)) {
+         ...
+      }
+      public static bool TryConvert<T,U>(T instance, out U result) where T : IConvertible {
+         ...
+      }

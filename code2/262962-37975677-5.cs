@@ -1,0 +1,10 @@
+    List<string> dinosaurs = new List<string>();
+    dinosaurs.Add("Triceratops");
+    dinosaurs.Add("Stegosaurus");
+    Console.WriteLine("Count: {0}", dinosaurs.Count);
+    Console.WriteLine("Capacity: {0}", dinosaurs.Capacity);
+    dinosaurs.Clear();
+    dinosaurs.TrimExcess();
+    Console.WriteLine("\nClear() and TrimExcess()");
+    Console.WriteLine("\nCount: {0}", dinosaurs.Count);
+    Console.WriteLine("Capacity: {0}", dinosaurs.Capacity);

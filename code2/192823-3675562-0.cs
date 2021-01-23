@@ -1,0 +1,5 @@
+    string dateString = "5/1/2008 8:30:52 AM";
+    DateTime date1 = DateTime.Parse(dateString, System.Globalization.CultureInfo.InvariantCulture);
+    DateTime date1 = new DateTime(2008, 3, 1, 7, 0, 0);
+    Console.WriteLine(date1.ToString("F", new System.Globalization.CultureInfo("fr-FR")));
+    // Displays samedi 1 mars 2008 07:00:00

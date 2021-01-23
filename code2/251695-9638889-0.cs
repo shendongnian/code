@@ -1,0 +1,11 @@
+    Response.ContentType = "application/vnd.ms-excel";        
+    Response.AddHeader("Content-Disposition", "attachment; filename=test.xls;");                
+    StringWriter stringWrite = new StringWriter();        
+    HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);        
+    dgrExport.DataSource = dtExport;        
+    dgrExport.DataBind();
+    dgrExport.RenderControl(htmlWrite);
+    string headerTable = @"<Table><tr><td><img src=""D:\\Folder\\1.jpg"" \></td></tr></Table>";
+    Response.Write(headerTable);
+    Response.Write(stringWrite.ToString());        
+    Response.End();

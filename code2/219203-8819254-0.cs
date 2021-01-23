@@ -1,0 +1,18 @@
+    namespace ConsoleApplication1
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                var result = GetTemp(10, 10);
+                Console.WriteLine("Temp for {0} is {1}", result.Item2, result.Item1);
+            }
+    
+            // You give a lat & a long and you get the closest city & temp for it
+            static Tuple<double, string> GetTemp(double lat, double @long)
+            {
+                // just for example
+                return Tuple.Create(10d, "Mordor");
+            }        
+        }
+    }

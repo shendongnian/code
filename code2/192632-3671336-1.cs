@@ -1,0 +1,6 @@
+    public MyClass
+    {
+        internal MyClass()
+        {
+        }
+    }

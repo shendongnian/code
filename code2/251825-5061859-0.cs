@@ -1,0 +1,90 @@
+&lt;UserControl x:Class="Foo.Bar.MyControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.SL4"
+    mc:Ignorable="d"
+    d:DesignHeight="100" d:DesignWidth="200"&gt;
+    &lt;i:Interaction.Triggers&gt;
+        &lt;i:EventTrigger EventName="MouseEnter"&gt;
+            &lt;cmd:EventToCommand Command="{Binding MouseEnterCommand}" PassEventArgsToCommand="True"/&gt;
+        &lt;/i:EventTrigger&gt;
+        &lt;i:EventTrigger EventName="MouseLeave"&gt;
+            &lt;cmd:EventToCommand Command="{Binding MouseLeaveCommand}" PassEventArgsToCommand="True"/&gt;
+        &lt;/i:EventTrigger&gt;
+    &lt;/i:Interaction.Triggers&gt;
+    &lt;UserControl.Resources&gt;
+        &lt;Style x:Key="MyButtonStyle" TargetType="ToggleButton"&gt;
+            &lt;Setter Property="IsEnabled" Value="true"/&gt;
+            &lt;Setter Property="IsTabStop" Value="true"/&gt;
+            &lt;Setter Property="Background" Value="#FFA9A9A9"/&gt;
+            &lt;Setter Property="Foreground" Value="#FF000000"/&gt;
+            &lt;Setter Property="MinWidth" Value="5"/&gt;
+            &lt;Setter Property="MinHeight" Value="5"/&gt;
+            &lt;Setter Property="Margin" Value="0"/&gt;
+            &lt;Setter Property="HorizontalAlignment" Value="Left" /&gt;
+            &lt;Setter Property="HorizontalContentAlignment" Value="Center"/&gt;
+            &lt;Setter Property="VerticalAlignment" Value="Top" /&gt;
+            &lt;Setter Property="VerticalContentAlignment" Value="Center"/&gt;
+            &lt;Setter Property="Cursor" Value="Hand"/&gt;
+            &lt;Setter Property="Template"&gt;
+                &lt;Setter.Value&gt;
+                    &lt;ControlTemplate TargetType="ToggleButton"&gt;
+                        &lt;Grid&gt;
+                            &lt;VisualStateManager.VisualStateGroups&gt;
+                                &lt;VisualStateGroup x:Name="CheckStates"&gt;
+                                    &lt;VisualState x:Name="Checked"&gt;
+                                        &lt;Storyboard&gt;
+                                            &lt;ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Pause"&gt;
+                                                &lt;DiscreteObjectKeyFrame KeyTime="0"&gt;
+                                                    &lt;DiscreteObjectKeyFrame.Value&gt;
+                                                        &lt;Visibility&gt;Visible&lt;/Visibility&gt;
+                                                    &lt;/DiscreteObjectKeyFrame.Value&gt;
+                                                &lt;/DiscreteObjectKeyFrame&gt;
+                                            &lt;/ObjectAnimationUsingKeyFrames&gt;
+                                            &lt;ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Play"&gt;
+                                                &lt;DiscreteObjectKeyFrame KeyTime="0"&gt;
+                                                    &lt;DiscreteObjectKeyFrame.Value&gt;
+                                                        &lt;Visibility&gt;Collapsed&lt;/Visibility&gt;
+                                                    &lt;/DiscreteObjectKeyFrame.Value&gt;
+                                                &lt;/DiscreteObjectKeyFrame&gt;
+                                            &lt;/ObjectAnimationUsingKeyFrames&gt;
+                                        &lt;/Storyboard&gt;
+                                    &lt;/VisualState&gt;
+                                    &lt;VisualState x:Name="Unchecked"&gt;
+                                        &lt;Storyboard&gt;
+                                            &lt;ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Play"&gt;
+                                                &lt;DiscreteObjectKeyFrame KeyTime="0"&gt;
+                                                    &lt;DiscreteObjectKeyFrame.Value&gt;
+                                                        &lt;Visibility&gt;Visible&lt;/Visibility&gt;
+                                                    &lt;/DiscreteObjectKeyFrame.Value&gt;
+                                                &lt;/DiscreteObjectKeyFrame&gt;
+                                            &lt;/ObjectAnimationUsingKeyFrames&gt;
+                                            &lt;ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Pause"&gt;
+                                                &lt;DiscreteObjectKeyFrame KeyTime="0"&gt;
+                                                    &lt;DiscreteObjectKeyFrame.Value&gt;
+                                                        &lt;Visibility&gt;Collapsed&lt;/Visibility&gt;
+                                                    &lt;/DiscreteObjectKeyFrame.Value&gt;
+                                                &lt;/DiscreteObjectKeyFrame&gt;
+                                            &lt;/ObjectAnimationUsingKeyFrames&gt;
+                                        &lt;/Storyboard&gt;
+                                    &lt;/VisualState&gt;
+                                    &lt;VisualState x:Name="Indeterminate" /&gt;
+                                &lt;/VisualStateGroup&gt;
+                            &lt;/VisualStateManager.VisualStateGroups&gt;
+                            &lt;Image x:Name="Play" Source="/Foo.Bar;component/Resources/Icons/Bar/Play.png" /&gt;
+                            &lt;Image x:Name="Pause" Source="/Foo.Bar;component/Resources/Icons/Bar/Pause.png" Visibility="Collapsed" /&gt;
+                            &lt;Image x:Name="PlayHover" Source="/Foo.Bar;component/Resources/Icons/Bar/Play_Hover.png" Visibility="{Binding PlayHoverVisible,FallbackValue=Collapsed}" /&gt;
+                            &lt;Image x:Name="PauseHover" Source="/Foo.Bar;component/Resources/Icons/Bar/Pause_Hover.png" Visibility="{Binding PauseHoverVisible,FallbackValue=Collapsed}" /&gt;
+                        &lt;/Grid&gt;
+                    &lt;/ControlTemplate&gt;
+                &lt;/Setter.Value&gt;
+            &lt;/Setter&gt;
+        &lt;/Style&gt;
+    &lt;/UserControl.Resources&gt;
+    &lt;Grid x:Name="LayoutRoot" Background="White"&gt;
+        &lt;ToggleButton Style="{StaticResource MyButtonStyle}" IsChecked="{Binding IsPlaying}" Command="{Binding ChangeStatus}" Height="30" Width="30" /&gt;
+    &lt;/Grid&gt;
+&lt;/UserControl&gt;

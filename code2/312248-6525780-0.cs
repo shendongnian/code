@@ -1,0 +1,10 @@
+        Button btnMoveThread = new Button();
+        btnMoveThread.Text = "1";
+        btnMoveThread.ID = "Thread1";
+        btnMoveThread.Command += ModeratorButtonPassTo_Click;
+        DivContent.Controls.Add(btnMoveThread);
+        Button btnMoveThread2 = new Button();
+        btnMoveThread2.Text = "2";
+        btnMoveThread2.ID = "Thread2";
+        btnMoveThread2.Command += ModeratorButtonPassTo_Click;
+        DivContent.Controls.Add(btnMoveThread2);

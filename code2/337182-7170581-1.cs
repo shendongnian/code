@@ -1,0 +1,10 @@
+	System.Object
+	  System.Windows.Threading.DispatcherObject
+	    System.Windows.DependencyObject
+	      System.Windows.Media.Visual
+	        System.Windows.UIElement
+	          System.Windows.FrameworkElement
+	            System.Windows.Controls.Control
+	              System.Windows.Controls.ContentControl
+	                System.Windows.Controls.HeaderedContentControl
+	                  System.Windows.Controls.GroupBox

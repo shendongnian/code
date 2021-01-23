@@ -1,0 +1,9 @@
+    <script runat="server">
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack)
+            {
+                lbk.Text = "MyName";
+            }
+        }
+    </script>    

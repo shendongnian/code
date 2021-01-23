@@ -1,0 +1,6 @@
+    public class EditGrantApplicationViewModel
+    {
+       //...
+       public SelectList ReasonForEdit {get;set;}
+       //...
+    }

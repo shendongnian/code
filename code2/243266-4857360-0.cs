@@ -1,0 +1,12 @@
+            string amp = "Before & After";
+            XmlDocument doc = new XmlDocument();
+            StringBuilder sb = new StringBuilder();
+            StringWriter stringWriter = new StringWriter(sb);
+            XmlTextWriter xmlWriter = new XmlTextWriter(stringWriter);
+            xmlWriter.WriteStartElement("amp");
+            xmlWriter.WriteString(amp);
+            xmlWriter.WriteEndElement();
+            StringReader valueStringReader = new StringReader(sb.ToString());
+            XmlTextReader valueXmlReader = new XmlTextReader(valueStringReader);
+            valueXmlReader.MoveToContent();
+            global::System.Windows.Forms.MessageBox.Show(valueXmlReader.ReadString());

@@ -1,0 +1,23 @@
+    for()
+    {
+        if(!email)
+        {
+            Alert();
+        }
+        else
+        {
+            EnterUserDetailsInTable();
+        }
+        if(!group)
+        {
+            Alert();
+        }
+        else
+        {
+            EnterGroupDetailsInTable();
+        }
+    }
+    if(email && group)
+    {
+        PushToServer();
+    }

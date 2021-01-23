@@ -1,0 +1,5 @@
+    var sortedEmployees = empList.Where(e => e.Shift >= 0 && e.Shift < MAX_SHIFT)
+                                 .OrderBy(e => e.Shift)
+                                 .ThenBy(e => e.LastName)
+                                 .ThenBy(e => e.FirstName).ToList();
+    var sortedNames = sortedEmployees.Select(e => string.Format("{0}, {1}", e.Lastname, e.Firstname)).ToList();

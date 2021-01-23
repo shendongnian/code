@@ -1,0 +1,9 @@
+        TextBox textbox = new TextBox();
+        textbox.ID = "TrixName";
+        textbox.Text = table.Rows[i]["TrixName"].ToString();
+        TextBox textbox2 = new TextBox();
+        textbox2.ID = "Hardness";
+        textbox2.Text = table.Rows[i]["Hardness"].ToString();
+        TextBox textbox3 = new TextBox();
+        textbox3.ID = "Webpage";
+        textbox3.Text = table.Rows[i]["Webpage"].ToString();

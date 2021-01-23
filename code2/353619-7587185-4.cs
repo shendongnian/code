@@ -1,0 +1,10 @@
+    public string Name
+    {
+        get { return _name; }
+        set 
+        {
+            if (! Regex.IsMatch(value, @"\w{1-35}"))
+               throw new ArgumentException("Name must be 1-35 alfanum");
+            _name = value;
+        }
+    }

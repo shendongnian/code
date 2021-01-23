@@ -1,0 +1,21 @@
+    using System.Linq;
+	public static class StringExtensions
+	{
+		/// <summary>
+		///		Returns a string array that contains the substrings in this instance that are delimited by specified indexes.
+		/// </summary>
+		/// <param name="source">The original string.</param>
+		/// <param name="index">An index that delimits the substrings in this string.</param>
+		/// <returns>An array whose elements contain the substrings in this instance that are delimited by one or more indexes.</returns>
+		public static string[] SplitAt(this string source, params int[] index)
+		{
+			index = index.Distinct().OrderBy(x => x).ToArray();
+			string[] output = new string[index.Length + 1];
+			for (int i = index.Length - 1; i >= 0; i--) {
+				output[i + 1] = source.Substring(index[i]);
+				source = source.Remove(index[i]);
+			}
+			output[0] = source;
+			return output;
+		}
+	}

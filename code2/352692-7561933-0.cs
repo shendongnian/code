@@ -1,0 +1,15 @@
+        SqlConnection cnn = new SqlConnection("server=.; database=YEDEK; Integrated Security=True; ");
+        cnn.Open();
+        SqlCommand cmd = cnn.CreateCommand();
+        cmd.CommandText = "INSERT INTO Personel (Name, Surname, Tel) VALUES  (@Name, @Surname, @Tel)  ";
+        SqlParameter p1 = new SqlParameter("@Name", SqlDbType.NVarChar);
+        p1.Value = txtName.Text;
+        cmd.Parameters.Add(p1);
+        SqlParameter p2 = new SqlParameter("@Surname", SqlDbType.NVarChar);
+        p2.Value = txtSurname.Text;
+        cmd.Parameters.Add(p2);
+        SqlParameter p3 = new SqlParameter("@Tel", SqlDbType.Char);
+        p3.Value = txtTel.Text;
+        cmd.Parameters.Add(p3);
+        cmd.ExecuteNonQuery();
+        cnn.Close();

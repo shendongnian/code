@@ -1,0 +1,6 @@
+    using Microsoft.AspNet.Identity;
+      
+      ...
+      
+      var userId = User.Identity.GetUserId();
+      ...

@@ -1,0 +1,17 @@
+    var url = string.Format("http://chart.apis.google.com/chart?cht=qr&chs={1}x{2}&chl={0}", txtCode.Text, txtWidth.Text, txtHeight.Text);
+                    WebResponse response = default(WebResponse);
+                    Stream remoteStream = default(Stream);
+                    StreamReader readStream = default(StreamReader);
+                    WebRequest request = WebRequest.Create(url);
+                    response = request.GetResponse();
+                    remoteStream = response.GetResponseStream();
+                    readStream = new StreamReader(remoteStream);
+                    System.Drawing.Image img = System.Drawing.Image.FromStream(remoteStream);
+                    img.Save("D:/QRCode/" + txtCode.Text + ".png");
+                    response.Close();
+                    remoteStream.Close();
+                    readStream.Close();
+                    txtCode.Text = string.Empty;
+                    txtWidth.Text = string.Empty;
+                    txtHeight.Text = string.Empty;
+                    lblMsg.Text = "The QR Code generated successfully";

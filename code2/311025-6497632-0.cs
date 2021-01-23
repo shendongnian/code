@@ -1,0 +1,13 @@
+        var model = TypeModel.Create();
+        model.Add(typeof(ClassA), false).Add("b", "c");
+        model.Add(typeof(ClassD), false).Add("b", "c", "e", "f");
+        var a = new ClassA { b = 1, c = 2 };
+        var aClone = (ClassA)model.DeepClone(a);
+        Debug.Assert(aClone.b == 1);
+        Debug.Assert(aClone.c == 2);
+        var d = new ClassD { b = 1, c = 2, e = 3, f = 4};
+        var dClone = (ClassD)model.DeepClone(d);
+        Debug.Assert(dClone.b == 1);
+        Debug.Assert(dClone.c == 2);
+        Debug.Assert(dClone.e == 3);
+        Debug.Assert(dClone.f == 4);

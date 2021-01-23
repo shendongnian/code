@@ -1,0 +1,17 @@
+            string poo = "a b";
+            string poo1 = "a  b";
+            string poo2 = "a   b";
+            string poo3 = "a    b";
+            string poo4 = " a  b";
+            string poo5 = "a   b ";
+            string poo6 = " a    b ";
+            string poo7 = " a b ";
+            var rex = new Regex(@"^\s{0}.\s{0,1}.\s{0}$");
+            Console.WriteLine(rex.IsMatch(poo));
+            Console.WriteLine(rex.IsMatch(poo1));
+            Console.WriteLine(rex.IsMatch(poo2));
+            Console.WriteLine(rex.IsMatch(poo3));
+            Console.WriteLine(rex.IsMatch(poo4));
+            Console.WriteLine(rex.IsMatch(poo5));
+            Console.WriteLine(rex.IsMatch(poo6));
+            Console.WriteLine(rex.IsMatch(poo7));

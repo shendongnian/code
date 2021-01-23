@@ -1,0 +1,10 @@
+    System.Diagnostics.Process p = new System.Diagnostics.Process();
+    p.StartInfo.FileName = "cmd ";
+    p.StartInfo.UseShellExecute = false;
+    p.StartInfo.Arguments = "/C net view";
+    p.StartInfo.RedirectStandardOutput = true;
+    p.Start();
+    string output = p.StandardOutput.ReadToEnd();
+    p.WaitForExit();
+    Console.WriteLine(output);
+    Console.ReadLine();

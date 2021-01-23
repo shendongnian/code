@@ -1,0 +1,22 @@
+        DB2Connection conn1 = new DB2Connection(ConfigurationManager.ConnectionStrings ["db2IBM"].ConnectionString);
+        conn1.Open();
+        string callString5 = "PGMLIBLE.GETCONSIGNMENTS";
+        DB2Command cmd1 = new DB2Command(callString5, conn1);
+        cmd1.CommandType = CommandType.StoredProcedure;
+        cmd1.CommandTimeout = 5;
+        cmd1.Parameters.Add("prmCons", DB2Type.Char, 7).Value = "JUT0016";
+        prmCons.Direction = ParameterDirection.Input;
+        cmd1.Parameters.Add("prmCmp", DB2Type.Char, 3).Value = "DTA";
+        prmCmp.Direction = ParameterDirection.Input;
+        cmd1.Parameters.Add("prmIorE", DB2Type.Char, 1).Value = "Y";
+        prmIorE.Direction = ParameterDirection.Input;
+        DB2DataAdapter adp = new DB2DataAdapter(cmd1);
+        DataTable dt = new DataTable();
+        adp.Fill(dt);
+     // If I just execute cmd1.executeNonquery it doesn't error.
+     //  cmd1.ExecuteNonQuery(); 
+        GridView2.DataSource = dt;
+        GridView2.DataBind();
+        conn1.Close();
+        conn1.Dispose();
+        cmd1.Dispose();

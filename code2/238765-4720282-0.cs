@@ -1,0 +1,6 @@
+    public static string ToPhoneFormat(this string str, int formatCode)
+    {
+    	return ...
+    }
+    // ...
+    string s = "1234567890".ToPhoneFormat(33);

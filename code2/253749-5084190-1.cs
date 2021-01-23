@@ -1,0 +1,13 @@
+    Public Const WM_CHAR = &H102
+    Public Const WM_SETTEXT = &HC
+    Public Const WM_KEYDOWN = &H100
+    Public Const WM_KEYUP = &H101
+    Public Const WM_LBUTTONDOWN = &H201
+    Public Const WM_LBUTTONUP = &H202
+    Public Const WM_CLOSE = &H10
+    Public Const WM_COMMAND = &H111
+    Public Const WM_CLEAR = &H303
+    Public Const WM_DESTROY = &H2
+    Public Const WM_GETTEXT = &HD
+    Public Const WM_GETTEXTLENGTH = &HE
+    Public Const WM_LBUTTONDBLCLK = &H203

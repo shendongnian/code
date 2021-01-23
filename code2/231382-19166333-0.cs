@@ -1,0 +1,13 @@
+            MemoryStream ms = new MemoryStream();
+            TextWriter tw = new StreamWriter(ms);
+            tw.WriteLine("Line 1");
+            tw.WriteLine("Line 2");
+            tw.WriteLine("Line 3");
+            tw.Flush();
+            byte[] bytes = ms.ToArray();
+            ms.Close();
+            Response.Clear();
+            Response.ContentType = "application/force-download";
+            Response.AddHeader("content-disposition", "attachment;    filename=file.txt");
+            Response.BinaryWrite(bytes);
+            Response.End();		

@@ -1,0 +1,18 @@
+    References(x => x.Parent)
+                .Class<Parent>()
+                .Access.Property()
+                .Cascade.None()
+                .LazyLoad()
+                .Not.Insert()
+                .Not.Update()
+                .Columns("PARENT_ID");
+            HasMany(x => x.Children)
+              .Access.Property()
+              .AsBag()
+              .Cascade.SaveUpdate()
+              .LazyLoad()
+              .Inverse()
+              .Generic()
+              .KeyColumns.Add("PARENT_ID", mapping => mapping.Name("PARENT_ID")
+                                                                   .SqlType("NUMBER")
+                                                                   .Not.Nullable());

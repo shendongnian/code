@@ -1,0 +1,11 @@
+            Document pdfDoc = new Document(PageSize.A4, 25, 10, 25, 10);
+            PdfWriter pdfWriter = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            Paragraph Text = new Paragraph("Hi , This is Test Content");
+            pdfDoc.Add(Text);
+            pdfWriter.CloseStream = false;
+            pdfDoc.Close();
+            Response.Buffer = true;
+            Response.ContentType = "application/pdf";
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.End();

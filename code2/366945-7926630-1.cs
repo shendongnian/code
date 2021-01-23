@@ -1,0 +1,16 @@
+    using System;
+    using System.Diagnostics;
+    class Test
+    {
+        static void Main()
+        {
+           Trace.Listeners.Add(new TextWriterTraceListener("yourlog.log"));
+           Trace.AutoFlush = true;
+           Trace.Indent();
+           Trace.WriteLine("Entering Main");
+           Console.WriteLine("Hello World.");
+           Trace.WriteLine("Exiting Main"); 
+           Trace.Unindent();
+           Trace.Flush();
+        }
+    }

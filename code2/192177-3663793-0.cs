@@ -1,0 +1,28 @@
+    void listBox1_SelectedIndexChanged(object sender, System.EventArgs e)
+    {
+        this.listBox1.Invalidate();
+    }
+    
+    void listBox1_DrawItem(object sender, System.Windows.Forms.DrawItemEventArgs e)
+    {
+        int index = e.Index;
+        Graphics g = e.Graphics;
+        foreach (int selectedIndex in this.listBox1.SelectedIndices)
+        {
+            if (index == selectedIndex)
+            {
+                // Draw the new background colour
+                e.DrawBackground();
+                g.FillRectangle(new SolidBrush(Color.Red), e.Bounds);
+            }
+        }
+    
+        // Get the item details
+        Font font = listBox1.Font;
+        Color colour = listBox1.ForeColor;
+        string text = listBox1.Items[index].ToString();
+    
+        // Print the text
+        g.DrawString(text, font, new SolidBrush(Color.Black), (float)e.Bounds.X, (float)e.Bounds.Y);
+        e.DrawFocusRectangle();
+    }

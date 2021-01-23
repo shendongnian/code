@@ -1,0 +1,11 @@
+    int value = 500;
+    int value2 = 1000;
+    int value3 = 1500;
+    System.IO.MemoryStream ms = new System.IO.MemoryStream();
+    System.IO.BinaryWriter bw = new System.IO.BinaryWriter(ms);
+    bw.Write(value);
+    bw.Write(value2);
+    bw.Write(value3);
+    byte[] array = ms.ToArray();
+    serverStream.Write(array, 0, array.Length);
+    serverStream.Flush();

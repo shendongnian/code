@@ -1,0 +1,10 @@
+    List<int> list1 = new List<int>();
+    List<int> list2 = new List<int>();
+    list1.Add(1);
+    list1.Add(2);
+    list1.Add(3);
+    list1.Add(4);
+    list1.Add(5);
+    list2.Add(2);
+    list2.Add(4);
+    List<int> list3 = list1.Where(i => list2.IndexOf(i) == -1).Select(i => i).ToList();

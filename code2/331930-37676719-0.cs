@@ -1,0 +1,12 @@
+            LinkedResource inline1 = new LinkedResource(System.Web.HttpContext.Current.Server.MapPath("~/CImages/2.jpg"), MediaTypeNames.Image.Jpeg);
+            inline1.ContentId = "2";
+            inline1.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
+            avHtml.LinkedResources.Add(inline1);
+            LinkedResource inline2 = new LinkedResource(System.Web.HttpContext.Current.Server.MapPath("~/Images/3.jpg"), MediaTypeNames.Image.Jpeg);
+            inline2.ContentId = "3";
+            inline2.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
+            avHtml.LinkedResources.Add(inline2);
+            LinkedResource inline3 = new LinkedResource(System.Web.HttpContext.Current.Server.MapPath("~/Content/Images/4.jpg"), MediaTypeNames.Image.Jpeg);
+            inline3.ContentId = "4";
+            inline3.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
+            avHtml.LinkedResources.Add(inline3);

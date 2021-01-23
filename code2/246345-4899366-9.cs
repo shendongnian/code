@@ -1,0 +1,10 @@
+    var contacts = new List<Contact>();
+    Contact __c1 = new Contact();
+    __c1.Name = "Chris Smith";
+    __c1.PhoneNumbers.Add("206-555-0101");
+    __c1.PhoneNumbers.Add("425-882-8080");
+    contacts.Add(__c1);
+    Contact __c2 = new Contact();
+    __c2.Name = "Bob Harris";
+    __c2.PhoneNumbers.Add("650-555-0199");
+    contacts.Add(__c2);

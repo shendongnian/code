@@ -1,0 +1,12 @@
+            table.AddCell("Row 1, Col 1");
+            table.AddCell("Row 1, Col 2");
+            table.AddCell("Row 1, Col 3");
+            table.AddCell("Row 2, Col 1");
+            table.AddCell(new PdfPCell(new Phrase("R2, C2")) { Colspan = 2 }); // table.AddCell("Row 2, Col 2");
+            //table.AddCell("Row 2, Col 3");
+            table.AddCell(new PdfPCell(new Phrase("R3, C1")) { Rowspan = 2 }); //table.AddCell("Row 3, Col 1");
+            table.AddCell("Row 3, Col 2");
+            table.AddCell("Row 3, Col 3");
+            //table.AddCell("Row 4, Col 1");
+            table.AddCell("Row 4, Col 2");
+            table.AddCell("Row 4, Col 3");

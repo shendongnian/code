@@ -1,0 +1,11 @@
+    - Site1.LoginTests
+      - ValidLogin
+      - InvalidLogin
+    + Site1.MyAccountTests
+    + Site1.MiscTests
+    + Site2.LoginTests
+    + Site2.MyAccountTests
+    + Site2.MiscTests
+    + Site3.LoginTests
+    + Site3.MyAccountTests
+    + Site3.MiscTests

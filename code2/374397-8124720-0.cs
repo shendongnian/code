@@ -1,0 +1,20 @@
+    ObjectFactory.Initialize(x =>
+    {
+        x.For<ICatalogAdminService>().Use<Current.Web.Services.DLinkAdminServices.DLinkCatalogAdminService>()
+            .Ctor<string>("catalogConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString)
+            .Ctor<string>("contentConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString)
+            .Ctor<string>("webCatalogConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_WebConnectionString"].ConnectionString)
+            .Ctor<string>("dlinkPromotionAdminConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString);
+        x.For<IContentManagementAdminService>().Use<Current.Web.Services.DLinkAdminServices.DLinkContentManagementAdminService>()
+            .Ctor<string>("contentConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString)
+            .Ctor<string>("webCatalogConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_WebConnectionString"].ConnectionString)
+            .Ctor<string>("dlinkPromotionConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString);
+        x.For<IPromotionAdminService>().Use<Current.Web.Services.DLinkAdminServices.DLinkPromotionAdminService>()
+            .Ctor<string>("catalogConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString)
+            .Ctor<string>("promotionConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString);
+        x.For<ISearchService>().Use<Current.Web.SolR.Extractor>();
+        x.For<IImporter>().Use<Current.Web.SolR.Importer>();
+        x.For<IOrderAdminService>().Use<Current.Web.Services.DLinkAdminServices.DLinkOrderAdminService>()
+            .Ctor<string>("contentConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString)
+            .Ctor<string>("orderConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_OrdersConnectionString"].ConnectionString);
+    });

@@ -1,0 +1,6 @@
+        {
+            if (!Page.IsPostBack)
+            {
+                loadGrid();
+            }
+        }

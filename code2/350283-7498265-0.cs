@@ -1,0 +1,15 @@
+        var guidArray = Enumerable.Range(0, 1000000).Select(x => Guid.NewGuid().ToString()).ToList();
+            string path = "first.txt";
+            File.WriteAllLines(path, guidArray);
+            string path2 = "second.txt";
+            File.WriteAllLines(path2, guidArray.Select(x=>DateTime.UtcNow.Ticks % 2 == 0 ? x : Guid.NewGuid().ToString()));
+            var start = DateTime.Now;
+            var commonNames = File.ReadLines(path).Intersect(File.ReadLines(path2)).ToList();
+            Console.WriteLine((DateTime.Now - start).TotalMilliseconds);
+            start = DateTime.Now;
+            var lines = File.ReadAllLines(path);
+            var hashset = new HashSet<string>(lines);
+            var lines2 = File.ReadAllLines(path2);
+            var result = lines2.Where(hashset.Contains).ToList();
+            Console.WriteLine((DateTime.Now - start).TotalMilliseconds);
+            Console.ReadKey();

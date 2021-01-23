@@ -1,0 +1,19 @@
+    System.Console.WriteLine("-10 => {0}", NextPerfectSquare(-10));
+    System.Console.WriteLine("0 => {0}", NextPerfectSquare(0));
+    System.Console.WriteLine("1 => {0}", NextPerfectSquare(1));
+    System.Console.WriteLine("15 => {0}", NextPerfectSquare(15));
+    System.Console.WriteLine("21 => {0}", NextPerfectSquare(21));
+    System.Console.WriteLine("24 => {0}", NextPerfectSquare(24));
+    System.Console.WriteLine("36 => {0}", NextPerfectSquare(36));
+    System.Console.WriteLine("Max => {0}", NextPerfectSquare(int.MaxValue));
+    System.Console.WriteLine("Min => {0}", NextPerfectSquare(int.MinValue));
+    
+    -10 => 0
+    0 => 1
+    1 => 4
+    15 => 16
+    21 => 25
+    24 => 25
+    36 => 49
+    Max => 1
+    Min => 0

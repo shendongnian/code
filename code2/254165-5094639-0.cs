@@ -1,0 +1,9 @@
+    ParameterExpression argParam = Expression.Parameter(typeof(Service), "s");
+    Expression nameProperty = Expression.Property(argParam, "Name");
+    Expression namespaceProperty = Expression.Property(argParam, "Namespace");
+    var val1 = Expression.Constant("Modules");
+    var val2 = Expression.Constant("Namespace");
+    Expression e1 = Expression.Equal(nameProperty, val1);
+    Expression e2 = Expression.Equal(namespaceProperty, val2);
+    var andExp = Expression.AndAlso(e1, e2);
+    var lambda = Expression.Lambda<Func<string, bool>>(andExp, argParam);

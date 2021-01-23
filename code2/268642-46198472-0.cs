@@ -1,0 +1,14 @@
+     System.Drawing.Drawing2D.GraphicsPath objGP = new System.Drawing.Drawing2D.GraphicsPath();
+            objGP.AddEllipse(new  Rectangle(0, 0, this.Width, this.Height));
+            this.Region = new Region(objGP);
+            System.Drawing.Graphics formGraphics = this.CreateGraphics();
+            string drawString = DtDaysRemaining;
+            System.Drawing.Font drawFont = new System.Drawing.Font("Arial", 20);
+            System.Drawing.SolidBrush drawBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Black);
+            float x = 20;
+            float y = 20;
+            System.Drawing.StringFormat drawFormat = new System.Drawing.StringFormat();
+            formGraphics.DrawString(drawString, drawFont, drawBrush, x, y, drawFormat);
+            drawFont.Dispose();
+            drawBrush.Dispose();
+            formGraphics.Dispose();

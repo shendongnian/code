@@ -1,0 +1,11 @@
+      string url = "http://www.omnimedicalsearch.com/conditions-diseases/images/skin-mole.jpg";
+      Image expected = Image.FromFile(@"C:\Users\Public\Pictures\Sample Pictures\skin-mole.jpg");
+      Image actual = Image.FromFile(@"C:\Users\Public\Pictures\Sample Pictures\skin-mole.jpg"); ;
+      actual = CloudConnection.DownloadImageFromURL(url);
+      MemoryStream ms = new MemoryStream();
+      expected.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+      String expectedBitmap = Convert.ToBase64String(ms.ToArray());
+      ms.Position = 0;
+      actual.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+      String actualBitmap = Convert.ToBase64String(ms.ToArray());
+      Assert.AreEqual(expectedBitmap, actualBitmap);

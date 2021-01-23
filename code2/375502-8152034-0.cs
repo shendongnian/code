@@ -1,0 +1,10 @@
+    Dictionary<string, int> group10 = new Dictionary<string, int>();
+    group10.Add("MATH", 30);
+    Dictionary<string, int> group11 = new Dictionary<string, int>();
+    group10.Add("MATH", 40);
+    Dictionary<string, int> group9 = new Dictionary<string, int>();
+    group10.Add("CHEM", 50);
+    Dictionary<string, Dictionary<string, int>> group = new Dictionary<string, Dictionary<string, int>>();
+    group.Add("10", group10);
+    group.Add("11", group11);
+    group.Add("9", group9);

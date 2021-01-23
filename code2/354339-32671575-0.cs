@@ -1,0 +1,63 @@
+           ImageReader r = new ImageReader();
+            gdcm.Image image = r.GetImage();
+            image.SetNumberOfDimensions(2);
+            DataElement pixeldata = DataElementHelper.PixelData;
+            string file1 = @"D:\testfil.jpeg";
+            System.IO.FileStream infile =
+                new System.IO.FileStream(file1, System.IO.FileMode.Open, System.IO.FileAccess.Read);
+            //uint fsize = gdcm.PosixEmulation.FileSize(file1);
+            //byte[] jstream = new byte[fsize];
+            //infile.Read(jstream, 0, jstream.Length);
+            byte[] jstream = System.IO.File.ReadAllBytes(file1);
+            uint fsize = (uint) jstream.Length;
+            SmartPtrFrag sq = SequenceOfFragments.New();
+            Fragment frag = new Fragment();
+            frag.SetByteValue(jstream, new gdcm.VL((uint)jstream.Length));
+            sq.AddFragment(frag);
+            pixeldata.SetValue(sq.__ref__());
+            // insert:
+            image.SetDataElement(pixeldata);
+            PhotometricInterpretation pi = new PhotometricInterpretation(PhotometricInterpretation.PIType.MONOCHROME2);
+            image.SetPhotometricInterpretation(pi);
+            // FIXME hardcoded:
+            PixelFormat pixeltype = new PixelFormat(PixelFormat.ScalarType.UINT8);
+            image.SetPixelFormat(pixeltype);
+            TransferSyntax ts = new TransferSyntax(TransferSyntax.TSType.JPEGBaselineProcess1);
+            image.SetTransferSyntax(ts);
+            image.SetDimension(0, (uint)1700);
+            image.SetDimension(1, (uint)2200);
+            ImageWriter writer = new ImageWriter();
+            gdcm.File file = writer.GetFile();
+            
+            var ds = file.GetDataSet();
+            DataElement patientID = DataElementHelper.PatientID;
+            DataElement patientName = DataElementHelper.PatientName;
+            DataElement accessionNumber = DataElementHelper.AccessionNumber;
+            DataElement studyDate = DataElementHelper.StudyDate;
+            DataElement studyTime = DataElementHelper.StudyTime;
+            DataElement studyInstanceUID = DataElementHelper.StudyInstanceUID;
+            DataElement seriesInstanceUID = DataElementHelper.SeriesInstanceUID;
+            DataElement mediaStorage = DataElementHelper.SOPClassUID;
+            
+            string studyUID = new gdcm.UIDGenerator().Generate();
+            string seriesUID = new gdcm.UIDGenerator().Generate();
+            //pixelData.SetArray(b, (uint)b.Length);
+            DataElementHelper.SetDataElement(ref patientName, "TEST^MARCUS");
+            DataElementHelper.SetDataElement(ref patientID, "0000000801");
+            DataElementHelper.SetDataElement(ref accessionNumber, "0000000801-12345");
+            DataElementHelper.SetDataElement(ref studyDate, DateTime.Now.ToString("yyyyMMdd"));
+            DataElementHelper.SetDataElement(ref studyTime, DateTime.Now.ToString("HHmmss"));
+            DataElementHelper.SetDataElement(ref studyInstanceUID, studyUID);
+            DataElementHelper.SetDataElement(ref seriesInstanceUID, seriesUID);
+            DataElementHelper.SetDataElement(ref mediaStorage, "1.2.840.10008.5.1.4.1.1.7");
+            ds.Insert(patientID);
+            ds.Insert(patientName);
+            ds.Insert(accessionNumber);
+            ds.Insert(studyDate);
+            ds.Insert(studyTime);
+            ds.Insert(studyInstanceUID);
+            ds.Insert(seriesInstanceUID);
+            ds.Insert(mediaStorage);
+            writer.SetImage(image);
+            writer.SetFileName("gdcm_test.dcm");
+            bool ret = writer.Write();

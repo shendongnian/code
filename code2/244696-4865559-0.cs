@@ -1,0 +1,10 @@
+     objDataAdapter.SelectCommand = new SqlCommand();
+            objDataAdapter.SelectCommand.Connection = objConnection;
+            objDataAdapter.SelectCommand.CommandText = "select code,name,family,fatherName,age from bimar";
+            objDataAdapter.SelectCommand.CommandType = CommandType.Text;
+            objConnection.Open();
+            objDataAdapter.Fill(objDataSet, "bimar");
+            objConnection.Close();
+            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.DataSource = objDataSet;
+            dataGridView1.DataMember = "bimar";

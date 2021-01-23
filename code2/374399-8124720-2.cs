@@ -1,0 +1,20 @@
+    ObjectFactory.Initialize(x =>
+    {
+        x.For<ICatalogAdminService>().Use<DLinkCatalogAdminService>()
+            .Ctor<string>("catalogConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString)
+            .Ctor<string>("contentConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString)
+            .Ctor<string>("webCatalogConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_WebConnectionString"].ConnectionString)
+            .Ctor<string>("dlinkPromotionAdminConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString);
+        x.For<IContentManagementAdminService>().Use<DLinkContentManagementAdminService>()
+            .Ctor<string>("contentConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString)
+            .Ctor<string>("webCatalogConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_WebConnectionString"].ConnectionString)
+            .Ctor<string>("dlinkPromotionConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString);
+        x.For<IPromotionAdminService>().Use<DLinkPromotionAdminService>()
+            .Ctor<string>("catalogConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString)
+            .Ctor<string>("promotionConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString);
+        x.For<ISearchService>().Use<Extractor>();
+        x.For<IImporter>().Use<Importer>();
+        x.For<IOrderAdminService>().Use<DLinkOrderAdminService>()
+            .Ctor<string>("contentConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_AdminConnectionString"].ConnectionString)
+            .Ctor<string>("orderConnectionString").Is(ConfigurationManager.ConnectionStrings["myCompany_OrdersConnectionString"].ConnectionString);
+    });

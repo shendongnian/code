@@ -1,0 +1,6 @@
+    ...
+    MySqlDataReader dr = ...
+    Console.WriteLine("dr.GetFieldType(1) = {0}, dr.GetName(1) = {1}, dr.GetValue(1) = {2}, dr.GetDataTypeName(1) = {3}", 
+                              dr.GetFieldType(1), dr.GetName(1), dr.GetValue(1), dr.GetDataTypeName(1));
+            bool b = Enum.TryParse(dr.GetDataTypeName(1), true, out System.Data.SqlDbType mySqlDbTypeEnum);
+            Console.WriteLine("mySqlDbTypeEnum = {0}, b = {1}", mySqlDbTypeEnum, b);

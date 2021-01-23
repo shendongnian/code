@@ -1,0 +1,6 @@
+    public EffectOptions ( params object [ ] options )
+    public EffectOptions ( IEnumerable<object> options ) 
+    public EffectOptions ( string name )
+    public EffectOptions ( object owner ) 
+    public EffectOptions ( int count ) 
+    public EffectOptions ( Point point )

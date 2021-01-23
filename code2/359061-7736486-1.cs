@@ -1,0 +1,16 @@
+    System.Text.StringBuilder
+    System.Collections.CollectionBase
+    System.Collections.ArrayList
+    System.Collections.ArrayList+IListWrapper
+    System.Collections.ArrayList+SyncArrayList
+    System.Collections.ArrayList+FixedSizeArrayList
+    System.Collections.ArrayList+ReadOnlyArrayList
+    System.Collections.ArrayList+Range
+    System.Collections.SortedList
+    System.Collections.SortedList+SyncSortedList
+    System.Collections.Generic.List`1[T]
+    System.IO.MemoryStream
+    System.IO.UnmanagedMemoryStream
+    System.IO.PinnedBufferMemoryStream
+    System.IO.UnmanagedMemoryAccessor
+    System.IO.UnmanagedMemoryStreamWrapper

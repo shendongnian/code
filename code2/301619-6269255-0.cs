@@ -1,0 +1,12 @@
+    OuterGlowBitmapEffect effect = new OuterGlowBitmapEffect();
+    effect.GlowColor = Colors.Gold;
+    effect.GlowSize = 10;
+    Setter setter = new Setter();
+    setter.Property = UIElement.BitmapEffectProperty;
+    setter.Value = effect;
+    Trigger trigger = new Trigger();
+    trigger.Property = UIElement.IsMouseOverProperty;
+    trigger.Value = true;
+    trigger.Setters.Add(setter);
+    Style style = new Style();
+    style.Triggers.Add(trigger);

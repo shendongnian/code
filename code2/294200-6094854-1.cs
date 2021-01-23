@@ -1,0 +1,6 @@
+    using System.Reflection;
+    // ...
+    Assembly assembly = Assembly.LoadFile(file);
+    yourInterface plugin = (yourInterface)Activator.CreateInstance(Type.GetType(assembly));
+    // ...
+    plugin.GetUI(); // or whatever

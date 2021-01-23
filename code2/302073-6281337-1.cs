@@ -1,0 +1,7 @@
+    void MyAction() { this.Bar(); }
+    ...
+    for(i = 0; i < 10; ++i)
+    {
+        M(new Action(this.MyAction));
+    }
+ 

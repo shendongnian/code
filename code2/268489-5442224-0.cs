@@ -1,0 +1,12 @@
+      TextRange rangeOfText1 = new TextRange(richTextBox.Document.ContentEnd, richTextBox.Document.ContentEnd);
+      rangeOfText1.Text = "Text1 ";
+      rangeOfText1.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Blue);
+      rangeOfText1.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
+      TextRange rangeOfWord = new TextRange(richTextBox.Document.ContentEnd, richTextBox.Document.ContentEnd);
+      rangeOfWord.Text = "word ";
+      rangeOfWord.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Red);
+      rangeOfWord.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Regular);
+      TextRange rangeOfText2 = new TextRange(richTextBox.Document.ContentEnd, richTextBox.Document.ContentEnd);
+      rangeOfText2.Text = "Text2 ";
+      rangeOfText2.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Blue);
+      rangeOfText2.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);

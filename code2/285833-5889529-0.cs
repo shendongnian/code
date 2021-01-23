@@ -1,0 +1,11 @@
+    var table = new DataTable();
+    table.Columns.Add(new DataColumn("Name"));
+    table.Columns.AddRange(Enumerable.Range(1, 4).Select(i => new DataColumn(i.ToString())).ToArray());
+    DataRow row = table.NewRow();
+    row[0] = "Foo";
+    row[1] = 0;
+    row[2] = 5;
+    row[3] = 1;
+    row[4] = 3;
+    table.Rows.Add(row);
+    DataContext = table;

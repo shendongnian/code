@@ -1,0 +1,10 @@
+    String browserName = "Test Check";
+            var tabPageName = new TabPage(textBox1.Text);
+            var tabPageBrowser = new TabPage(browserName);
+            var tabPageTabControl = new TabControl();
+            var browser = new WebBrowser();
+            tabPageName.Controls.Add(tabPageTabControl);
+            tabPageTabControl.TabPages.Add(tabPageBrowser);
+            tabPageBrowser.Controls.Add(browser);
+            mainTabControl.TabPages.Add(tabPageName);
+            mainTabControl.SelectedTab = tabPageName;

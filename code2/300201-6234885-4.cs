@@ -1,0 +1,39 @@
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string path = DayFuturesDestination + "\\" + txtSelectedDate.Text + ".txt";
+            StreamWriter Strwriter = new StreamWriter(path);
+            DirectoryInfo di = new DirectoryInfo(dirpath);
+            FileInfo fi = new FileInfo(path);
+            Compress(fi);
+            Decompress(fi);
+        }
+----------
+        public static void Compress(FileInfo fi)
+        {
+            // Get the stream of the source file.
+            using (FileStream inFile = fi.OpenRead())
+            {
+                // Prevent compressing hidden and already compressed files.
+                if ((File.GetAttributes(fi.FullName) & FileAttributes.Hidden)
+                        != FileAttributes.Hidden & fi.Extension != ".zip")
+                {
+                    // Create the compressed file.
+                    using (FileStream outFile = File.Create(fi.FullName + ".zip"))
+                    {
+                        using (GZipStream Compress = new GZipStream(outFile,
+                                CompressionMode.Compress))
+                        {
+                            // Copy the source file into the compression stream.
+                            byte[] buffer = new byte[4096];
+                            int numRead;
+                            while ((numRead = inFile.Read(buffer, 0, buffer.Length)) != 0)
+                            {
+                                Compress.Write(buffer, 0, numRead);
+                            }
+                            Console.WriteLine("Compressed {0} from {1} to {2} bytes.",
+                                fi.Name, fi.Length.ToString(), outFile.Length.ToString());
+                        }
+                    }
+                }
+            }
+        }

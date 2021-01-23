@@ -1,0 +1,5 @@
+    AllTypes.FromAssemblyContaining<UserService>()
+        .Where(type => type.Name.EndsWith("Service")
+            && typeof(IUserService).IsAssignableFrom(type))
+        .WithService.DefaultInterface()
+        .Configure(c => c.LifeStyle.Singleton)

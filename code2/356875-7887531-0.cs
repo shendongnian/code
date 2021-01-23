@@ -1,0 +1,6 @@
+    public class Session
+    {
+        public Browser browser { get; set; }
+        ...
+        ...
+    }

@@ -1,0 +1,9 @@
+    using System.Web.Hosting;
+    ...
+    ...
+    // Code here runs as the logged on user
+    
+    using (HostingEnvironment.Impersonate()) {
+    // This code runs as the application pool user
+         DirectorySearcher searcher ...
+    }

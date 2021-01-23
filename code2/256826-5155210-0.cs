@@ -1,0 +1,11 @@
+    string query = "INSERT INTO Feedback (user_Name, date_of_, Praise)  VALUES     (@username, getdate(), @praise)"; 
+    SqlCommand cmd = new SqlCommand(query, con);
+    SqlParameter param = new SqlParameter("@username", SqlDbType.Text);
+    param.Value = text1;
+    cmd.Parameters.Add(param);
+    param = new SqlParameter("@praise", SqlDbType.Text);
+    param.Value = text2;
+    cmd.Parameters.Add(param);
+    con.Open(); 
+    cmd.ExecuteNonQuery(); 
+    con.Close(); 

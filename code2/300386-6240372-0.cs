@@ -1,0 +1,12 @@
+    PdfPTable table = new PdfPTable(1);
+    table.DefaultCell.Border = PdfPCell.NO_BORDER;
+    table.WidthPercentage = 100;
+    Image img = Image.GetInstance("Logo.PNG");
+    PdfPCell cell = new PdfPCell(img, false);
+    cell.Border = PdfPCell.BOTTOM_BORDER;
+    cell.PaddingBottom = 5;
+    table.AddCell(cell);
+    PdfPCell cell2 = new PdfPCell(new Phrase("Title"));
+    table.AddCell(cell2);
+    document.Add(table);
+    document.Close();

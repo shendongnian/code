@@ -1,0 +1,13 @@
+    public Action SaveIntoSession()
+    {
+      ...
+      Session["SessionData"] = "Something to be stored in session";
+      ...
+    }
+    public action ReadFromSession()
+    {
+      ...
+      // UNBOXING is required when you're using the session as ASP.NET doesn't know what is stored into the session
+      string sessionData = (string)Session["SessionData"]; 
+     ...
+    }

@@ -1,0 +1,12 @@
+    DataTable dtUsers = new DataTable("tblUsers");
+    BindingSource bsUsers = new BindingSource();
+    SqlDataAdapter daUsers = new SqlDataAdapter("usp_GetUsers",Properties.Resources.ConnectionString);
+    daUsers.InsertCommand = new SqlCommand("usp_InsertNewUser");
+    daUsers.InsertCommand.Connection = new SqlConnection(Properties.Resources.ConnectionString);
+    daUsers.InsertCommand.CommandType = CommandType.StoredProcedure;
+    daUsers.InsertCommand.Parameters.Clear();
+    daUsers.InsertCommand.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = txtUser.Text;
+    daUsers.InsertCommand.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = txtPass.Text;
+    daUsers.InsertCommand.Parameters.Add("@userType", SqlDbType.Int).Value = cbxUserType.SelectedValue;
+    daUsers.InsertCommand.ExecuteNonQuery();
+    daUsers.Update(dtUsers);

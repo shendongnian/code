@@ -1,0 +1,12 @@
+    Devart.Data.SQLite.SQLiteConnectionStringBuilder builder = new SQLiteConnectionStringBuilder();
+    builder.ReadUncommitted = true;
+    builder.DateTimeFormat = Devart.Data.SQLite.SQLiteDateFormats.Ticks;
+    builder.DataSource = DatabaseFilePath;
+    builder.DefaultCommandTimeout = 300;
+    builder.MinPoolSize = 0;
+    builder.MaxPoolSize = 100;
+    builder.Pooling = true;
+    builder.FailIfMissing = false;
+    builder.LegacyFileFormat = false;
+    builder.JournalMode = JournalMode.Default;
+    string connectionString = builder.ToString();

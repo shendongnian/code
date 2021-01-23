@@ -1,0 +1,15 @@
+    FileStream sourceFile = new FileStream(Server.MapPath(@"FileName), FileMode.Open);
+    float FileSize;
+    FileSize = sourceFile.Length;
+    byte[] getContent = new byte[(int)FileSize];
+    sourceFile.Read(getContent, 0, (int)sourceFile.Length);
+    sourceFile.Close();
+    Response.ClearContent();
+    Response.ClearHeaders();
+    Response.Buffer = true;
+    Response.ContentType = ReturnExtension(file.Extension.ToLower());
+    Response.AddHeader("Content-Length", getContent.Length.ToString());
+    Response.AddHeader("Content-Disposition", "attachment; filename=" + FileName);
+    Response.BinaryWrite(getContent);
+    Response.Flush();
+    Response.End();

@@ -1,0 +1,12 @@
+    string databaseLocation = "|DataDirectory|\\Users.mdf";
+    string connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=" + databaseLocation + ";Integrated Security=True;User Instance=True";    
+    SqlConnection sqlConnection = new SqlConnection(connectionString);
+    SqlCommand command = new SqlCommand();
+    command.CommandText = "SELECT * FROM Users WHERE Username = @User";
+    command.CommandType = CommandType.Text;
+    command.Parameters.AddWithValue("@User",username);
+    command.Connection = sqlConnection;
+    sqlConnection.Open();
+    int numberOfRows = command.ExecuteScalar();
+    sqlConnection.Close();
+    return numberOfRows;

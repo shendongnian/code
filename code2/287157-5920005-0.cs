@@ -1,0 +1,6 @@
+    class Xxx
+    {
+        public Xxx()
+        {
+        }
+    }

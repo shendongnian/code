@@ -1,0 +1,6 @@
+    public ObservableCollection<MyObject> MyList
+    {
+         get...
+         set...
+    }
+    

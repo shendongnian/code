@@ -1,0 +1,6 @@
+    public static bool AllEqual<T>(params T[] values)
+    ...
+    if (AllEqual(a, b, c, d, e, f))
+    {
+        ...
+    }

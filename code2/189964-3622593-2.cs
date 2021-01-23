@@ -1,0 +1,185 @@
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.Concurrent;
+    using System.Linq;
+    using System.IO;
+    using System.Xml;
+    using System.Xml.Linq;
+    using System.Text;
+    
+    namespace XMLTest
+    {
+        public struct Segment
+        {
+            public Segment(long index, long length)
+            {
+                Index = index;
+                Length = length;
+            }
+    
+            public long Index;
+            public long Length;
+    
+            public override string ToString()
+            {
+                return string.Format("Segment({0}, {1})", Index, Length);
+            }
+        }
+    
+        public static class GeneralSerializationExtensions
+        {
+            public static byte[] Bytes(this Stream stream, int startIndex = 0, bool setBack = false)
+            {
+                var bytes = new byte[stream.Length];
+                if (stream.CanSeek && stream.CanRead)
+                {
+                    var position = stream.Position;
+                    stream.Seek(startIndex, SeekOrigin.Begin);
+                    stream.Read(bytes, 0, (int)stream.Length);
+                    if (setBack)
+                        stream.Position = position;
+                }
+                return bytes;
+            }        
+        }
+    
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                var stream = new MemoryStream();
+                var element = XElement.Parse(@"<root><group id=""0"" combiner=""or""><filter id=""1"" /><filter id=""2"" /></group></root>");            
+                //var element = XElement.Parse("<a>i<b id='1' o='2' p=''/><b id='2'><c /></b><b id='3' /><b id='4' o='u'>2</b></a>");
+                var buffer = XmlPathSegmenter.StringBuffer(element);
+                var store = element.PathSegments();
+    
+                foreach (var path in store.Keys.OrderBy(p => p))
+                {
+                    try
+                    {
+                        var s = store[path];
+                        var t = buffer.Substring((int)s.Index, (int)s.Length);
+                        Console.WriteLine("> {2,-30} {0,-20} {1}", s, t, path);
+                    }
+                    catch { }
+                }
+            }
+        }
+    
+        public static class XmlPathSegmenter
+        {
+            public static XmlWriter CreateWriter(Stream stream)
+            {
+                var settings = new XmlWriterSettings() { Encoding = Encoding.UTF8, Indent = false, OmitXmlDeclaration = true, NewLineHandling = NewLineHandling.None };
+                
+                return XmlWriter.Create(stream, settings);
+            }
+    
+            public static MemoryStream MemoryBuffer(XElement element)
+            {
+                var stream = new MemoryStream();
+                var writer = CreateWriter(stream);
+                element.Save(writer);
+                writer.Flush();
+                stream.Position = 0;
+                return stream;
+            }
+    
+            public static string StringBuffer(XElement element)
+            {
+                return Encoding.UTF8.GetString(MemoryBuffer(element).Bytes()).Substring(1);
+            }
+    
+            public static ConcurrentDictionary<string, Segment> PathSegments(string xmlElement, string path = null, ConcurrentDictionary<string, Segment> store = null)
+            {
+                return PathSegments(XElement.Parse(xmlElement), path, store);
+            }
+    
+            public static ConcurrentDictionary<string, Segment> PathSegments(this XElement element, string path = null, ConcurrentDictionary<string, Segment> store = null)
+            {
+                var stream = new MemoryStream();
+                var writer = CreateWriter(stream);
+                element.Save(writer);
+                writer.Flush();
+                stream.Position = 0;
+    
+                return PathSegments(stream, path, store);
+            }
+    
+            public static ConcurrentDictionary<string, Segment> PathSegments(Stream stream, string path = null, ConcurrentDictionary<string, Segment> store = null)
+            {
+                if (store == null)
+                    store = new ConcurrentDictionary<string, Segment>();
+                
+                if (path == null)
+                    path = string.Empty;
+    
+                var stack = new ConcurrentStack<KeyValuePair<string, int>>();
+                PathSegments(stream, stack, store, path);
+                
+                return store;
+            }
+    
+            //
+            static void PathSegments(Stream stream, ConcurrentStack<KeyValuePair<string, int>> stack, ConcurrentDictionary<string, Segment> store, string path = null)
+            {
+                var reader = XmlReader.Create(stream, new XmlReaderSettings() { });
+                var line = reader as IXmlLineInfo;
+    
+                while (reader.Read())
+                {
+                ok:
+                    if (reader.IsStartElement())
+                    {
+                        KeyValuePair<string, int> pep;
+                        var pre = stack.TryPeek(out pep) ? pep.Key : string.Empty;
+                        stack.Push(new KeyValuePair<string, int>(pep.Key + Path(reader), line.LinePosition - 2));
+                    }
+    
+                    KeyValuePair<string, int> ep;
+                    if (reader.IsEmptyElement)
+                    {
+                        var name = reader.LocalName;
+                        var d = reader.Depth;
+                        reader.Read();
+                        if (stack.TryPop(out ep))
+                        {
+                            var length = line.LinePosition - 2 - ep.Value - (d > reader.Depth ? 1 : 0);
+                            Console.WriteLine("/{3}|{0} : {1} -> {2}", name, ep.Value, length, line.LineNumber);
+                            Console.WriteLine("!{0}", ep.Key);
+    
+                            store.TryAdd(ep.Key, new Segment(ep.Value, length));
+                        }
+                        goto ok;
+                    }                
+    
+                    if (reader.NodeType == XmlNodeType.EndElement)
+                    {
+                        if (stack.TryPop(out ep))
+                        {
+                            var length = line.LinePosition + reader.LocalName.Length - ep.Value;
+                            Console.WriteLine("|{3}|{0} : {1} -> {2}", reader.LocalName, ep.Value, length, line.LineNumber);
+                            Console.WriteLine("!{0}", ep.Key);
+    
+                            store.TryAdd(ep.Key, new Segment(ep.Value, length));
+                        }
+                    }
+    
+                }
+            }
+            //
+    
+            public static string Path(XmlReader element)
+            {
+                if (!(element.IsStartElement() || element.IsEmptyElement))
+                    return null;
+    
+                if (!element.HasAttributes)
+                    return "/" + element.LocalName;
+                var id = element.GetAttribute("id");
+                var p = string.Format(id == null ? "/{0}" : "/{0}-{1}", element.LocalName, id);
+                Console.WriteLine("P:{0}", p);
+                return p;
+            }
+        }
+    }

@@ -1,0 +1,15 @@
+    System.Drawing.Image image = System.Drawing.Image.FromFile("FilePath");            
+    int newwidthimg = 160;                
+    float AspectRatio = (float)image.Size.Width / (float)image.Size.Height;
+    int newHeight = Convert.ToInt32(newwidthimg / AspectRatio);
+    Bitmap thumbnailBitmap = new Bitmap(newwidthimg, newHeight);
+    Graphics thumbnailGraph = Graphics.FromImage(thumbnailBitmap);
+    thumbnailGraph.CompositingQuality = CompositingQuality.HighQuality;
+    thumbnailGraph.SmoothingMode = SmoothingMode.HighQuality;
+    thumbnailGraph.InterpolationMode = InterpolationMode.HighQualityBicubic;
+    var imageRectangle = new Rectangle(0, 0, newwidthimg, newHeight);
+    thumbnailGraph.DrawImage(image, imageRectangle);
+    thumbnailBitmap.Save("FilePath", ImageFormat.Jpeg);
+    thumbnailGraph.Dispose();
+    thumbnailBitmap.Dispose();
+    image.Dispose();        

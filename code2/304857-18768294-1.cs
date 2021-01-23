@@ -1,0 +1,9 @@
+    public partial class Account
+    {
+      ...
+      public partial class Helper
+      {
+        ...
+      }
+      ...
+    }

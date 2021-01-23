@@ -1,0 +1,10 @@
+        System.IO.MemoryStream objStream = new System.IO.MemoryStream();
+        System.Data.DataSet ds = new System.Data.DataSet();
+        ds.Tables.Add("TEST");
+        ds.WriteXml(objStream);
+        Response.Clear();
+        Response.Buffer = true;
+        Response.ContentType = "text/xml";
+        Response.AddHeader("Content-Disposition", "attachment; filename=File.xml");
+        Response.BinaryWrite(objStream.ToArray());
+        Response.End();

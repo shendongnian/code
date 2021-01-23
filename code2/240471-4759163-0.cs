@@ -1,0 +1,10 @@
+    _parkingVehicleList.Insert(i, _parkingVehicle);
+    _parkingVehicleList[i].DriverName. = _eam.DriverNameList[i].DriverName;
+    _parkingVehicleList[i].Make = _eam.VehicleViewModelList[i].Make;
+    _parkingVehicleList[i].Model = _eam.VehicleViewModelList[i].Model;
+    _parkingVehicleList[i].RegNo = _eam.VehicleViewModelList[i].RegNo;
+    _parkingVehicleList[i].Time = DateTime.Now;
+    _parkingVehicleList[i].Type = _eam.VehicleViewModelList[i].CarTypeValue;
+    _parkingVehicleList[i].Active = true;
+    _parkingVehicleList[i].ParkingApplication = _parkingApplication;
+    _parkingVehicleList[i].User = UserName.IntranetUser;

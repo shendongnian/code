@@ -1,0 +1,16 @@
+    public ActionResult Create(ScheduleCreate mod)
+        {
+            if (ModelState.IsValid)
+            {
+                Schedule newschedule = db.Schedule.Add(mod.schedule);
+                foreach (string instanceTime in mod.schedTimes)
+                {
+                newschedule.Times.Add(new TimeofDay { Time = DateTime.Parse(instanceTime) });
+                }
+                db.SaveChanges();
+                return RedirectToAction("Index");  
+            }
+            PopulateDropDown();
+            return View(mod.schedule);
+    }
+        

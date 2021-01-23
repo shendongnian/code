@@ -1,0 +1,41 @@
+    public static void CreateCSVfile(DataTable dt, string strFilePath)
+        {
+            #region Export Grid to CSV
+            // Create the CSV file to which grid data will be exported.
+            StreamWriter sw = new StreamWriter(strFilePath, false);
+            // First we will write the headers.
+            //DataTable dt = m_dsProducts.Tables[0];
+            int iColCount = dt.Columns.Count;
+            for (int i = 0; i < iColCount; i++)
+            {
+                sw.Write(dt.Columns[i]);
+                if (i < iColCount - 1)
+                {
+                    sw.Write(",");
+                }
+            }
+            sw.Write(sw.NewLine);
+            // Now write all the rows.
+            Type _datetype = typeof(DateTime);
+            foreach (DataRow dr in dt.Rows)
+            {
+                for (int i = 0; i < iColCount; i++)
+                {
+                    
+                    if (!Convert.IsDBNull(dr[i]))
+                    {
+                        sw.Write(
+                            dt.Columns[i].DataType == _datetype
+                                ? ((DateTime)dr[i]).ToString(CultureInfo.InvariantCulture.DateTimeFormat)
+                                : dr[i].ToString());
+                    }
+                    if (i < iColCount - 1)
+                    {
+                        sw.Write(",");
+                    }
+                }
+                sw.Write(sw.NewLine);
+            }
+            sw.Close();
+            #endregion
+        }

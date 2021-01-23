@@ -1,0 +1,9 @@
+    If(!IsPostBack) 
+    {
+      DataList binding code goes here......
+      ...........................
+    }
+    protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        // Bind the DataList here....
+    }

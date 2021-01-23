@@ -1,0 +1,17 @@
+        Window wnd = new Window();
+        Grid grid = new Grid();
+        wnd.Height = 200;
+        wnd.Width = 150;
+        grid.RowDefinitions.Add(new RowDefinition {Height = new GridLength(100) });
+        grid.RowDefinitions.Add(new RowDefinition {Height = GridLength.Auto });
+        wnd.Content = grid;
+        Image img = new Image();
+        Button btn = new Button();
+        btn.Content = "OK";
+        btn.VerticalAlignment = VerticalAlignment.Bottom;
+        Grid.SetRow(img, 0);
+        Grid.SetRow(btn, 1); 
+        grid.Children.Add(img);
+        grid.Children.Add(btn);
+        wnd.Owner = MyMainWindow;
+        wnd.ShowDialog();

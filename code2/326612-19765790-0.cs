@@ -1,0 +1,14 @@
+    XmlReader reader; // Do whatever you want
+    try
+    {
+      XDocument.Load(reader);
+    }
+    catch (ArgumentNulLException)
+    {
+      // The input value is null.
+    }
+    catch (SecurityException)
+    {
+      // The XmlReader does not have sufficient permissions 
+      // to access the location of the XML data.
+    }

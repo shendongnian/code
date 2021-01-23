@@ -1,0 +1,6 @@
+    using System.IO
+    ...
+    public void saveToFile(* string fileName ) {
+        ...
+        throw new IOException( )
+    }

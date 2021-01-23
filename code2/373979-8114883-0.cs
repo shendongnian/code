@@ -1,0 +1,6 @@
+    public class NameValueCollection : NameObjectCollectionBase
+    {
+        // ...
+        public string this[string name] { get; set; }
+        // ...
+    }

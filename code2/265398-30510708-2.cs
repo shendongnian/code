@@ -1,0 +1,20 @@
+    DataGridViewComboBoxColumn dtgViewColumn = new DataGridViewComboBoxColumn();
+                    dtgViewColumn.DataPropertyName = "Area_Id";
+                    dtgViewColumn.HeaderText = "Area";
+                    dtgViewColumn.Width = 120;
+                    dtgViewColumn.DataSource = db.GetActive<Area>();
+                    dtgViewColumn.ValueMember = "Id";
+                    dtgViewColumn.DisplayMember = "Nome";
+                    
+                    this.StarkDataGridView.Columns.Add(dtgViewColumn);
+                    this.StarkDataGridView.ReadOnly = false;
+                    this.StarkDataGridView.Columns["Id"].ReadOnly = true;
+                    this.StarkDataGridView.AutoGenerateColumns = false;
+                    this.StarkDataGridView.Columns["Id"].DisplayIndex = 0;
+                    this.StarkDataGridView.Columns["Nome"].DisplayIndex = 1;
+                    this.StarkDataGridView.Columns["Descricao"].DisplayIndex = 3;
+                    this.StarkDataGridView.Columns["IsActive"].DisplayIndex = 4;
+                    this.StarkDataGridView.Columns["IsActive"].HeaderCell.Value = "Ativo";
+                    this.StarkDataGridView.Columns["Delete"].DisplayIndex = 5;
+                    this.StarkDataGridView.Columns["Area"].Visible= false;
+                    this.StarkDataGridView.Columns["Area_Id"].Visible = false;

@@ -1,0 +1,15 @@
+            Word.Application app = new Word.Application();
+            var doc = app.Documents.Add();
+            var tbl = doc.Tables.Add(doc.Range(), 10, 2);
+            tbl.Borders[Word.WdBorderType.wdBorderHorizontal].LineStyle = Word.WdLineStyle.wdLineStyleSingle;
+            tbl.Borders[Word.WdBorderType.wdBorderHorizontal].Color = Word.WdColor.wdColorDarkRed;
+            tbl.Borders[Word.WdBorderType.wdBorderVertical].LineStyle = Word.WdLineStyle.wdLineStyleSingle;
+            tbl.Borders[Word.WdBorderType.wdBorderVertical].Color = Word.WdColor.wdColorDarkRed;
+            tbl.Borders[Word.WdBorderType.wdBorderTop].LineStyle = Word.WdLineStyle.wdLineStyleSingle;
+            tbl.Borders[Word.WdBorderType.wdBorderTop].Color = Word.WdColor.wdColorDarkRed;
+            tbl.Borders[Word.WdBorderType.wdBorderBottom].LineStyle = Word.WdLineStyle.wdLineStyleSingle;
+            tbl.Borders[Word.WdBorderType.wdBorderBottom].Color = Word.WdColor.wdColorDarkRed;
+            tbl.Cell(6, 1).Range.InsertBreak(Word.WdBreakType.wdPageBreak);
+            app.Visible = true;
+            doc = null;
+            app = null;

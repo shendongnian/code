@@ -1,0 +1,10 @@
+        {
+            Console.WriteLine(typeof(System.Type).GetType());
+            Console.WriteLine(typeof(string).GetType().GetType());
+            Console.WriteLine(typeof(int).GetType());
+            Console.WriteLine(typeof(List<int>).GetType());
+        }
+    System.RuntimeType 
+    System.RuntimeType 
+    System.RuntimeType 
+    System.RuntimeType

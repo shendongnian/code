@@ -1,0 +1,16 @@
+    fileManager.StartNewFile( "IObjectContext.cs");
+    WriteHeader();
+    WriteHeaderIncludeSystem();
+    WriteHeaderIncludeData();
+    WriteHeaderIncludeContainers();
+    WriteNamespaceBegin( code, namespaceName );
+    WriteObjectContextInterface( container, code );
+    WriteNamespaceEnd( namespaceName );
+    fileManager.StartNewFile( container.Name + "Mock.ObjectContext.cs");
+    WriteHeader();
+    WriteHeaderIncludeSystem();
+    WriteHeaderIncludeData();
+    WriteHeaderIncludeContainers();
+    WriteNamespaceBegin( code, namespaceName );
+    WriteObjectContextMockBase( container, code );
+    WriteNamespaceEnd( namespaceName );

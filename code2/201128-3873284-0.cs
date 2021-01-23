@@ -1,0 +1,11 @@
+            var request = (HttpWebRequest)WebRequest.Create("http://jsonsource/");
+            var response = (HttpWebResponse) request.GetResponse();
+            var json = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            Response.ClearHeaders();
+            Response.ClearContent();
+            Response.Clear();
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.ContentType = "application/json";
+            Response.ContentEncoding = Encoding.UTF8;
+            Response.Write(json);
+            Response.Flush();

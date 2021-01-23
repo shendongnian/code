@@ -1,0 +1,28 @@
+        Graph graph1 = new Graph();
+        TripleStore store = new TripleStore();
+        Notation3Parser n3parser = new Notation3Parser();
+        n3parser.Load(graph1, AppPath + "\\n3\\ontology.n3");
+        //Create some Nodes
+        graph1.NamespaceMap.AddNamespace("my", UriFactory.Create("http://0.0.0.1/#"));
+        IUriNode Person = graph1.CreateUriNode("my:firas");
+        IUriNode rdfType = graph1.CreateUriNode("my:name");
+        IBlankNode dse = graph1.CreateBlankNode("a");
+        ILiteralNode robVesse = graph1.CreateLiteralNode("firas");
+        Triple t = new Triple(Person, dse, robVesse);
+        graph1.Assert(t);
+        IUriNode Person1 = graph1.CreateUriNode("my:firas");
+        //ILiteralNode LtrNode = graph1.CreateLiteralNode("a", UriFactory.Create(XmlSpecsHelper.XmlSchemaDataTypeString));
+        IUriNode rdfType1 = graph1.CreateUriNode("my:a");
+        IUriNode robVesse1 = graph1.CreateUriNode("my:person");
+        IGraphLiteralNode dfa = graph1.CreateGraphLiteralNode(graph1);
+        Triple t1 = new Triple(Person1, rdfType1, robVesse1);
+        graph1.Assert(t1);
+        IUriNode Person2 = graph1.CreateUriNode("my:firas");
+        IUriNode rdfType2 = graph1.CreateUriNode("my:suffers");
+        IUriNode robVesse2 = graph1.CreateUriNode("my:insomnia");
+        Triple t2 = new Triple(Person2, rdfType2, robVesse2);
+        graph1.Assert(t2);
+        //SparqlResultSet resultSet = graph.ExecuteQuery(str2) as SparqlResultSet;
+        store.Add(graph1);
+        Notation3Writer n3w = new Notation3Writer();
+        n3w.Save(graph1, AppPath + "\\n3\\ontology.n3");

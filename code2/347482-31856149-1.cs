@@ -1,0 +1,12 @@
+     List<string> lstOverride = new List<string>();
+                    lstOverride.Add("IssuerOnly");
+                    lstOverride.Add("TickerOnly");
+                    lstOverride.Add("All");
+                    lstOverride.Add("Private Equity");
+                    lstOverride.Add("Ignore");
+                    DataGridViewComboBoxColumn cmb = new     DataGridViewComboBoxColumn();
+                    cmb.HeaderText = "Override";
+                    cmb.Name = "cmb";
+                    cmb.DataSource = lstOverride;
+                    cmb.DataPropertyName = "Override";
+                    dgvWebData.Columns.Add(cmb);

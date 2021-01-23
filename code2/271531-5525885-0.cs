@@ -1,0 +1,11 @@
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID", typeof(int));
+            dt.Columns.Add("UserName",typeof(string));
+            ds.Tables.Add(dt);
+            dataGridView1.DataSource = dt;
+            DataRow dr = dt.NewRow();
+            dr["ID"] = 1;
+            dr["UserName"] = "maxWhite";
+            dt.Rows.Add(dr);
+            dataGridView1.DataSource = dt;

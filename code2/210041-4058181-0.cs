@@ -1,0 +1,10 @@
+    var a = new Label();
+    a.Name = "a name";
+    a.Location = new Point(20,  3);
+    a.Text = "a text";
+    this.panel1.Controls.Add(a);
+    var b = new Label();
+    b.Name = "b name";
+    b.Location = new Point(20, 11);
+    b.Text = "b text";
+    this.panel1.Controls.Add(b);

@@ -1,0 +1,6 @@
+      using Microsoft.Xna.Framework.Media;
+...
+        if (Microsoft.Xna.Framework.Media.MediaPlayer.State == MediaState.Playing)
+        {
+              ....
+        }

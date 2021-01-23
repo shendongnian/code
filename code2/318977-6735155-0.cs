@@ -1,0 +1,8 @@
+        Microsoft.Office.Interop.Excel.Workbook xlBook;
+        Microsoft.Office.Interop.Excel.Worksheet xlSheet;
+        string laPath = System.IO.Path.GetFullPath("C:\\ExcelSheet.xls");
+        xlBook = (Workbook)xl.Workbooks.Open(laPath, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing);
+        xlSheet = (Worksheet)xlBook.Worksheets.get_Item(1);
+        xlSheet.Name = "CIAO";
+        xlBook.Save();
+        xl.Application.Workbooks.Close(); 

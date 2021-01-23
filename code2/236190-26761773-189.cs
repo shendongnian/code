@@ -1,0 +1,6 @@
+    Private reg As CashRegister
+    '...
+    Public Sub New()
+       '...
+       Dim reg As New CashRegister
+    End Sub

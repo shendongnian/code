@@ -1,0 +1,11 @@
+C#
+private void DataGridView1_CellContentDoubleClick(Object sender, DataGridViewCellEventArgs e) {
+    System.Text.StringBuilder messageBoxCS = new System.Text.StringBuilder();
+    messageBoxCS.AppendFormat("{0} = {1}", "ColumnIndex", e.ColumnIndex );
+    messageBoxCS.AppendLine();
+    messageBoxCS.AppendFormat("{0} = {1}", "RowIndex", e.RowIndex );
+    messageBoxCS.AppendLine();
+    MessageBox.Show(messageBoxCS.ToString(), "CellContentDoubleClick Event" );
+}
+If that is not what you are looking for, you can find other events in the reference:
+http://msdn.microsoft.com/en-us/library/system.windows.forms.datagridview_events.aspx

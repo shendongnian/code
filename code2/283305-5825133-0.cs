@@ -1,0 +1,15 @@
+    byte[] buffer = new byte[FileUpload1.PostedFile.InputStream.Length];
+    BinaryReader br = new BinaryReader(FileUpload1.PostedFile.InputStream);
+    br.Read(buffer, 0, (int)FileUpload1.FileContent.Length-1);
+    br.Close();
+    SqlConnection con = new SqlConnection(connStr);
+    SqlCommand cmd = new SqlCommand();
+    cmd.Connection = con;
+    cmd.CommandText = "insert into myTable values(@name,@blob)";
+    cmd.Parameters.AddWithValue("@name", FileUpload1.FileName);
+    SqlParameter blobParam = new SqlParameter("@blob", SqlDbType.VarBinary, buffer.Length);
+    blobParam.Value = buffer;
+    cmd.Parameters.Add(blobParam);
+    con.Open();
+    cmd.ExecuteNonQuery();
+    con.Close();

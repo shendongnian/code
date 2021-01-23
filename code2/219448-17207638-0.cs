@@ -1,0 +1,16 @@
+            Console.WriteLine("Mutable String Builder");
+            Console.WriteLine("....................................");
+            Console.WriteLine();
+            StringBuilder sb = new StringBuilder("Very Good Morning");
+            Console.WriteLine(sb.ToString());
+            sb.Remove(0, 5);
+            Console.WriteLine(sb.ToString());
+            Console.WriteLine();
+            Console.WriteLine("Immutable String");
+            Console.WriteLine("....................................");
+            Console.WriteLine();
+            string s = "Very Good Morning";
+            Console.WriteLine(s);
+            s.Substring(0, 5);
+            Console.WriteLine(s);
+            Console.ReadLine();

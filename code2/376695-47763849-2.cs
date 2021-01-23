@@ -1,0 +1,21 @@
+	public static Rect[,] GetCellRects(this Grid grid) =>
+                                 GetCellRects(grid.RowDefinitions, grid.ColumnDefinitions);
+	static Rect[,] GetCellRects(RowDefinitionCollection rows, ColumnDefinitionCollection cols)
+	{
+		int i = rows.Count, j = cols.Count;
+		var a = new Rect[i, j];
+		if (i > 0 && j > 0)
+		{
+			Double x;
+			for (i = a.GetLength(0); --i >= 0;)
+				for (x = rows[i].ActualHeight, j = a.GetLength(1); --j >= 0;)
+					a[i, j].Height = x;
+			for (j = a.GetLength(1); --j >= 0;)
+				for (x = cols[j].ActualWidth, i = a.GetLength(0); --i >= 0;)
+					a[i, j].Width = x;
+			for (i = 1; i < a.GetLength(0); i++)
+				for (j = 1; j < a.GetLength(1); j++)
+					a[i, j].Location = new Point(a[i, j - 1].Right, a[i - 1, j].Bottom);
+		}
+		return a;
+	}

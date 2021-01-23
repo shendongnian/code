@@ -1,0 +1,10 @@
+            GOAuthRequestFactory requestFactory = new GOAuthRequestFactory("cp", TokenManager.ConsumerKey); //ConsumerKey actually is the name of web application
+            requestFactory.ConsumerKey = TokenManager.ConsumerKey;
+            requestFactory.ConsumerSecret = TokenManager.ConsumerSecret;
+            requestFactory.Token = AccessToken;
+            requestFactory.TokenSecret = TokenManager.GetTokenSecret(AccessToken);
+            requestFactory.UseSSL = true;
+            AnalyticsService service = new AnalyticsService(requestFactory.ApplicationName); // acually the same as ConsumerKey
+            service.RequestFactory = requestFactory;
+            const string dataFeedUrl = "https://www.google.com/analytics/feeds/data";
+            DataQuery query1 = new DataQuery(dataFeedUrl);

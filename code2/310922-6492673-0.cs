@@ -1,0 +1,6 @@
+    public enum ModelType { Train, Car, Plane };
+    public class Model { 
+        ... 
+        public ModelType {get;set;}
+        ... 
+    }

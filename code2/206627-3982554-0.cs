@@ -1,0 +1,17 @@
+     public static void AddRange<T>(this Dictionary<T, T> source, Dictionary<T, T> collection)
+     {
+            if (collection == null)
+            {
+                throw new ArgumentNullException("Collection is null");
+            }
+            foreach (var item in collection)
+            {
+                if(!source.ContainsKey(item.Key)){ 
+                   source.Add(item.Key, item.Value);
+                }
+                else
+                {
+                   // handle duplicate key issue here
+                }  
+            } 
+     }

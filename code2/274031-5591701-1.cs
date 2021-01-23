@@ -1,0 +1,13 @@
+        Encoding encoding = Encoding.UTF8;
+        var bytes = encoding.GetBytes("write ÿ or ü please");
+        MemoryStream stream = new MemoryStream(bytes);
+        StreamReader reader = new StreamReader(stream);
+        Response.Clear();
+        Response.Buffer = true;
+        Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.csv", "filename"));
+        Response.Charset = encoding.EncodingName;
+        Response.ContentType = "application/text";
+        Response.ContentEncoding = Encoding.Unicode;
+        Response.Output.Write(reader.ReadToEnd());
+        Response.Flush();
+        Response.End();

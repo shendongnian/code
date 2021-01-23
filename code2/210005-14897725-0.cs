@@ -1,0 +1,24 @@
+    internal class Program
+    {
+        private static void Main(string[] args)
+        {
+            var task = DoWork();
+            Console.WriteLine("Task status: " + task.Status);
+            Console.WriteLine("Waiting for ENTER");
+            Console.ReadLine();
+        }
+        private static async Task DoWork()
+        {
+            Console.WriteLine("Entered DoWork(). Sleeping 3");
+            Thread.Sleep(3000);
+            await Task.Run(() =>
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        Console.WriteLine("async task iteration " + i);
+                        Thread.Sleep(1000);
+                    }
+                });
+            Console.WriteLine("Exiting DoWork()");
+        }
+    }

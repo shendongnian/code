@@ -1,0 +1,17 @@
+    <Persons>
+      <personEntry>
+        <Firstname>Michael</Firstname>
+        <Lastname>Jackson</Lastname>
+        <Age>20</Age>
+      </personEntry>
+      <personEntry>
+        <Firstname>Bill</Firstname>
+        <Lastname>Gates</Lastname>
+        <Age>21</Age>
+      </personEntry>
+      <personEntry>
+        <Firstname>Steve</Firstname>
+        <Lastname>Jobs</Lastname>
+        <Age>22</Age>
+      </personEntry>
+    </Persons>

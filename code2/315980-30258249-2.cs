@@ -1,0 +1,10 @@
+    List<Item> items = new List<Item>();
+    items.Add(new Item() { ItemId = 1, ItemName = "Test1", ListId = 1 });
+    items.Add(new Item() { ItemId = 2, ItemName = "Test2", ListId = 1 });
+    items.Add(new Item() { ItemId = 3, ItemName = "Test3", ListId = 1 });
+    items.Add(new Item() { ItemId = 4, ItemName = "List", ListId = 2 });
+    items.Add(new Item() { ItemId = 5, ItemName = "List2", ListId = 2 });
+    items.Add(new Item() { ItemId = 6, ItemName = "Testing", ListId = 3 });
+    items.Add(new Item() { ItemId = 7, ItemName = "Testing2", ListId = 3 });
+    items.Add(new Item() { ItemId = 8, ItemName = "Testing3", ListId = 3 });
+    var groupByResult = items.GroupBy(i => i.ListId);

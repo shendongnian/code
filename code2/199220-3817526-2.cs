@@ -1,0 +1,22 @@
+    string test = "foo.txt";
+    var oStream = new FileStream(test, FileMode.Append, FileAccess.Write, FileShare.Read); 
+    var iStream = new FileStream(test, FileMode.Open, FileAccess.Read, FileShare.ReadWrite); 
+            
+    var sw = new System.IO.StreamWriter(oStream);
+    var sr = new System.IO.StreamReader(iStream); 
+    var res = sr.ReadLine(); 
+    res = sr.ReadLine();
+    sw.WriteLine("g"); 
+    sw.Flush(); 
+    res = sr.ReadLine();
+    res = sr.ReadLine();
+    sw.WriteLine("h"); sw.Flush();
+    sw.WriteLine("i"); sw.Flush(); 
+    sw.WriteLine("j"); sw.Flush(); 
+    sw.WriteLine("k"); sw.Flush(); 
+    res = sr.ReadLine(); 
+    res = sr.ReadLine(); 
+    res = sr.ReadLine();
+    res = sr.ReadLine();
+    res = sr.ReadLine();
+    res = sr.ReadLine();

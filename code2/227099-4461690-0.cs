@@ -1,0 +1,33 @@
+    Canvas Dependencies = new Canvas();
+    Ellipse e1 = new Ellipse() { Width = 200, Height = 200, Stroke = Brushes.Red, StrokeThickness = 1 };
+    Ellipse e2 = new Ellipse() { Width = 200, Height = 200, Stroke = Brushes.Red, StrokeThickness = 1 };
+    Line l = new Line();
+    l.Stroke = Brushes.Green;
+    l.StrokeThickness = 3;
+    Binding x1 = new Binding(); x1.Path = new PropertyPath(Canvas.LeftProperty); x1.Converter = new MyConverter(); x1.ConverterParameter = e1;
+    Binding y1 = new Binding(); y1.Path = new PropertyPath(Canvas.TopProperty); y1.Converter = new MyConverter(); y1.ConverterParameter = e1;
+    Binding x2 = new Binding(); x2.Path = new PropertyPath(Canvas.LeftProperty); x2.Converter = new MyConverter(); x2.ConverterParameter = e2;
+    Binding y2 = new Binding(); y2.Path = new PropertyPath(Canvas.TopProperty); y2.Converter = new MyConverter(); y2.ConverterParameter = e2;
+    x1.Source = y1.Source = e1;
+    x2.Source = y2.Source = e2;
+    l.SetBinding(Line.X1Property, x1);
+    l.SetBinding(Line.Y1Property, y1);
+    l.SetBinding(Line.X2Property, x2);
+    l.SetBinding(Line.Y2Property, y2);
+    Dependencies.Children.Add(e1);
+    Dependencies.Children.Add(e2);
+    Dependencies.Children.Add(l);
+    SizeChangedEventHandler act = (Object s, SizeChangedEventArgs args) =>
+    {
+        BindingOperations.GetBindingExpressionBase(l, Line.X1Property).UpdateTarget();
+        BindingOperations.GetBindingExpressionBase(l, Line.Y1Property).UpdateTarget();
+        BindingOperations.GetBindingExpressionBase(l, Line.X2Property).UpdateTarget();
+        BindingOperations.GetBindingExpressionBase(l, Line.Y2Property).UpdateTarget();
+    };
+    e1.SizeChanged += act;
+    e2.SizeChanged += act;
+    Canvas.SetLeft(e1, 200);
+    Canvas.SetTop(e1, 200);
+    Canvas.SetLeft(e2, 500);
+    Canvas.SetTop(e2, 500);
+    Grid2.Children.Add(Dependencies);

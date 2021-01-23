@@ -1,0 +1,11 @@
+            OpDtAdPortalProcessReport.Columns.Add("Process Name");
+            OpDtAdPortalProcessReport.Columns.Add("Processed On");
+            OpDtAdPortalProcessReport.Columns.Add("Status");
+            OpDtAdPortalProcessReport.Columns.Add("Comments");
+            OpDtAdPortalProcessReport.Rows.Add("7 Miles", "", "gray", "");
+            OpDtAdPortalProcessReport.Rows.Add("Active", DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss tt"), "green", "");
+            OpDtAdPortalProcessReport.Rows.Add("BMW", DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss tt"), "green", "");
+            OpDtAdPortalProcessReport.Rows.Add("Eicoff", DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss tt"), "green", "");
+            OpDtAdPortalProcessReport.Rows.Add("Volkswagen", "", "gray", "");
+            OpDtAdPortalProcessReport.Rows.Add("Universal", DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss tt"), "orange", "Bot/Script failed to be Executed because of some server issue.");
+            Processname = String.Join(",", OpDtAdPortalProcessReport.Rows.Cast<DataRow>().Where(x => x["Status"].ToString().Contains("green")).ToList<DataRow>().Select(c=> c["Process Name"].ToString()));

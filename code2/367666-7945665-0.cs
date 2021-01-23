@@ -1,0 +1,10 @@
+    f1()
+    {
+        ...
+        f2(Connection1);
+        ...
+    }
+    f2()
+    {
+        Connection1.Execute(SELECT...);
+    }

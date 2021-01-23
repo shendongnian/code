@@ -1,0 +1,15 @@
+    var border = new Border();
+    Grid.SetColumn(border, 0);
+    Grid.SetColumnSpan(border, 3);
+    Grid.SetRowSpan(border, 3);
+    border.CornerRadius = new CornerRadius(1);
+    border.Background = new SolidColorBrush(Colors.Red);
+    border.BorderBrush = new SolidColorBrush(Color.FromArgb(0xff, 0x33, 0x33, 0x33));
+    border.BorderThickness = new Thickness(1);
+    border.RenderTransformOrigin = new Point(0.5, 0.5);
+    var transformGroup = new TransformGroup();
+    transformGroup.Children.Add(new ScaleTransform());
+    transformGroup.Children.Add(new SkewTransform());
+    transformGroup.Children.Add(new RotateTransform());
+    transformGroup.Children.Add(new TranslateTransform());
+    border.RenderTransform = transformGroup;

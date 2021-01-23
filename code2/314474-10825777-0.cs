@@ -1,0 +1,12 @@
+    System.Configuration.Install	
+    System.Design	
+    System.DirectoryServices	
+    System.DirectoryServices.Protocols	
+    System.Drawing	
+    System.Drawing.Design	
+    System.EnterpriseServices	
+    System.Runtime.Remoting	
+    System.Runtime.Serialization.Formatters.Soap	
+    System.ServiceProcess	
+    System.Web.RegularExpressions	
+    System.Windows.Forms

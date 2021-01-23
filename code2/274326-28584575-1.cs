@@ -1,0 +1,12 @@
+    Dictionary<string, object> dictss = new Dictionary<string, object>();
+    dictss.Add("Method", "LOGIN");
+    dictss.Add("User", "User_Name");
+    dictss.Add("Pass", "Password");
+    dictss.Add("Type", "User_Type");
+    Dictionary<string, object> skills = new Dictionary<string, object>();
+    skills.Add("1", "SKILL-1");
+    skills.Add("2", "SKILL-2");
+    skills.Add("3", "SKILL-3");
+    dictss.Add("Skill", skills);
+    JavaScriptSerializer serializer = new JavaScriptSerializer();
+    string jsonString = serializer.Serialize((object)dictss);

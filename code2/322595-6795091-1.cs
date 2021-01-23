@@ -1,0 +1,6 @@
+    var mockComm = Mock.GetMock<ICommunicator>();
+    mockComm.Setup ....
+    var myTestObj = new MyClass(mock.Object);
+    MyClass.Method1(something);
+    
+    mock.Verify....

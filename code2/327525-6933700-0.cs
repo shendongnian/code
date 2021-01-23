@@ -1,0 +1,44 @@
+	private ListView Get()
+	{
+		ListView listView = new ListView();
+		listView.Name = "listView";
+		listView.Margin = ((Thickness)(TypeDescriptor.GetConverter(typeof(Thickness)).ConvertFromInvariantString("0,0,0,164")));
+		GridView gridView = new GridView();
+		GridViewColumn gridViewColumn = new GridViewColumn();
+		gridViewColumn.Header = "Devise";
+		Binding binding = new Binding();
+		binding.Path = ((PropertyPath)(TypeDescriptor.GetConverter(typeof(PropertyPath)).ConvertFromInvariantString("devise")));
+		gridViewColumn.DisplayMemberBinding = binding;
+		gridViewColumn.Width = 80D;
+		gridView.Columns.Add(gridViewColumn);
+		GridViewColumn gridViewColumn2 = new GridViewColumn();
+		gridViewColumn2.Header = "Libelle";
+		Binding binding2 = new Binding();
+		binding2.Path = ((PropertyPath)(TypeDescriptor.GetConverter(typeof(PropertyPath)).ConvertFromInvariantString("label")));
+		gridViewColumn2.DisplayMemberBinding = binding2;
+		gridViewColumn2.Width = 120D;
+		gridView.Columns.Add(gridViewColumn2);
+		GridViewColumn gridViewColumn3 = new GridViewColumn();
+		gridViewColumn3.Header = "Unite";
+		Binding binding3 = new Binding();
+		binding3.Path = ((PropertyPath)(TypeDescriptor.GetConverter(typeof(PropertyPath)).ConvertFromInvariantString("unite")));
+		gridViewColumn3.DisplayMemberBinding = binding3;
+		gridViewColumn3.Width = 80D;
+		gridView.Columns.Add(gridViewColumn3);
+		GridViewColumn gridViewColumn4 = new GridViewColumn();
+		gridViewColumn4.Header = "Achat";
+		Binding binding4 = new Binding();
+		binding4.Path = ((PropertyPath)(TypeDescriptor.GetConverter(typeof(PropertyPath)).ConvertFromInvariantString("achatBanque")));
+		gridViewColumn4.DisplayMemberBinding = binding4;
+		gridViewColumn4.Width = 80D;
+		gridView.Columns.Add(gridViewColumn4);
+		GridViewColumn gridViewColumn5 = new GridViewColumn();
+		gridViewColumn5.Header = "Vente";
+		Binding binding5 = new Binding();
+		binding5.Path = ((PropertyPath)(TypeDescriptor.GetConverter(typeof(PropertyPath)).ConvertFromInvariantString("venteBanque")));
+		gridViewColumn5.DisplayMemberBinding = binding5;
+		gridViewColumn5.Width = 80D;
+		gridView.Columns.Add(gridViewColumn5);
+		listView.View = gridView;
+		return listView;
+	}

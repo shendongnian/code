@@ -1,0 +1,12 @@
+                    cmd2.CommandText = "select * from upload";
+                    cmd2.Connection = con1;
+                    con1.Open();
+                    GridView1.DataSource = cmd2.ExecuteReader();
+                    GridView1.DataBind();
+                    con1.Close();
+                    cmd2.CommandText = "select * from document1";
+                    cmd2.Connection = con1;
+                    con1.Open();
+                    GridView2.DataSource = cmd2.ExecuteReader();
+                    GridView2.DataBind();
+                    con1.Close();

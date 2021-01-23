@@ -1,0 +1,6 @@
+    public override void DataBind()
+    {
+       this.repeater.DataSource = ...
+       this.repeater.DataBind();
+       ...
+    }

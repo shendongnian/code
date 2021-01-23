@@ -1,0 +1,9 @@
+    jsonWriter.WriteStartObject();
+        jsonWriter.WritePropertyName("DATA");
+        jsonWriter.WriteStartObject();
+            jsonWriter.WritePropertyName("id");
+            jsonWriter.WriteValue("234");
+            jsonWriter.WritePropertyName("name");
+            jsonWriter.WriteValue("abc");
+        jsonWriter.WriteEndObject();
+    jsonWriter.WriteEndObject();

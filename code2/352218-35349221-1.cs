@@ -1,0 +1,15 @@
+    ICollideablePlayer:ICollideable
+    {
+       //DependenciesHere
+       HandlePlayerCollision(ICollideable)
+       { 
+           HandleDifferently
+           {
+           }
+           ICollideable
+           {
+               //DependenciesHere
+               HandleCollision(ICollideable)
+           }
+        }
+    }

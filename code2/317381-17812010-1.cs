@@ -1,0 +1,16 @@
+    Runspace rs = RunspaceFactory.CreateRunspace();
+    PowerShell ps = PowerShell.Create();
+    Pipeline pipeline = rs.CreatePipeline();
+    Command cmd1 = new Command("Get-MailboxDatabase");
+    cmd1.Parameters.Add("Server", "EX2010SVR1");
+    cmd1.Parameters.Add("Status");
+    pipeline.Commands.Add(cmd1);
+    Command cmd2 = new Command("Format-List");
+    cmd2.Parameters.Add("Property", "Identity, Guid, mounted, CircularLoggingEnabled, Recovery");
+    pipeline.Commands.Add(cmd2);
+    Command cmd3 = new Command("Format-List");
+    cmd3.Parameters.Add("FilePath", "C:\db.txt");
+    cmd3.Parameters.Add("Encoding", "UTF8");
+    cmd3.Parameters.Add("Width", "8192");
+    pipeline.Commands.Add(cmd3);
+    Collection<PSObject> output = pipeline.Invoke();

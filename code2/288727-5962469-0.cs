@@ -1,0 +1,29 @@
+    public partial class MainPage : PhoneApplicationPage, INotifyPropertyChanged
+    {
+           ...
+        Visibility sampleProperty;
+        public Visibility SampleProperty;
+        {
+            get
+            {
+                return sampleProperty;
+            }
+            set
+            {
+                sampleProperty;= value;
+                // Call OnPropertyChanged whenever the property is updated
+                OnPropertyChanged("SampleProperty");
+            }
+     
+        }
+     
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+      }
+    }

@@ -1,0 +1,13 @@
+    decimal d1 = 111.111000m;
+    decimal d2 = 111.111m;
+    decimal d3 = d1 + d1;
+    decimal d4 = d2 + d2;
+    decimal d5 = d1 + d2;
+    Console.WriteLine(d1);
+    Console.WriteLine(d2);
+    Console.WriteLine(d3);
+    Console.WriteLine(d4);
+    Console.WriteLine(d5);
+    Console.WriteLine(d3 == d4);
+    Console.WriteLine(d4 == d5);
+    Console.WriteLine(d5 == d3);

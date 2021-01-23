@@ -1,0 +1,11 @@
+                   newContact.Title = name;
+                   newContact.Name.FullName = name;
+                   EMail primaryEmail = new EMail(email);
+                   primaryEmail.Primary = true;
+                   primaryEmail.Rel = ContactsRelationships.IsWork;
+                   newContact.Emails.Add(primaryEmail);
+                   newContact.BatchData = new GDataBatchEntryData();
+                   newContact.BatchData.Id = i.ToString();
+                   newContact.BatchData.Type = GDataBatchOperationType.insert;
+                   i ++;
+                   list.Add(newContact);

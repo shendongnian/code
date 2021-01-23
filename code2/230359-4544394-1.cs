@@ -1,0 +1,10 @@
+    Console.WriteLine(DateTime.Now.ToSpecialString());
+    Console.WriteLine(new DateTime(1990, 11, 12).ToSpecialString());
+    Console.WriteLine(new DateTime(1990, 1, 1).ToSpecialString());
+    Console.WriteLine(new DateTime(1990, 1, 2).ToSpecialString());
+    Console.WriteLine(new DateTime(1990, 1, 3).ToSpecialString());
+    Console.WriteLine(new DateTime(1990, 1, 4).ToSpecialString());
+    Console.WriteLine(new DateTime(1990, 12, 15).ToSpecialString());
+    Console.WriteLine(new DateTime(1990, 8, 19).ToSpecialString());
+    Console.WriteLine(new DateTime(1990, 9, 22).ToSpecialString());
+    Console.ReadKey();

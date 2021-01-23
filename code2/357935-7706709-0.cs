@@ -1,0 +1,6 @@
+    public void Foo(string x)
+    {
+        ...
+    }
+    ...
+    Action<string> action = Foo;

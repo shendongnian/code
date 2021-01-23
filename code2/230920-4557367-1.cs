@@ -1,0 +1,14 @@
+    try
+    {
+        Statement1();
+    }
+    catch
+    {
+    }
+    try
+    {
+        Statement2();
+    }
+    catch
+    {
+    }

@@ -1,0 +1,7 @@
+     <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
+      <property name="connection.driver_class">NHibernate.Driver.SQLite20Driver</property>
+      <property name="connection.connection_string">Data Source=core.db3;Version=3</property>
+      <property name="dialect">NHibernate.Dialect.SQLiteDialect</property>
+      <property name="query.substitutions">true=1;false=0</property>
+      <property name='proxyfactory.factory_class'>NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle</property>
+      <property name="show_sql">true</property>

@@ -1,0 +1,27 @@
+            XmlDocument xmlDocument = new XmlDocument();
+            string xmlFileName = (@"C:");
+            xmlDocument.Load(xmlFileName);
+            XmlElement xItem = xmlDocument.CreateElement("item");
+            XmlElement xmlSubElement1 = xmlDocument.CreateElement("todoID");
+            xmlSubElement1.InnerText = todoID;
+            xItem.AppendChild(xmlSubElement1);
+            XmlElement xmlSubElement2 = xmlDocument.CreateElement("todoDate");
+            xmlSubElement2.InnerText = todoDate;
+            xItem.AppendChild(xmlSubElement2);
+            XmlElement xmlSubElement3 = xmlDocument.CreateElement("todoTime");
+            xmlSubElement3.InnerText = todoTime;
+            xItem.AppendChild(xmlSubElement3);
+            XmlElement xmlSubElement4 = xmlDocument.CreateElement("todoItem");
+            xmlSubElement4.InnerText = todoItem;
+            xItem.AppendChild(xmlSubElement4);
+            XmlElement xmlSubElement5 = xmlDocument.CreateElement("todoStatus");
+            xmlSubElement5.InnerText = todoStatus;
+            xItem.AppendChild(xmlSubElement5);
+            XmlElement xmlSubElement6 = xmlDocument.CreateElement("UserID");
+            xmlSubElement6.InnerText = UserID;
+            xItem.AppendChild(xmlSubElement6);
+            //xmlDocument.AppendChild(xItem);
+            xmlDocument.DocumentElement.LastChild.AppendChild(xItem);
+            // then finally save
+            xmlDocument.Save(@"C:");
+            xmlmsg ="A new item has been added to the to do list";

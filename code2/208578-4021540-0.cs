@@ -1,0 +1,13 @@
+     List<string> list = new List<string>();
+     list.Add("AA");
+     list.Add("BB");
+     list.Add("CC");
+     list.Add("DD");
+     list.Add("EE");
+     list.Add("FF");
+     list.Add("GG");
+     list.Add("HH");
+     list.Add("II");
+     MessageBox.Show(list.Count.ToString());
+     list.Remove("CC");
+     MessageBox.Show(list.Count.ToString());

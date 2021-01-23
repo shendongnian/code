@@ -1,0 +1,15 @@
+    CodeMemberMethod DisposeMethod = new CodeMemberMethod();
+    DisposeMethod.Name = "Dispose";
+    DisposeMethod.ReturnType = new CodeTypeReference(typeof(void));
+    DisposeMethod.Attributes = MemberAttributes.Override | MemberAttributes.Private;
+    DisposeMethod.Parameters.Add(new CodeParameterDeclarationExpression(typeof(bool), "disposing"));
+    myDesignerClass.Members.Add(DisposeMethod);
+    CodeConditionStatement cstif2 = new CodeConditionStatement();
+    CodeExpression dis = new CodeVariableReferenceExpression("disposing");
+    CodeExpression comp = new CodeVariableReferenceExpression("components");
+    cstif2.Condition = new CodeBinaryOperatorExpression(dis, CodeBinaryOperatorType.BooleanAnd, new CodeBinaryOperatorExpression(dis, CodeBinaryOperatorType.IdentityInequality, new CodePrimitiveExpression(null)));
+    CodeExpression dispos = new CodeMethodInvokeExpression(comp, "Dispose", new CodeExpression[] { });
+    cstif2.TrueStatements.Add(dispos);
+    DisposeMethod.Statements.Add(cstif2);
+    CodeExpression bdispos = new CodeMethodInvokeExpression(new CodeBaseReferenceExpression(), "Dispose", new CodeExpression[] { });
+    DisposeMethod.Statements.Add(bdispos);

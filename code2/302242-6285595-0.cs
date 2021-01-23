@@ -1,0 +1,10 @@
+            List<SomeClass> SYNCItems = new List<SomeClass>();
+            var obj1 = new SomeClass() { SomeProperty = "test" };
+            SYNCItems.Add(obj1);
+            var obj2 = new SomeClass() { SomeProperty = "test" };
+            SYNCItems.Add(obj2);
+            List<Object> ItemsList = new List<object>();
+            ItemsList.Add(SYNCItems);
+            var list = (ItemsList[0]) as List<SomeClass>;
+            Console.WriteLine(list[0].SomeProperty);
+            Console.WriteLine(list[1].SomeProperty); 

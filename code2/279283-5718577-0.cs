@@ -1,0 +1,11 @@
+    ProcessStartInfo processInfo = new ProcessStartInfo("cmd.exe", @"/c dir /s C:\Windows\System32");
+    processInfo.ErrorDialog = false;
+    processInfo.UseShellExecute = false;
+    processInfo.RedirectStandardOutput = true;
+    processInfo.RedirectStandardError = true;
+    Process proc = Process.Start(processInfo);
+    proc.ErrorDataReceived += (sender, errorLine) => { if (errorLine.Data != null)     Trace.WriteLine(errorLine.Data); };
+    proc.OutputDataReceived += (sender, outputLine) => { if (outputLine.Data != null) Trace.WriteLine(outputLine.Data); };
+    proc.BeginErrorReadLine();
+    proc.BeginOutputReadLine();
+    proc.WaitForExit();

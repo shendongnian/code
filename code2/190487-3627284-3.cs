@@ -1,0 +1,12 @@
+    var e = new Concrete_Tsp_Element();
+    var v = new Concrete_Tsp_Visit();
+    v.Element = e;
+    v.Time = 0.5;
+    var r = new Concrete_Tsp_Route();
+    r.Visits = new List<Concrete_Tsp_Visit>(new[] { v });
+    r.Distance = 2.1;
+    var s = new Concrete_Tsp_Solution();
+    s.Routes = new List<Concrete_Tsp_Route>(new[] { r });
+    Console.WriteLine(s.Distance);
+    Console.WriteLine(s.Time);
+    Console.ReadLine();

@@ -1,0 +1,10 @@
+    dataGridView1.RowsDefaultCellStyle.SelectionBackCo lor = Color.FromArgb(98, 110, 110);
+    dataGridView1.RowHeadersDefaultCellStyle.BackColor = Color.Black;
+    dataGridView1.RowHeadersDefaultCellStyle.ForeColor = Color.White;
+    dataGridView1.ColumnHeadersDefaultCellStyle.BackCo lor = Color.Black;
+    dataGridView1.ColumnHeadersDefaultCellStyle.ForeCo lor = Color.White;
+    dataGridView1.AlternatingRowsDefaultCellStyle.Back Color = Color.Black;
+    dataGridView1.GridColor = Color.FromArgb(80, 90, 90);
+    dataGridView1.RowsDefaultCellStyle.BackColor = Color.FromArgb(27, 30, 30);
+    dataGridView1.RowsDefaultCellStyle.Padding = new Padding(5, 0, 5, 0);
+    dataGridView1.RowsDefaultCellStyle.ForeColor = Color.White;

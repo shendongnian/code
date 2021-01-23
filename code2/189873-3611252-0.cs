@@ -1,0 +1,20 @@
+    static void Main(string[] args)
+    {
+        int x = 10, y = 10;
+        bool isFound = false;
+        // Rest of the body
+        for(int i=0;i<x;i++)
+        {
+            for(int j=0;j<y;j++)
+            {
+                if(cautat.Equals(myArrayTable[i,j]))
+                {
+                    Console.WriteLine("Numarul a fost gasit"); 
+                    isFound = true;
+                }
+            }
+        }
+        if(!isFound)
+            Console.WriteLine("Numarul nu a fost gasit!");
+        Console.ReadKey();
+    }

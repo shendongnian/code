@@ -1,0 +1,23 @@
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <configuration>
+      <system.diagnostics>
+        <trace autoflush="true" />
+        <sources>
+          <source name="System.Net">
+            <listeners>
+              <add name="MyTraceFile"/>
+            </listeners>
+          </source>
+        </sources>
+        <sharedListeners>
+          <add
+          name="MyTraceFile"
+          type="System.Diagnostics.TextWriterTraceListener"
+          initializeData="System.Net.trace.log"
+        />
+        </sharedListeners>
+        <switches>
+          <add name="System.Net" value="Verbose" />
+        </switches>
+      </system.diagnostics>
+    </configuration>

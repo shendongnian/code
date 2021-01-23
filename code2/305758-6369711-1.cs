@@ -1,0 +1,12 @@
+            string json = "...";
+            byte[] arr = System.Text.Encoding.UTF8.GetBytes(xml);
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("http://localhost/");
+            request.Method = "PUT";
+            request.ContentType = "application/json";
+            request.ContentLength = arr.Length;
+            Stream dataStream = request.GetRequestStream();
+            dataStream.Write(arr, 0, arr.Length);
+            dataStream.Close();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            string returnString = response.StatusCode.ToString();
+            Console.WriteLine(returnString);

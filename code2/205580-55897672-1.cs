@@ -1,0 +1,11 @@
+    StringWriter sw = new StringWriter();
+        HtmlTextWriter hw = new HtmlTextWriter(sw);
+      pnlprint.RenderControl(hw);
+        StringReader sr = new StringReader(sw.ToString());
+       string cssPath = Server.MapPath("~/css/style1.css");
+        string cssString = File.ReadAllText(cssPath);
+         cssPath = Server.MapPath("~/css/bootstrap.css");
+        string cssString2 = File.ReadAllText(cssPath);
+        cssString += cssString2;
+        GlobalConfig gc = new GlobalConfig();
+        byte[] pdfContent = new SimplePechkin(new GlobalConfig()).Convert(@"<html><head><style>" + cssString + "</style></head><body>" + sw.ToString() + "</body></html>");

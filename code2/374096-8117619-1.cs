@@ -1,0 +1,6 @@
+    public class myUserControl : Control
+        {
+          ...
+          public int myIntProperty {get; set;}
+          ...
+        }

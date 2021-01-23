@@ -1,0 +1,11 @@
+    com.CommandType = CommandType.StoredProcedure;
+    com.Parameters.Add(new SqlParameter("@lat1",SqlDbType.Float,50,lat1));
+    com.Parameters.Add(new SqlParameter("@lng1",SqlDbType.Float,50,lng1));
+    com.Parameters.Add(new SqlParameter("@radius1",SqlDbType.Int,10,radius1));
+    com.Parameters.Add(new SqlParameter("@streetname", SqlDbType.VarChar, 50, streetname));
+    com.Parameters.Add(new SqlParameter("@keyword1", SqlDbType.VarChar, 50, keyword1)); 
+    com.Parameters[0].Value = lat1;
+    com.Parameters[1].Value = lng1;
+    com.Parameters[2].Value = radius1;
+    com.Parameters[3].Value = streetname;
+    com.Parameters[4].Value = keyword1;

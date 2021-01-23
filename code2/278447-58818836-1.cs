@@ -1,0 +1,11 @@
+    Printer printer = new Printer("Printer Name");
+    printer.Append("Code 128");
+    printer.Code128("123456789");
+    printer.Separator();
+    printer.Append("Code39");
+    printer.Code39("123456789");
+    printer.Separator();
+    printer.Append("Ean13");
+    printer.Ean13("1234567891231");
+    printer.FullPaperCut();
+    printer.PrintDocument();

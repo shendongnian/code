@@ -1,0 +1,11 @@
+    listView1.View = View.Details;
+    listView1.Columns.Add(new ColumnHeader() { Width=-1 });
+    listView1.HeaderStyle = ColumnHeaderStyle.None;
+    ListViewGroup membersGroup = new ListViewGroup("Members", HorizontalAlignment.Left);
+    listView1.Groups.Add(membersGroup);
+    listView1.Items.Add(new ListViewItem() { Text = "Member 1", Group = membersGroup });
+    listView1.Items.Add(new ListViewItem() { Text = "Member 2", Group = membersGroup });
+    ListViewGroup productsGroup = new ListViewGroup("Products", HorizontalAlignment.Left);
+    listView1.Groups.Add(productsGroup);
+    listView1.Items.Add(new ListViewItem() { Text = "Product 1", Group = productsGroup });
+    listView1.Items.Add(new ListViewItem() { Text = "Product 2", Group = productsGroup });

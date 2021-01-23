@@ -1,0 +1,5 @@
+    class WeatherStation : TelementryStation
+    {
+        public Sensor Temperatur { get; set; }
+        public Sensor Wind { get; set; }
+    }

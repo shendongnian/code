@@ -1,0 +1,11 @@
+    StreamReader xmlStream = new StreamReader("yourXml.xml");           
+                XmlDocument xmlDocument = new XmlDocument();
+                NameTable nt = new NameTable();
+                XmlNamespaceManager nsmgr = new XmlNamespaceManager(nt);
+                nsmgr.AddNamespace("dfs", "schema1");
+                nsmgr.AddNamespace("d", "schema1");
+                nsmgr.AddNamespace("xdado", "schema1");
+                XmlParserContext context = new XmlParserContext(null, nsmgr, null, XmlSpace.None);
+                XmlReaderSettings xset = new XmlReaderSettings { ConformanceLevel = ConformanceLevel.Fragment };
+                XmlReader rd = XmlReader.Create(xmlStream, xset, context);
+                xmlDocument.Load(rd);

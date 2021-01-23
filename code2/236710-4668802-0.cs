@@ -1,0 +1,10 @@
+    OracleConnection conn = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
+    Conn.Open;
+    OracleCommand cmd = conn.CreateCommand();
+    cmd.CommandText = "sp_pkg.getdata";
+    cmd.CommandType = CommandType.StoredProcedure;
+    cmd.Parameters.Add(new OracleParameter("a1", OracleType.Cursor)).Direction = ParameterDirection.Output;
+    cmd.Parameters.Add(new OracleParameter("a2", OracleType.Cursor)).Direction = ParameterDirection.Output;
+    DataSet ds = new DataSet();
+    OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+    adapter.Fill(ds);

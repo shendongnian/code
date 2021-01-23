@@ -1,0 +1,13 @@
+     StringBuilder sb = new StringBuilder();          
+                
+                
+     var columnNames = dt.Columns.Cast<DataColumn>().Select(column => column.ColumnName).ToArray();
+     sb.AppendLine(string.Join(",", columnNames));
+    
+     foreach (DataRow row in dt.Rows)
+     {
+         var fields = row.ItemArray.Select(field => field.ToString()).ToArray();
+         sb.AppendLine(string.Join(",", fields));
+     }
+    
+     File.WriteAllText(fileName, sb.ToString(), Encoding.UTF8);

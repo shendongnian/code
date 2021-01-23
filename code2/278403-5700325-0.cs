@@ -1,0 +1,19 @@
+    public override bool Equals(object obj)
+    {
+        if (obj == null)
+            return false;
+        Instrument instrument = obj as Instrument;
+        if (instrument == null)
+            return false;
+        // string.Equals can handle null references
+        return (string.Equals(ClassCode, instrument.ClassCode) && string.Equals(Ticker, instrument.Ticker));
+    }
+    public override int GetHashCode()
+    {
+        int hash = 13;
+        if (ClassCode != null)
+            hash = (hash * 7) + ClassCode.GetHashCode();
+        if (Ticker!= null)
+            hash = (hash * 7) + Ticker.GetHashCode();
+        return hash;
+    }

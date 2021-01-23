@@ -1,0 +1,47 @@
+       private static Drawing BuildImage(string imageRelationshipID, string imageName, int pixelWidth, int pixelHeight)
+        {
+            int emuWidth = (int)(pixelWidth * EMU_PER_PIXEL);
+            int emuHeight = (int)(pixelHeight * EMU_PER_PIXEL);
+            Drawing drawing = new Drawing();
+            d.Wordprocessing.Inline inline = new d.Wordprocessing.Inline { DistanceFromTop = 0, DistanceFromBottom = 0, DistanceFromLeft = 0, DistanceFromRight = 0 };
+            d.Wordprocessing.Anchor anchor = new d.Wordprocessing.Anchor();
+            d.Wordprocessing.SimplePosition simplePos = new d.Wordprocessing.SimplePosition { X = 0, Y = 0 };
+            d.Wordprocessing.Extent extent = new d.Wordprocessing.Extent { Cx = emuWidth, Cy = emuHeight };
+            d.Wordprocessing.DocProperties docPr = new d.Wordprocessing.DocProperties { Id = 1, Name = imageName };
+            d.Graphic graphic = new d.Graphic();            
+            d.GraphicData graphicData = new d.GraphicData { Uri = GRAPHIC_DATA_URI };
+            d.Pictures.Picture pic = new d.Pictures.Picture();
+            d.Pictures.NonVisualPictureProperties nvPicPr = new d.Pictures.NonVisualPictureProperties();
+            d.Pictures.NonVisualDrawingProperties cNvPr = new d.Pictures.NonVisualDrawingProperties { Id = 2, Name = imageName };
+            d.Pictures.NonVisualPictureDrawingProperties cNvPicPr = new d.Pictures.NonVisualPictureDrawingProperties();
+            d.Pictures.BlipFill blipFill = new d.Pictures.BlipFill();
+            d.Blip blip = new d.Blip { Embed = imageRelationshipID };
+            d.Stretch stretch = new d.Stretch();
+            d.FillRectangle fillRect = new d.FillRectangle();
+            d.Pictures.ShapeProperties spPr = new d.Pictures.ShapeProperties();
+            d.Transform2D xfrm = new d.Transform2D();
+            d.Offset off = new d.Offset { X = 0, Y = 0 };
+            d.Extents ext = new d.Extents { Cx = emuWidth, Cy = emuHeight };
+            d.PresetGeometry prstGeom = new d.PresetGeometry { Preset = d.ShapeTypeValues.Rectangle };
+            d.AdjustValueList avLst = new d.AdjustValueList();
+            xfrm.Append(off);
+            xfrm.Append(ext);
+            prstGeom.Append(avLst);
+            stretch.Append(fillRect);
+            spPr.Append(xfrm);
+            spPr.Append(prstGeom);
+            blipFill.Append(blip);
+            blipFill.Append(stretch);
+            nvPicPr.Append(cNvPr);
+            nvPicPr.Append(cNvPicPr);
+            pic.Append(nvPicPr);
+            pic.Append(blipFill);
+            pic.Append(spPr);
+            graphicData.Append(pic);
+            graphic.Append(graphicData);
+            inline.Append(extent);
+            inline.Append(docPr);
+            inline.Append(graphic);
+            drawing.Append(inline);
+            return drawing;
+        }

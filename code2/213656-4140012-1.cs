@@ -1,0 +1,17 @@
+            var refMongo = new Mongo();
+            refMongo.Connect();
+            var test = refMongo.GetDatabase("Test");
+            var users = test.GetCollection("Users");
+            var user = new MongoDB.Document();
+            user.Add("FirstName", "John");
+            user.Add("LastName", "Michael");
+            user.Add("Address", "123 Main Street");
+            user.Add("City", "Newport Beach");
+            user.Add("State", "CA");
+            user.Add("ZipCode", "92660");
+            user.Add("Email", "John.Michael@myemail.com");
+            user.Add("CreatedDate", DateTime.Now);
+            user.Add("IPAddress", "10.1.1.1");
+            users.Save(user);
+            string idSTring = user["_id"].ToString();
+            Console.WriteLine(idSTring);

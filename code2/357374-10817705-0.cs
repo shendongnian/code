@@ -1,0 +1,7 @@
+    <system.data>
+        <DbProviderFactories>
+            <remove invariant="System.Data.SQLite" />
+            <add name="SQLite Data Provider" invariant="System.Data.SQLite" description=".Net Framework Data Provider for SQLite"
+                 type="System.Data.SQLite.SQLiteFactory, System.Data.SQLite, Version=1.0.80.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139" />
+        </DbProviderFactories>
+    </system.data>

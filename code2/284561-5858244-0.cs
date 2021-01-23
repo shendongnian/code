@@ -1,0 +1,12 @@
+    StringBuilder sb = new StringBuilder();
+            sb.Append("\n");
+            sb.Append("File Generated: ");
+            sb.Append(BinaryWriter.GetBinaryFileName(filePath, Convert.ToInt32(logSelected)));
+            sb.Append("\n");
+            sb.Append("Time Elapsed: ");
+            sb.Append(timeSpan.Minutes);
+            sb.Append(" minute(s)");
+            sb.Append(timeSpan.Seconds);
+            sb.Append(" second(s)");
+            sb.Append();
+            _userOptions.DisplayMessage(sb.ToString());

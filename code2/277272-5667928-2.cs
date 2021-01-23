@@ -1,0 +1,10 @@
+    System.Object 
+      System.Exception
+        System.SystemException
+          Microsoft.SqlServer.Server.InvalidUdtException
+          System.AccessViolationException
+          System.Activities.ValidationException
+          System.AppDomainUnloadedException
+          System.ArgumentException
+          System.ArithmeticException
+          ...

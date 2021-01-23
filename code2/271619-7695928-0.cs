@@ -1,0 +1,11 @@
+    new Story("Project Registration")
+            .InOrderTo("allow project members to collaborate over a project")
+            .AsA("project manager")
+            .IWant("to be able to register new projects")
+                .WithScenario("New Project Registration")
+                    .Given(AProjectManager, "Scott")
+                        .And(AnUnRegisteredProject, "Stack Overflow Integration")
+                    .When(TheProjectManagerRegistersTheProject)
+                        .And(TheProjectManagerSpecifiesATeamMember, "Jane")
+                    .Then(ThenTheProjectShouldAppearInTheTeamMembersListOfProjects)
+        .Execute();

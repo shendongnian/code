@@ -1,0 +1,9 @@
+    foreach (T item in dataObjects) {
+       // Notice: by delegating the only type-specific aspect of this method
+       // (the property) to (fittingly enough) a delegate, we are able to 
+       // package MOST of the code in a reusable form.
+       var property = selector(item);
+    
+       InlineUIContainer uiContainer = this.CreateElementContainer(property)
+       para.Inlines.Add(uiContainer);
+    }

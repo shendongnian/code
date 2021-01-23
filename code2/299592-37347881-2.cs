@@ -1,0 +1,60 @@
+    public class RemoveWhitespace
+    {
+        public static string RemoveStringReader(string input)
+        {
+            var s = new StringBuilder(input.Length);// (input.Length);
+            using (var reader = new StringReader(input))
+            {
+                int i = 0;
+                char c;
+                for (; i < input.Length; i++)
+                {
+                    c = (char)reader.Read();
+                    if (!char.IsWhiteSpace(c))
+                    {
+                        s.Append(c);
+                    }
+                }
+            }
+    
+            return s.ToString();
+        }
+    
+        public static string RemoveLinqNativeCharIsWhitespace(string input)
+        {
+            return new string(input.ToCharArray()
+                .Where(c => !char.IsWhiteSpace(c))
+                .ToArray());
+        }
+    
+        public static string RemoveLinq(string input)
+        {
+            return new string(input.ToCharArray()
+                .Where(c => !Char.IsWhiteSpace(c))
+                .ToArray());
+        }
+    
+        public static string RemoveRegex(string input)
+        {
+            return Regex.Replace(input, @"\s+", "");
+        }
+    
+        private static Regex compiled = new Regex(@"\s+", RegexOptions.Compiled);
+        public static string RemoveRegexCompiled(string input)
+        {
+            return compiled.Replace(input, "");
+        }
+    
+        public static string RemoveForLoop(string input)
+        {
+            for (int i = input.Length - 1; i >= 0; i--)
+            {
+                if (char.IsWhiteSpace(input[i]))
+                {
+                    input = input.Remove(i, 1);
+                }
+            }
+    
+            return input;
+        }
+    }

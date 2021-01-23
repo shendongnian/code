@@ -1,0 +1,6 @@
+    public void Transmit(string fileName, HttpResponseBase response, DownloadFileType fileType, byte[] content)
+    {
+    ...
+    // main logic.
+    ...
+    }

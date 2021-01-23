@@ -1,0 +1,15 @@
+            strMessage = Regex.Replace(strMessage, "[éèëê]", "e");
+            strMessage = Regex.Replace(strMessage, "[ÉÈËÊ]", "E");
+            strMessage = Regex.Replace(strMessage, "[àâä]", "a");
+            strMessage = Regex.Replace(strMessage, "[ÀÂÄ]", "A");
+            strMessage = Regex.Replace(strMessage, "[ùûüµ]", "u");
+            strMessage = Regex.Replace(strMessage, "[ôöò]", "o");
+            strMessage = Regex.Replace(strMessage, "[ÔÖÒ]", "O");
+            strMessage = Regex.Replace(strMessage, "[ïîì]", "i");
+            strMessage = Regex.Replace(strMessage, "[ÏÎÌ]", "I");
+            strMessage = Regex.Replace(strMessage, "[ç]", "c");
+            strMessage = Regex.Replace(strMessage, "[Ç]", "C");
+            strMessage = Regex.Replace(strMessage, "[œ]", "oe");
+            strMessage = Regex.Replace(strMessage, "[Œ]", "Oe");
+            strMessage = Regex.Replace(strMessage, "[«»\u201C\u201D\u201E\u201F\u2033\u2036]", "\"");
+            strMessage = Regex.Replace(strMessage, "[\u2026]", "...");

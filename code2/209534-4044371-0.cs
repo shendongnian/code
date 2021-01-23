@@ -1,0 +1,6 @@
+    public IList<E> Get(Expression<Func<E, object>> selectLambda == null, Func<E> creator)
+    {
+        // ...
+        var tempEntity = creator();  
+        // ...
+    }

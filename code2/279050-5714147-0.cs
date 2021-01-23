@@ -1,0 +1,6 @@
+    public static IEnumerable<DocumentNode> GetTestNodes(this IEnumerable<DocumentNode> nodes)
+    {
+        return nodes.Where(x => x.GetPropertyValue().ToString() == "TestValue");
+    }
+    ...
+    docnodes.GetTestNodes()....

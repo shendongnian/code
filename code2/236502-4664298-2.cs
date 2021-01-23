@@ -1,0 +1,10 @@
+			List<ItemType> list = new List<ItemType>();
+			list.Add(new Thing() { Type = "thing" });
+			list.Add(new Stuff() { Type = "stuff" });
+			list.Add(new Stuff() { Type = "morestuff" });
+			order order = new order();
+			order.ItemTypes = list.ToArray();
+			XmlSerializer serializer = new XmlSerializer(typeof(order));
+			StreamWriter sw = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Stuff.xml");
+			serializer.Serialize(sw, order);
+			sw.Close();

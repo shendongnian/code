@@ -1,0 +1,24 @@
+    namespace WindowsFormsApplication1
+    {
+        static class Program
+        {
+            /// <summary>
+            /// The main entry point for the application.
+            /// </summary>
+            [STAThread]
+            static void Main()
+            {
+                if (args != null && args.Contains("-nogui"))
+                {
+                    // start command shell app version
+                }
+                else
+                {
+                    // start UI app version
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new Form1());
+                }
+            }
+        }
+    }

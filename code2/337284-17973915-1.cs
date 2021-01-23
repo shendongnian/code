@@ -1,0 +1,12 @@
+     NameValueCollection nvc=new NameValueCollection();
+            nvc.Add("arg", "value");
+            nvc.Add("arg2", "value2");
+            string[] stringArray = { "arg1", "arg2" };
+            Mysql.DELETE("mytable", nvc);
+            Mysql.INSERT("mytable", nvc);
+            NameValueCollection nvc2 = new NameValueCollection();
+            nvc2.Add("arg1","value1");
+            nvc2.Add("AND arg2","value2");
+            nvc2.Add("OR arg2","value3");
+            Mysql.SELECT(stringArray, "mytable", nvc2);
+            Mysql.UPDATE("mytable", nvc, nvc2);

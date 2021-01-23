@@ -1,0 +1,6 @@
+    var cts = new CancellationTokenSource();
+    var consumable = new BlockingCollection<T>(10000);
+    //...
+    consumable.Add(item, cts.Token);
+    //...
+    consumable.GetConsumingEnumerable(cts.Token)

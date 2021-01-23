@@ -1,0 +1,12 @@
+    System.Net.NetworkCredential loginInfo = new System.Net.NetworkCredential("xxx@gmail.com", "yyyy");
+    System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+    msg.From = new System.Net.Mail.MailAddress("xxx@gmail.com", "Admin");
+    msg.To.Add(new System.Net.Mail.MailAddress(sTo, sToDisplayName));
+    msg.Subject = sSubject;
+    msg.Body = sBody;
+    msg.IsBodyHtml = true;
+    System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient("smtp.gmail.com");
+    client.EnableSsl = true;
+    client.UseDefaultCredentials = false;
+    client.Credentials = loginInfo;
+    client.Send(msg);
