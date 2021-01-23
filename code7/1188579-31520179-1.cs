@@ -1,0 +1,11 @@
+    List<DayOfWeek> dayOfWeek = new List<DayOfWeek> { DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Friday};
+    int hourStart = 13;
+    int hourEnd = 18;
+    var a = new List<DateTime>();
+    a.Add(DateTime.Now.AddDays(-1));
+    a.Add(DateTime.Now.AddDays(-2));
+    a.Add(DateTime.Now.AddDays(-3));
+    a.Add(DateTime.Now.AddDays(-4));
+    a.Add(DateTime.Now.AddDays(-5));
+    a.Add(DateTime.Now.AddDays(-5).AddHours(5));
+    var result = a.Where(f => dayOfWeek.Contains(f.DayOfWeek) == true && (f.Hour >= hourStart && f.Hour <= hourEnd)).ToList();

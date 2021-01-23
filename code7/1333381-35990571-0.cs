@@ -1,0 +1,10 @@
+        chart1.Series.Clear();
+        chart1.Series.Add("ph");
+        chart1.Series.Add("Temp");
+        chart1.Series.Add("Hum");
+        chart1.Series["ph"].ChartType = SeriesChartType.Line;
+        chart1.Series["Temp"].ChartType = SeriesChartType.Line;
+        chart1.Series["Hum"].ChartType = SeriesChartType.Line;
+        chart1.ChartAreas[0].AxisY2.Enabled = AxisEnabled.True;
+        chart1.ChartAreas[0].AxisY2.Title = "Temp";
+        chart1.ChartAreas[0].AxisY2.Maximum = 100;

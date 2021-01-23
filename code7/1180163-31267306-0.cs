@@ -1,0 +1,6 @@
+    // ...
+    public void CreateConnection()
+    {
+        return new SqlConnection();
+    }
+    // ...

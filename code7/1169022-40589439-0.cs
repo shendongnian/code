@@ -1,0 +1,13 @@
+    var firstData = new int[10000];
+    var data = new int[50];
+    GCHandle handle;
+    handle = GCHandle.Alloc(data, GCHandleType.Pinned);
+    Console.WriteLine(handle.AddrOfPinnedObject());
+    handle.Free();
+    firstData = null;
+    GC.AddMemoryPressure(10000000);
+    GC.Collect();
+    GC.RemoveMemoryPressure(10000000);
+    handle = GCHandle.Alloc(data, GCHandleType.Pinned);
+    Console.WriteLine(handle.AddrOfPinnedObject());
+    handle.Free();

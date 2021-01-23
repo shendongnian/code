@@ -1,0 +1,14 @@
+    string ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=Excel 12.0;";
+    
+    ConnectionString = string.Format(ConnectionString, @"FullPathToExcelFile"); //my path replace with your actual file path
+    
+    OleDbConnection conn = new OleDbConnection(ConnectionString);
+    conn.Open();
+    
+    OleDbCommand cmdSelect = new OleDbCommand("SELECT * FROM [Sheet1$]", conn);
+    OleDbDataAdapter oleDBAdapter = new OleDbDataAdapter();
+    oleDBAdapter.SelectCommand = cmdSelect;
+    
+    DataSet myDataset = new DataSet();
+    oleDBAdapter.Fill(myDataset);
+    conn.Close(); 

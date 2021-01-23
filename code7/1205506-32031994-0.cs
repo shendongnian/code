@@ -1,0 +1,11 @@
+                SendKeys.SendWait("(^s)");
+                SendKeys.Flush();
+                SendKeys.Flush();
+                System.Threading.Thread.Sleep(100);
+                SendKeys.SendWait("filename.txt");
+                System.Threading.Thread.Sleep(100);
+                SendKeys.SendWait("{TAB}");
+                System.Threading.Thread.Sleep(100);
+                SendKeys.SendWait("{TAB}");
+                System.Threading.Thread.Sleep(100);
+                SendKeys.SendWait("{Enter}");

@@ -1,0 +1,6 @@
+    using F = A.Very.Long.Namespace.and.classname.FooBarThing;
+    
+    // ...
+    List<Bar> list;
+    // ...
+    list.Add(new F(1,2));

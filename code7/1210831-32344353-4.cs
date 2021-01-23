@@ -1,0 +1,5 @@
+       at System.Configuration.ClientConfigurationSystem.EnsureInit(String configKey)
+       at System.Configuration.ClientConfigurationSystem.PrepareClientConfigSystem(String sectionName)
+       at System.Configuration.ClientConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String sectionName)
+       at System.Configuration.ConfigurationManager.get_AppSettings()
+       at ExperimentConsoleApp.Program.Main(String[] args) 

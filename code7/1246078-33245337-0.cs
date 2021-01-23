@@ -1,0 +1,11 @@
+    AssemblyBuilder newAssembly = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName("CustomAssembly"), AssemblyBuilderAccess.Run);
+    ModuleBuilder newModule = newAssembly.DefineDynamicModule("CustomModule");
+    TypeBuilder newType = newModule.DefineType("CustomType", TypeAttributes.Public);
+    MethodBuilder newMethod = newType.DefineMethod("GetMessage", MethodAttributes.Public, typeof(string), Type.EmptyTypes);
+    var il = newMethod.GetILGenerator();
+    // return "Hello, world!";
+    il.Emit( OpCodes.Ldstr, "Hello, world!" );
+    il.Emit( OpCodes.Ret );
+    Type customType = newType.CreateType();
+    dynamic myObject = Activator.CreateInstance(customType);
+    string message = myObject.GetMessage();

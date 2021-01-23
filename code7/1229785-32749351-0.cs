@@ -1,0 +1,10 @@
+    CaseA cSerialize = new CaseA();
+	cSerialize .DCText = casetextboxt.text;
+	cSerialize .DLu = "\\app";
+	CDocument document = new CDocument();
+	document.CaseA = cSerialize ;
+	AddRequest root = new AddRequest();
+	root.CDocument = document;
+	XmlSerializer serializer = new XmlSerializer(typeof(AddRequest), new Type[] { typeof(CDocument), typeof(CaseA) });
+	StreamWriter writer = new StreamWriter(Server.MapPath("~/XmlPackages/" + xmlPackageFilename));
+	serializer.Serialize(writer, root);

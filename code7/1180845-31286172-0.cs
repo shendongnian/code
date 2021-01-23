@@ -1,0 +1,24 @@
+    if(ModelState.IsValid)
+    {
+    	if(model.LookingFor == null)
+    	{
+    		if(model.FullNameIsChecked){
+    			//...
+    		}else
+    		{
+    			//...
+    		}
+    	}else
+    	{
+    		if(model.FullNameIsChecked){
+    			//...
+    		}else
+    		{
+    			//...
+    		}
+    	}
+    }
+    else
+    {
+    	//...
+    }

@@ -1,0 +1,13 @@
+    bgWorkerX.RunWorkerAsync((int)sliderX.Value);
+    ...
+    private void bgWorkerX_DoWork(object sender, DoWorkEventArgs e)
+    {
+        Dictionary<string, object> dictCfgOut = GenerateConfigDict((int)e.Argument);
+        ...
+    }
+    private Dictionary<string, object> GenerateConfigDict(int sliderValue)
+    {
+        ...
+        ConfigDict.Add("X % Y", sliderValue);
+        ...
+    }

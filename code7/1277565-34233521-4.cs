@@ -1,0 +1,10 @@
+    var context = new OfContext();
+    context.Configuration.AutoDetectChangesEnabled = false;
+    var userProfile = context.UserProfiles.Include(up => up.Categories).FirstOrDefault(up => up.UserProfileId == new Guid("XXXX"));
+    var category = context.Categories.FirstOrDefault(c => c.CategoryId == new Guid("XXXX"));
+    userProfile.Categories.Add(category);
+    userProfile.FirstName = "Updated";
+    var objectStateManager = ((IObjectContextAdapter)context).ObjectContext.ObjectStateManager;
+    objectStateManager.ChangeRelationshipState(userProfile, category, x => x.Categories, EntityState.Added);
+    objectStateManager.ChangeObjectState(userProfile, EntityState.Modified);
+    context.SaveChanges();                    

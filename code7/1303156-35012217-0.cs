@@ -1,0 +1,11 @@
+    <ComboBox
+        x:Name="comboBox"
+        SelectionChanged="OnSelectionChanged"
+        Loaded="OnComboBoxLoaded"
+        >
+        <ComboBox.Items>
+            <system:String>One</system:String>
+            <system:String>Two</system:String>
+            <system:String>Three</system:String>
+        </ComboBox.Items>
+    </ComboBox>

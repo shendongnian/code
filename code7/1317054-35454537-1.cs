@@ -1,0 +1,11 @@
+                var validationFailures = licenseContent.Validate()
+                .ExpirationDate()
+                .When(lic => lic.Type == Portable.Licensing.LicenseType.Trial)
+                .And()
+                .AssertThat(lic => lic.Quantity >= 3, failure1)
+                .And()
+                .AssertThat(lic => lic.ProductFeatures.Get("HardwareID") == "133456", failure1)
+                .When(lic => lic.ProductFeatures.Contains("HardwareID"))
+                .And()
+                .Signature(publicKey)
+                .AssertValidLicense().ToList();

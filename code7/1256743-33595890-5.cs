@@ -1,0 +1,13 @@
+    int i1 = int.Parse(Console.ReadLine());
+    int i2 = int.Parse(Console.ReadLine());
+    int i3 = int.Parse(Console.ReadLine());
+    int i4 = int.Parse(Console.ReadLine());
+    int i5 = int.Parse(Console.ReadLine());
+    int i6 = int.Parse(Console.ReadLine());
+    int i7 = int.Parse(Console.ReadLine());
+    int i8 = int.Parse(Console.ReadLine());
+    int i9 = int.Parse(Console.ReadLine());
+    int i10 = int.Parse(Console.ReadLine());
+    int i11 = int.Parse(Console.ReadLine());
+    int i12 = int.Parse(Console.ReadLine());
+    int i13 = int.Parse(Console.ReadLine());

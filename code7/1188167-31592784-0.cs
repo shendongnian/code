@@ -1,0 +1,10 @@
+    DataTable dt = new DataTable("dt");
+    dt.Columns.Add("datee", typeof(string));
+    dt.Columns.Add("hour", typeof(int));
+    dt.Rows.Add("06-Jul-15 12:00:00 AM",1);
+    dt.Rows.Add("07-Jul-15 12:00:00 AM",2);
+    dt.Rows.Add("08-Jul-15 12:00:00 AM",3);
+    dt.Rows.Add("09-Jul-15 12:00:00 AM",4);
+    dt.Rows.Add("10-Jul-15 12:00:00 AM",5);
+    GridView1.DataSource = dt;
+    GridView1.DataBind();

@@ -1,0 +1,9 @@
+    public class Thing{
+      void DoStuff()
+      {
+         Console.Write("Doing Stuff");
+      }
+    }
+    public class Animal:Thing{
+    
+    }

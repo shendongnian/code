@@ -1,0 +1,25 @@
+    var path = "newdoc.xps";
+    FixedDocument fixedDoc = new FixedDocument();
+    PageContent pageContent = new PageContent();
+    FixedPage fixedPage = new FixedPage();
+    fixedPage.Width = 11.69 * 96;
+    fixedPage.Height = 8.27 * 96;
+    var pageSize = new System.Windows.Size(11.0 * 96.0, 8.5 * 96.0);
+    View v = new View();
+    ViewModel vm = new ViewModel();
+    vm.Text1 = "MyText1";
+    vm.Text2 = "MyText2";
+    v.DataContext = vm;
+    v.UpdateLayout();
+    v.Height = pageSize.Height;
+    v.Width = pageSize.Width;
+    v.UpdateLayout();
+    fixedPage.Children.Add(v);
+    ((System.Windows.Markup.IAddChild)pageContent).AddChild(fixedPage);
+    fixedDoc.Pages.Add(pageContent);
+    if (File.Exists(path))
+        File.Delete(path);
+    XpsDocument xpsd = new XpsDocument(path, FileAccess.ReadWrite);
+    XpsDocumentWriter xw = XpsDocument.CreateXpsDocumentWriter(xpsd);
+    xw.Write(fixedDoc);
+    xpsd.Close();

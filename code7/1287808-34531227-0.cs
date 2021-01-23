@@ -1,0 +1,11 @@
+    _tags.Where(tag => tag.Title.ToLower() == tagName.ToLower())
+         .Include(row => row.Articles.OrderByDescending(n => n.Code).Skip(skip).Take(recordsPerPage).ToList())
+         .Include(row => row.News.AsQueryable())
+         .OrderBy(news => news.Code)
+         .Skip(skip)
+         .Take(recordsPerPage)
+         .Include(row => row.Polls)
+         .OrderByDescending(poll => poll.Code)
+         .Skip(skip)
+         .Take(recordsPerPage)
+         .FirstOrDefault();

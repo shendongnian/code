@@ -1,0 +1,10 @@
+    RazorFolderHostContainer host = = new RazorFolderHostContainer();
+    host.ReferencedAssemblies.Add("NotificationsManagement.dll");
+    host.TemplatePath = templatePath;
+    host.Start();
+    string output = host.RenderTemplate(template.Filename, model);
+    MailMessage mm = new MailMessage { Subject = subject, IsBodyHtml = true };
+    mm.Body = output;
+    mm.To.Add(email);
+    var smtpClient = new SmtpClient();
+    await smtpClient.SendMailAsync(mm);

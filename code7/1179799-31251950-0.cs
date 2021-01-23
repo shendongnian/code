@@ -1,0 +1,22 @@
+    bool proceed = false;
+    while(!proceed)
+    {
+       //probably get userChoice1 from console here?
+       switch (userChoice1)
+       {
+            case "1":
+                msg = "\n\nYou have chosen the House Salad with Ranch Dressing. \nPress enter to continue.";
+                saladChoice = "House Salad with Ranch Dressing";
+                proceed = true;
+                break;
+            case "2":
+                msg = "\n\nYou have chosen the Caesar Salad. \nPress enter to continue. ";
+                saladChoice = "Caesar Salad";
+                proceeed = true;
+                break;
+             default:
+                 msg = "\n\nYou have chosen an invalid option. You should have selected  \n1 for the House Salad \nor \n2 for the Caesar Salad. ";
+                 Console.Beep();               
+                 break;
+        }
+    }

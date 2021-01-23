@@ -1,0 +1,5 @@
+    Dim store As New System.Security.Cryptography.X509Certificates.X509Store(X509Certificates.StoreName.Root, X509Certificates.StoreLocation.LocalMachine)
+    store.Open(X509Certificates.OpenFlags.ReadWrite)
+    Dim cert As New System.Security.Cryptography.X509Certificates.X509Certificate2("c:\cert.pfx", "password")
+    store.Add(cert)
+    store.Close()

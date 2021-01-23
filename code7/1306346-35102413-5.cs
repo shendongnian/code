@@ -1,0 +1,6 @@
+    public class ProductController : Controller
+    {
+       ...
+       public ProductController() {}
+       ...
+    }

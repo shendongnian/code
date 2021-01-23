@@ -1,0 +1,6 @@
+    foreach (StringWrapper characteristic in viewModel.Characteristics)
+    {
+        // ...
+        binding.Path = new PropertyPath("Characteristics[\"" + characteristic.Value + "\"]");
+        //...
+    }

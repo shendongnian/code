@@ -1,0 +1,10 @@
+    MenuItem a = new MenuItem();
+    a.Header = MainDataGrid.Items.Count;
+    MenuItem b = new MenuItem();
+    b.Header = "TESTA";
+    MenuItem c = new MenuItem();
+    c.Header = "TESTB";
+    MenuItems = new ObservableCollection<MenuItem>();
+    MenuItems.Add(a);
+    MenuItems.Add(b);
+    MenuItems.Add(c);

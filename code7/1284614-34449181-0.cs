@@ -1,0 +1,32 @@
+    List<SyndicationItem> items = new List<SyndicationItem>();
+    CineStarEntities entities = new CineStarEntities();
+    foreach (Movie movie in entities.Movie.OrderBy(m => m.MovieTitle))
+    {
+    SyndicationItem item = new SyndicationItem();
+    item.Title = new TextSyndicationContent(movie.MovieTitle);
+    item.Content = new TextSyndicationContent(movie.Actors);
+    SyndicationItem item1 = new SyndicationItem();
+    item1.Content = new TextSyndicationContent(movie.Trailer);
+    SyndicationItem item2 = new SyndicationItem();
+    item2.Content = new TextSyndicationContent(movie.Duration.ToString());
+    SyndicationItem item3 = new SyndicationItem();
+    item3.Content = new TextSyndicationContent(movie.AgeRelease.ToString());
+    SyndicationItem item4 = new SyndicationItem();
+    item4.Content = new TextSyndicationContent(movie.Description);
+    SyndicationItem item6 = new SyndicationItem();
+    item6.Content = new TextSyndicationContent(movie.Direction);
+    SyndicationItem item7 = new SyndicationItem();
+    item7.Content = new TextSyndicationContent(movie.Direction);
+    SyndicationItem item8 = new SyndicationItem();
+    item8.Content = new TextSyndicationContent(movie.Production);
+    SyndicationItem item9 = new SyndicationItem();
+    item9.Content = new TextSyndicationContent(movie.Music);
+    items.Add(item);
+    items.Add(item1);
+    items.Add(item2);
+    items.Add(item3);
+    items.Add(item4);
+    items.Add(item6);
+    items.Add(item7);
+    items.Add(item8);
+    items.Add(item9);

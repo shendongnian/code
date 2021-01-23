@@ -1,0 +1,12 @@
+    namespace Mobile.Control
+    {
+        public partial class UserControl : Grid
+        {
+            public Header()
+            {
+                InitializeComponent();
+              
+            }
+          
+        }
+    }

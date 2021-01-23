@@ -1,0 +1,9 @@
+    var request = (HttpWebRequest)WebRequest.Create(url);
+                request.Method = WebRequestMethods.Http.Get;
+                request.Accept = "application/json";
+                WebResponse response = request.GetResponse();
+                Stream stream = response.GetResponseStream();
+                StreamReader streamreader = new StreamReader(stream);
+                String json = streamreader.ReadToEnd();
+                List<User> users = JsonConvert.DeserializeObject<List<User>>(json);
+                dataGridView1.DataSource = users;

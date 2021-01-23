@@ -1,0 +1,5 @@
+    .SetProjection(Projections.ProjectionList()
+      .Add(Projections.Property("Property1").As("Property1"))
+      .Add(Projections.Property("Property2").As("Property2"))
+      .Add(Projections.Property("Property3").As("Property3"))
+    )

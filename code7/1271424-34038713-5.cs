@@ -1,0 +1,16 @@
+        const string FirstNamespaceUri = "firstdefaultnamespace";
+        const string SecondNamespaceUri = "seconddefaultnamespace";
+        XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+        ns.AddNamespace("ns1", FirstNamespaceUri);
+        ns.AddNamespace("ns2", SecondNamespaceUri);
+        XmlNode customizedNode = doc.CreateElement("CustomizedField", SecondNamespaceUri);
+        XmlNode keyNode = doc.CreateElement("Key", SecondNamespaceUri);
+        XmlNode dataNode = doc.CreateElement("DataType", SecondNamespaceUri);
+        XmlNode valueNode = doc.CreateElement("Value", SecondNamespaceUri);
+        keyNode.InnerText = "hi";
+        dataNode.InnerText = "hello";
+        valueNode.InnerText = "bye";
+        customizedNode.AppendChild(keyNode);
+        customizedNode.AppendChild(dataNode);
+        customizedNode.AppendChild(valueNode);
+        doc.DocumentElement.SelectSingleNode("ns1:Body/ns2:UniversalShipment/ns2:Shipment/ns2:CustomizedFieldCollection", ns).AppendChild(customizedNode);

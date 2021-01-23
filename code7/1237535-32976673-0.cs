@@ -1,0 +1,14 @@
+            row.Cells[0].AddParagraph("Segment Code");
+            row.Cells[0].VerticalAlignment = VerticalAlignment.Bottom;
+            row.Cells[1].AddParagraph("Milepoint");
+            row.Cells[1].VerticalAlignment = VerticalAlignment.Bottom;
+            row.Cells[2].AddParagraph("Description of Milepoint");
+            row.Cells[2].VerticalAlignment = VerticalAlignment.Bottom;
+            row.Cells[3].AddParagraph("City Name");
+            row.Cells[3].VerticalAlignment = VerticalAlignment.Bottom;
+            row.Cells[4].AddParagraph("Segment Code");
+            row.Cells[4].VerticalAlignment = VerticalAlignment.Bottom;
+            row.Cells[5].AddParagraph("Milepoint");
+            row.Cells[5].VerticalAlignment = VerticalAlignment.Bottom;
+            row.Cells[6].AddParagraph("FA Route Number");
+            row.Cells[6].VerticalAlignment = VerticalAlignment.Bottom;

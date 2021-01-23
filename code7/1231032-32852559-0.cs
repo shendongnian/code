@@ -1,0 +1,12 @@
+    var messageElement = new TextMessageEncodingBindingElement();
+    messageElement.MessageVersion = MessageVersion.CreateVersion(EnvelopeVersion.Soap12, AddressingVersion.None);
+    HttpTransportBindingElement httpBinding = new HttpTransportBindingElement();
+    httpBinding.AuthenticationScheme = AuthenticationSchemes.Basic;
+    CustomBinding bind = new CustomBinding(messageElement, httpBinding);
+    EndpointAddress mediaAddress = new EndpointAddress("http://192.168.1.168:10001/onvif/Media");
+    MediaClient mediaClient = new MediaClient(bind, mediaAddress);
+    mediaClient.ClientCredentials.UserName.UserName = "admin";
+    mediaClient.ClientCredentials.UserName.Password = "admin";
+    Profile[] profiles = mediaClient.GetProfiles();
+    string profileToken = profiles[1].token;
+    MediaUri mediaUri = mediaClient.GetSnapshotUri(profileToken);

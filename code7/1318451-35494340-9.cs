@@ -1,0 +1,10 @@
+    A: N=2 Count=         676 Time=00:00:00.0010139 Memory=     16K
+    B: N=2 Count=         676 Time=00:00:00.0042598 Memory=    233K
+    A: N=3 Count=      17,576 Time=00:00:00.0004310 Memory=    348K
+    B: N=3 Count=      17,576 Time=00:00:00.0126294 Memory=  2,185K
+    A: N=4 Count=     456,976 Time=00:00:00.0111155 Memory=  1,496K
+    B: N=4 Count=     456,976 Time=00:00:00.4019500 Memory=  2,104K
+    A: N=5 Count=  11,881,376 Time=00:00:00.2813208 Memory=  1,995K
+    B: N=5 Count=  11,881,376 Time=00:00:13.4492150 Memory=  2,014K
+    A: N=6 Count= 308,915,776 Time=00:00:07.5473890 Memory=  2,059K
+    B: N=6 Count= 308,915,776 Time=00:07:37.2985051 Memory=    455K

@@ -1,0 +1,9 @@
+    public decimal GetCost()
+    {
+        var cost = CalculateCostOfDecorations() + (CalculateCostOfBeveragesPerPerson() + CostOfFoodPerPerson) * NumberOfPeople; 
+        if (HealthyOption)
+        {
+            cost *= .95M;
+        }
+        return cost;
+    }

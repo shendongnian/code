@@ -1,0 +1,13 @@
+        gridExcel.HeaderRow.BackColor = System.Drawing.Color.FromArgb(0, 255, 255, 204);
+        gridExcel.HeaderRow.Font.Bold = false;
+        gridExcel.HeaderRow.Height = Unit.Pixel(30);
+        Response.Clear();
+        Response.Buffer = true;
+        Response.AddHeader("content-disposition", "attachment;filename="@filename+".xls");
+        Response.Charset = "";
+        Response.ContentType = "application/vnd.ms-excel";
+        StringWriter sw = new StringWriter();
+        gridExcel.RenderControl(new HtmlTextWriter(sw));
+        Response.Output.Write(sw.ToString());
+        Response.Flush();
+        Response.End();

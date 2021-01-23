@@ -1,0 +1,6 @@
+    public class YourModel
+    {
+        ...
+        public bool IncludeProvision { get; set; }
+        ...
+    }

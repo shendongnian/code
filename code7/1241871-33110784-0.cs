@@ -1,0 +1,10 @@
+NUnitTestClass..ctor
+NUnitTestClass.TestFixtureSetUp
+NUnitTestClass.SetUp
+NUnitTestClass.TestMethod1
+NUnitTestClass.TearDown
+NUnitTestClass.SetUp
+NUnitTestClass.TestMethod2
+NUnitTestClass.TearDown
+NUnitTestClass.TestFixtureTearDown
+NUnitTestClass.Dispose

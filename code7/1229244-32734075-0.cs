@@ -1,0 +1,8 @@
+    // It's an OVERSIMPLIFICATION, but it should give you the hint
+    // to keep you in the right track...
+    public class DomainResult<TResult>
+    {
+        public TResult Result { get; set; }
+        public List<BrokenRule> BrokenRules { get; set; } = new List<BrokenRule>();
+        public bool IsSuccessful => BrokenRules.Count == 0;
+    } 

@@ -1,0 +1,11 @@
+    string target = @"$global name$ Money \$9000 %local var% It's over 9000\% I@hit@the@ground@too@hard qw\@op";
+    RegexReplacer dollarWrapped = new RegexReplacer(@"(?<!\\)\$[^$]+\$", "motherofglobalvar", "dollarWrapped");
+    RegexReplacer slashDollar = new RegexReplacer(@"\\\$", string.Empty, "slashDollar", dollarWrapped);
+    RegexReplacer percentWrapped = new RegexReplacer(@"(?<!\\)%[^%]+%", "lordoflocalvar", "percentWrapped", slashDollar);
+    RegexReplacer slashPercent = new RegexReplacer(@"\\%", string.Empty, "slashPercent", percentWrapped);
+    RegexReplacer singleAt = new RegexReplacer(@"(?<!\\)@", " ", "singleAt", slashPercent);
+    RegexReplacer slashAt = new RegexReplacer(@"\\@", "@", "slashAt", singleAt);
+    RegexReplacer replacer = slashAt;
+    string pattern = replacer.GetAggregatedPattern();
+    MatchEvaluator evaluator = replacer.GetReplaceDelegate();
+    string result = Regex.Replace(target, pattern, evaluator);

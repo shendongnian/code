@@ -1,0 +1,5 @@
+    if (flag)
+    {
+        SendDataToExternalDevice();
+    }
+    SendMoreDataToExternalDevice();

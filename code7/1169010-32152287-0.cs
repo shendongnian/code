@@ -1,0 +1,11 @@
+        var spec0 = new Dictionary<Type, IEnumerable<string>>();
+        spec0.Add(typeof(ChildType), new string[] { "ChildKeyName" });
+        spec0.Add(typeof(ParentType), new string[] { "ParentKeyName"});
+        List<Type> spec1 = new List<Type>();
+        spec1.Add(typeof(ParentType));
+        spec1.Add(typeof(ChildType));
+        CompareLogic.Config.IgnoreCollectionOrder = true;
+        CompareLogic.Config.ClassTypesToInclude = spec1;
+        CompareLogic.Config.CollectionMatchingSpec = spec0;
+        basicComparison.Config.MaxDifferences = int.MaxValue;
+        ComparisonResult = basicComparison.Compare(NewObject, OldObject);

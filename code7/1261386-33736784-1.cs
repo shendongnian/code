@@ -1,0 +1,10 @@
+                this.buttonOk.BackColor = System.Drawing.SystemColors.MenuHighlight;
+                this.buttonOk.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonOk.BackgroundImage")));
+                this.buttonOk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                this.buttonOk.Location = new System.Drawing.Point(475, 15);
+                this.buttonOk.Name = "buttonOk";
+                this.buttonOk.Size = new System.Drawing.Size(50, 50);
+                this.buttonOk.TabIndex = 11;
+                this.buttonOk.UseVisualStyleBackColor = false;
+                this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);

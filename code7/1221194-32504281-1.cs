@@ -1,0 +1,12 @@
+    public List<User> UserList = new List<User>();
+    public List<Movie> MovieList = new List<User>();
+    public List<Ratings> RatingList = new List<User>();
+    UserList.Add(new User() { Name = "David"} );
+    UserList.Add(new User() { Name = "Matt"} );
+    UserList.Add(new User() { Name = "Ben"} );
+    UserList.Add(new User() { Name = "Chris"} );
+    UserList.Add(new User() { Name = "Torri"} );
+    MovieList.Add(new User() { Title = "Titanic"} );
+    MovieList.Add(new User() { Title = "X-men"} );
+    MovieList.Add(new User() { Title = "Snatch"} );
+    MovieList.Add(new User() { Title = "Speed"} );

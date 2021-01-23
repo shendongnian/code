@@ -1,0 +1,12 @@
+        DataTable dtreamer = new DataTable();
+        dtreamer.Columns.Add("quoteID", typeof(int));
+        dtreamer.Columns.Add("line", typeof(string));
+        dtreamer.Columns.Add("customer", typeof(string));
+        dtreamer.Columns.Add("salesman", typeof(string));
+        dtreamer.Columns.Add("quoteDesc", typeof(string));
+        dtreamer.Columns.Add("machineModel", typeof(string));
+        dtreamer.Columns.Add("machineDesc", typeof(string));
+        dtreamer.Columns.Add("isBudgetary", typeof(bool));
+        dtreamer.Columns.Add("quoteDate", typeof(DateTime));
+        dtreamer.Columns.Add("notes", typeof(string));
+        dtreamer.Columns.Add("userName", typeof(string));

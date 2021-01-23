@@ -1,0 +1,22 @@
+    COM+ Utilities
+      RemoteHelper.RemoteHelper - {E423AF7C-FC2D-11D2-B126-00805FC73204}
+      TxCTx.TransactionContext - {7999FC25-D3C6-11CF-ACAB-00A024A55AEF}
+      TxCTx.TransactionContextEx - {5CB66670-D3D4-11CF-ACAB-00A024A55AEF}
+      QC.Recorder - {ECABAFC2-7F19-11D2-978E-0000F8757E2A}
+      QC.ListenerHelper - {ECABAFC4-7F19-11D2-978E-0000F8757E2A}
+    COM+ QC Dead Letter Queue Listener
+      QC.DLQListener - {ECABAFCA-7F19-11D2-978E-0000F8757E2A}
+    COM+ Explorer
+      COMEXPS.CTrkEvntListener - {2C3E140B-7A0D-42D1-B2AA-D343500A90CF}
+    COM+ Utilities (32 bit)
+      RemoteHelper.RemoteHelper - {E423AF7C-FC2D-11D2-B126-00805FC73204}
+      TxCTx.TransactionContext - {7999FC25-D3C6-11CF-ACAB-00A024A55AEF}
+      TxCTx.TransactionContextEx - {5CB66670-D3D4-11CF-ACAB-00A024A55AEF}
+      QC.Recorder - {ECABAFC2-7F19-11D2-978E-0000F8757E2A}
+      QC.ListenerHelper - {ECABAFC4-7F19-11D2-978E-0000F8757E2A}
+    System Application
+      Catsrv.CatalogServer - {182C40F0-32E4-11D0-818B-00A0C9231C29}
+      EventPublisher.EventPublisher - {ECABAFBC-7F19-11D2-978E-0000F8757E2A}
+      COMSVCS.TrackerServer - {ECABAFB9-7F19-11D2-978E-0000F8757E2A}
+      Mts.MtsGrp - {4B2E958D-0393-11D1-B1AB-00AA00BA3258}
+      Pdump.ProcessDump - {ECABB0C4-7F19-11D2-978E-0000F8757E2A}

@@ -1,0 +1,11 @@
+    SqlCommand cmd;
+    cmd = new SqlCommand("S_fiction_program_search_v3", mycon);
+    cmd.CommandType = CommandType.StoredProcedure;
+    DataTable dt = new DataTable("treeProgram");
+    SqlDataAdapter dataAdp = new SqlDataAdapter(cmd);
+    dataAdp.Fill(dt);
+    DataSet ds = new DataSet();
+    ds.Tables.Add(dt);
+    ds.Relations.Add("rsParentChild", ds.Tables["treeProgram"].Columns["program_id"], ds.Tables["treeProgram"].Columns["program_header_id"]);
+    ds.Tables["treeProgram"].DefaultView.RowFilter = "program_header_id is null";
+    tvMain.ItemsSource = ds.Tables["treeProgram"].DefaultView;

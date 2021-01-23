@@ -1,0 +1,8 @@
+    Component.For<IRepository<User, int>>()
+             .ImplementedBy<Repository<User, int>>()
+             .DependsOn(Dependency.OnValue("dbName", "admin")
+             .Named("adminRepositoryRegistration")
+    Component.For<IRepository<User, int>>()
+             .ImplementedBy<Repository<User, int>>()
+             .DependsOn(Dependency.OnValue("dbName", "user")
+             .Named("userRepositoryRegistration")

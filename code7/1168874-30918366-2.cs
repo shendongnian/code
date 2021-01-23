@@ -1,0 +1,14 @@
+    public class Model : INotifyPropertyChanged
+    {
+        private bool _IsChecked;
+        public bool IsChecked
+        {
+            get { return _IsChecked; }
+            set
+            {
+                _IsChecked = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("IsChecked"));
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+    }

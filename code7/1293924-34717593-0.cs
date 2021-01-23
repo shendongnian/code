@@ -1,0 +1,13 @@
+    SqlConnection sqlcon = new SqlConnection("<< Your Connection String Value >>");
+        sqlcon.Open();
+        SqlCommand sqlcom = new SqlCommand();
+        sqlcom.Connection = sqlcon;
+        sqlcom.CommandType = CommandType.Text;
+        sqlcom.CommandText = "INSERT INTO Jobs(JobType,JobCreation,JobStatus) VALUES (@job_type,@job_createtime,@job_iscompleted)";
+        sqlcom.Parameters.Add("@job_type", SqlDbType.SmallInt).Value = (Int64)comboBoxJobType.SelectedIndex;
+        sqlcom.Parameters.Add("@job_createtime", SqlDbType.DateTime).Value = DateTime.Now;
+        sqlcom.Parameters.Add("@job_iscompleted", SqlDbType.Bit).Value = 0;
+        sqlcom.ExecuteNonQuery();
+        sqlcom.Parameters.Clear();
+        sqlcon.Close();
+        sqlcom.Dispose();

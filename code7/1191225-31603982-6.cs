@@ -1,0 +1,40 @@
+    class Program
+    {
+        public static void ProcessFiles(CancellationToken cts)
+        {            
+            try
+            {                
+                LimitedConcurrencyLevelTaskScheduler lcts = new LimitedConcurrencyLevelTaskScheduler(2);
+                List<Task> tasks = new List<Task>();
+                TaskFactory factory = new TaskFactory(lcts);                
+                for (int i = 0; i < 1000; i++)
+                {
+                    int i1 = i;
+                    var t = factory.StartNew(() =>
+                    {
+                        if (cts != null) Console.WriteLine("{0} --- {1}", i1, GetGuid());
+                    }, cts);
+                    tasks.Add(t);
+                }
+                Task.WaitAll(tasks.ToArray());
+                Console.WriteLine("\n\nSuccessful completion.");
+                Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        static void Main(string[] args)
+        {
+            CancellationTokenSource cts = new CancellationTokenSource();
+            Task.Factory.StartNew(() => { Thread.Sleep(10000); cts.Cancel(); });
+            ProcessFiles(cts.Token);
+            Console.ReadKey();
+        }
+        private static Guid GetGuid()
+        {
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            return Guid.NewGuid();
+        }
+    }

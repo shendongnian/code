@@ -1,0 +1,10 @@
+    var line = new Line();
+    line.Stroke = System.Windows.Media.Brushes.LightSteelBlue;
+    line.X1 = 1;
+    line.X2 = 50;
+    line.Y1 = 1;
+    line.Y2 = 50;
+    line.HorizontalAlignment = HorizontalAlignment.Left;
+    line.VerticalAlignment = VerticalAlignment.Center;
+    line.StrokeThickness = 2;
+    grid.Children.Add(myLine);

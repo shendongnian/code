@@ -1,0 +1,25 @@
+    class Magazine
+    {
+        public readonly Type GunType; // Used for identification of compatible gun type.
+        public Magazine (Type gunType)
+        {
+            this.GunType = gunType;
+        }
+    }
+    class Gun
+    {
+        // Factory method
+        public Magazine CreateMagazine()
+        {
+            return new Magazine(this.GetType());
+        }
+        public Magazine Reload(Magazine newMag)
+        {
+            // Test whether the magazine is compatible with the current gun.
+            if (newMag.GunType != this.GetType()) {
+                throw new ArgumentException();
+                // Or just reject the new magazine and keep the current one.
+            }
+            // Your reload logic goes here ...
+        }
+    }

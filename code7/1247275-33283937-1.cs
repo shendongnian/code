@@ -1,0 +1,15 @@
+    DataTable table = new DataTable();
+    table.Columns.Add("Date", typeof(DateTime));
+    table.Columns.Add("Location 1", typeof(int));
+    table.Columns.Add("Location 2", typeof(int));
+    table.Columns.Add("Location 3", typeof(int));
+    table.Rows.Add(new DateTime(2001, 1, 1), 6, 0, 0);
+    table.Rows.Add(new DateTime(2001, 1, 1), 10, 0, 0);
+    table.Rows.Add(new DateTime(2001, 1, 1), 0, 5, 0);
+    table.Rows.Add(new DateTime(2001, 1, 1), 0, 4, 0);
+    table.Rows.Add(new DateTime(2001, 1, 1), 6, 0, 8);
+    table.Rows.Add(new DateTime(2001, 1, 1), 6, 0, 2);
+    DataTable pivotedTable = new DataTable();
+    pivotedTable.Columns.Add("Date", typeof(DateTime));
+    pivotedTable.Columns.Add("Count", typeof(int));
+    pivotedTable.Columns.Add("Location", typeof(string));

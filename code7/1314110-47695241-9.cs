@@ -1,0 +1,6 @@
+    <Application
+      ...
+      <Application.Resources>
+        <AlternateColorConverterx:Key="AlternateColorConverter" />
+       ...
+      </Application.Resources>

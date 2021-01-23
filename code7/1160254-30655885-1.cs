@@ -1,0 +1,9 @@
+            MyBytton my = new MyBytton();
+            my.Location = new Point(10, 10); ;
+            my.Name = "button1";
+            my.Size = new System.Drawing.Size(141, 61);
+            my.TabIndex = 0;
+            my.Text = "test";
+            my.UseVisualStyleBackColor = true;
+            my.MainImage = Image.FromFile("img1.jpg");
+            my.HoverImage = Image.FromFile("img2.jpg");

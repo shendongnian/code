@@ -1,0 +1,7 @@
+    <bin>\App.exe (optional, managed-only application executable assembly)
+    <bin>\App.dll (optional, managed-only application library assembly)
+    <bin>\System.Data.SQLite.dll (required, managed-only core assembly)
+    <bin>\System.Data.SQLite.Linq.dll (optional, managed-only LINQ assembly)
+    <bin>\System.Data.SQLite.EF6.dll (optional, managed-only EF6 assembly)
+    <bin>\x86\SQLite.Interop.dll (required, x86 native interop assembly)
+    <bin>\x64\SQLite.Interop.dll (required, x64 native interop assembly)

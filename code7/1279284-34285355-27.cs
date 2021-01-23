@@ -1,0 +1,24 @@
+    [Theory]
+    [InlineAutoData(null)]
+    [InlineAutoData("")]
+    [InlineAutoData(" ")]
+    public void Should_throw_argument_exception_when_the_second_input_string_is_invalid(
+        string input2,
+        string input1,
+        string input3)
+    {
+        Assert.Throws<ArgumentException>(() =>
+            SystemUnderTest.SomeFunction(input1, input2, input3));
+    }
+    [Theory]
+    [InlineAutoData(null)]
+    [InlineAutoData("")]
+    [InlineAutoData(" ")]
+    public void Should_throw_argument_exception_when_the_third_input_string_is_invalid(
+        string input3,
+        string input1,
+        string input2)
+    {
+        Assert.Throws<ArgumentException>(() =>
+            SystemUnderTest.SomeFunction(input1, input2, input3));
+    }

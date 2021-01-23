@@ -1,0 +1,10 @@
+    dc.Posts.Select
+    .Join(p=>p.Id, dc.PostTags, (p, pt)=>new{Post = P, PostTag = pt})
+    .Where(o=>SelectTags.Contains(o.PostTag))
+    .GroupBy(o=>o.Post, o=>o.PostTag)
+    .Select(g=>new{Post=>g.Key, Count=>g.Count()})
+    .Where(o=>o.Count == SelectTags.Count())
+    .Select(o=>o.Post)
+    .OrderByDescending(o=>o.DateAdded)
+    .Take(numPosts)
+    .Tolist()

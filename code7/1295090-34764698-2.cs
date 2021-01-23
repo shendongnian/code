@@ -1,0 +1,38 @@
+    [Route("api/[controller]")]
+    public class MyController : Controller
+    {
+        public MyDbContext _context { get; set; }
+        public MyController([FromServices] MyDbContext context)
+        {
+			_context = context;
+		}
+        [HttpGet]
+        public async IEnumerable<object> Get()
+        {
+            var returnObject = new List<dynamic>();
+    
+            using (var cmd = _context.Database.GetDbConnection().CreateCommand()) {
+                cmd.CommandText = "exec dbo.spGetSomeData";
+                cmd.CommandType = CommandType.StoredProcedure;
+                // set some parameters of the stored procedure
+                cmd.Parameters.Add(new SqlParameter("@someParam",
+                    SqlDbType.TinyInt) { Value = 1 });
+                if (cmd.Connection.State != ConnectionState.Open)
+                    cmd.Connection.Open();
+    
+                var retObject = new List<dynamic>();
+                using (var dataReader = await cmd.ExecuteReaderAsync())
+                {
+                    while (await dataReader.ReadAsync())
+                    {
+                        var dataRow = new ExpandoObject() as IDictionary<string, object>;
+                        for (var iFiled = 0; iFiled < dataReader.FieldCount; iFiled++)
+                            dataRow.Add(dataReader.GetName(iFiled), dataReader[iFiled]);
+    
+                        retObject.Add((ExpandoObject)dataRow);
+                    }
+                }
+                return retObject;
+            }
+        }
+    }

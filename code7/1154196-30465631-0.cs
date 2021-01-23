@@ -1,0 +1,11 @@
+    Table table = new Table();
+    TableRow row = new TableRow();
+    TableCell cell = new TableCell();
+    table.Controls.Add(row);
+    row.Controls.Add(cell);
+    cell.Controls.Add(imageButton);
+    row = new TableRow();
+    cell = new TableCell();
+    table.Controls.Add(row);
+    row.Controls.Add(cell);
+    cell.Text = "Image Text";

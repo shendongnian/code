@@ -1,0 +1,55 @@
+    private static void DemonstrateMergeTable()
+    {
+        DataTable table1 = new DataTable("Items");
+     
+        // Add columns
+        DataColumn column1 = new DataColumn("id", typeof(System.Int32));
+        DataColumn column2 = new DataColumn("item", typeof(System.Int32));
+        table1.Columns.Add(column1);
+        table1.Columns.Add(column2);
+     
+        // Set the primary key column.
+        table1.PrimaryKey = new DataColumn[] { column1 };
+     
+      
+     
+        // Add some rows.
+        DataRow row;
+        for (int i = 0; i <= 3; i++)
+        {
+            row = table1.NewRow();
+            row["id"] = i;
+            row["item"] = i;
+            table1.Rows.Add(row);
+        }
+     
+        // Accept changes.
+        table1.AcceptChanges();
+        PrintValues(table1, "Original values");
+     
+        // Create a second DataTable identical to the first.
+        DataTable table2 = table1.Clone();
+     
+        // Add three rows. Note that the id column can't be the  
+        // same as existing rows in the original table.
+        row = table2.NewRow();
+        row["id"] = 14;
+        row["item"] = 774;
+        table2.Rows.Add(row);
+     
+        row = table2.NewRow();
+        row["id"] = 12;
+        row["item"] = 555;
+        table2.Rows.Add(row);
+     
+        row = table2.NewRow();
+        row["id"] = 13;
+        row["item"] = 665;
+        table2.Rows.Add(row);
+     
+        // Merge table2 into the table1.
+        Console.WriteLine("Merging");
+        table1.Merge(table2);
+        PrintValues(table1, "Merged With table1");
+     
+    }

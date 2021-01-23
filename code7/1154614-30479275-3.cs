@@ -1,0 +1,38 @@
+    public class Parent
+    {
+        private readonly Action _env1Method;
+        private readonly Action _notEnv1Method;
+        private readonly Model _model;
+        public Parent(Model model, 
+                      Action env1Method, 
+                      Action notEnv1Method)
+        {
+            _model = model;
+            _env1Method = env1Method;
+            _notEnv1Method = notEnv1Method;
+            Reset();
+        }
+        public Action Calc { get; private set; }
+        public void Reset()
+        {
+            Calc = _model.Env1 ? _env1Method : _notEnv1Method;
+        }
+    }
+    public class Model
+    {
+        public bool Env1 { get; set; }
+    }
+    public class Child : Parent
+    {
+        public Child (Model model) : base (model, CalcHeavy, CalcLight) {}
+    
+        private static void CalcHeavy()
+        {
+            Console.WriteLine("CalcHeavy is active");
+        }
+        
+        private static void CalcLight()
+        {
+            Console.WriteLine("CalcLight is active");
+        }
+    }

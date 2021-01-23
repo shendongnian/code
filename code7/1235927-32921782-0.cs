@@ -1,0 +1,6 @@
+    var __clist = new List<Contact>();
+    // …
+    __clist.Add(__c1);
+    // …
+    __clist.Add(__c2);
+    var contacts = __clist;

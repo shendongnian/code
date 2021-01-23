@@ -1,0 +1,10 @@
+        ViewBag.IgnoreTimeout = true;
+        LoginViewModel loginViewModel = new LoginViewModel();
+        SessionIDManager sessionIdManager = new GuidSessionIdManager();
+        var context = System.Web.HttpContext.Current;
+        string newId = sessionIdManager.CreateSessionID(context);
+        bool redirected, isAdded;
+        sessionIdManager.SaveSessionID(context, newId, out redirected, out isAdded);
+        context.Session["WindowId"] = windowId;
+        context.Response.Redirect(Url.Action("Index"),false);
+        return View("Index",loginViewModel);

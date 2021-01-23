@@ -1,0 +1,7 @@
+    var query = classASheet.getClassFromExcelPivotedValuedreductionBy<tbl_Life_Reduction_By>(25, 1, 33, 4, lifeReductionByClassMapper);
+    var list = query.ToList();
+    foreach (var item in list)
+    {
+        item.Class = classesValue[x];
+        item.UUID = censusSheet.GetValue(25, 27).ToString();
+    }

@@ -1,0 +1,14 @@
+            tempWidth = myControl.ActualWidth;
+            tempHeight = myControl.ActualHeight;
+            myControl.Width = double.NaN;
+            myControl.Height = double.NaN;
+            myControl.UpdateLayout();
+            RenderTargetBitmap rtb = new RenderTargetBitmap((int)myControl.ActualWidth, (int)myControl.ActualHeight, 96, 96, PixelFormats.Pbgra32);
+            rtb.Render(myControl);
+            PngBitmapEncoder pbe = new PngBitmapEncoder();
+            pbe.Frames.Add(BitmapFrame.Create(rtb));
+            MemoryStream stream = new MemoryStream();
+            pbe.Save(stream);
+            image = (System.Drawing.Bitmap)System.Drawing.Image.FromStream(stream);
+            CEGrid.Width = tempWidth;
+            CEGrid.Height = tempHeight;

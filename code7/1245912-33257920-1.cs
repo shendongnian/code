@@ -1,0 +1,12 @@
+	Subject<RequestSent> _requestsSubject = new Subject<RequestSent>();
+	Subject<MainResponseReceived> _mainResponsesSubject = new Subject<MainResponseReceived>();
+	Subject<SecondResponseReceived> _secondaryResponsesSubject = new Subject<SecondResponseReceived>();
+	IObservable<RequestSent> _requests = _requestsSubject.AsObservable();
+	IObservable<MainResponseReceived> _mainResponses = _mainResponsesSubject.AsObservable();
+	IObservable<SecondResponseReceived> _secondaryResponses = _secondaryResponsesSubject.AsObservable();
+	_requestsSubject.OnNext(new RequestSent() { Id = 42 });
+	_mainResponsesSubject.OnNext(new MainResponseReceived() { Id = 42 });
+	_secondaryResponsesSubject.OnNext(new SecondResponseReceived() { Id = 42 });
+	_requestsSubject.OnNext(new RequestSent() { Id = 99 });
+	_mainResponsesSubject.OnNext(new MainResponseReceived() { Id = 99 });
+	_secondaryResponsesSubject.OnNext(new SecondResponseReceived() { Id = 99 });

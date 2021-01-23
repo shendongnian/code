@@ -1,0 +1,6 @@
+    Action action = DoSomethingAndIgnoreResult;
+    ...
+    private static void DoSomethingAndIgnoreResult()
+    {
+        DoSomething(); // Hey, I'm ignoring the result. That's fine...
+    }

@@ -1,0 +1,6 @@
+    private void LblChange_MouseHover(object sender, EventArgs e)
+    {
+               ....
+                    this.LblChange.BackColor = Color.Blue;
+               ...
+    }

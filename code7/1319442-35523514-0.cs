@@ -1,0 +1,9 @@
+    //...
+    Sale newSale = new Sale();
+    
+    for (int i = 0; i < grdItems.Rows.Count; i++)
+    {
+        SalesDetail sl = new SalesDetail();
+        //...
+    }
+    //...

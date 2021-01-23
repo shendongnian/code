@@ -1,0 +1,15 @@
+    var bytes = Encoding.UTF8.GetBytes("dffesdbcdef==");
+            var base64 = Convert.ToBase64String(bytes);
+            FileSerilizeObject f1 = new FileSerilizeObject("test", "jpg", base64);
+            bytes = Encoding.UTF8.GetBytes("ggasddbcdef==");
+            base64 = Convert.ToBase64String(bytes);
+            FileSerilizeObject f2 = new FileSerilizeObject("test2", "png", base64);
+            bytes = Encoding.UTF8.GetBytes("asddffasdasdasdesdbcdef==");
+            base64 = Convert.ToBase64String(bytes);
+            FileSerilizeObject f3 = new FileSerilizeObject("test3", "doc", base64);
+            List<FileSerilizeObject> lFiles = new List<FileSerilizeObject>();
+            lFiles.Add(f1);
+            lFiles.Add(f2);
+            lFiles.Add(f3);
+            Serialize(lFiles);
+            Deserialised(@"C:\Users\rjimen4x\Desktop\tutoriales\data.bin");

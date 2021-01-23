@@ -1,0 +1,10 @@
+    SqlDataSource SqlDataSourceFormulariDaAppr = new SqlDataSource();
+            SqlDataSourceFormulariDaAppr.ID = "SqlDataSourceFormulariDaAppr";
+            this.Page.Controls.Add(SqlDataSourceFormulariDaAppr);
+            SqlDataSourceFormulariDaAppr.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            SqlDataSourceFormulariDaAppr.SelectCommand = "Query";
+            SqlDataSourceFormulariDaAppr.SelectParameters.Add("userID", DropDownListUtenti.SelectedValue);
+            SqlDataSourceFormulariDaAppr.DataBind();
+            GridViewFormulariDaAppr.DataSource = SqlDataSourceFormulariDaAppr;
+            GridViewFormulariDaAppr.DataBind();
+	SqlDataSourceFormulariDaAppr.SelectParameters.Clear();

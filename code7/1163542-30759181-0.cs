@@ -1,0 +1,10 @@
+            Response.ClearContent();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", string.Format("attachment; filename={0}", "Documents.xls"));
+            Response.ContentType = "application/vnd.ms-excel";
+            System.IO.StringWriter sw = new System.IO.StringWriter();
+            System.Web.UI.HtmlTextWriter hw = new System.Web.UI.HtmlTextWriter(sw);
+            gv.AllowPaging = false;
+            gv.RenderControl(hw);
+            Response.Write(sw.ToString());
+            Response.End();

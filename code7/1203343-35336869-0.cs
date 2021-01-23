@@ -1,0 +1,11 @@
+            DateTime dtStart = DateTime.Parse("09.04.2015");
+            DateTime dtEnd = DateTime.Parse("12.28.2016");
+            var plan = checkoutProj.GetResourcePlan(dtStart, dtEnd, TimeScale.Days);
+            projContext.Load(plan.Assignments);
+            projContext.ExecuteQuery();
+            DateTime dttest = DateTime.Parse("8.28.2016");
+            var assgn = plan.Assignments[0].Intervals.GetByStart(dttest);
+            projContext.Load(plan.Assignments[0].Intervals);
+            projContext.Load(plan.Assignments[1].Intervals);
+            projContext.Load(assgn);
+            projContext.ExecuteQuery();

@@ -1,0 +1,13 @@
+    TagBuilder firstChild = new TagBuilder("input");
+    firstChild.MergeAttribute("type", "hidden");
+    firstChild.MergeAttribute("name", "Ids");
+    firstChild.TagRenderMode = TagRenderMode.SelfClosing;
+    TagBuilder secondChild = new TagBuilder("input");
+    secondChild.MergeAttribute("type", "hidden");
+    secondChild.MergeAttribute("name", "Ids");
+    secondChild.TagRenderMode = TagRenderMode.SelfClosing;
+    var innerHtml = new MyBufferedHtmlContent();
+    innerHtml.Append(firstChild);
+    innerHtml.Append(secondChild);
+    TagBuilder parent = new TagBuilder("div");
+    parent.InnerHtml = innerHtml;

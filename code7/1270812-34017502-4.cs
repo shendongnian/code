@@ -1,0 +1,27 @@
+            private function _get_clippedColumn_visible_width() as int16
+            Dim totalWdith As Integer = SOlistview.Width
+            Dim combinedColumnWidth As Integer = 0
+            Dim visibleSpaceLeft As Integer = 0
+    
+            Dim columnCount As Integer = SOlistview.Columns.Count
+            Dim weHaveClipping As Boolean = False
+    
+            For i = 0 To columnCount - 1
+    
+                If combinedColumnWidth + SOlistview.Columns(i).Width > totalWdith Then
+    
+                    '//we will have clipping occur if we add this column...
+                    visibleSpaceLeft = SOlistview.Width - combinedColumnWidth
+                    weHaveClipping = True
+                    Exit For
+    
+                Else
+    
+                    '//no clipping yet, so add this column to my math
+                    combinedColumnWidth += SOlistview.Columns(i).Width
+    
+                End If
+    
+             Next
+             return visibleSpaceLeft 
+            End Function

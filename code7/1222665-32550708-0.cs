@@ -1,0 +1,12 @@
+    Style MyButtonStyle = new Style();
+    ControlTemplate templateButton = new ControlTemplate(typeof(Button));
+    FrameworkElementFactory elemFactory = new FrameworkElementFactory(typeof(Border));
+    elemFactory.SetBinding(Border.BackgroundProperty, new Binding { RelativeSource = RelativeSource.TemplatedParent, Path = new PropertyPath("Background") });
+    templateButton.VisualTree = elemFactory;
+    elemFactory.AppendChild(new FrameworkElementFactory(typeof(ContentPresenter)));
+    MyButtonStyle.Setters.Add(new Setter { Property = Button.BackgroundProperty, Value = Brushes.Yellow });
+    MyButtonStyle.Setters.Add(new Setter { Property = Button.TemplateProperty, Value = templateButton });
+    Trigger styleTrigger = new Trigger { Property = Button.IsMouseOverProperty, Value = true };
+    styleTrigger.Setters.Add(new Setter { Property = Button.ForegroundProperty, Value = Brushes.Violet });
+    styleTrigger.Setters.Add(new Setter { Property = Button.BackgroundProperty, Value = Brushes.Red });
+    MyButtonStyle.Triggers.Add(styleTrigger);

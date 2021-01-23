@@ -1,0 +1,17 @@
+    void Main()
+    {
+    	var path = @"... path to your sample xml";
+        // you could skip this step, and load directly from a file stream.
+    	var xml = XElement.Load(path);
+    	var nds = new XmlSerializer(typeof(NewDataSet)).Deserialize(xml.CreateReader());
+    	nds.Dump();
+    }
+    
+    public class NewDataSet
+    {
+    	public Patient Patient { get; set; }
+    }
+    public class Patient
+    {
+    	public string FamilyName { get; set; }
+    }

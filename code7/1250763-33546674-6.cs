@@ -1,0 +1,11 @@
+    Owin
+    Microsoft.AspNet.Cors
+    Microsoft.AspNet.WebApi.Client
+    Microsoft.AspNet.WebApi.Core
+    Microsoft.AspNet.WebApi.Owin
+    Microsoft.AspNet.WebApi.WebHost
+    Microsoft.Owin
+    Microsoft.Owin.Cors
+    Microsoft.Owin.Host.SystemWeb
+    Microsoft.Owin.Security
+    Microsoft.Owin.Security.OAuth

@@ -1,0 +1,9 @@
+    //...
+		
+        DataGridTextColumn col = new DataGridTextColumn();
+		//...
+		
+        TextBlock txt = new TextBlock() { Text = AllColumnDisplayNames[i] };
+        txt.ContextMenu = new ContextMenu(); // Build your context menu here.
+        col.Header = txt;
+        //...

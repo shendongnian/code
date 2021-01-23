@@ -1,0 +1,6 @@
+    public virtual async Task<IEnumerable<T>> Fill()
+    {
+        ...
+        result = await ExecuteAsync(client, _endPoint);
+        ...
+    }

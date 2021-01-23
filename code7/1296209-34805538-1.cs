@@ -1,0 +1,12 @@
+     KeywordQuery query = new KeywordQuery(site);
+                query.QueryText = string.Format("Path:{0} AND ContentClass:STS_Site", webAppURL);
+                query.RowLimit = 500;//max row limit is 500 for KeywordQuery
+                query.ResultsProvider = SearchProvider.Default;
+                query.EnableStemming = true;
+                query.TrimDuplicates = false;
+                query.AuthenticationType = QueryAuthenticationType.PluggableAuthenticatedQuery;
+                query.KeywordInclusion = KeywordInclusion.AllKeywords;
+                SearchExecutor executor = new SearchExecutor();
+                ResultTableCollection resultTableCollection = executor.ExecuteQuery(query);
+                var resultTables = resultTableCollection.Filter("TableType", KnownTableTypes.RelevantResults);
+                var resultTable = resultTables.FirstOrDefault();

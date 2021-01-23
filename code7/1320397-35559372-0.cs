@@ -1,0 +1,12 @@
+        z1=Convert.ToDouble(textBox1.Text);
+        z2=Convert.ToDouble(textBox2.Text);
+        z3=Convert.ToDouble(textBox3.Text);
+        x1=Convert.ToDouble(textBox4.Text);
+        x2=Convert.ToDouble(textBox5.Text);
+        x3=Convert.ToDouble(textBox6.Text);
+        c1=Convert.ToDouble(textBox7.Text);
+        c2=Convert.ToDouble(textBox8.Text);
+        c3=Convert.ToDouble(textBox9.Text);
+        a1=Convert.ToDouble(textBox10.Text);
+        a2=Convert.ToDouble(textBox11.Text);
+        a3=Convert.ToDouble(textBox12.Text); 

@@ -1,0 +1,16 @@
+    var q = Lazy(() =>
+        from table1 in connection.Get<DbTable1> ...
+        join table2 in connection.Get<DbTable2> ...
+        ...);
+    if (state)
+    {
+    }
+    ...lines...
+    ...lines...
+    if (state)
+    {
+        foreach(var item in q.Value)
+        {
+            ...
+        }
+    }

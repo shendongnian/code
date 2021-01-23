@@ -1,0 +1,13 @@
+    DataInputRows = InputSheet.UsedRange.Rows.Count;
+                    Excel.Range rng = (Excel.Range)InputSheet.Cells[2, 19];
+                    rng.EntireColumn.NumberFormat = "dd/MM/yyyy";
+                    rng = (Excel.Range)InputSheet.Cells[2, 20];
+                    rng.EntireColumn.NumberFormat = "dd/MM/yyyy";
+                    rng = (Excel.Range)InputSheet.Cells[2, 22];
+                    rng.EntireColumn.NumberFormat = "dd/MM/yyyy";
+                    SourceRange.Sort(SourceRange.Columns[20, Type.Missing], Excel.XlSortOrder.xlAscending, Type.Missing, Type.Missing, Excel.XlSortOrder.xlAscending, Type.Missing, Excel.XlSortOrder.xlAscending, Excel.XlYesNoGuess.xlYes, Type.Missing, Type.Missing, Excel.XlSortOrientation.xlSortColumns, Excel.XlSortMethod.xlPinYin, Excel.XlSortDataOption.xlSortNormal, Excel.XlSortDataOption.xlSortNormal, Excel.XlSortDataOption.xlSortNormal);
+                    Excel.WorksheetFunction wsf = ObjApp.WorksheetFunction;
+                    rng = (Excel.Range)InputSheet.Cells[2, 20];
+                    var SYear = wsf.Min(rng);
+                    DateTime dt = DateTime.FromOADate(SYear);
+                    MessageBox.Show(dt.ToString());

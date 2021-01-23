@@ -1,0 +1,9 @@
+    public static IEnumerable<int> GetValues(long i, int minValue, int maxValue, int valueCount)
+    {
+        var range = maxValue - minValue + 1;
+        for (int j = 0; j < valueCount; j++)
+        {
+            yield return (int)(i % range + minValue);
+            i = i / range;
+        }
+    }

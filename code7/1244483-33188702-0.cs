@@ -1,0 +1,10 @@
+	int width = 45;
+	string sGuest = "Nasreddine";
+	string sBride = "Jane";
+	string sGroom = "John";
+	Console.WriteLine(new String('*', width));
+	Console.WriteLine(Center(sGuest, width));
+	Console.WriteLine(Center("is invited to the wedding of:",width));
+	Console.WriteLine(Center(sBride + " and " + sGroom, width));
+	Console.WriteLine(Center("On Saturday 17 July 2016 at 2:00pm", width));
+	Console.WriteLine(new String('*', width));

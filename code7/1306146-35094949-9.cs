@@ -1,0 +1,43 @@
+         using (var sqlConnection1 = new SqlConnection("Your Connection String"))
+            {
+                SqlCommand cmd = new SqlCommand();
+                SqlDataReader reader;
+                cmd.CommandText = "StoredProcedureName";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = sqlConnection1;
+                var id = cmd.CreateParameter();
+                id.DbType = DbType.String;
+                id.Direction = ParameterDirection.Input;
+                id.ParameterName = "id";
+                id.Value = yourTextBox.Text;
+                cmd.Parameters.Add(id);
+                var jobtype = cmd.CreateParameter();
+                jobtype.DbType = DbType.String;
+                jobtype.Direction = ParameterDirection.Input;
+                jobtype.ParameterName = "jobtype";
+                jobtype.Value = yourTextBoxWithJobType.Text;
+                cmd.Parameters.Add(jobtype);
+                var importType = cmd.CreateParameter();
+                importType.DbType = DbType.String;
+                importType.Direction = ParameterDirection.Input;
+                importType.ParameterName = "importType";
+                importType.Value = yourComboBox.SelectedIthem;
+                cmd.Parameters.Add(importType);
+                sqlConnection1.Open();
+                reader = cmd.ExecuteReader();
+                var result = new List<DetailsDto>();
+                while (reader.Read())  // Each row from StoredProcedure
+                {
+                    result.Add(new DetailsDto { 
+                     JobType = reader.GetString(0),
+                     ImportType = reader.GetString(1),
+                     Username = reader.GetString(2),
+                     Password = reader.GetString(3),
+                     Connection = reader.GetString(4),
+                     EmailAddress = reader.GetString(5),
+                     ContactPhone = reader.GetString(6),
+                     OldPassword = reader.GetString(7),
+                     Remarks = reader.GetString(8)
+                    });
+                }
+                sqlConnection1.Close();

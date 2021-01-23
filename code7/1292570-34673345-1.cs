@@ -1,0 +1,11 @@
+    Exception MSBuildToolsPath is not specified for the ToolsVersion "14.0" defined at "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild\ToolsVersions\14.0", or the value specified evaluates to the empty string. (InvalidToolsetDefinitionException):
+       at Microsoft.Build.BuildEngine.InvalidToolsetDefinitionException.Throw(Exception innerException, String resourceName, Object[] args)
+       at Microsoft.Build.BuildEngine.ToolsetReader.ReadToolset(PropertyDefinition toolsVersion, BuildPropertyGroup globalProperties, BuildPropertyGroup initialProperties, Boolean accumulateProperties)
+       at Microsoft.Build.BuildEngine.ToolsetReader.ReadEachToolset(ToolsetCollection toolsets, BuildPropertyGroup globalProperties, BuildPropertyGroup initialProperties, Boolean accumulateProperties)
+       at Microsoft.Build.BuildEngine.ToolsetReader.ReadToolsets(ToolsetCollection toolsets, BuildPropertyGroup globalProperties, BuildPropertyGroup initialProperties, Boolean accumulateProperties)
+       at Microsoft.Build.BuildEngine.ToolsetReader.ReadAllToolsets(ToolsetCollection toolsets, ToolsetRegistryReader registryReader, ToolsetConfigurationReader configurationReader, BuildPropertyGroup globalProperties, BuildPropertyGroup initialProperties, ToolsetDefinitionLocations locations)
+       at Microsoft.Build.BuildEngine.Engine.PopulateToolsetStateMap(ToolsetDefinitionLocations locations)
+       at Microsoft.Build.BuildEngine.Engine..ctor(Int32 numberOfCpus, Boolean isChildNode, Int32 parentNodeId, String localNodeProviderParameters, BuildPropertyGroup globalProperties, ToolsetDefinitionLocations locations)
+       at Microsoft.Build.BuildEngine.Engine.get_GlobalEngine()
+       at Microsoft.VisualStudio.Package.Utilities.InitializeMsBuildEngine(Engine existingEngine, IServiceProvider serviceProvider)
+       at HedgehogDevelopment.SitecoreProject.VSIP.SitecoreProjectPackage.Initialize()

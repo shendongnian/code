@@ -1,0 +1,17 @@
+      ObjectDataSource ods = new ObjectDataSource();
+      ods.ID = "ods";
+      ods.TypeName = "Project.BLLQuestion";
+      ods.SelectMethod = "GetByGroupID";
+      ods.SelectParameters["GroupID"] = new Parameter("inGroupID", DbType.Int32, "0");
+      Page.Controls.Add(ods);
+      GridView gdvList = new GridView();
+      gdvList.ID = "gdvList" ;
+      gdvList.DataSourceID = "ods";
+      BoundField dateBF = new BoundField();
+      dateBF.DataField = "Date";
+      gdvList.Columns.Add(dateBF);
+      BoundField countResponse = new BoundField();
+      countResponse.DataField = "CountResponse";
+      gdvList.Columns.Add(countResponse);
+      Page.Controls.Add(gdvList);
+      gdvList.DataBind(); 

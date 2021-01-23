@@ -1,0 +1,10 @@
+    List<ProductUpdate> _products = new List<ProductUpdate>();
+    _products.Add(new ProductUpdate{ProductId = "Prod1", DueDateTime =  new DateTime(2015,06,12)});
+    _products.Add(new ProductUpdate{ProductId = "Prod2", DueDateTime =  new DateTime(2015,01,13)});
+    _products.Add(new ProductUpdate{ProductId = "Prod3", DueDateTime =  new DateTime(2015,09,13)});
+    _products.Add(new ProductUpdate{ProductId = "Prod4", DueDateTime =  new DateTime(2015,12,18)});
+    _products.Add(new ProductUpdate{ProductId = "Prod5", DueDateTime =  new DateTime(2015,02,28)});
+    _products.Add(new ProductUpdate{ProductId = "Prod6", DueDateTime =  new DateTime(2015,08,01)});
+    List<string> _dueDates =new List<string>();
+    _dueDates.Add("08/01/2015");
+    _products.RemoveAll(entry => _dueDates.Any(date => date == entry.DueDateTime.ToString("MM/dd/yyyy"))); 

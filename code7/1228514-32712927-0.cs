@@ -1,0 +1,15 @@
+    public class Properties
+    {
+        private IDictionary<string, string> _extendedProperties;
+        public IDictionary<string, string> ExtendedProperties
+        {
+            get
+            {
+                return
+                    _extendedProperties == null ?
+                        new Dictionary<string, string>() { { "Name", "" }, { "Number", "" }, { "Age", "" } } :
+                        _extendedProperties;
+            }
+            set { _extendedProperties = value; }
+        }
+    }

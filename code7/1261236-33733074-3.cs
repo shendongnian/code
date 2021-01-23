@@ -1,0 +1,6 @@
+      public void MyMethod() {
+        ...
+        // A a is a local variable in some method
+        A a = new A(); // A a = null; or A a;
+        ...
+      }

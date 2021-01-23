@@ -1,0 +1,18 @@
+    <configSections>    
+      <sectionGroup name="system.web.webPages.razor" type="System.Web.WebPages.Razor.Configuration.RazorWebSectionGroup, System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35">
+        <section name="host" type="System.Web.WebPages.Razor.Configuration.HostSection, System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" requirePermission="false" />
+        <section name="pages" type="System.Web.WebPages.Razor.Configuration.RazorPagesSection, System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" requirePermission="false" />
+      </sectionGroup>
+    </configSections>
+    <system.web.webPages.razor>
+      <host factoryType="System.Web.Mvc.MvcWebRazorHostFactory, System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      <pages pageBaseType="WebApplication2.Views.BaseView2">
+        <namespaces>
+          <add namespace="System.Web.Mvc" />
+          <add namespace="System.Web.Mvc.Ajax" />
+          <add namespace="System.Web.Mvc.Html" />
+          <add namespace="System.Web.Optimization"/>
+          <add namespace="System.Web.Routing" />        
+        </namespaces>
+      </pages>
+    </system.web.webPages.razor>

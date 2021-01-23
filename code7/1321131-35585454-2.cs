@@ -1,0 +1,6 @@
+    var TheQuery = MyDC.SomeTable
+                .OrderByDescending(....
+                .Where(.....
+                .GroupBy(s => s.SomeColumnID)
+                .Select(items => new { Key = items.Key, 
+                                       Values = items.Where(i => i.SomeOtherColumnId == someId).Take(10) });

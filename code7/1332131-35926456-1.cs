@@ -1,0 +1,12 @@
+    var dateColumn = new DataColumn("Date", typeof(int));
+    var column1 = new DataColumn("Column1", typeof(int));
+    var column2 = new DataColumn("Column2", typeof(int));
+    var column3 = new DataColumn("Column3", typeof(int));
+    var table = new DataTable();
+    table.Columns.Add(dateColumn);
+    table.Columns.Add(column1);
+    table.Columns.Add(column2);
+    table.Columns.Add(column3);
+    table.Rows.Add(new object[] { 2010, 10, 20, 30 });
+    table.Rows.Add(new object[] { 2011, 40, 50, 60 });
+    var pivotedTable = Pivot(table, "Date");

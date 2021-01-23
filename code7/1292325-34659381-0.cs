@@ -1,0 +1,8 @@
+    [assembly: AssemblyTitle("FinalMediaPlayer")]
+    [assembly: AssemblyDescription("")]
+    [assembly: AssemblyConfiguration("")]
+    [assembly: AssemblyCompany("")]
+    [assembly: AssemblyProduct("FinalMediaPlayer")]
+    [assembly: AssemblyCopyright("Copyright ©  2016")]
+    [assembly: AssemblyTrademark("")]
+    [assembly: AssemblyCulture("")]

@@ -1,0 +1,6 @@
+    public void SomeMethod()
+    {
+        ...
+        DerivedClass.Instance.Method() 
+        ...
+    }

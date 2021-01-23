@@ -1,0 +1,10 @@
+    connExcel.Open();
+    DataTable dtExcelSchema;
+    dtExcelSchema = connExcel.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+    connExcel.Close(); 
+    DataSet ds = new DataSet();
+    string SheetName = dtExcelSchema.Rows[0]["TABLE_NAME"].ToString();
+    cmdExcel.CommandText = "SELECT * From [" + SheetName + "]";
+    da.SelectCommand = cmdExcel;
+    da.Fill(ds);
+    connExcel.Close();

@@ -1,0 +1,9 @@
+    BasicHttpBinding binding = new BasicHttpBinding(BasicHttpSecurityMode.TransportWithMessageCredential);
+                    binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.UserName;
+                    CustomBinding customBinding = new CustomBinding(binding);
+                    SecurityBindingElement element = customBinding.Elements.Find<SecurityBindingElement>();
+                    element.IncludeTimestamp = false;
+                    EndpointAddress epadd = new EndpointAddress("https://mycompany.ca:113/tracsWebWS/services/TWebSvcs");
+                    TWebSvcsClient client = new TWebSvcsClient(customBinding, epadd);
+                    client.ClientCredentials.UserName.UserName = userName;
+                    client.ClientCredentials.UserName.Password = password;

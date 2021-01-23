@@ -1,0 +1,6 @@
+    ...
+    rabbitConection
+        .Setup(e => e.AddToQueue(It.IsAny<byte[]>(), It.IsAny<string>()))
+        .Returns(true);
+    var draftContactsManager = new Test(rabbitConection.Object);
+    ...

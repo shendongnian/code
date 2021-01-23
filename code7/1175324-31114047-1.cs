@@ -1,0 +1,12 @@
+    DataTable dt = new DataTable();
+    dt.Columns.Add("Value");
+    dt.Rows.Add("Value1");
+    dt.Rows.Add("Value2");
+    dt.Rows.Add("Value3");
+    dt.Rows.Add("Value4");
+    dt.Rows.Add("Value5");
+    dt.Rows.Add("Value6");
+    dt.Rows.Add("Value7");
+    dt.Rows.Add("Value8");
+    Repeater1.DataSource = dt;
+    Repeater1.DataBind();

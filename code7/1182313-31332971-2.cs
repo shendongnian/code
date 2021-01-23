@@ -1,0 +1,12 @@
+    <root>
+      <Email>
+        <FromAddress>FromAddress</FromAddress>
+        <EmailReceivedOn>receivedOnemail</EmailReceivedOn>
+        <Subject>subject</Subject>
+        <Body>body</Body>
+        <attachment>
+          <attachmentname>Filename</attachmentname>
+          <attachmentpath>Filepath</attachmentpath>
+        </attachment>
+      </Email>
+    </root>

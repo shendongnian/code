@@ -1,0 +1,16 @@
+        rpt.LocalReport.DataSources.Clear();
+        Microsoft.Reporting.WebForms.ReportDataSource rptdBody = new Microsoft.Reporting.WebForms.ReportDataSource();
+        rptdBody.Name = "DataSet1";
+        rptdBody.Value = dBody;
+        rpt.LocalReport.DataSources.Add(rptdBody);
+        Microsoft.Reporting.WebForms.ReportDataSource rptdTop = new Microsoft.Reporting.WebForms.ReportDataSource();
+        rptdTop.Name = "DataSet2";
+        rptdTop.Value = dGraph;
+        rpt.LocalReport.DataSources.Add(rptdTop);
+        DataTable dDate = clsDailyReports.MakeTmpDataSet.Invoke(con, sSqlDate).Tables[0];
+        Microsoft.Reporting.WebForms.ReportDataSource rptDate = new Microsoft.Reporting.WebForms.ReportDataSource();
+        rptDate.Name = "DataSet3";
+        rptDate.Value = dDate;
+        rpt.LocalReport.DataSources.Add(rptDate);
+        rpt.LocalReport.ReportPath = System.Web.HttpContext.Current.Server.MapPath(@"~\Reports\rptUnAdjustedPeriodTotals.rdlc");
+        rpt.LocalReport.Refresh();

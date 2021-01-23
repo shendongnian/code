@@ -1,0 +1,10 @@
+            axMap1.CtlbackColor = Color.Transparent;
+            TileProviders providers = axMap1.Tiles.Providers;
+            int providerId = (int)tkTileProvider.ProviderCustom + 100;
+            //providers.Add(providerId, "Custom TMS provider", "http://{switch:a,b,c}.tile.openstreetmap.org/{zoom}/{x}/{y}.png", tkTileProjection.SphericalMercator, 1, 18);
+            providers.Add(providerId, "CustomTMSprovider", @"http://localhost/maps/Tiles/{zoom}/{x}/{y}.png", tkTileProjection.SphericalMercator, 1, 18);
+            axMap1.Tiles.ProviderId = providerId;
+            axMap1.Projection = tkMapProjection.PROJECTION_WGS84;
+            axMap1.GrabProjectionFromData = true;
+            axMap1.ZoomBehavior = tkZoomBehavior.zbUseTileLevels;
+            axMap1.ZoomToTileLevel(2);

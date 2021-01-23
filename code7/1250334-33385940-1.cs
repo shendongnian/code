@@ -1,0 +1,6 @@
+    public class AutoCADAPI17 : IAutoCADAPI
+    {
+        ....
+    public class AutoCADAPI18 : IAutoCADAPI
+    {
+        ....

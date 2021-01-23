@@ -1,0 +1,11 @@
+                    FlowDocument doc = new FlowDocument();
+                rtbEmail.Document = doc;
+                rtbEmail.IsReadOnly = true;
+                rtbEmail.IsDocumentEnabled = true;
+                Paragraph para = new Paragraph();
+                doc.Blocks.Add(para);
+                Hyperlink link = new Hyperlink();
+                link.IsEnabled = true;
+                link.Inlines.Add(DataContext.EmailAddress);
+                link.Click += new RoutedEventHandler(this.OpenEmailAppEvent);
+                para.Inlines.Add(link);

@@ -1,0 +1,14 @@
+    dynamic root = new ExpandoObject();
+    root.Value = 1;
+    root.SubContainer1 = new ExpandoObject();
+    root.SubContainer1.Value = 2;
+    root.SubContainer1.SubItem1 = new ExpandoObject();
+    root.SubContainer1.SubItem1.Value = 3;
+    root.SubContainer2 = new ExpandoObject();
+    root.SubContainer2.Value = 4;
+    root.SubContainer3 = new ExpandoObject();
+    root.SubContainer3.Value = 5;
+    root.SubContainer3.SubItem2 = new ExpandoObject();
+    root.SubContainer3.SubItem2.Value = 6;
+    root.SubContainer3.SubItem3 = new ExpandoObject();
+    root.SubContainer3.SubItem3.Value = 7;

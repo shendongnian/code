@@ -1,0 +1,13 @@
+    DropDownList ddlReturnDateMonth = new DropDownList();
+    ddlReturnDateMonth.Items.Add(new System.Web.UI.WebControls.ListItem("Jan", "1")); 
+    ddlReturnDateMonth.Items.Add(new System.Web.UI.WebControls.ListItem("Feb", "2"));
+    ddlReturnDateMonth.Items.Add(new System.Web.UI.WebControls.ListItem("Mar", "3"));
+    ddlReturnDateMonth.Items.Add(new System.Web.UI.WebControls.ListItem("Apr", "4"));
+    ddlReturnDateMonth.Items.Add(new System.Web.UI.WebControls.ListItem("May", "5"));
+    ddlReturnDateMonth.Items.Add(new System.Web.UI.WebControls.ListItem("Jun", "6"));
+    ddlReturnDateMonth.Items.Add(new System.Web.UI.WebControls.ListItem("Jul", "7"));
+    ddlReturnDateMonth.Items.Add(new System.Web.UI.WebControls.ListItem("Aug", "8"));
+    ddlReturnDateMonth.Items.Add(new System.Web.UI.WebControls.ListItem("Sep", "9"));
+    ddlReturnDateMonth.Items.Add(new System.Web.UI.WebControls.ListItem("Oct", "10"));
+    ddlReturnDateMonth.Items.Add(new System.Web.UI.WebControls.ListItem("Nov", "11"));
+    ddlReturnDateMonth.Items.Add(new System.Web.UI.WebControls.ListItem("Dec", "12"));

@@ -1,0 +1,12 @@
+    <TemplateSettings>
+    <TemplateSetting>
+      <DecimalSeparator>1</DecimalSeparator> 
+      <ThousandSeparator>2</ThousandSeparator> 
+      <DateSeparator>3</DateSeparator> 
+      <TimeSeparator>4</TimeSeparator> 
+      <DateFormat>dd/MM/yyyy</DateFormat> 
+      <ValueDelimiter>tr</ValueDelimiter> 
+      <QuoteCharacter>r</QuoteCharacter> 
+      <IsHeader>False</IsHeader> 
+      </TemplateSetting>
+    </TemplateSettings>

@@ -1,0 +1,9 @@
+    using (var client = new SshClient(connectionInfo))
+    {
+        ...
+        client.Connect();
+        ...
+        portFwld.Start();
+        ... 
+        DBConnect dbConnect = new DBConnect(portFwld.BoundHost, "database", "username", "password", portFwld.BoundPort);
+    }

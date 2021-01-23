@@ -1,0 +1,19 @@
+    <?xml version="1.0" encoding="utf-8"?>
+    <Document>
+      <DefaultContainer>
+        <Mobile_Devices>
+          <Mobile_Device>
+            <Id>1</Id>
+            <Name>Device-One</Name>
+          </Mobile_Device>
+        </Mobile_Devices>
+      </DefaultContainer>
+      <ExlusionContainer>
+        <Mobile_Devices>
+          <Mobile_Device>
+            <Id>2</Id>
+            <Name>Device-Two</Name>
+          </Mobile_Device>
+        </Mobile_Devices>
+      </ExlusionContainer>
+    </Document>

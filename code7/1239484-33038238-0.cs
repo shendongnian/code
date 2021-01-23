@@ -1,0 +1,9 @@
+    this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+    this.button1.BackgroundImage = global::WindowsFormsApplication.Properties.Resources.ChargeImage;
+    this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+    this.button1.Image = global::WindowsFormsApplication.Properties.Resources.DatabaseImage;
+    this.button1.Location = new System.Drawing.Point(12, 12);
+    this.button1.Name = "button1";
+    this.button1.Size = new System.Drawing.Size(264, 160);
+    this.button1.TabIndex = 0;
+    this.button1.UseVisualStyleBackColor = false;

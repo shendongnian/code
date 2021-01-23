@@ -1,0 +1,10 @@
+         HttpWebRequest reqest = (HttpWebRequest)WebRequest.Create(serviceUri);  
+          reqest.Headers.Add(LoginName,LoginName);
+          reqest.Headers.Add(AuthenticationKey,AuthenticationKey);
+          reqest.Headers.Add(SessionKey,SessionKey);
+          reqest.ContentType = "application/json";
+       Stream newStream = req.GetRequestStream();
+       newStream.Write(data, 0, data.Length);
+       newStream.Close();
+      HttpWebResponse response = (HttpWebResponse)req.GetResponse();
+      string returnString = response.StatusCode.ToString();

@@ -1,0 +1,6 @@
+    sealed partial class App : Application
+    {
+        ...
+        public static string MyTestVar { get; set; }
+        ...
+    }

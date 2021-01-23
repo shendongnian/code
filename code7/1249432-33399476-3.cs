@@ -1,0 +1,8 @@
+    public class BoolStrategy: IStrategy{
+      public Type ResultType { get{ return typeof(bool);}}
+      public void Initialize (SomeContextClassMaybe context){
+      }
+      public StrategyResult Execute(ISerializable info = null){
+        return StrategyResult.FromStrategyExecute(this,info);
+      }
+    }

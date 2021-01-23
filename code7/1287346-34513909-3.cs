@@ -1,0 +1,6 @@
+    public void AddUserRole(string RoleCode, Guid UserId)
+    {
+            ...
+            CommonLayer.Role Role = dar.GetRole(RoleCode);
+            ...
+    }

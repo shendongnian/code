@@ -1,0 +1,10 @@
+    OracleParameter empID = new OracleParameter("empid", OracleDbType.Double, 38);
+    empID.Direction = System.Data.ParameterDirection.Input;
+    empID.SourceColumn = "empid";
+    empID.Value = 1;
+    comm.Parameters.Add(empID);
+    comm.Parameters.Add(user);
+    comm.Parameters.Add(email);
+    comm.Parameters.Add(active);
+    comm.Connection.Open();
+    OracleDataReader rdr = comm.ExecuteReader();

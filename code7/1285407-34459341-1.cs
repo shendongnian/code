@@ -1,0 +1,6 @@
+    ...
+            public void EnableTabControl()
+            {
+                this.tabControl1.Enabled = true;
+            }
+    ...

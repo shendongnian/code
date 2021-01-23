@@ -1,0 +1,18 @@
+            IQueryable<ENTITY> query = context.ENTITY;
+            Expression whereExpression = null;
+            ParameterExpression pe = Expression.Parameter(typeof(ENTITY), "name");
+            Expression left1 = MemberExpression.Property(pe, "Field1");
+            Expression right1 = Expression.Constant(1, typeof(int));
+            whereExpression = Expression.And(whereExpression, Expression.Equal(left1, right1));
+            Expression left2 = MemberExpression.Property(pe, "Field1");
+            Expression right2 = Expression.Constant(2, typeof(int));
+            whereExpression = Expression.Or(whereExpression, Expression.Equal(left2, right2));
+            Expression left3 = MemberExpression.Property(pe, "Field2");
+            Expression right3 = Expression.Constant(3, typeof(int));
+            whereExpression = Expression.And(whereExpression, Expression.Equal(left3, right3));
+            Expression left4 = MemberExpression.Property(pe, "Field4");
+            Expression right4 = Expression.Constant("A", typeof(string));
+            whereExpression = Expression.Or(whereExpression, Expression.Equal(left4, right4));
+            Expression<Func<ENTITY, bool>> whereCondition = Expression.Lambda<Func<ENTITY, bool>>(whereExpression, new ParameterExpression[] { pe });
+            query = query.Where(whereCondition);
+            return query.ToList();

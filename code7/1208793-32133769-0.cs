@@ -1,0 +1,9 @@
+    internal bool Change(uint dueTime, uint period)
+    {
+        // ...
+        lock (TimerQueue.Instance)
+        {
+            // ...
+        }
+        // ...
+    }

@@ -1,0 +1,7 @@
+    public class RatedFrom
+    {
+    	public int Id {get; set;}
+    	public string UserName {get; set;}
+        public DateTime RatedDate {get; set;}
+        /*Other properties*/
+    }

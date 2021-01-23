@@ -1,0 +1,6 @@
+    Image img = //...;
+    PictureBox pb = //...;
+    var wfactor = (double)img.Width / pb.Width;
+    var hfactor = (double)img.Height / pb.Height;
+    var resizeFactor = Math.Max(wfactor, hfactor);
+    var imageSize = new Size((int)(img.Width / resizeFactor), (int)(img.Height / resizeFactor));

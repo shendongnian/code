@@ -1,0 +1,5 @@
+    [EnableQuery]
+    public IHttpActionResult GetTreeItems()
+    {
+     ...
+    }

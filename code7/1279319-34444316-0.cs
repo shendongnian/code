@@ -1,0 +1,11 @@
+    chart1.ChartAreas.Clear();
+    chart1.Series.Clear();
+    ChartArea CA = chart1.ChartAreas.Add("CA");
+    Series S1 = chart1.Series.Add("S1");
+    Series S2 = chart1.Series.Add("S2");
+    S1.ChartType = SeriesChartType.Line;
+    S2.ChartType = SeriesChartType.Point;
+    S1.Points.AddXY(new DateTime(2015, 12, 10), 10);
+    S1.Points.AddXY(new DateTime(2015, 12, 31), 31);
+    DataPoint dp1 = S1.Points[0];
+    DataPoint dp2 = S1.Points[1];

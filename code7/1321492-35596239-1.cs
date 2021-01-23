@@ -1,0 +1,14 @@
+    sb.Append("Name: " + name.Text);
+    sb.Append(Environment.NewLine);
+    sb.Append("Email: " + email.Text);
+    sb.Append(Environment.NewLine);
+    sb.Append("Phone: " + phone.Text);
+    sb.Append(Environment.NewLine);
+    sb.Append("Project Location: " + address.Text);
+    sb.Append(Environment.NewLine);
+    sb.Append("Project Description: " + description.Text);
+    sb.Append(Environment.NewLine);
+    sb.Append("Design ideas: " + design.Text);
+    sb.Append(Environment.NewLine);
+    sb.Append("How did you Hear about us: " + howDidYouHearAboutUs.Text);
+    sb.Append(Environment.NewLine);

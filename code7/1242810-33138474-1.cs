@@ -1,0 +1,10 @@
+    TableRow tr = new TableRow();
+    TableCell cell2 = new TableCell();
+    cell2.Text = rowData.GetInt32(rowData.GetOrdinal("truck_id")).ToString();
+    tr.Cells.Add(cell2);
+    tbl_TruckData.Rows.Add(tr);
+    tr = new TableRow();
+    TableCell cell3 = new TableCell();
+    cell3.Text = rowData.GetString(rowData.GetOrdinal("registration_no")).ToString();
+    tr.Cells.Add(cell3);
+    tbl_TruckData.Rows.Add(tr);

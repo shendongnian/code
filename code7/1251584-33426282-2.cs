@@ -1,0 +1,12 @@
+        Form2 frm = new Form2();
+        Panel HidePanel = new Panel();
+        HidePanel.ForeColor = Color.Red;
+        HidePanel.BackColor = Color.Green;//Form.BackColor;
+        HidePanel.Location = new System.Drawing.Point(531, 181);
+        HidePanel.Name = "HidePanel";
+        HidePanel.Size = new System.Drawing.Size(200, 100);
+        HidePanel.Visible = true;
+        HidePanel.TabIndex = 12;
+        HidePanel.BringToFront();
+        frm.Controls.Add(HidePanel);
+        frm.Show();

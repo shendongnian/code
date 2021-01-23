@@ -1,0 +1,24 @@
+	public class Contribuable
+	{
+		protected string MatriculeFiscale { get; }
+		public Contribuable(string matriculeFiscale)
+		{
+			MatriculeFiscale = matriculeFiscale; 
+		}
+		
+		public void insertContribuable()
+		{
+			string sql = "insert into CLIENT(MATRICULE_FISCALE)values('" +this.MATRICULE_FISCALE +"')";
+		}   
+	}
+	class ContribuableMoral : Contribuable 
+	{
+		public ContribuableMoral(string matriculeFiscale) : base(matriculeFiscale)
+		{
+		}
+		
+		public void InsertionMorale()
+		{
+			string sqlMorale = "insert into CLIENT_MORALE(MATRICULE_FISCALE) values('" + MATRICULE_FISCALE + "')";
+		}
+	}

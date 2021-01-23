@@ -1,0 +1,16 @@
+    string filename = Guid.NewGuid() + ".xls";
+    var gv = new System.Web.UI.WebControls.GridView();
+    var registrationsetList = db.RegistrationSet.Where(x => x.QuestionId == TheQuestion.Id);
+    g.DataSource = registrationsetList;
+    gv.DataBind();
+    Response.ClearContent();
+    Response.Buffer = true;
+    Response.AddHeader("content-disposition", "attachment; filename=" + filename);
+    Response.ContentType = "application/ms-excel";
+    Response.Charset = "";
+    StringWiter sw = new StringWriter();
+    var htw = new System.Web.UI.HtmlTextWriter(sw);
+    gv.RenderControl(htw);
+    Response.Output.Write(sw.ToString());
+    Response.Flush();
+    Response.End();

@@ -1,0 +1,11 @@
+    FileStream fs = new FileStream(filename, FileMode.CreateNew);
+    Document doc = new Document(PageSize.A4);
+    PdfWriter pdfWriter = PdfWriter.GetInstance(doc, fs);
+    PdfPage page = new PdfPage();
+    pdfWriter.PageEvent = page;
+    doc.Open();
+    PdfContentByte cb = pdfWriter.DirectContent;
+    doc.Add(new Paragraph("the data from sql server:"));
+    pdfWriter.CloseStream = true;            
+    doc.Close();
+    fs.Close();

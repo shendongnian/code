@@ -1,0 +1,11 @@
+    dynamic email = new Email("Example");
+    email.To = "webninja@example.com";
+    email.FunnyLink = DB.GetRandomLolcatLink();
+    SmtpClient client = new SmtpClient("mail.domain.com");
+    client.UseDefaultCredentials = false;
+    client.Credentials = new NetworkCredential("user@domain.pt", "somepassword");
+    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+    client.Port = 25;
+    client.EnableSsl = false;
+    Postal.EmailService emailService = new Postal.EmailService(new ViewEngineCollection(), () => client);
+    emailService.Send(email);

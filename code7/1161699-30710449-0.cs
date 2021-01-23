@@ -1,0 +1,10 @@
+    SqlCommand param = new SqlCommand();
+            SqlGeometry point = SqlGeometry.Point(center_lat,center_lng,0);
+            SqlGeometry poly = SqlGeometry.STPolyFromText(new SqlChars(new SqlString(polygon)),0);
+            param.CommandText = "INSERT INTO Circle (Center_Point, Circle_Data) VALUES (@point,@poly);";
+            param.Parameters.Add(new SqlParameter("@point", SqlDbType.Udt));
+            param.Parameters.Add(new SqlParameter("@poly", SqlDbType.Udt));
+            param.Parameters["@point"].UdtTypeName = "geometry";
+            param.Parameters["@poly"].UdtTypeName = "geometry";
+            param.Parameters["@point"].Value = point;
+            param.Parameters["@poly"].Value = poly;

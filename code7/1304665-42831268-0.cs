@@ -1,0 +1,20 @@
+    <?xml version="1.0" encoding="utf-8"?>
+     <packages>
+       <package id="Microsoft.AspNet.Cors" version="5.2.3" targetFramework="net461" />
+       <package id="Microsoft.AspNet.WebApi.Client" version="5.2.3" targetFramework="net461" />
+       <package id="Microsoft.AspNet.WebApi.Core" version="5.2.3" targetFramework="net461" />
+       <package id="Microsoft.AspNet.WebApi.Cors" version="5.2.3" targetFramework="net461" />
+       <package id="Newtonsoft.Json" version="6.0.4" targetFramework="net461" />
+     </packages>
+    public static void Register(HttpConfiguration config)
+             {
+                 config.MapHttpAttributeRoutes();
+     
+                 //config.EnableCors();
+                 var cors = new EnableCorsAttribute("*", "*", "*");
+    	
+                 config.EnableCors(cors);
+                 config.Routes.MapHttpRoute(
+                     name: "DefaultApi",
+                     routeTemplate: "api/{controller}/{id}",
+    }

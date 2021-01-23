@@ -1,0 +1,6 @@
+        public class ApplicationUser
+        {
+            //...
+            public virtual ApplicationRole ApplicationRole { get; set; }
+            //...
+        }

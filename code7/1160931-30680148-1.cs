@@ -1,0 +1,32 @@
+    public bool Validate()
+    {
+        for(...){
+            ErrorsCount++;
+            if(ErrorsCount==20)
+            {
+                ValidationComplete();
+                break;
+            }
+            for(...){
+                ....
+                ErrorsCount++;
+                if(ErrorsCount==20)
+                {
+                    ValidationComplete();
+                    break;
+                }
+            }
+            if(ErrorsCount==20)
+            {
+                ValidationComplete();
+                break;
+            }
+            ....
+            //others conditions that increment ErrorsCount
+            if(ErrorsCount==20)
+            {
+                ValidationComplete();
+                break;
+            }
+        }
+    }

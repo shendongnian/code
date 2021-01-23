@@ -1,0 +1,6 @@
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IApplicationEnvironment appEnv)
+    {
+        ...
+        env.ConfigureNLog(Path.Combine(appEnv.ApplicationBasePath, "nlog.config"));
+        ...
+    }

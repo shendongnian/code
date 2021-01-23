@@ -1,0 +1,9 @@
+    public <s>static</s> string Client { get; set; }
+    public <s>static</s> int Case { get; set; }
+    public <s>static</s> string Text { get; set; }
+    public <s>static</s> int NoteId { get; set; }
+    public <s>static</s> string R1 { get; set; }
+    public <s>static</s> string R2 { get; set; }
+    public <s>static</s> string S1 { get; set; }
+    public <s>static</s> DateTime Date { get; set; }
+    public <s>static</s> bool Type { get; set; }

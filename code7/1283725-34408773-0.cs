@@ -1,0 +1,16 @@
+    EmailMessage test2 = new EmailMessage(service);
+    String bodyContent = "<html><head><meta http-equiv=\"Content-type\" content=\"text/html;charset=UTF-8\">Hello World</head><body></body></html> ";
+    CDO.Message msMessage = new CDO.Message();
+    msMessage.BodyPart.Charset = "UTF-8";
+    msMessage.HTMLBody = bodyContent;
+    msMessage.HTMLBodyPart.Charset = "UTF-8";
+    msMessage.AddAttachment("c:\\temp\\Document.docx");
+    ADODB.Stream asMessageStream = msMessage.GetStream();
+    asMessageStream.Type = ADODB.StreamTypeEnum.adTypeBinary;
+    byte[] bdBinaryData1 = new byte[asMessageStream.Size];
+    bdBinaryData1 = (byte[])asMessageStream.Read(asMessageStream.Size);
+    service.TraceEnabled = true;
+    test2.MimeContent = new MimeContent("UTF-8", bdBinaryData1);
+    test2.ToRecipients.Add("user@domain.com");
+    test2.Subject = "test";
+    test2.SendAndSaveCopy();

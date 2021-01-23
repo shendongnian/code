@@ -1,0 +1,6 @@
+    public static async Task ProcessNewBlobAsync()
+    {
+         // ...
+         var asset = await CreateAssetBlobAsync(token);
+         // ...
+    }
