@@ -1,0 +1,11 @@
+                string filePath = Server.MapPath("your filepath");
+                FileInfo file = new FileInfo(filePath);
+                Response.Clear();
+                Response.ClearHeaders();
+                Response.ClearContent();
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
+                Response.AddHeader("Content-Length", file.Length.ToString());
+                Response.ContentType = GetMimeType(file.Name);
+                Response.Flush();
+                Response.TransmitFile(file.FullName);
+                Response.End();

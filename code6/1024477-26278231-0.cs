@@ -1,0 +1,9 @@
+    public interface IHierarchical {
+        ...
+    }
+    public interface IHierarchical<out T> : IHierarchical where T : IHierarchical<T> {
+        ...
+    }
+    public static string MyExtension(this IHierarchical item) {
+        ...
+    }

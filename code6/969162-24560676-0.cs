@@ -1,0 +1,10 @@
+    MyClass problemList = new MyClass();
+    problemList.ForumList.Add("A");
+    problemList.ForumList.Add("B");
+    problemList.ForumList.Add("C");
+    problemList.ForumList.Add("D");
+    problemList.ForumList.Add("E");
+    List<string> fForums = new List<string>();
+    fForums.Add("C");
+    fForums.Add("D");
+    problemList.ForumList.RemoveAll(f => !fForums.Contains(f));

@@ -1,0 +1,15 @@
+    var grid = new Grid();
+    grid.Width = 80;
+    grid.Height = 80;
+    var tblk = new TextBlock();
+    tblk.Text = "Long enough text to show you text wrapping and trimming at the same time in this example.";
+    tblk.Width = 80; 
+    tblk.Height = 80; 
+    tblk.TextTrimming = TextTrimming.WordEllipsis;
+    tblk.TextWrapping = TextWrapping.Wrap;
+    grid.Children.Add(tblk);
+    grid.Measure(new Size(80, 80));
+    grid.Arrange(new Rect(0, 0, 80, 80));
+    grid.InvalidateVisual();
+    var renderTargetBitmap = new RenderTargetBitmap(80, 80, 72, 72, PixelFormats.Default);
+    renderTargetBitmap.Render(tblk);

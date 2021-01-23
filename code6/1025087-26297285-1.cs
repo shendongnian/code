@@ -1,0 +1,18 @@
+            SqlCommand cmd2 = new SqlCommand();
+            cmd2.Parameters.Clear();
+            cmd2.Connection = conn;
+            cmd2.CommandText = @"UPDATE Student SET Name=@Name, Family=@Family, Fathername=@Fathername, ShenasName=@ShenasName, CodeMeli = @CodeMeli,Tavalod=@Tavalod, Address=@Address, Madraak=@Madraak, Shahriye=@Madraak, Mobile=@Mobile WHERE Name=@Name";
+            cmd2.Parameters.AddWithValue("@Name", textBox1.Text);
+            cmd2.Parameters.AddWithValue("@Family", textBox2.Text);
+            cmd2.Parameters.AddWithValue("@Fathername", textBox3.Text);
+            cmd2.Parameters.AddWithValue("@ShenasName", textBox4.Text);
+            cmd2.Parameters.AddWithValue("@CodeMeli", textBox5.Text);
+            cmd2.Parameters.AddWithValue("@Tavalod", maskedTextBox1.Text);
+            cmd2.Parameters.AddWithValue("@Address", richTextBox1.Text);
+            cmd2.Parameters.AddWithValue("@Madraak", textBox7.Text);
+            cmd2.Parameters.AddWithValue("@Shahriye", textBox8.Text);
+            cmd2.Parameters.AddWithValue("@Mobile", textBox6.Text);
+            conn.Open();
+            cmd2.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show("jj");

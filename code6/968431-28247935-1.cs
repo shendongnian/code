@@ -1,0 +1,10 @@
+    PdfPCell cell = new PdfPCell(new Phrase("Some Text", FontFactory.GetFont("Arial", BaseFont.WINANSI, BaseFont.EMBEDDED, 13, Font.NORMAL, BaseColor.BLACK)));
+    cell.BackgroundColor = new BaseColor(255, 255, 255);
+    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+    cell.BorderColor = BaseColor.BLACK;
+    cell.Border = Rectangle.BOX;
+    cell.BorderWidth = 1;
+    cell.DisableBorderSide(Rectangle.TOP_BORDER);
+    cell.DisableBorderSide(Rectangle.BOTTOM_BORDER);
+    cell.Padding = 3;
+    table.AddCell(cell);

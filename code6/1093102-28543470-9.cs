@@ -1,0 +1,11 @@
+    Container c = new Container(null,0);
+	Console.WriteLine(c.GetChild("2.2.2").GetPath());
+	Console.WriteLine(c.Containers[0].GetPath());
+	Console.WriteLine(c.Containers[1].GetPath());
+	Console.WriteLine(c.Containers[2].GetPath());
+	Console.WriteLine(c.Containers[2].Containers[0].GetPath());
+	Console.WriteLine(c.Containers[2].Containers[1].GetPath());
+	Console.WriteLine(c.Containers[2].Containers[2].GetPath());
+	Console.WriteLine(c.Containers[2].Containers[2].Containers[0].GetPath());
+	Console.WriteLine(c.Containers[2].Containers[2].Containers[1].GetPath());
+	Console.WriteLine(c.Containers[2].Containers[2].Containers[2].GetPath());

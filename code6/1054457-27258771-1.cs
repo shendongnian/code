@@ -1,0 +1,10 @@
+    string pattern = @"\s\([^)]*\)$";
+    String first = "Something here (SMM)";
+    String second = "Something else (&)";
+    String third = "Something here (1922) (IJK)";
+    first = Regex.Replace(first, pattern, "");
+    second = Regex.Replace(second, pattern, "");
+    third = Regex.Replace(third, pattern, "");
+    Console.WriteLine(first);
+    Console.WriteLine(second);
+    Console.WriteLine(third);

@@ -1,0 +1,11 @@
+    DBConnection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=FacesDatabase.mdb";
+    DBConnection.Open();
+    OleDbCommand command = new OleDbCommand();
+    command.Connection = DBConnection;
+    string query = "Select FaceID,FaceName,RollNo,FaceImage from " + tableName + " where FaceName IN ('"+ string.Join("','",MatchName.ToArray())+ "')";
+    command.CommandText = query;
+    OleDbDataAdapter da=new OleDbDataAdapter(command);
+    DataTable dt=new DataTable();
+    da.Fill(dt);
+    dataGridView1.DataSource=dt;
+    DBConnection.Close();

@@ -1,0 +1,6 @@
+    public class Project
+    {
+       public string ProjectType { get;set;}
+       ............ 
+       ............
+    }

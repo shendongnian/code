@@ -1,0 +1,10 @@
+    var nonAlpha = new Regex(@"\P{L}", RegexOptions.Compiled);
+    var phrase = "!@#$%^&*()_+=-0987654321`~qwerty{}|[]\';:\"/.,<>?";
+    var stopwatch = new System.Diagnostics.Stopwatch();
+    stopwatch.Start();
+    var alphaPhrase = new String(phrase.Where(Char.IsLetter).ToArray());
+    stopwatch.Stop();
+    var stopwatchRegex = new System.Diagnostics.Stopwatch();
+    stopwatchRegex.Start();
+    var alphaPhrase2 = nonAlpha.Replace(phrase, string.Empty);
+    stopwatchRegex.Stop();

@@ -1,0 +1,10 @@
+    Microsoft.Office.Interop.Outlook.Application oApp = new Microsoft.Office.Interop.Outlook.Application();
+    Microsoft.Office.Interop.Outlook.MailItem oMsg = (Microsoft.Office.Interop.Outlook.MailItem)oApp.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+    oMsg.To = "correo@gmail.com";
+    oMsg.Subject = "Prueba";
+    oMsg.BodyFormat = Microsoft.Office.Interop.Outlook.OlBodyFormat.olFormatHTML;
+    oMsg.HTMLBody = "<html><body>";
+    oMsg.HTMLBody += string.Format("<p>El dato {0}", var1);
+    oMsg.HTMLBody += string.Format("se guardo en la  <a href='{0}'>dirección</a>.</p> </br> <p>Saludos.</p> </body></html>", path);
+    oMsg.Display(false); 
+    ((Microsoft.Office.Interop.Outlook._MailItem)oMsg).Send();

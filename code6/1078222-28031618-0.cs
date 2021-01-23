@@ -1,0 +1,37 @@
+    public interface IEngine
+    {
+        void Start();
+    }
+    public class Engine : IEngine
+    {
+        public void Start()
+        {
+            // Do the common start here
+        }
+    }
+    public class DieselEngine : Engine
+    {
+        public void Start()
+        {
+            // Do some deisel start stuff here
+            WaitForGlowPlug();
+            // Now start
+            base.Start();
+        }
+        private void WaitForGlowPlug()
+        {
+            // Do something
+        }
+    }
+    public class Car
+    {
+        public IEngine Engine;
+    }
+    private static void Main()
+    {
+        Car dieselCar = new Car
+        {
+            Engine = new DieselEngine()
+        };
+        dieselCar.Engine.Start();
+    }

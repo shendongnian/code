@@ -1,0 +1,6 @@
+        [assembly: PreApplicationStartMethod(typeof(StructuremapMvc), "Start")]
+        public static class StructuremapMvc {
+           public static void Start() {
+                    MiniProfilerEF6.Initialize();
+    ...
+    ...

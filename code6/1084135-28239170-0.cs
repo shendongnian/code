@@ -1,0 +1,5 @@
+    Try(()=>Task.Factory.StartNew(() =>
+        {
+            SharePointService.Connect(Connection);
+            IsConnected = true;
+        }));

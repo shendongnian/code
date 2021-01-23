@@ -1,0 +1,6 @@
+    public class DynamicContractResolver : DefaultContractResolver
+    {
+    ...
+     protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization){
+      ...
+    }

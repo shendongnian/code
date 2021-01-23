@@ -1,0 +1,6 @@
+     <DataGrid.Columns>
+          <DataGridComboBoxColumn x:Name="DropDownComboBox" SelectedValueBinding="{Binding Path=FieldFromData}" Header="SomeName" IsReadOnly="False"/>
+     ....
+     <other columns>
+     ...
+    </DataGrid.Columns>

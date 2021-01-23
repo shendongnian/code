@@ -1,0 +1,17 @@
+    string body = "TICKET \n"; body += "Category : " + "Category" + "\n";
+        body += "Priority : " + "priority" + "\n"; body += "Type : " + "type" + "\n";
+        MailMessage objMailMessage = new MailMessage();
+        System.Net.NetworkCredential objSMTPUserInfo = new System.Net.NetworkCredential();
+        SmtpClient objSmtpClient = new SmtpClient();
+        objMailMessage.From = new MailAddress(fromAddress);
+        objMailMessage.To.Add(new MailAddress(toAddress));
+        objMailMessage.Subject = subject;
+        objMailMessage.Body = body;
+        objMailMessage.IsBodyHtml = true;
+        objSmtpClient.Host = "smtp.gmail.com";
+        objSmtpClient.Port = 587;
+        objSmtpClient.EnableSsl = true;
+        objSmtpClient.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+        objSmtpClient.Credentials = new NetworkCredential(fromAddress, fromPassword);
+        objSmtpClient.Timeout = 20000;
+        objSmtpClient.Send(objMailMessage);

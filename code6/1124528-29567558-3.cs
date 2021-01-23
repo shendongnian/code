@@ -1,0 +1,9 @@
+       public class Department
+        {
+           Public string Name {get;set;}
+           ...
+           ...
+           ...
+           public static readonly int IT = 1;
+           public static readonly int HR = 2;
+         }

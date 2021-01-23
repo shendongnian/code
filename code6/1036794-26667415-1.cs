@@ -1,0 +1,11 @@
+    var U = new Microsoft.VisualBasic.Compatibility.VB6.FixedLengthString(5);
+    var S = new Microsoft.VisualBasic.Compatibility.VB6.FixedLengthString(5,"Test");
+    var L = new Microsoft.VisualBasic.Compatibility.VB6.FixedLengthString(5,"Testing");
+    Func<string,string> p0=(s)=>"\""+s.Replace("\0","\\0")+"\"";
+    p0(U.Value).Dump();
+    p0(S.Value).Dump();
+    p0(L.Value).Dump();
+    U.Value="Test";
+    p0(U.Value).Dump();
+    U.Value="Testing";
+    p0(U.Value).Dump();

@@ -1,0 +1,10 @@
+    int rowIndex  = grd.Rows.Add();
+    DataGridViewComboBoxCell oCell = (DataGridViewComboBoxCell)grd.Rows[rowIndex].Cells["cmbItem"];
+    oCell.Items.Add("Item1");
+    oCell.Items.Add("Item2");
+    oCell.Items.Add("Item3");
+    rowIndex = grd.Rows.Add();
+    DataGridViewComboBoxCell oCell = (DataGridViewComboBoxCell)grd.Rows[rowIndex].Cells["cmbItem"];
+    oCell.Items.Add("Item4");
+    oCell.Items.Add("Item5");
+    oCell.Items.Add("Item6");

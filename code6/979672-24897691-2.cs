@@ -1,0 +1,6 @@
+    using System.Linq;
+    ...
+    var ui = myGrid.Children.Cast<UIElement>().FirstOrDefault(
+        c => Grid.GetColumn(c) == TargetCol && Grid.GetRow(c) == TargetRow);
+    if (ui is Control)
+    ...

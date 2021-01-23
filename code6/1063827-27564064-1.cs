@@ -1,0 +1,6 @@
+    protected void Application_Start()
+    {
+        // .....
+        ModelBinders.Binders.Add(typeof(ViewModel), new ViewModelBinder());
+        // ....
+    }

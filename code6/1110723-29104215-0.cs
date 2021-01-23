@@ -1,0 +1,10 @@
+    var cmd = new SqlCommand();
+    var param = cmd.Parameters.AddWithValue("@date_from", SqlDbType.Date);
+    Console.WriteLine(param.ParameterName);
+    Console.WriteLine(param.SqlDbType);
+    Console.WriteLine(param.Value.GetType());
+    Console.WriteLine();
+    param.Value = DateTime.Today;
+    Console.WriteLine(param.ParameterName);
+    Console.WriteLine(param.SqlDbType);
+    Console.WriteLine(param.Value.GetType());

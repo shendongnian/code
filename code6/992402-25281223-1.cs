@@ -1,0 +1,15 @@
+            var cache = new MemoryCache("MyFancyCache");
+            var obj = new object();
+            var cm = new MyCm();
+            var cip = new CacheItemPolicy();
+            cip.ChangeMonitors.Add(cm);
+            cache.Set("MyFancyObj", obj, cip);
+            var o = cache.Get("MyFancyObj");
+            Console.WriteLine(o != null);
+            o = cache.Get("MyFancyObj");
+            Console.WriteLine(o != null);
+            cm.Stuff();
+            o = cache.Get("MyFancyObj");
+            Console.WriteLine(o != null);
+            o = cache.Get("MyFancyObj");
+            Console.WriteLine(o != null);

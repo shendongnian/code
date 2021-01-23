@@ -1,0 +1,11 @@
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            String className = "My_Class";
+            String ExePath = "[PATH TO EXE]";
+            String methodName = "gethello";
+            Assembly assembly = Assembly.LoadFile(ExePath);
+            Type type = assembly.GetType(className);
+            MethodInfo method = type.GetMethod(methodName);
+            object context = Activator.CreateInstance(type);
+            object[] parameters = new object[0];
+            String result = (String) method.Invoke(context, parameters);

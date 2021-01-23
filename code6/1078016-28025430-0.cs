@@ -1,0 +1,9 @@
+    public List<Customer> dolist(DataTable temptablename)
+    {
+        //...
+        var Collection = new List<Customer>();
+        //...
+        Collection.Add(Customer);
+        //...
+        return Collection;
+    }

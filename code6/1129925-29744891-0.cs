@@ -1,0 +1,16 @@
+    GMap.MapType = Artem.Google.UI.MapType.Roadmap;
+    GMap.ApiVersion = "v2";
+    GMap.Latitude = Convert.ToDouble(LatLon.Latitude);
+    GMap.Longitude = Convert.ToDouble(LatLon.Longitude);
+    GMap.Zoom = 18;
+    GMap.EnableMapTypeControl = false;
+    GMap.Height = 200;
+    GMap.Width = 195;
+    Marker loMarker = new Marker();
+    loMarker.Position.Latitude = Convert.ToDouble(LatLon.Latitude);
+    loMarker.Position.Longitude = Convert.ToDouble(LatLon.Longitude);
+    loMarker.Clickable = true;
+    loMarker.Info = "<b>" + lsDealerName + "</b><br />" + lsAddress;
+    loMarker.Title = lsDealerName;
+    loMarker.Visible = true;
+    GMap.Markers.Add(loMarker);

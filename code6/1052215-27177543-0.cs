@@ -1,0 +1,6 @@
+    public class C
+    {
+        ...
+        public static int a;
+        ...
+    }

@@ -1,0 +1,12 @@
+    var stripLine = new StripLine();
+    stripLine.BackColor = Color.White;
+    stripLine.BackGradientStyle = GradientStyle.TopBottom;
+    stripLine.BackImageTransparentColor = Color.White;
+    stripLine.BackSecondaryColor = Color.Transparent;
+    stripLine.Interval = 9;
+    stripLine.IntervalType = DateTimeIntervalType.Hours;
+    stripLine.IntervalOffset = 28;
+    stripLine.IntervalOffsetType = DateTimeIntervalType.Minutes;
+    stripLine.StripWidth = 8;
+    stripLine.StripWidthType= DateTimeIntervalType.Seconds;
+    chartArea.AxisX.StripLines.Add(stripLine);

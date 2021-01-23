@@ -1,0 +1,9 @@
+    public List<Category> GetCategoriesForParentId(int id){
+         return _context.Categories
+                    .....
+                    Passwords = c.Passwords.Where(
+                                .....
+                                (UserPasswordList.Any(up => up.PasswordId == _userConfig.PasswordId 
+                                                         && up.Id == _userConfig.UserId))                            
+                    .....
+    }

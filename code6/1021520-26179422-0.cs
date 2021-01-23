@@ -1,0 +1,6 @@
+    DateTime searchDate = ...
+    var entries = appLogs.Entries.Cast<EventLogEntry>().Where(x => x.TimeWritten == searchDate);
+    foreach(var entry in entries)
+    {
+        ...
+    }

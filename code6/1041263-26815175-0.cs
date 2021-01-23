@@ -1,0 +1,10 @@
+            var bf = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+            var ms = new System.IO.MemoryStream();
+            bf.Serialize(ms, DateTime.Now);
+            bf.Serialize(ms, "hello world");
+            var str = Convert.ToBase64String(ms.ToArray());
+            ms = new System.IO.MemoryStream(Convert.FromBase64String(str));
+            var obj1 = (DateTime)bf.Deserialize(ms);
+            var obj2 = (string)bf.Deserialize(ms);
+            Console.WriteLine(obj1);
+            Console.WriteLine(obj2);

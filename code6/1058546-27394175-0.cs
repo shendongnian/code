@@ -1,0 +1,13 @@
+        string a1 = Request.ServerVariables["REMOTE_ADDR"];
+        Label1.Text = "Microsoft & Browser Settings: \t" + Request.UserAgent;
+        Label2.Text = "Web Server IP: " + HttpContext.Current.Request.ServerVariables["LOCAL_ADDR"];
+        Label3.Text = "Request Server DNS: " + Request.ServerVariables["REMOTE_ADDR"];
+        Label4.Text = "Request Host Address DNS: " + Request.UserHostAddress;
+        Label5.Text = "Request Host Name DNS: " + Request.UserHostName;
+        Label6.Text = "DNS Forwarding Address: " + Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+        Label7.Text = "Windows ID Owner : " + WindowsIdentity.GetCurrent().Owner.ToString();
+        string[] computer_name = System.Net.Dns.GetHostEntry(Request.ServerVariables["remote_addr"]).HostName.Split(new Char[] { '.' });
+        Label8.Text = "Computer Name: " + computer_name[0].ToString();
+        Label9.Text = "Request Host Name DNS: " + Request.UserHostName;
+        Label10.Text = "Is Local: " + Request.IsLocal.ToString();
+        Label11.Text = "URL: " + Request.Url.ToString();

@@ -1,0 +1,11 @@
+    XmlSerializer deserializer = new XmlSerializer(typeof(XMLCD));
+    XMLCD XmlData;
+    using (var reader = new StreamReader(this.opnFileName))
+    {
+        XmlData = deserializer.Deserialize(reader) as XMLCD;
+    }
+    // loop over all Personnel to cleanse their AddressDirectoryList.AddressList
+    foreach (Personnel p in XmlData.PersonnelList)
+    {
+        p.AddressDirectoryList.AddressList.RemoveAll(a => string.IsNullOrEmpty(a.HouseNo));
+    }

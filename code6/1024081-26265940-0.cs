@@ -1,0 +1,9 @@
+    List<LIndexElements> LIndexControls=new List<LIndexElements>();
+    // Populate your list....
+    // ...
+    // ...
+    // And then :
+    foreach (LIndexElements elt in LIndexControls.Where((child)=>child.IsReady==True))
+    {
+        elt.IsReady=False;
+    }

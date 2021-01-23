@@ -1,0 +1,11 @@
+    PdfPTable table = new PdfPTable(5);
+    PdfPCell Quantity = new PdfPCell(new Phrase("Quantity"));
+    table.AddCell(Quantity);
+    PdfPCell Title = new PdfPCell(new Phrase("Title"));
+    table.AddCell(Title);
+    PdfPCell UniPr = new PdfPCell(new Phrase("Unit Price"));
+    table.AddCell(UniPr);
+    PdfPCell Disc = new PdfPCell(new Phrase("Discount"));
+    table.AddCell(Disc);
+    PdfPCell Total = new PdfPCell(new Phrase("Total"));
+    table.AddCell(Total);

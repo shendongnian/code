@@ -1,0 +1,6 @@
+    public class ControllerState2D
+    {
+        ...
+        public bool SlopeAngle { get; set; }
+        ...
+    }

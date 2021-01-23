@@ -1,0 +1,16 @@
+            string signal = "R3MEXA";
+            string newId = "1";
+            byte[] asciiBytes = System.Text.Encoding.ASCII.GetBytes(signal);
+            foreach (byte b in asciiBytes)
+                newId += b.ToString().PadLeft(3,'0'); //Add Zero, if the byte has less than 3 digits
+            double signalInt = Double.Parse(newId);
+            //Convert it back
+            List<byte> bytes = new List<byte>(); //Create a list, we don't know how many bytes will come (Or you calc it: maximum is _signal / 3)
+            string _signal = signalInt.ToString("F0"); //Maybe you know a better way to get the double to string without scientific
+            for (int i = 1; i < _signal.Length; i+=3)
+            {
+                byte b = Convert.ToByte(_signal.Substring(i, 3)); //Make 3 digits to one byte
+                if(b!=0) //With the ToString("F0") it is possible that empty bytes are at the end
+                bytes.Add(b);
+            }
+            string result = System.Text.Encoding.ASCII.GetString(bytes.ToArray()); //Yeah "R3MEXA"

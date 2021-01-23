@@ -1,0 +1,6 @@
+    using DevExpress.XtraEditors.Preview;
+    // ...
+    static void Main(string[] args) {
+        PrintDialogRunner.Instance = new SystemPrintDialogRunner(); // !!!
+        // ...
+    }

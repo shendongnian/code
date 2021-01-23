@@ -1,0 +1,13 @@
+                       string outputFile="image path";
+                       MailMessage message = new MailMessage();
+                       SmtpClient smtp = new SmtpClient();
+                        Attachment attachment = new Attachment(outputFile,  MediaTypeNames.Text.Html);
+                        ContentDisposition disposition = attachment.ContentDisposition;
+                        disposition.CreationDate = File.GetCreationTime(outputFile);
+                        disposition.ModificationDate = File.GetLastWriteTime(outputFile);
+                        disposition.ReadDate = File.GetLastAccessTime(outputFile);
+                        disposition.FileName = Path.GetFileName(outputFile);
+                        disposition.Size = new FileInfo(outputFile).Length;
+                        disposition.DispositionType = DispositionTypeNames.Attachment;
+                        message.Attachments.Add(attachment);
+                        smtp.Send(message);

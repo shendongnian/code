@@ -1,0 +1,6 @@
+    public class RecommendationsViewModel
+    {
+         // ...
+         public Placement GetPlacement(string name) { return Placements[name]; }
+         // ...
+    }

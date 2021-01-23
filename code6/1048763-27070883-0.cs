@@ -1,0 +1,6 @@
+    public class StandardPage:IPageData {
+        ...
+    }
+    public class DoctorPage:IPageData{
+        ...
+    }

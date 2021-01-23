@@ -1,0 +1,42 @@
+    static string sRootDir = @"<Path of main directory>";
+    
+    
+    static public void BuildMsi(string FolderPath)
+    {
+    	WixEntity[] weDir = new WixEntity[0];
+            weDir = BuildDirInfo(sRootDir, weDir);
+        	var project = new Project("MyProduct", weDir);
+    
+    	Compiler.BuildMsi(project);
+    }
+    
+    
+    static WixEntity[] BuildDirInfo(string sRootDir, WixEntity[] weDir)
+            {
+                DirectoryInfo RootDirInfo = new DirectoryInfo(sRootDir);
+                if (RootDirInfo.Exists)
+                {
+                    DirectoryInfo[] DirInfo = RootDirInfo.GetDirectories();
+                    List<string> lMainDirs = new List<string>();
+                    foreach (DirectoryInfo DirInfoSub in DirInfo)
+                        lMainDirs.Add(DirInfoSub.FullName);
+                    int cnt = lMainDirs.Count;
+                    weDir = new WixEntity[cnt + 1];
+                    if (cnt == 0)
+                        weDir[0] = new DirFiles(RootDirInfo.FullName + @"\*.*");
+                    else
+                    {
+                        weDir[cnt] = new DirFiles(RootDirInfo.FullName + @"\*.*");
+                        for (int i = 0; i < cnt; i++)
+                        {
+                            DirectoryInfo RootSubDirInfo = new DirectoryInfo(lMainDirs[i]);
+                            if (!RootSubDirInfo.Exists)
+                                continue;
+                            WixEntity[] weSubDir = new WixEntity[0];
+                            weSubDir = BuildDirInfo(RootSubDirInfo.FullName, weSubDir);
+                            weDir[i] = new Dir(RootSubDirInfo.Name, weSubDir);
+                        }
+                    }
+                }
+                return weDir;
+            }

@@ -1,0 +1,9 @@
+    var previousDate = DateTime.Now.AddMonths(-3);
+    var iNV_Assets = db.INV_Assets
+                       .Where(i => i.verified_date < previousDate)
+                       .Include(i => i.Location)
+                       .Include(i => i.Manufacturer)
+                       .Include(i => i.Model)
+                       .Include(i => i.Status)
+                       .Include(i => i.Type)
+                       .Include(i => i.Vendor);

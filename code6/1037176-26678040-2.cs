@@ -1,0 +1,6 @@
+    public class PersonalLoan : Loan {
+        public PersonalLoan(string accountNumber) : base(accountNumber) {
+            ...
+        }
+        ...
+    }

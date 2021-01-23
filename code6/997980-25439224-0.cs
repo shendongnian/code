@@ -1,0 +1,6 @@
+    var context = ...
+    int existingBPID = ...
+    var bp = context.Set<BusinessPartner>().Create(); // BusinessPartnerLanguage = null
+    bp.BusinessPartnerID = existingBPID;  // BusinessPartnerLanguage = null
+    context.Entry(bp).State = EntityState.Unchanged; // BusinessPartnerLanguage = null
+    var collection = bp.BusinessPartnerLanguage; // trigger lazy loading, BusinessPartnerLanguage != null

@@ -1,0 +1,9 @@
+     Console.WriteLine(SO30180672.FormatNumber(1));
+     Console.WriteLine(SO30180672.FormatNumber(12));
+     Console.WriteLine(SO30180672.FormatNumber(123));
+     Console.WriteLine(SO30180672.FormatNumber(1234));
+     Console.WriteLine(SO30180672.FormatNumber(12345));
+     Console.WriteLine(SO30180672.FormatNumber(123456));
+     Console.WriteLine(SO30180672.FormatNumber(1234567));
+     Console.WriteLine(SO30180672.FormatNumber(12345678));
+     Console.WriteLine(SO30180672.FormatNumber(123456789));

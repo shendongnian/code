@@ -1,0 +1,9 @@
+    lbl_genericIndicators.Font = UIFont.FromName (KHELVETIC, KFontSize12);
+    lbl_genericIndicators.BackgroundColor = UIColor.Red;
+    lbl_genericIndicators.TextAlignment = UITextAlignment.Justified;
+    float width = View.Frame.Size.Width-20;
+    SizeF size=((NSString)lbl_genericIndicators.Text).StringSize(lbl_genericIndicators.Font,constrainedToSize:new SizeF(width,100),lineBreakMode:UILineBreakMode.WordWrap);
+    var labelFrame = lbl_genericIndicators.Frame;
+    labelFrame.Size = new SizeF(width,size.Height);
+    lbl_genericIndicators.Lines = int.Parse((lbl_genericIndicators.Text.Length / 40).ToString()) + 1;
+    lbl_genericIndicators.Frame = new RectangleF (10, 128, size.Width,size.Height);

@@ -1,0 +1,13 @@
+    container.Columns.Add(new DataColumn("Username", typeof(string)));
+        container.Columns.Add(new DataColumn("TimeJoined", typeof(DateTime)));
+        container.Columns.Add(new DataColumn("Email", typeof(string)));
+        container.Columns.Add(new DataColumn("Banned", typeof(bool))); 
+        container.Columns.Add(new DataColumn("Admin", typeof(bool))); 
+        container.Columns.Add(new DataColumn("Options", typeof(object))); 
+        object[] rowArray = new object[6];
+        rowArray[0] = "Item 0" ;
+        rowArray[1] = "Item 1" ;
+        rowArray[2] = "Item 2" ;
+        rowArray[3] = true;
+        rowArray[4] = false;
+        rowArray[5] = "object";

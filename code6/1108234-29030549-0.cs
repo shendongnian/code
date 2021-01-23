@@ -1,0 +1,9 @@
+    Excel.Application xlApp = new Excel.Application();
+    Excel.Workbook xlWorkBook = xlApp.Workbooks.Open("filename", other parameters)
+    Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets.get_Item(SheetNumber);
+    Excel.Range rng = xlWorkSheet.UsedRange;
+    int colCount = rng.Columns.Count;
+    int rowCount = rng.Rows.Count;
+    rng = (Excel.Range)xlWorkSheet.Cells[rowCount, colCount];
+    Excel.Range newColumn = rng.EntireColumn;
+    xlWorkSheet.Cells[1, colCount + 1] = "Jan";

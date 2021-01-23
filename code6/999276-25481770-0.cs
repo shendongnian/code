@@ -1,0 +1,9 @@
+    public int Id { get; set; }
+    public int Code { get; set; }
+    public int NumberOfCards { get; set; }
+    public string Name { get; set; }
+    public string Theme { get; set; }
+    public Combinations Combs { get; set; }
+    public ICollection<ElementCard> Cards { get; set; }
+    public ICollection<Log> Logs { get; set; }
+    public DateTime Date { get; set; }

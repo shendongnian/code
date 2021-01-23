@@ -1,0 +1,6 @@
+    private static void RegisterServices(IKernel kernel)
+    {
+        kernel.Bind<ICountryService>().To<CountryService>();
+        // other bindings....
+        //...
+    }

@@ -1,0 +1,15 @@
+    Table table = wordDoc.MainDocumentPart.Document.Body.AppendChild(new Table());
+    TableRow row1 = table.AppendChild(new TableRow());
+    TableCell cell1 = row1.AppendChild(new TableCell());
+    Paragraph para1 = cell1.AppendChild(new Paragraph());
+    PreviousParagraphProperties prop1 = para1.AppendChild(new PreviousParagraphProperties());
+    KeepNext k = prop1.AppendChild(new KeepNext());
+    Run run1 = para1.AppendChild(new Run());
+    run1.AppendChild(new Text("This is some long text"));
+    TableRow row2 = table.AppendChild(new TableRow());
+    TableCell cell2 = row2.AppendChild(new TableCell());
+    Paragraph para2 = cell2.AppendChild(new Paragraph());
+    PreviousParagraphProperties prop2 = para1.AppendChild(new PreviousParagraphProperties());
+    KeepNext k2 = prop2.AppendChild(new KeepNext());
+    Run run2 = para2.AppendChild(new Run());
+    run2.AppendChild(new Text("This is some even longer text"));

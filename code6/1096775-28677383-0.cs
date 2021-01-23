@@ -1,0 +1,6 @@
+    ...
+    else if (assetsRb.Checked == false && fabricRb.Checked == false && fireRb.Checked == false && hsRb.Checked == false && partMRb.Checked == false)
+                        {
+                            MessageBox.Show("Please Select Assessment type.");
+                        }
+    ...

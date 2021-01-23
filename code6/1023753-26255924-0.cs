@@ -1,0 +1,14 @@
+        GridViewRow row = (GridViewRow)gvExcelFile.Rows[e.RowIndex];
+        TextBox TxtEditName = (TextBox)row.FindControl("TxtEditName");
+        TextBox TxtEditValue = (TextBox)row.FindControl("TxtEditValue");
+        string enm = TxtEditName.Text;
+        string evl = TxtEditValue.Text;
+        gvExcelFile.EditIndex = -1;
+        conn.Open();
+        string editquery = "UPDATE [Sheet1$] set Name=? ,Value=?";
+        OleDbCommand editcmd = new OleDbCommand(editquery, conn);
+        editcmd.Parameters.AddWithValue("Name", enm);
+        editcmd.Parameters.AddWithValue("Value", evl);
+        editcmd.ExecuteNonQuery();
+        conn.Close();
+        gvbind();

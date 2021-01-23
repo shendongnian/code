@@ -1,0 +1,16 @@
+    using (SqlConnection sqlConnection1 = new SqlConnection("Your Connection String"))
+    using (SqlCommand cmd = new SqlCommand())
+    {
+        cmd.CommandText = "StoredProcedureName";
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.Connection = sqlConnection1;
+        sqlConnection1.Open();
+    
+        using (SqlDataReader reader = cmd.ExecuteReader())
+        {
+            // Data is accessible through the DataReader object here.
+            reader.Read(); 
+            int profId = int.Parse(reader.GetValue(0).ToString());
+        }
+    }
+        

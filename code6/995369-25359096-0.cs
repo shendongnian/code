@@ -1,0 +1,5 @@
+      <system.webServer>
+        <staticContent>
+          <clientCache cacheControlMode="DisableCache" />
+        </staticContent>
+      </system.webServer>

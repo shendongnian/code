@@ -1,0 +1,11 @@
+    ExcelPackage pck = new ExcelPackage();
+    var ws = pck.Workbook.Worksheets.Add("Sample1");
+    var _formatRangeAddress = new ExcelAddress("H16:K31,H33:K44,H46:K57,H59:K69,H71:K73");
+    string _statement = "AND(COUNTA(H16:H16)<2,COUNTA(H16:K16)>0)";
+    var _cond4 = ws.ConditionalFormatting.AddExpression(_formatRangeAddress);
+    _cond4.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+    _cond4.Style.Fill.BackgroundColor.Color = Color.Green;
+    _cond4.Formula = _statement;
+    pck.SaveAs(Response.OutputStream);
+    Response.ContentType = "application/vnd.openxmlformats-fficedocument.spreadsheetml.sheet";
+    Response.AddHeader("content-disposition", "attachment;  filename=Sample1.xlsx");

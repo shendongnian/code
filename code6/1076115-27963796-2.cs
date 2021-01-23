@@ -1,0 +1,6 @@
+    ...
+        public Form(IContainer container)
+        {
+            IPresenter presenter = container.With("viewParam").EqualTo(new YourView()).GetInstance<IPresenter>();
+        }
+    ...

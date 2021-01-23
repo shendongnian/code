@@ -1,0 +1,11 @@
+    EasingThicknessKeyFrame estf1 = new EasingThicknessKeyFrame();
+    estf1.KeyTime = KeyTime.FromTimeSpan(new TimeSpan(0, 0, 0, 1));
+    estf1.Value = new Thickness(56, 48, 0, 0);
+    EasingThicknessKeyFrame estf2 = new EasingThicknessKeyFrame();
+    estf2.KeyTime = KeyTime.FromTimeSpan(new TimeSpan(0, 0, 0, 1));
+    estf2.Value = new Thickness(400, 48, 0, 0);
+    ThicknessAnimationUsingKeyFrames th = new ThicknessAnimationUsingKeyFrames();
+    th.SetValue(Storyboard.TargetProperty, FrameworkElement.MarginProperty);
+    th.SetValue(Storyboard.TargetNameProperty, ellipse);
+    th.KeyFrames.Add(estf1);
+    th.KeyFrames.Add(estf2);

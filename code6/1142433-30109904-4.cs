@@ -1,0 +1,18 @@
+            var category1 = new Category(1, "Cat1", null);
+            var category2 = new Category(1, "Cat2", category1);
+            var category3 = new Category(1, "Cat3", category2);
+            var category4 = new Category(1, "Cat4", category2);
+            category1.Questions.Add(new Question("q1"));
+            category1.Questions.Add(new Question("q2"));
+            category1.Questions.Add(new Question("q3"));
+            category1.Questions.Add(new Question("q4"));
+            category2.Questions.Add(new Question("q1"));
+            category2.Questions.Add(new Question("q2"));
+            category2.Questions.Add(new Question("q3"));
+            category3.Questions.Add(new Question("q1"));
+            category3.Questions.Add(new Question("q2"));
+            category4.Questions.Add(new Question("q1"));
+            var count = TotalQuestions(category1);
+            MessageBox.Show(count.ToString());
+            var counts = new Dictionary<Category, int>();
+            TotalQuestions(category1, counts);

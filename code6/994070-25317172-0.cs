@@ -1,0 +1,10 @@
+                var pixelFormat = imgToResize.PixelFormat;
+                var imageFormat = imgToResize.RawFormat;
+                Bitmap b = new Bitmap(newWidth.Value, newHeight.Value, pixelFormat);
+                Graphics g = Graphics.FromImage(b);
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                g.DrawImage(imgToResize, (float)-0.5, (float)-0.5, newWidth.Value + 1, newHeight.Value + 1);
+                g.Dispose();
+                b.Save(stream, imageFormat);

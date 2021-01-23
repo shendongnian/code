@@ -1,0 +1,9 @@
+    public class IProxy<T>{
+          ....
+    }
+    public class Property<T>{
+        ....
+    }
+    public class OrderedPair<IProxy<T> iProxy, Property<T> property){
+       ......
+    }

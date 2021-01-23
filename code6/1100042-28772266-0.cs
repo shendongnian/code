@@ -1,0 +1,10 @@
+    double x = 1234.5678;
+	Console.WriteLine (x.ToString());             // 1234,5678
+	Console.WriteLine (x.ToString("E"));          // 1,234568E+003
+	Console.WriteLine (x.ToString("E2"));         // 1,23E+003
+	Console.WriteLine (x.ToString("e2"));         // 1,23e+003
+	Console.WriteLine (x.ToString("F"));          // 1234,57
+	Console.WriteLine (x.ToString("##.######"));  // 1234,5678
+	Console.WriteLine (x.ToString("00.000000"));  // 1234,567800
+	Console.WriteLine (x.ToString("######.##"));  // 1234,57
+	Console.WriteLine (x.ToString("000000.000")); // 001234,568

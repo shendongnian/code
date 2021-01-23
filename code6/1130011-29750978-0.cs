@@ -1,0 +1,10 @@
+    <Elements>
+       <Element>
+          <Country>Peru</Country>
+          <Min>20</Min>
+       </Element>
+       <Element>
+          <Country>Armenia</Country>
+          <Min>9</Min>
+       </Element>
+    </Elements>

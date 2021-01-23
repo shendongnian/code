@@ -1,0 +1,6 @@
+    using MySql.Data;
+    // ...
+    using(var con = new MySqlClient.MySqlConnection("..."))
+    {
+        // ...
+    }

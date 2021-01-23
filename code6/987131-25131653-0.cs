@@ -1,0 +1,10 @@
+    SqlConnection con = getConnection();
+    SqlDataAdapter da = new SqlDataAdapter(storedprocedureName, con);
+    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+    con.Open();
+    DataSet DS = new DataSet();
+    da.Fill(DS);
+    ComboBox1.DataSource = DS.Tables[0];
+    ComboBox1.ValueMember = "STATE_ID";
+    ComboBox1.DisplayMember = "STATE_NAME";
+    ComboBox1.Items.Insert(0, "--Select--");

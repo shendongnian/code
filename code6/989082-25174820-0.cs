@@ -1,0 +1,10 @@
+        ReportViewer1.Visible = true;
+        ReportViewer1.ProcessingMode = ProcessingMode.Local;
+        var sqlConnection = new SQLConnectionStrings();
+        var conReport = new SqlConnection(sqlConnection.strConn);
+        var cmdReport = new SqlCommand(baseQuery);
+        var myDataAdapter = new SqlDataAdapter(cmdReport,sqlConnection );
+        DataSet dsReport = new DataSet();
+        conReport.Open();
+        myDataAdapter.Fill(dsReport);
+        conReport.Close();

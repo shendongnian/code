@@ -1,0 +1,44 @@
+    public class HubProxyFactory : IHubProxyFactory
+    {
+        public IHubProxy Create(string hubUrl, Action<IHubConnection> configureConnection, Action<IHubProxy> onStarted, Action reconnected, Action<Exception> faulted, Action connected)
+        {
+            var connection = new HubConnection(hubUrl);
+            if (configureConnection != null)
+                configureConnection(connection);
+    
+            var proxy = connection.CreateHubProxy("EventAggregatorProxyHub");
+            connection.Reconnected += reconnected;
+            connection.Error += faulted;
+    
+            var isConnected = false;
+    
+    		Action start = () =>
+            {
+    			Task.Factory.StartNew(() =>
+    			{
+    				try
+    				{
+    					connection.Start().Wait();
+    					if(isConnected)
+    						reconnected();
+    					else
+    					{
+    						isConnected = true;
+    						onStarted(proxy);
+    						connected();
+    					}
+    				}
+    				catch(Exception ex)
+    				{
+    					faulted(ex);
+    				}
+    			});
+            };
+    
+            connection.Closed += start;
+    
+            start();
+    
+            return proxy;
+        }
+    }

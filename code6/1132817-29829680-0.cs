@@ -1,0 +1,14 @@
+    Literal loLit1 = new Literal();
+        loLit1.Text = "String above the Quantity Textbox";
+        ph.Controls.Add(loLit1);
+        TextBox loTxt = new TextBox();
+        loTxt.Attributes.Add("step", "1");
+        loTxt.Attributes.Add("min", "1");
+        loTxt.Attributes.Add("name", "quantity");
+        loTxt.Text = "10";
+        loTxt.ToolTip = "Qty";
+        loTxt.ID = "txtqty";
+        ph.Controls.Add(loTxt);
+        Literal loLit2 = new Literal();
+        loLit2.Text = "String After the Quantity Textbox";
+        ph.Controls.Add(loLit2);

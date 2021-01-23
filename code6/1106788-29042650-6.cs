@@ -1,0 +1,6 @@
+    public static int Insert(Func<IfxConnection, IfxTransaction, object> callback)
+    {
+       // ...
+       object res = callback(conn, tran);
+       // ...
+    }

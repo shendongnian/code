@@ -1,0 +1,6 @@
+    System.Threading.Tasks.RangeWorker.FindNewWork(Int64 ByRef, Int64 ByRef)
+    System.Threading.Tasks.Parallel+<>c__DisplayClassf`1[[System.__Canon, mscorlib]].<ForWorker>b__c()
+    System.Threading.Tasks.Task.InnerInvoke()
+    System.Threading.Tasks.Task.InnerInvokeWithArg(System.Threading.Tasks.Task)
+    System.Threading.Tasks.Task+<>c__DisplayClass11.<ExecuteSelfReplicating>b__10(System.Object)
+    System.Threading.Tasks.Task.InnerInvoke()

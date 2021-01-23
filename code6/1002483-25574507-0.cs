@@ -1,0 +1,30 @@
+    // * Must be compiled as RELEASE and ran outside of a debugger.
+    class Program
+    {   
+        // Decorate with volatile to change the behavior.
+        static bool stop = false;
+    
+        public static void Main(string[] args)
+        {
+            var t = new Thread(() =>
+            {
+                Console.WriteLine("thread begin");
+                bool toggle = false;
+                while (!stop)
+                {
+                    toggle = !toggle;
+                }
+                Console.WriteLine("thread end");
+            });
+            t.Start();
+            Thread.Sleep(1000);
+            stop = true;
+            Console.WriteLine("stop = true");
+            Console.WriteLine("waiting...");
+           
+            // The Join call should return almost immediately.
+            // With volatile it DOES.
+            // Without volatile it does NOT.
+            t.Join();         
+        }
+    }

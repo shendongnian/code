@@ -1,0 +1,13 @@
+    BackgroundAccessStatus backgroundAccessStatus = await BackgroundExecutionManager.RequestAccessAsync();
+    Geolocator locator = new Geolocator();
+    locator.DesiredAccuracyInMeters = 10;
+    locator.DesiredAccuracy = PositionAccuracy.High;
+    Geoposition currentPosition = await locator.GetGeopositionAsync(TimeSpan.FromMinutes(1),TimeSpan.FromSeconds(30));
+    Geocircle fenceCircle = new Geocircle(currentPosition.Coordinate.Point.Position,25);
+    Geofence newFence = new Geofence(GEOFENCE_NAME, fenceCircle, MonitoredGeofenceStates.Exited, false, TimeSpan.FromSeconds(1), DateTimeOffset.Now, TimeSpan.FromDays(30));
+    GeofenceMonitor.Current.Geofences.Add(newFence);
+    BackgroundTaskBuilder observerTaskBuilder = new BackgroundTaskBuilder();
+    observerTaskBuilder.Name = OBSERVER_TASK_NAME;
+    observerTaskBuilder.SetTrigger(new LocationTrigger(LocationTriggerType.Geofence));
+    observerTaskBuilder.TaskEntryPoint = OBSERVER_TASK_ENTRY_POINT;
+    observerTaskBuilder.Register();

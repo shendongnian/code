@@ -1,0 +1,10 @@
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();
+            DataGridViewComboBoxColumn cmbColumn = new DataGridViewComboBoxColumn();
+            cmbColumn.HeaderText = "Select ComboBox";
+            cmbColumn.Name = "ComboBox";
+            cmbColumn.MaxDropDownItems = 4;
+            cmbColumn.Items.Add("Item1");
+            cmbColumn.Items.Add("Item2");
+            dataGridView1.Columns.Add(cmbColumn);
+            dataGridView1.Refresh();

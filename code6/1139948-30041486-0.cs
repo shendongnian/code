@@ -1,0 +1,11 @@
+<code class="language-cs">
+var eventValues = new ContentValues();			
+eventValues.Put(CalendarContract.Events.InterfaceConsts.CalendarId, 1);
+eventValues.Put(CalendarContract.Events.InterfaceConsts.Title, "TITLE");			eventValues.Put(CalendarContract.Events.InterfaceConsts.EventLocation, "LOCATION");
+eventValues.Put(CalendarContract.Events.InterfaceConsts.Description, "DESCRIPTION");
+eventValues.Put(CalendarContract.Events.InterfaceConsts.EventTimezone, Java.Util.TimeZone.Default.ID);
+eventValues.Put(CalendarContract.Events.InterfaceConsts.Dtstart, startTime);
+eventValues.Put(CalendarContract.Events.InterfaceConsts.Dtend, endTime);
+eventValues.Put(CalendarContract.Events.InterfaceConsts.AllDay, isDayLong);
+var uri = _activity.ContentResolver.Insert(CalendarContract.Events.ContentUri, eventValues);
+var id = uri.LastPathSegment;

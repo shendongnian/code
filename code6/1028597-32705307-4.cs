@@ -1,0 +1,14 @@
+    using ClearCanvas.Dicom.Codec;
+    using ClearCanvas.Common.Utilities;
+    using ClearCanvas.Dicom;
+    using ClearCanvas.Dicom.Network;
+    using ClearCanvas.Common;
+    using ClearCanvas.ImageViewer;
+    using ClearCanvas.ImageViewer.Imaging;
+    using ClearCanvas.ImageViewer.Graphics;
+    using ClearCanvas.ImageViewer.StudyManagement;
+                DicomFile df = null;
+                Bitmap bm = LoadImage(tbImageFile.Text);
+                CreateBaseDataSet();
+                df = ConvertImage(bm, 1);
+                df.Save(@"C:\test.dcm", DicomWriteOptions.Default);

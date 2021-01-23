@@ -1,0 +1,11 @@
+          mediaCapture = new MediaCapture();
+          var settings = new MediaCaptureInitializationSettings();
+          settings.StreamingCaptureMode = StreamingCaptureMode.Video;
+          settings.PhotoCaptureSource = PhotoCaptureSource.VideoPreview;
+          await mediaCapture.InitializeAsync(settings);
+          var focusSettings = new FocusSettings();
+          focusSettings.AutoFocusRange = AutoFocusRange.FullRange;
+          focusSettings.Mode = FocusMode.Auto;
+          focusSettings.WaitForFocus = true;
+          focusSettings.DisableDriverFallback = false;
+          mediaCapture.VideoDeviceController.FocusControl.Configure(focusSettings);

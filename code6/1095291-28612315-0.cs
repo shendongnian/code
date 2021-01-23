@@ -1,0 +1,6 @@
+    public class User
+    {
+        // ...
+        public DateTime? LastActionTime { get; set; }
+        // ...
+    }

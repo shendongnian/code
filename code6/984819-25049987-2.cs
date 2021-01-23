@@ -1,0 +1,12 @@
+			Console.WriteLine("Please enter hours.");
+			var hoursWorked = Convert.ToDouble(Console.ReadLine());
+			Console.WriteLine("Please enter pay rate");
+			var payRate = Convert.ToDouble(Console.ReadLine());
+			Console.WriteLine("Please enter tax.");
+			var tax = Convert.ToDouble(Console.ReadLine());
+			var grossPay=(hoursWorked * payRate);
+			var taxAmount = (grossPay * (tax / 100));
+			var netPay = grossPay - taxAmount;
+			Console.WriteLine(string.Format("Gross Pay {0}",grossPay.ToString("c")));
+			Console.WriteLine(string.Format("Tax {0}", taxAmount.ToString("c")));
+			Console.WriteLine(string.Format("Net Pay {0}", netPay.ToString("c")));

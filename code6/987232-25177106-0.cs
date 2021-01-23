@@ -1,0 +1,26 @@
+    public static IQueryable<T> OrderBy<T,ComparerType>(this IQueryable<T> source, IComparer<ComparerType> comparer, string ordering, params object[] values)
+    {
+        return (IQueryable<T>)OrderBy((IQueryable)source, comparer, ordering, values);
+    }
+    public static IQueryable OrderBy<ComparerType>(this IQueryable source, IComparer<ComparerType> comparer, string ordering, params object[] values)
+    {
+        if (source == null) throw new ArgumentNullException("source");
+        if (ordering == null) throw new ArgumentNullException("ordering");
+        ParameterExpression[] parameters = new ParameterExpression[] {
+            Expression.Parameter(source.ElementType, "") };
+        ExpressionParser parser = new ExpressionParser(parameters, ordering, values);
+        IEnumerable<DynamicOrdering> orderings = parser.ParseOrdering();
+        Expression queryExpr = source.Expression;
+        string methodAsc = "OrderBy";
+        string methodDesc = "OrderByDescending";
+        foreach (DynamicOrdering o in orderings)
+        {
+            queryExpr = Expression.Call(
+                typeof(Queryable), o.Ascending ? methodAsc : methodDesc,
+                new Type[] { source.ElementType, o.Selector.Type },
+                queryExpr, Expression.Quote(Expression.Lambda(o.Selector, parameters)), Expression.Constant(comparer));
+                methodAsc = "ThenBy";
+                methodDesc = "ThenByDescending";
+            }
+        return source.Provider.CreateQuery(queryExpr);
+    }

@@ -1,0 +1,12 @@
+            RadImageItem one = new RadImageItem();
+            one.Image = Properties.Resources.one;
+            one.StretchHorizontally = false;
+            one.StretchVertically = false;
+            one.Alignment = ContentAlignment.MiddleCenter;
+            radRotatorFrom.Items.Add(one);
+            RadImageItem oneCopy = new RadImageItem();
+            oneCopy.Image = Properties.Resources.one;
+            oneCopy.StretchHorizontally = false;
+            oneCopy.StretchVertically = false;
+            oneCopy.Alignment = ContentAlignment.MiddleCenter;
+            radRotatorDestination.Items.Add(oneCopy);

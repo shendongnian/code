@@ -1,0 +1,6 @@
+    If m_SynchronizingObject IsNot Nothing AndAlso DirectCast(m_SynchronizingObject, Windows.Forms.Control).IsHandleCreated Then
+        '...<some code>...
+        m_SynchronizingObject.BeginInvoke(SubscriptionList(i).dlgCallBack, z)
+    Else
+        '...<some other code>...
+    End If

@@ -1,0 +1,7 @@
+    var list = session.QueryOver<MyTable>()
+        .Where(Restrictions.Disjunction()
+          .Add(Restrictions.Eq(Projections.Property<MyTable>(tab => tab.x), "One"))
+          .Add(Restrictions.Eq(Projections.Property<MyTable>(tab => tab.x), "Two"))
+          .Add(Restrictions.Eq(Projections.Property<MyTable>(tab => tab.x), "xxx"))
+        )
+        .List<MyTable>()

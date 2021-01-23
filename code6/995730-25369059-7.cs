@@ -1,0 +1,13 @@
+    <UserRecord>
+        <User>Username1</User>
+        <AliasRecords>
+            <AliasRecord>
+                <Alias>Alias1</Alias>
+                <Number>12345678</Number>
+            </AliasRecord>
+            <AliasRecord>
+                <Alias>Alias2</Alias>
+                <Number>23456789</Number>
+            </AliasRecord>
+        </AliasRecords>
+    </UserRecord>

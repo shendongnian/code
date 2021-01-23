@@ -1,0 +1,6 @@
+    private SQLDataContext DC = new SQLDataContext();
+    ... 
+    public static IEnumerable<object> ConsultasSQL(int TipoConsulta)
+    {
+        ...
+    }

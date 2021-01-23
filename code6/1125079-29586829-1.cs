@@ -1,0 +1,12 @@
+           Response.Clear();  
+           Response.ClearContent();  
+           Response.ClearHeaders();  
+           Response.Charset = "";  
+           string FileName = "filename.xls";  
+           StringWriter strwritter = new StringWriter();  
+           HtmlTextWriter htmltextwrtter = new HtmlTextWriter(strwritter);        
+           Response.Cache.SetCacheability(HttpCacheability.NoCache);  
+           Response.ContentType ="application/vnd.ms-excel";    
+           Response.AddHeader("Content-Disposition","attachment;filename=" + FileName); 
+           Response.Write(strwritter.ToString());  
+           Response.End();

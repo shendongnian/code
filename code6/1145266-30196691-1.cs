@@ -1,0 +1,10 @@
+    string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out.log"); 
+    Process proc = new Process();
+    proc.EnableRaisingEvents = true;
+    proc.StartInfo.UseShellExecute = false;
+    proc.StartInfo.FileName = "msinfo32.exe";
+    proc.StartInfo.CreateNoWindow = false;
+    proc.StartInfo.Arguments = "/out " + filePath;
+    proc.Start();
+    proc.WaitForExit();
+    proc.Close();     

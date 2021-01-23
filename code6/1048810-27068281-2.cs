@@ -1,0 +1,14 @@
+    interface IModule
+    {
+        string Name { get; }
+    }
+    class Module1 : IModule
+    {
+        public string Name { get { return "Module 1"; } } 
+    }
+    public void PrintModuleName(string moduleType)
+    {
+        Type tModule = Type.GetType("MyApp.Module1");
+        IModule module = (IModule)Activator.CreateInstance(tModule);
+        Console.WriteLine(module.Name); 
+    }

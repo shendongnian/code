@@ -1,0 +1,9 @@
+        public static IEnumerable<KeyValuePair<int, int>> Utf32IndexedCodePoints(this string s, int index)
+        {
+            for (int length = s.Length; index < length; index++)
+            {
+                yield return new KeyValuePair<int, int>(index, char.ConvertToUtf32(s, index));
+                if (char.IsSurrogatePair(s, index))
+                    index++;
+            }
+        }

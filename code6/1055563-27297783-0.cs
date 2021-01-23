@@ -1,0 +1,11 @@
+    <FindSmthResponse>
+       <Header>
+          <Errors>
+              <Error>
+                  <Code>0</Code>
+                  <Detail>Success</Detail>
+              </Error>
+          </Errors>
+       </Header>
+       <SomeResults>...</SomeResults>
+    </FindSmthResponse>

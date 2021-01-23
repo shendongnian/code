@@ -1,0 +1,5 @@
+        public SearchServiceContextClient(InstanceContext callbackInstance)
+        public SearchServiceContextClient(InstanceContext callbackInstance, string endpointConfigurationName)
+        public SearchServiceContextClient(InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress)
+        public SearchServiceContextClient(InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress)
+        public SearchServiceContextClient(InstanceContext callbackInstance, Binding binding, EndpointAddress remoteAddress)

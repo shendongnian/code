@@ -1,0 +1,10 @@
+    string customer_ID = customer_IDTextBox.ToString();
+    string customer_Ship_Address = customer_Ship_AddressTextBox.Text;
+    string SQL = @"UPDATE Customer_Ship SET Customer_Ship_Address = @Customer_Ship_Address WHERE customer_ID = @Customer_ID";
+    SqlCommand sqlCommand = new SqlCommand(SQL, sqlConnection);
+    sqlCommand.Parameters.AddWithValue("@Customer_ID", customer_ID);
+    sqlCommand.Parameters.AddWithValue("@Customer_Ship_Address", customer_Ship_Address);
+    sqlCommand.CommandText = SQL;
+    sqlConnection.Open();
+    sqlCommand.ExecuteNonQuery();
+    sqlConnection.Close();

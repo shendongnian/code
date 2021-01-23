@@ -1,0 +1,9 @@
+      DataTable table = new DataTable();
+    
+      // Age is integer: 34, 81, 19...  
+      table.Columns.Add("Age", typeof(int));
+      // Nationality is String: "English", "Dutch"... 
+      table.Columns.Add("Nationality", typeof(String));
+      // Gender is Char: 'M' or 'F' 
+      table.Columns.Add("Gender", typeof(Char));
+      // ...

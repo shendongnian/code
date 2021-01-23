@@ -1,0 +1,11 @@
+    Table tbl = new Table();
+    TableRow tr = new TableRow();
+    TableCell tc = new TableCell();
+    btn = new  Button();
+            btn.Text = "Add ";
+            btn.Height = Unit.Pixel(30);
+            btn.Width = Unit.Pixel(100);
+    tc.Controls.Add(btn);
+    tr.Controls.Add(tc);
+    tbl.Controls.Add(tr);
+    panel.Controls.Add(tbl);

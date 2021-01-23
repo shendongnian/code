@@ -1,0 +1,12 @@
+    int userInput = 7;
+    DataTable dataTable = new DataTable();
+    dataTable.Columns.Add(new DataColumn("Measurement", typeof(int)));
+    dataTable.Columns.Add(new DataColumn("Value", typeof(string)));
+    dataTable.Rows.Add(-5, "-0,1");
+    dataTable.Rows.Add(5, "0,2");
+    dataTable.Rows.Add(15, "0,5");
+    dataTable.Rows.Add(25, "0,7");
+    dataTable.Rows.Add(35, "0,9");
+    int min = Convert.ToInt32(dataTable.Compute("MIN(Measurement)", "Measurement > " + userInput.ToString()));
+    int max = Convert.ToInt32(dataTable.Compute("MAX(Measurement)", "Measurement < " + userInput.ToString()));
+    DataRow[] rows = dataTable.Select("Measurement = " + min.ToString() + " OR " + "Measurement = " + max.ToString());

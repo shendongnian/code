@@ -1,0 +1,5 @@
+       new SqlParameter ("@id_subject1",((object)subject[0]) ?? DBNull.Value),
+       new SqlParameter ("@id_subject2",((object)subject[1]) ?? DBNull.Value),
+       new SqlParameter ("@id_subject3",((object)subject[2]) ?? DBNull.Value),
+       new SqlParameter ("@id_subject4",((object)subject[3]) ?? DBNull.Value),
+       new SqlParameter ("@id_subject5",((object)subject[4]) ?? DBNull.Value),

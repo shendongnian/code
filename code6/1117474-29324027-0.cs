@@ -1,0 +1,11 @@
+                Line line = new Line();
+                line.Stroke = new SolidColorBrush(Colors.Red);
+                line.StrokeStartLineCap = PenLineCap.Round;
+                line.StrokeEndLineCap = PenLineCap.Round;
+                line.X1 = currentPoint.X;
+                line.Y1 = currentPoint.Y;
+                line.X2 = e.GetPosition((IInputElement)sender).X;
+                line.Y2 = e.GetPosition((IInputElement)sender).Y;
+                line.StrokeThickness = 40;
+                currentPoint = e.GetPosition((IInputElement)sender);
+                paintSurface.Children.Add(line);

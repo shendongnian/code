@@ -1,0 +1,10 @@
+    Panel P = new Panel();
+    P.BackColor = listView1.BackColor;
+    P.Location = listView1.Location;
+    P.Size = listView1.Size;
+    P.Padding = new System.Windows.Forms.Padding(0,0,0,10);
+    P.BorderStyle = listView1.BorderStyle;
+    listView1.BorderStyle = BorderStyle.None;
+    listView1.Parent = P;
+    listView1.Dock = DockStyle.Fill;
+    this.Controls.Add(P);

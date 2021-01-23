@@ -1,0 +1,9 @@
+    public static IMac GetMac(string algorithm)
+    {
+        ...
+        if(mechanism.StartsWith("HMAC"))
+        {
+            ...
+        }
+        ...
+    }

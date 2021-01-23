@@ -1,0 +1,12 @@
+            string b = "91";
+            SByte b1 = SByte.Parse(b, System.Globalization.NumberStyles.AllowHexSpecifier);
+            Console.WriteLine("{0}={1}", b, b1);
+            string s = "9123";
+            Int16 s1 = Int16.Parse(s, System.Globalization.NumberStyles.AllowHexSpecifier);
+            Console.WriteLine("{0}={1}", s, s1);
+            string i = "91234567";
+            Int32 i1 = Int32.Parse(i, System.Globalization.NumberStyles.AllowHexSpecifier);
+            Console.WriteLine("{0}={1}", i, i1);
+            string l = "9123456789012345";
+            Int64 l1 = Int64.Parse(l, System.Globalization.NumberStyles.AllowHexSpecifier);
+            Console.WriteLine("{0}={1}", l, l1);

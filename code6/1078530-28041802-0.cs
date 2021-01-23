@@ -1,0 +1,15 @@
+       string content = "";
+                string sub = "";
+                content = File.ReadAllText(Server.MapPath("../mail/MasterJnenquiry.html"));
+                content = content.Replace("##CustomerCompanyName##", txtCompanyName.Text);
+                content = content.Replace("##CompanyName##", txtCompanyName.Text);
+                content = content.Replace("##ContactName##", txtContactname.Text);
+                content = content.Replace("##ContactNo##", txtContactNo.Text);
+                content = content.Replace("##EmailId##", txtemailid.Text);
+                content = content.Replace("##EnquiryMessage##", txtenqmess.Text);
+                content = content.Replace("##Designation##", txtdesignation.Text);
+                string addr = Server.HtmlEncode(txtadress.Text);             
+                addr = addr.Replace("\n", "<br/>");
+                content = content.Replace("##Address##", addr);
+                content = content.Replace("##ProductDetails##", txtProductdetails.Text);
+                sub = "お客様のお問い合わせ≪インドの窓口≫";

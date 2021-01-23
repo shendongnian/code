@@ -1,0 +1,6 @@
+    public class X
+    {
+        // ...
+        public int Field { get; internal set; }
+        // ...
+    }

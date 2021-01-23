@@ -1,0 +1,10 @@
+      Contract c1 = new Contract("NRCONTRACT0001");
+      Contract c2 = new Contract("NRCONTRACT0005");
+      Contract c3 = new Contract("NCAB_84_PK65");
+      Client cl1 = new Client("BTHOS", c1);
+      Client cl2 = new Client("FTIA Consulting", c2);
+      Client cl3 = new Client("GAMMA INFO", c3);
+      Client[] clients = new Client[] {cl1,cl2,cl3};
+      Contract[] contracts = new Contract[] {c1, c2, c3};
+      comboBox1.Items.AddRange(clients);
+      comboBox2.Items.AddRange(contracts);

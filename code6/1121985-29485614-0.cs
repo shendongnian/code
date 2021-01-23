@@ -1,0 +1,11 @@
+            List<int> list1 = new List<int>();
+            List<int> list2 = new List<int>();
+            list1.Add(1);
+            list1.Add(2);
+            list1.Add(3);
+            list1.Add(4);
+            list1.Add(5);
+            list2 = list1;
+            list2.Clear();
+            Console.WriteLine(list1.Count + "  " + list2.Count);
+            Console.ReadLine();

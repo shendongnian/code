@@ -1,0 +1,10 @@
+    Process proc = new Process();
+    proc.StartInfo.FileName = "/usr/mono/TestApp";
+    proc.StartInfo.Arguments = "--H";
+    proc.StartInfo.UseShellExecute = false; 
+    proc.StartInfo.RedirectStandardError = true;
+    proc.StartInfo.RedirectStandardInput = true;
+    proc.StartInfo.RedirectStandardOutput = true;
+    proc.Start();
+    var output = proc.StandardOutput.ReadToEnd ();
+    Console.WriteLine("stdout: {0}", output);

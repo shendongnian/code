@@ -1,0 +1,81 @@
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Drawing.Imaging;
+    using System.Drawing;
+    using System.Linq;
+    using System.Windows.Forms;
+    namespace Doodle
+    {
+      public partial class Form1 : Form
+      {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        List<Point> curPoints = new List<Point>();
+        List<List<Point>> allPoints = new List<List<Point>>();
+        private void pnlPaint_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (curPoints.Count > 1)
+            {
+                // begin fresh line
+                curPoints.Clear();
+                // startpoint
+                curPoints.Add(e.Location);
+            }
+        }
+        private void pnlPaint_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (curPoints.Count > 1)
+            {
+                // ToList creates a copy
+                allPoints.Add(curPoints.ToList());
+                curPoints.Clear();
+            }
+        }
+        private void pnlPaint_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            // here we should check if the distance is more than a minimum!
+            curPoints.Add(e.Location);
+            // let it show
+            pnlPaint.Invalidate();
+        }
+        private void pnlPaint_Paint(object sender, PaintEventArgs e)
+        {
+            using (Pen pen = new Pen(Color.Black, 3f))
+            {
+                // regular edges:
+                pen.MiterLimit = 1.5f
+                // current lines
+                if (curPoints.Count > 1) e.Graphics.DrawCurve(pen, curPoints.ToArray());
+                // other lines
+                foreach (List<Point> points in allPoints)
+                    if (points.Count > 1) e.Graphics.DrawCurve(pen, points.ToArray());
+            }
+        }}
+        private void btn_undo_Click(object sender, EventArgs e)
+        {
+            if (allPoints.Count > 0)
+            {
+                allPoints.RemoveAt(allPoints.Count - 1);
+                pnlPaint.Invalidate();
+            }
+        }
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            string fileName = @"d:\sketch.png";
+            Bitmap bmp = new Bitmap(pnlPaint.ClientSize.Width, pnlPaint.ClientSize.Width);
+            pnlPaint.DrawToBitmap(bmp, pnlPaint.ClientRectangle);
+            bmp.Save(fileName, ImageFormat.Png);
+        }
+      }
+      class DrawPanel : Panel 
+      {
+         public DrawPanel ()
+          {
+            DoubleBuffered = true;
+          }
+      }
+    }

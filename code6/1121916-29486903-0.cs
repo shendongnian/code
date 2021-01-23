@@ -1,0 +1,10 @@
+    DAO.DBEngine de = new DAO.DBEngine();
+    DAO.Database dd;
+    DAO.QueryDef qd8 = new DAO.QueryDef();
+    string path = @"c:\test\testdb.mdb";
+    string queryName = @"TotalCountX";
+    string querySql = @"Select Count(*) From TableOne";
+    dd = de.OpenDatabase(path);
+    qd8.Name = queryName;
+    qd8.SQL = querySql;
+    dd.QueryDefs.Append(qd8);

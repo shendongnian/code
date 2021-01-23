@@ -1,0 +1,12 @@
+    var lockedUsers = new List<Principal>();
+    using (var context = new PrincipalContext( ContextType.Domain ))
+    {
+         GroupPrincipal grp = GroupPrincipal.FindByIdentity(context, IdentityType.SamAccountName, "Domain Users"); 
+         foreach(var user in grp.GetMembers(false))
+              if (user.IsAccountLockedOut())
+              {
+                  lockedUsers.Add(user);
+              }
+         }
+    }
+    //Deal with list here

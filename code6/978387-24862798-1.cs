@@ -1,0 +1,10 @@
+     Object o = new Object();
+     IList list = o.MakeList();
+     list.Add(new Object());
+     list.Add(new Object());
+     MessageBox.Show(list.Count.ToString());
+     String s = "";
+     IList stringList = s.MakeList();
+     stringList.Add("hello");
+     stringList.Add("world");
+     MessageBox.Show(stringList.Count.ToString());

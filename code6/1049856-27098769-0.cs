@@ -1,0 +1,11 @@
+    Dictionary<string, int> ranking = new Dictionary<string, int>();
+    ranking.Add("adam", 20);
+    ranking.Add("bill", 10);
+    ranking.Add("carl", 30);
+    double avg = ranking.Average(kvp => (double)kvp.Value);
+    var sorted = ranking.OrderBy(kvp => kvp.Value);
+    var min = sorted.First();
+    var max = sorted.Last();
+    Console.WriteLine("Average: {0}", avg);
+    Console.WriteLine("Lowest: {0} with {1}", min.Key, min.Value);
+    Console.WriteLine("Highest: {0} with {1}", max.Key, max.Value);

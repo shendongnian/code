@@ -1,0 +1,11 @@
+    var sb = new StringBuilder();
+    sb.Append("{");
+    sb.AppendLine();
+    sb.AppendFormat("\"{0}\": \"{1}\"", "message", "Test Message");
+    sb.Append(",");
+    sb.AppendLine();
+    sb.AppendFormat("\"{0}\": \"{1}\"", "message_timestamp", "2015-04-04T20:00:00");
+    sb.AppendLine();
+    sb.Append("}");
+    string json = sb.ToString();
+    ServerInfo serverInfo = JsonConvert.DeserializeObject<ServerInfo>(json);

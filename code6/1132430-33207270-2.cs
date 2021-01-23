@@ -1,0 +1,10 @@
+     public static MIL_ID MilApplication = MIL.M_NULL;       // Application identifier.
+        public static MIL_ID MilSystem = MIL.M_NULL;       // System identifier.     
+        public static MIL_ID MilDisplay = MIL.M_NULL;       // Display identifier.    
+        public static MIL_ID MilDigitizer = MIL.M_NULL;       // Digitizer identifier.  
+        public static MIL_ID MilImage = MIL.M_NULL;       // Image identifier.
+        public static MIL_ID MilRecord = MIL.M_NULL;       // 8 bit Pointer only for Video Recording.
+        public MIL_INT MilINT = MIL.M_NULL;
+        public MIL_INT NbPixelsPtr = MIL.M_NULL;
+        MIL_ID MilImageDisp = MIL.M_NULL;
+        MIL_ID[] MilGrabBufferList = new MIL_ID[BUFFERING_SIZE_MAX];

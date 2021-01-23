@@ -1,0 +1,6 @@
+    class DownloaderData
+    {
+    ...
+    public byte[] ContentData {get;set;}
+    ...
+    }

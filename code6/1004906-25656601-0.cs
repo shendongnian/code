@@ -1,0 +1,12 @@
+    XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+            settings.IndentChars = "\t";
+            XmlWriter writer = XmlWriter.Create(@"sample.xml", settings);
+            writer.WriteStartElement("a");
+            writer.WriteStartElement("b");
+            writer.WriteStartElement("c");
+            writer.WriteValue("value");
+            writer.WriteEndElement();
+            writer.WriteEndElement();
+            writer.WriteEndElement();
+            writer.Close();

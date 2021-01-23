@@ -1,0 +1,10 @@
+            RichTextBox rtb = new RichTextBox();
+            rtb.TextWrapping = TextWrapping.Wrap;
+            rtb.FontSize = 12;
+            rtb.FontFamily = new FontFamily("Arial");
+            rtb.Width = this.Width;
+            Run run = new Run();
+            run.Text = "Hello World.Hello World.Hello World.Hello World.Hello World.";
+            Paragraph para = new Paragraph();
+            para.Inlines.Add(run);
+            rtb.Blocks.Add(para);

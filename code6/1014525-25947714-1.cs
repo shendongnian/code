@@ -1,0 +1,24 @@
+    using System;
+    using System.Collections.Generic;
+    
+    public class Program
+    {
+        public static void Main()
+        {
+            var dictionary = new Dictionary<int, Dictionary<string, string>>();
+            var value = new Dictionary<string, string> { { "Key1", "Value1" }, { "Key2", "Value2" } };
+            dictionary.Add(1, value);
+    
+            Dictionary<string, string> result;
+    
+    
+            dictionary.TryGetValue(1, out result);
+    
+            if (result == null) return;
+    
+            foreach (var key in result.Keys)
+            {
+                Console.WriteLine(string.Format("Key: {0} Value: b{1}", key, result[key]));
+            }
+        }
+    }

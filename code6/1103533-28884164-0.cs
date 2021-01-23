@@ -1,0 +1,11 @@
+    var ScorePersonGot = 100;
+    string ConnectionString = "Server=localhost;Database=databasename;User ID =root; Password=pass";
+    SqlConnection sqlConnection1 = new SqlConnection(ConnectionString); 
+    SqlCommand cmd = new SqlCommand(); 
+    cmd.CommandType = System.Data.CommandType.Text;
+    cmd.CommandText = "INSERT INTO user/test (Score) VALUES (@Score)";
+    cmd.Parameters.AddWithValue("@Score", ScorePersonGot); 
+    cmd.Connection = sqlConnection1; 
+    sqlConnection1.Open(); 
+    cmd.ExecuteNonQuery(); 
+    sqlConnection1.Close();

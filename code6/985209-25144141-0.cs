@@ -1,0 +1,35 @@
+    HttpsTransportBindingElement httpsTransport = new HttpsTransportBindingElement();
+            httpsTransport.ManualAddressing = false;
+            httpsTransport.MaxBufferPoolSize = 524288;
+            httpsTransport.MaxReceivedMessageSize = 65536;
+            httpsTransport.AllowCookies = false;
+            httpsTransport.AuthenticationScheme = System.Net.AuthenticationSchemes.Anonymous;
+            httpsTransport.BypassProxyOnLocal = false;
+            httpsTransport.DecompressionEnabled = true;
+            httpsTransport.HostNameComparisonMode = HostNameComparisonMode.StrongWildcard;
+            httpsTransport.KeepAliveEnabled = true;
+            httpsTransport.MaxBufferSize = 65536;
+            httpsTransport.ProxyAuthenticationScheme = System.Net.AuthenticationSchemes.Anonymous;
+            httpsTransport.Realm = "";
+            httpsTransport.TransferMode = TransferMode.Buffered;
+            httpsTransport.UnsafeConnectionNtlmAuthentication = false;
+            httpsTransport.UseDefaultWebProxy = true;
+            httpsTransport.RequireClientCertificate = false;
+            TextMessageEncodingBindingElement encoding = new TextMessageEncodingBindingElement();
+            encoding.MessageVersion = MessageVersion.Soap11;
+            encoding.WriteEncoding = Encoding.UTF8;
+            encoding.MaxReadPoolSize = 64;
+            encoding.MaxWritePoolSize = 16;
+            encoding.ReaderQuotas.MaxDepth = 32;
+            encoding.ReaderQuotas.MaxStringContentLength = 8192;
+            encoding.ReaderQuotas.MaxArrayLength = 16384;
+            encoding.ReaderQuotas.MaxBytesPerRead = 4096;
+            encoding.ReaderQuotas.MaxNameTableCharCount = 16384;
+                        
+            CustomBinding binding = new CustomBinding();
+            binding.Name = "SendMessage";
+            binding.Elements.Add(encoding);
+            binding.Elements.Add(httpsTransport);
+            EndpointAddress endPoint = new EndpointAddress("https://example.org/SendMessage");
+                      
+            ServiceReference.SendMessageClient svc = new ServiceReference.SendMessageClient (binding, endPoint);

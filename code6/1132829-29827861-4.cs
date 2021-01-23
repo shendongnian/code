@@ -1,0 +1,13 @@
+      bytes.Any();
+      bytes.Take(5).First();
+      bytes.Take(5).ToArray();
+      bytes.Take(5).Any();
+      bytes.Take(5).Take(5).First();
+      bytes.Take(5).Take(5).ToArray();
+      bytes.Take(5).Take(5).Any();
+      bytes.Take(5).Take(5).Take(5).First();
+      bytes.Take(5).Take(5).Take(5).ToArray();
+      bytes.Take(5).Take(5).Take(5).Any();
+      bytes.Take(5).Take(5).Take(5).Take(5).First();
+      bytes.Take(5).Take(5).Take(5).Take(5).ToArray();
+      ...

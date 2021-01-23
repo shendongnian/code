@@ -1,0 +1,9 @@
+    public abstract class SocialNetwork : ISocialNetwork
+    {
+        ...     
+        public void Post(string comment, byte[] image)
+        {
+            ...
+        }
+        ...
+    }

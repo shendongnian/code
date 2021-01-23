@@ -1,0 +1,10 @@
+    var subject = new ReplaySubject<int>();
+    subject.Subscribe(n => Console.WriteLine("A: {0}", n));
+    subject.OnNext(1);
+    subject.OnNext(2);
+    subject.OnNext(3);
+    Console.ReadLine();
+    subject.Subscribe(n => Console.WriteLine("B: {0}", n));
+    Console.ReadLine();
+    subject.OnNext(4);
+    subject.OnNext(5);

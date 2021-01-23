@@ -1,0 +1,12 @@
+            char quote = '"';
+            string msg = "/C " + quote + "echo %time%" + quote;
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.FileName = "cmd.exe";
+            p.StartInfo.Arguments = msg;
+            p.EnableRaisingEvents = true;
+            p.Exited += (_, __) => Console.WriteLine("Exited!");
+            p.Start();
+            string msg1 = p.StandardOutput.ReadToEnd();
+            Console.WriteLine(msg1);

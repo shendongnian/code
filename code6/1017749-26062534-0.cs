@@ -1,0 +1,25 @@
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    
+        namespace ConsoleApplication2
+        {
+            class Program
+            {
+                static void Main(string[] args)
+                {
+                    int read;
+                    int sum = 0;
+                    Console.WriteLine("Enter 5 numbers: "); 
+                    for (int i = 0; i < 5; i++)
+                    {
+                       read = int.Parse(Console.ReadLine());
+                       sum = sum + read;
+                    }
+        
+                    Console.WriteLine("The total sum of the 5 numbers are " + sum);
+                }
+            }
+        }

@@ -1,0 +1,10 @@
+     var idToFind = 11;
+     var s = File.ReadAllText(fPath);
+     var start = s.IndexOf(Environment.NewLine + idToFind.ToString() + '\t');
+     var end = s.IndexOf(Environment.NewLine, start + 1);
+     var line = s.Substring(start, end - start);
+     var lineFields = line.Split("\t".ToCharArray());
+     lineFields[4]= "-";
+     lineFields[5]= "-";
+     var newContent = s.Replace(line, lineFields.Join("\t"));
+     File.WriteAllText(fPath, newContent);

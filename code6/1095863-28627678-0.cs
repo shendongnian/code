@@ -1,0 +1,6 @@
+    protected override void OnModelCreating(DbModelBuilder modelBuilder) { 
+    // ....
+       modelBuilder.Entity<Car>().Property(x => x.ID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity); // set it on
+       modelBuilder.Entity<Car>().Property(x => x.ID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None); // turn it off
+    // ...
+    }

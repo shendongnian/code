@@ -1,0 +1,5 @@
+    string codebase = Assembly.GetExecutingAssembly().CodeBase;
+    var vUri = new UriBuilder(codebase);
+    string vPath = Uri.UnescapeDataString(vUri.Path + vUri.Fragment);
+    string directory = Path.GetDirectoryName(vPath);
+    if (!string.IsNullOrEmpty(vUri.Host)) directory = @"\\" + vUri.Host + directory;

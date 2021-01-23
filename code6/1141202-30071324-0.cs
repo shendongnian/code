@@ -1,0 +1,24 @@
+    AxaptaContainer axContainer = new AxaptaContainer() {"Test"};
+    AxaptaRecord axRecord;
+    try
+    {
+        // Login to Microsoft Dynamics AX.
+        ax = new Axapta();
+        ax.Logon(null, null, null, null);
+        // Create a new AddressState table record.
+        using (axRecord = ax.CreateAxaptaRecord("TableName"))
+        {
+            // Provide values for each of the AddressState record fields.
+            axRecord.set_Field("ContainerField", axContainer);
+            
+            // Other fields
+        
+            // Commit the record to the database.
+            axRecord.Insert();
+        }
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("Error encountered: {0}", e.Message);
+        // Take other error action as needed.
+    }

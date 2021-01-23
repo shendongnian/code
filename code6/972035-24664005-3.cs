@@ -1,0 +1,15 @@
+    string MondayOpen = "8:00 AM"; string MondayClosed = "4:00 PM";
+    string TuesdayOpen = "8:00 AM"; string TuesdayClosed = "4:00 PM";
+    string WednesdayOpen = "7:00 AM"; string WednesdayClosed = "3:00 PM";
+    string ThursdayOpen = "8:00 AM"; string ThursdayClosed = "4:00 PM";
+    string FridayOpen = "8:00 AM"; string FridayClosed = "4:00 PM";
+    string SaturdayOpen = "8:00 AM"; string SaturdayClosed = "2:00 PM";
+    string SundayOpen = "8:00 AM"; string SundayClosed = "2:00 PM";
+    Dictionary<string, string> hours = new Dictionary<string, string>();
+    hours.Add("M", String.Format("{0}-{1}", MondayOpen, MondayClosed));
+    hours.Add("T", String.Format("{0}-{1}", TuesdayOpen, TuesdayClosed));
+    hours.Add("W", String.Format("{0}-{1}", WednesdayOpen, WednesdayClosed));
+    hours.Add("Th", String.Format("{0}-{1}", ThursdayOpen, ThursdayClosed));
+    hours.Add("F", String.Format("{0}-{1}", FridayOpen, FridayClosed));
+    hours.Add("S", String.Format("{0}-{1}", SaturdayOpen, SaturdayClosed));
+    hours.Add("Su", String.Format("{0}-{1}", SundayOpen, SundayClosed));

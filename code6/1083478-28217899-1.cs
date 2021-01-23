@@ -1,0 +1,12 @@
+            double d0 = 0.00123456789;
+            double d1 = 1.23456789;
+            double d2 = 123.456789;
+            double d3 = 0.0000000123456789;
+            double d4 = 12345678.9;
+            double d5 = 4.2;
+            Console.WriteLine(d0.ToString(6));
+            Console.WriteLine(d1.ToString(6));
+            Console.WriteLine(d2.ToString(6));
+            Console.WriteLine(d3.ToString(6));
+            Console.WriteLine(d4.ToString(6));
+            Console.WriteLine(d5.ToString(6));

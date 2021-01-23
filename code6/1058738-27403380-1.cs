@@ -1,0 +1,10 @@
+        var zoo = new Zoo();
+        ObservableCollection<Cat> cats = zoo.GetData<Cat>();
+        ObservableCollection<Dog> dogs = zoo.GetData<Dog>();
+        ObservableCollection<Lion> lions = zoo.GetData<Lion>();
+        Console.WriteLine("-------------- Cats:");
+        cats.ToList().ForEach(cat => Console.WriteLine(cat.CatName));
+        Console.WriteLine("-------------- Dogs:");
+        dogs.ToList().ForEach(dog => Console.WriteLine(dog.DogName));
+        Console.WriteLine("-------------- Lions:");
+        lions.ToList().ForEach(lion => Console.WriteLine(lion.LionName));

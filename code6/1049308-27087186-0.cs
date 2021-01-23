@@ -1,0 +1,9 @@
+    var user1 = await db.AspNetRoles
+                .Include(u => u.AspNetUsers)
+                .Select(u => new RoleGetDTO
+                {
+                    RoleId = u.Id,
+                    Name = u.Name,
+                    UserCount = u.AspNetUsers.Count()
+                })
+                .ToListAsync();

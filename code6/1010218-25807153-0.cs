@@ -1,0 +1,14 @@
+    string name=txtfirstname.Text;
+            string fileName = Server.MapPath("~/App_Data/TextFile.txt");
+            string mailBody = File.ReadAllText(fileName);
+            mailBody = mailBody.Replace("##Name##", txtfirstname.Text);
+            mailBody = mailBody.Replace("##Email##", email);
+            mailBody = mailBody.Replace("##Phone##", txtphone.Text);
+            MailMessage myMessage = new MailMessage();
+            myMessage.Subject = "Re: Activate your account for AIS FORUM";
+            myMessage.Body = mailBody;
+            myMessage.From = new MailAddress("abc@gmail.com", "abc@gmail.com");
+            myMessage.To.Add(new MailAddress(txtemail.Text, email));
+            SmtpClient mySmtpClient = new SmtpClient();
+            mySmtpClient.EnableSsl = true;  
+            mySmtpClient.Send(myMessage);

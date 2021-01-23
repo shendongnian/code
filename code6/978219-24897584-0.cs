@@ -1,0 +1,13 @@
+    String SelectQuery = "Select ID,TaskName,TaskDue,Status from TASKS Order BY Status";
+       SQLiteConnection slite = new SQLiteConnection("data source = SupportDash.sqlite");
+       slite.Open();
+       SQLiteDataAdapter data = new SQLiteDataAdapter(SelectQuery, slite);
+       SQLiteCommandBuilder Command = new SQLiteCommandBuilder(data);
+       var Bind = new BindingSource();
+       DataTable table = new DataTable();
+       Bind.DataSource = table;
+       MyTasksGrid.AutoGenerateColumns = false;
+       MyTasksGrid.DataSource = table;
+       MyTasksGrid.DataSource = Bind;
+       MyTasksGrid.Refresh();
+       data.Fill(table);

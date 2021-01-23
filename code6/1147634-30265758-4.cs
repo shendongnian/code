@@ -1,0 +1,30 @@
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Security.Cryptography;
+    namespace TestConsoleProject
+    {
+    
+    class Program
+    {
+            static void Main(string[] args)
+            {
+                string hashed_password = "YOSGtSkJ41KX7K80FEmg+vme4ioLsp3qr28XU8nDQ9c=";
+                int index;
+                for(index = 0; index <= 9999; index++)
+                {
+                    if (hashed_password.Equals(sha256_hash(index.ToString("0000"))))
+                        break;                            
+                }
+                Console.WriteLine("Password is: " + index.ToString("0000"));
+                Console.ReadLine();
+            }
+            public static String sha256_hash(String value)
+            {
+                using (SHA256 hash = SHA256Managed.Create())
+                {
+                    return Convert.ToBase64String(hash.ComputeHash(Encoding.Unicode.GetBytes(value.ToCharArray())));
+                }
+            }
+        }
+    }

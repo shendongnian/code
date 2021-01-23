@@ -1,0 +1,9 @@
+    var clock = SystemClock.Instance;
+    var zoned = clock.InUtc();
+    // Or...
+    var zoned = clock.InZone(DateTimeZoneProviders.Tzdb["Europe/London"];
+    // Or...
+    var zoned = clock.InTzdbSystemDefaultZone();
+    // Or...
+    var zoned = clock.InBclSystemDefaultZone();
+    

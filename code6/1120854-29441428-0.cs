@@ -1,0 +1,5 @@
+    public override View GetView (int position, View convertView, ViewGroup parent)
+    {
+       ...
+       button.setOnClickListener(new View.OnClickListener() {
+             public void onClick(View v) {

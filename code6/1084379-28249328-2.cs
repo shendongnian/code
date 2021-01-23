@@ -1,0 +1,6 @@
+    public void TcpEndPoint(string IP, string message, Control _object)
+    { 
+        ...
+        _object.Text = message; /// or in any other way you like.
+        ...
+    }

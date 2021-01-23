@@ -1,0 +1,11 @@
+            List<Dictionary<string, string>> myDict = new List<Dictionary<string, string>>();
+            myDict.Add(new Dictionary<string, string>());
+            myDict.Add(new Dictionary<string, string>());
+            myDict.Add(new Dictionary<string, string>());
+            myDict[0].Add("name", "name1");
+            myDict[0].Add("number", "0.0158");
+            myDict[1].Add("name", "name2");
+            myDict[1].Add("number", "0.0038");
+            myDict[2].Add("name", "name3");
+            myDict[2].Add("number", "0.0148");
+            var result = myDict.SelectMany(x => x.Where(d => d.Key == "number")).OrderBy(x => x.Value);

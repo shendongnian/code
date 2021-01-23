@@ -1,0 +1,6 @@
+    MassTransit.Bus.Factory.CreateUsingRabbitMq(cfg =>
+    {
+      // ...
+      cfg.UseRetry(retryConfig => retryConfig.Interval(2, TimeSpan.FromMinutes(1)));
+      // ...
+    }

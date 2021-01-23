@@ -1,0 +1,20 @@
+     System.Net.Mail.MailMessage mm = new System.Net.Mail.MailMessage();
+            mm.From = new MailAddress("email@gmail.com");
+            mm.To.Add("email@gmail.com");
+            System.Net.Mail.Attachment attachment;
+            string strFileName;
+            strFileName = "Uploadfile/" + "200814062455PM_Admin_Screenshot (10).JPEG";
+            attachment = new System.Net.Mail.Attachment(Server.MapPath(strFileName));
+            mm.Attachments.Add(attachment);
+            mm.Body = ("<html><head><body><table><tr><td>Hi</td></tr></table></body></html><br/>"); ;
+    
+            mm.IsBodyHtml = true;
+            mm.Subject = "Candidate " + Name + "  for your Requirement " + Jobtt + " ";
+            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient("smtp.gmail.com", 587);
+            client.UseDefaultCredentials = false;
+            client.Credentials = new System.Net.NetworkCredential("email@gmail.com", "password");
+            client.Port = 587;
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            object userstate = mm;
+            client.Send(mm);

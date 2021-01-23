@@ -1,0 +1,44 @@
+    //STEP-1 CONNECTION
+    SqlConnection conn = new SqlConnection(Properties.Settings.Default.MyCon);
+      //STEP-2 COmmand
+    SqlCommand cmd = new SqlCommand();
+    cmd.Connection = conn;
+    cmd.CommandType = CommandType.StoredProcedure;
+    //SQL INJECTION '"+ +"'
+    cmd.CommandText = "Check_EntryTrade_value";
+    SqlParameter pID1 = new SqlParameter("@Account_ID", SqlDbType.BigInt, 10);
+    pID1.Value = 1;
+    SqlParameter pID2 = new SqlParameter("@Symbol", SqlDbType.VarChar, 20);
+    pID2.Value = "EUR/USD";
+    SqlParameter pID3 = new SqlParameter("@B_S", SqlDbType.VarChar, 20);
+    pID3.Value = "Buy";
+    SqlParameter pID4 = new SqlParameter("@RateE", SqlDbType.Float, 10);
+    pID4.Value = 1.24763;
+    //SqlParameter pID6 = new SqlParameter("@Amount", SqlDbType.BigInt, 10);
+    //pID6.Value = 1;
+    SqlParameter pID5 = new SqlParameter("@Date", SqlDbType.DateTime2, 7);
+    pID5.Value = DateTime.Now.ToShortDateString();
+    SqlParameter pID6 = new SqlParameter("@tradeby", SqlDbType.VarChar, 20);
+    pID6.Value = "User";
+    SqlParameter pID7 = new SqlParameter("@Usd_Marg", SqlDbType.BigInt, 10);
+    pID7.Direction = ParameterDirection.Output;
+    // pID6.Value = "User";
+    SqlParameter pID8 = new SqlParameter("@Amount", SqlDbType.BigInt, 20);
+    pID8.Direction = ParameterDirection.Output;
+    //  pID6.Value = "User";
+    SqlParameter pID9 = new SqlParameter("@Rate", SqlDbType.BigInt, 20);
+    pID9.Direction = ParameterDirection.Output;
+    // pID6.Value = "User";
+    SqlParameter pID10 = new SqlParameter("@Entry_Order_id", SqlDbType.BigInt, 20);
+    pID10.Direction = ParameterDirection.Output;
+    // pID6.Value = "User";
+    cmd.Parameters.Add(pID1);
+    cmd.Parameters.Add(pID2);
+    cmd.Parameters.Add(pID3);
+    cmd.Parameters.Add(pID4);
+    cmd.Parameters.Add(pID5);
+    cmd.Parameters.Add(pID6);
+    cmd.Parameters.Add(pID7);
+    cmd.Parameters.Add(pID8);
+    cmd.Parameters.Add(pID9);
+    cmd.Parameters.Add(pID10);

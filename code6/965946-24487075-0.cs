@@ -1,0 +1,12 @@
+    HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create (this.getURL ());
+    webRequest.Method = "POST";
+    webRequest.ContentType = "application/json";
+    webRequest.Accept = "application/json";
+    var data = Encoding.UTF8.GetBytes(request);
+    webRequest.ContentLength = data.Length;
+    Stream stream = webRequest.GetRequestStream ();
+    stream.Write (data, 0, data.Length);
+    var webResponse = (HttpWebResponse)webRequest.GetResponse();
+    var responseString = new StreamReader(webResponse.GetResponseStream()).ReadToEnd();
+    stream.Close ();webRequest.Abort();
+    return JObject.Parse(responseString);

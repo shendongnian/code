@@ -1,0 +1,16 @@
+    [RoutePrefix("api/foo")]
+    public class FooController
+    {
+        public IHttpActionResult Bar(FooDTO foo)
+        {
+            // notify all connected clients
+            GolbalHost.ConnectionManager.GetHubContext<FooHub>().Clients.All.newFoo(foo);
+    
+            return Ok(foo);
+        }
+    }
+----------
+    this.proxy.newFoo = function(data) {
+        console.log('emit newFoo');
+        $rootScope.$emit('newFoo', data);
+    }

@@ -1,0 +1,10 @@
+    String before = "hello world";
+    String after = "changed";
+    ScriptRuntime mRuntime = Ruby.CreateRuntime();
+    ScriptEngine mEngine = mRuntime.GetEngine("ruby");
+    ScriptScope scope = mEngine.CreateScope();
+    String code = "self.msg = '" + after + "'.to_clr_string";
+    ScriptSource script = mEngine.CreateScriptSourceFromString(code,  SourceCodeKind.Statements);
+    scope.SetVariable("msg", before);
+    script.Execute(scope);
+    String result = scope.GetVariable("msg");

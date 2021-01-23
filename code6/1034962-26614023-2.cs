@@ -1,0 +1,100 @@
+	using System;
+	using System.Collections.Generic;
+	using System.Linq.Expressions;
+	using System.Reflection;
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			// test non static method with result
+			string test = "Test String";
+			MethodInfo method = typeof(string).GetMethod("Substring", BindingFlags.Public | BindingFlags.Instance, null, new Type[]{typeof(int)},null);
+			Func<object[], object> lazyMethod = CreateLazyMethodWithResult(test, method);
+			object result = lazyMethod(new object[] { 5 });
+			Console.WriteLine("Called non static method and result is - " + result);
+			Console.WriteLine();
+			// test static method with no result
+			var staticMethod = typeof(Program).GetMethod("StaticMethod", BindingFlags.Static | BindingFlags.Public);
+			var staticAction = CreateLazyStaticMethodWithNoResult(staticMethod);
+			
+			staticAction(new object[]{"Test message"});
+			Console.WriteLine();
+			//test static method with result
+			var staticMethodWithResult = typeof(Program).GetMethod("StaticMethodWithResult", BindingFlags.Static | BindingFlags.Public);
+			var staticActionWithResult = CreateLazyStaticMethodWithResult(staticMethodWithResult);
+			
+			Console.WriteLine("Called static method with result and result is - " + staticActionWithResult(new object[] { "Test message" }));
+		}
+		
+		public static void StaticMethod(string message)
+		{
+			Console.WriteLine("----Static method is called with " + message);
+		}
+		
+		public static string StaticMethodWithResult(string message)
+		{
+			Console.WriteLine("----Static method with result is called with " + message);
+			return "Hello from static method";
+		}
+		
+		public static Func<object[], object> CreateLazyMethodWithResult(object instance, MethodInfo method)
+		{
+			ParameterExpression allParameters;
+			var methodCall = GenerateCallExpression(instance, method, out allParameters);
+			var lambda = Expression.Lambda<Func<object[], object>>(methodCall, allParameters);
+			return lambda.Compile();
+		}
+		
+		public static Action<object[]> CreateLazyMethodWithNoResult(object instance, MethodInfo method)
+		{
+			ParameterExpression allParameters;
+			var methodCall = GenerateCallExpression(instance, method, out allParameters);
+			var lambda = Expression.Lambda<Action<object[]>>(methodCall, allParameters);
+			return lambda.Compile();
+		}
+		
+		public static Func<object[], object> CreateLazyStaticMethodWithResult(MethodInfo method)
+		{
+			ParameterExpression allParameters;
+			var methodCall = GenerateCallExpression(null, method, out allParameters);
+			var lambda = Expression.Lambda<Func<object[], object>>(methodCall, allParameters);
+			return lambda.Compile();
+		}
+		
+		public static Action<object[]> CreateLazyStaticMethodWithNoResult(MethodInfo method)
+		{
+			ParameterExpression allParameters;
+			var methodCall = GenerateCallExpression(null, method, out allParameters);
+			var lambda = Expression.Lambda<Action<object[]>>(methodCall, allParameters);
+			return lambda.Compile();
+		}
+		
+		
+		/// <summary>
+		/// Generate expression call
+		/// </summary>
+		/// <param name="instance">If instance is NULL, then it method will be treated as static method</param>
+		private static MethodCallExpression GenerateCallExpression(object instance, MethodInfo method, out ParameterExpression allParameters)
+		{
+			allParameters = Expression.Parameter(typeof(object[]), "params");
+			ParameterInfo[] methodMarameters = method.GetParameters();
+			List<Expression> parameters = new List<Expression>();
+			for (int i = 0; i < methodMarameters.Length; i++)
+			{
+				var indexExpr = Expression.Constant(i);
+				var item = Expression.ArrayIndex(allParameters, indexExpr);
+				var converted = Expression.Convert(item, methodMarameters[i].ParameterType);
+				parameters.Add(converted);
+			}
+			
+			// it's non static method
+			if (instance != null)
+			{
+				var instanceExpr = Expression.Convert(Expression.Constant(instance), instance.GetType());
+				return Expression.Call(instanceExpr, method, parameters.ToArray());
+			}
+			
+			// it's static method
+			return Expression.Call(method, parameters.ToArray());
+		}
+	}

@@ -1,0 +1,22 @@
+    private void HelperMethod()
+    {
+          netWorkDevice["DNSDomainSuffixSearchOrder"] = new object[] {"doamin.int", "blubb.see"};
+         foreach(ManagementObject netWorkDevice in help.GetSystemInformation())
+         {
+              netWorkDevice["DNSDomainSuffixSearchOrder"] = new object[] {"doamin.int", "blubb.see"};
+              printer.Put(); //Save
+              Console.WriteLine();
+              Console.WriteLine();
+              Console.WriteLine("Next Device");
+              Console.WriteLine();
+              foreach(var prop in help.GetPropertiesOfManagmentObj(netWorkDevice))
+              {
+                   if (prop.Name != "DNSDomainSuffixSearchOrder") { continue; }
+                   if (prop.Value == null) { continue; }
+                   foreach(var value in (string[])prop.Value)
+                   {
+                        Console.WriteLine(prop.Name + "         " + value);
+                   }
+              }
+         }
+    }

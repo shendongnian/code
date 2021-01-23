@@ -1,0 +1,12 @@
+        serverobj.Credentials = new NetworkCredential(txtFrom.Text, txtPwd.Text);
+        serverobj.Port = port number;
+        serverobj.Host = "smtp.gmail.com";
+        serverobj.EnableSsl = true;
+        obj = new MailMessage();
+        obj.From = new MailAddress(txtFrom.Text, "sender Name,", System.Text.Encoding.UTF32);
+        obj.To.Add(txtto.Text);
+        obj.Subject = txtSubject.Text;
+        obj.Body = txtMessage.Text;
+        obj.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+        serverobj.Send(obj);
+        lbltxt.Text = "Mail Sent Successfully.......!";

@@ -1,0 +1,10 @@
+        int CR2 = CR + CR ;
+        Region Reg = new Region(Rectangle.Empty);
+        Reg.Union(new Rectangle(CR, 0, w - CR2, h));
+        Reg.Union(new Rectangle(0, CR, w, h - CR2));
+        GraphicsPath GP = new GraphicsPath();
+        GP.AddEllipse(new Rectangle(0, 0, CR2, CR2));
+        GP.AddEllipse(new Rectangle(w - CR2, 0, CR2, CR2));
+        GP.AddEllipse(new Rectangle(w - CR2 , h - CR2 , CR2, CR2));
+        GP.AddEllipse(new Rectangle(0, h - CR2 , CR2, CR2));
+        Reg.Union(GP);

@@ -1,0 +1,6 @@
+    public override void OnAuthorization(AuthorizationContext filterContext)
+    {
+        ...
+        Guid userId = filterContext.HttpContext.User.Identity.Name.GetUserId();
+        ...
+    }

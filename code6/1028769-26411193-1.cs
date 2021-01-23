@@ -1,0 +1,10 @@
+    var v = new MyVector();
+    Console.WriteLine(v);
+    v.Begin = 3;
+    Console.WriteLine(v);
+    v.End = 5;
+    Console.WriteLine(v);
+    v.Begin = 8;
+    Console.WriteLine(v);
+    v.End = 10;
+    Console.WriteLine(v);

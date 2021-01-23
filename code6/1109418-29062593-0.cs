@@ -1,0 +1,9 @@
+    public CycleMap()
+    {
+        ...
+        HasMany(x => x.ChildCycles)
+            .KeyColumn("ParentCycleID")
+             // the setting, instructing NHibernate that other end will care...
+            .Inverse()
+            .Cascade.AllDeleteOrphan();
+        ...

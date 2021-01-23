@@ -1,0 +1,6 @@
+    MyClass[] array;
+    public class MyClass
+    {
+        public string Key { get; set; }
+        public string Value { get; set; }
+    }

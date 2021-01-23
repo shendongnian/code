@@ -1,0 +1,12 @@
+    SqlConnection con = new SqlConnection();
+            con.ConnectionString = @"Data Source=.\SQLEXPRESS;AttachDbFilename=YOUR PATH\database.mdf;Integrated Security=True;User Instance=True";
+            con.Open();
+            string sql = "SELECT * FROM tablename";
+            SqlDataAdapter dscmd = new SqlDataAdapter(sql, con);
+            DataSet ds = new DataSet();
+            dscmd.Fill(ds, "tablename");
+            con.Close();
+            CrystalReport1 objRpt = new CrystalReport1();
+            objRpt.SetDataSource(ds.Tables["tablename"]);
+            crystalReportViewer1.ReportSource = objRpt;
+            crystalReportViewer1.Refresh();

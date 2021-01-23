@@ -1,0 +1,28 @@
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var module = AssemblyDefinition.ReadAssembly(@"C:\Temp\TargetLibrary.dll").MainModule;
+            Console.WriteLine("For HelperClass<>");
+            var helperClass = module.Types[1];
+            var someMethod = helperClass.Methods[0];
+            var someMethodBody = someMethod.Body;
+            foreach (var instruction in someMethodBody.Instructions)
+            {
+                Console.WriteLine(
+                    "{0}\t{1}\t{2}",
+                    instruction.Offset,
+                    instruction.OpCode.Code,
+                    instruction.Operand == null ? "<null>" : string.Format("{0} / {1}", instruction.Operand.GetType().FullName, instruction.Operand.ToString()));
+                var fieldReference = instruction.Operand as FieldReference;
+                if (fieldReference != null)
+                {
+                    var fieldDefinition = fieldReference.Resolve();
+                    Console.WriteLine(
+                        "\t\tResolved field reference operand: {0} / {1}",
+                        fieldDefinition.GetType().FullName,
+                        fieldDefinition.ToString());
+                }
+            }
+        }
+    }

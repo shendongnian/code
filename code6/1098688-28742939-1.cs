@@ -1,0 +1,13 @@
+            sb.AppendLine("[");
+            sb.AppendLine("   {");
+            sb.AppendLine("     \"property\" : \"Value\",");
+            sb.AppendLine("     \"property2\" : \"Value\\\\ of the string.\"");
+            sb.AppendLine("   },");
+            sb.AppendLine("   {");
+            sb.AppendLine("     \"property\" : \"ValueX\",");
+            sb.AppendLine("     \"property2\" : \"ValueY\\\\ of the string.\"");
+            sb.AppendLine("   }");
+            sb.AppendLine("]");
+            var json = sb.ToString();
+            var settings = new JsonSerializerSettings {NullValueHandling = NullValueHandling.Include};                        
+            var deserializedYaps = JsonConvert.DeserializeObject<List<Station>>(json, settings);

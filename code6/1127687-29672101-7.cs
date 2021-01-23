@@ -1,0 +1,17 @@
+    private static ScrollBar GetScrollbar(DependencyObject dep, Orientation orientation)
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(dep); i++)
+            {
+                var child = VisualTreeHelper.GetChild(dep, i);
+                var bar = child as ScrollBar;
+                if (bar != null && bar.Orientation == orientation)
+                    return bar;
+                else
+                {
+                    ScrollBar scrollBar = GetScrollbar(child, orientation);
+                    if (scrollBar != null)
+                        return scrollBar;
+                }
+            }
+            return null;
+        } 

@@ -1,0 +1,12 @@
+    button1.Text = "\u21C7";
+    button1.Font = new Font("Microsoft Sans Serif", button1.Height / 2);
+    button1.TextAlign = ContentAlignment.TopCenter;
+    button2.Text = "\u2192";
+    button2.Font = new Font("Microsoft Sans Serif", button1.Height / 2);
+    button2.TextAlign = ContentAlignment.TopCenter;
+    button3.Text = "\u2190";
+    button3.Font = new Font("Microsoft Sans Serif", button1.Height / 2);
+    button3.TextAlign = ContentAlignment.TopCenter;
+    button4.Text = "\u21C9";
+    button4.Font = new Font("Microsoft Sans Serif", button1.Height / 2);
+    button4.TextAlign = ContentAlignment.TopCenter;

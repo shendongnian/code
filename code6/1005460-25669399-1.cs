@@ -1,0 +1,25 @@
+    private void button1_Click(object sender, EventArgs e)
+    {
+        // use using -> then it close/dispose your connection automaticly
+        using(SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=c:\users\abdul samad\documents\visual studio 2013\Projects\newpro\newpro\Database1.mdf;Integrated Security=True"))
+        {
+            // Add Try Catch-Block to handle exceptions
+            try
+            {
+                con.Open();
+                // use SQL-Parameters -> it is safer and easier to maintain
+                var cmd = new SqlCommand("INSERT INTO registor (Name, FullName, Password, Email, Gander) VALUES (@Name,@Fullname,@Password,@Email, @Gander)");
+                cmd.Parameters.Add("@Name", txtfname.Text);
+                cmd.Parameters.Add("@Fullname", txtfname.Text);
+                cmd.Parameters.Add("@Password", txtpass.Text);
+                cmd.Parameters.Add("@Email", txtemail.Text);
+                cmd.Parameters.Add("@Gander", comboBox1.GetItemText(comboBox1.SelectedItem));
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Record inserted");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error during insert: " + e.Message);
+            }
+        }
+    }

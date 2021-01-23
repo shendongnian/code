@@ -1,0 +1,10 @@
+     var cd = new ContentDialog();
+     cd.Content = "Remove file ?";
+     cd.Title = "Remove file";
+     cd.PrimaryButtonText = "OK";
+     cd.SecondaryButtonText = "Cancel";
+     var bst = new Windows.UI.Xaml.Style(typeof(Button));
+     bst.Setters.Add(new Setter(Button.BackgroundProperty, Colors.Red));
+     bst.Setters.Add(new Setter(Button.ForegroundProperty, Colors.White));
+     cd.PrimaryButtonStyle = bst;
+     var ress = await cd.ShowAsync();

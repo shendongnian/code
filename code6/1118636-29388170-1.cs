@@ -1,0 +1,15 @@
+     AR Error #113: Cannot save notes.
+    
+       at PX.Objects.AR.InvoiceNbrAttribute.RowPersisted(PXCache sender, PXRowPersistedEventArgs e)
+       at PX.Objects.AR.ARInvoiceNbrAttribute.RowPersisted(PXCache sender, PXRowPersistedEventArgs e)
+       at PX.Data.PXCache.OnRowPersisted(Object item, PXDBOperation operation, PXTranStatus tranStatus, Exception exception)
+       at PX.Data.PXTableAttribute.PersistInserted(PXCache sender, Object row)
+       at PX.Data.PXCache`1.PersistInserted(Object row)
+       at PX.Data.PXCache`1.Persist(PXDBOperation operation)
+       at PX.Data.PXGraph.Persist(Type cacheType, PXDBOperation operation)
+       at PX.Data.PXGraph.Persist()
+       at PX.Objects.AR.ARInvoiceEntry.Persist()
+       at PX.Data.PXSave`1.d__0.MoveNext()
+       at PX.Data.PXAction`1.d__c.MoveNext()
+       at PX.Data.PXAction`1.d__c.MoveNext()
+       at PX.Data.PXAction`1.Press() 

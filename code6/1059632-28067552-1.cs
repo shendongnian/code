@@ -1,0 +1,10 @@
+    using System; 
+    using System.Reflection;
+    using System.Web.Http;
+    using Autofac;
+    using CommonServiceLocator.AutofacAdapter.Unofficial;
+    using Autofac.Features.Variance;
+    using Autofac.Integration.WebApi;
+    using MediatR;
+    using Microsoft.Practices.ServiceLocation;
+    using Owin;

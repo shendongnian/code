@@ -1,0 +1,9 @@
+    var barMock1 = new Moq.Mock<IBar>();
+    barMock1.Setup(m=>m.ContextType).Returns(ContextType.Site);
+    var barMock2 = new Moq.Mock<IBar>();
+    barMock2.Setup(m=>m.ContextType).Returns(ContextType.Local);
+    var bar1Mock3 = new Moq.Mock<IBar>();
+    barMock3.Setup(m=>m.ContextType).Returns(ContextType.Test);
+     _kernel.Bind<IBar>().ToMethod(s => barMock1.Object);
+     _kernel.Bind<IBar>().ToMethod(s => barMock2.Object);
+     _kernel.Bind<IBar>().ToMethod(s => barMock3.Object);

@@ -1,0 +1,11 @@
+    XDocument doc = XDocument.Load("https://s.basketbuild.com/dl/devs?dl=squabbi/m9/recoveries/GSM/Version.xml");
+    var name = doc.Root.Element("Name").Value;
+    var version = doc.Root.Element("Version").Value;
+    var notes = doc.Root.Element("Notes").Value;
+    var site = doc.Root.Element("openSite").Value;
+    var link = doc.Root.Element("Link").Value;
+    Console.WriteLine(name);
+    Console.WriteLine(version);
+    Console.WriteLine(notes);
+    Console.WriteLine(site);
+    Console.WriteLine(link);

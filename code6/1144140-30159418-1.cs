@@ -1,0 +1,9 @@
+    using SomeNamespace;
+    //...
+    public void MyFunc()
+    {
+        var unitOfWork = new UnitOfWork();
+        // ...
+        var context = unitOfWork.Context;
+        // ...
+    }

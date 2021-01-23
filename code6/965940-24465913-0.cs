@@ -1,0 +1,11 @@
+    string ssConnectionString = "Server connection";
+    SqlConnection conn = new SqlConnection(ssConnectionString);
+    conn.Open();
+    SqlCommand command = conn.CreateCommand();
+    command.CommandText = "SELECT Category FROM [dbo].[Category] WHERE CategoryID = '16'";     
+    SqlDataAdapter da = new SqlDataAdapter(command); 
+    DataTable dataTable;
+    da.Fill(dataTable);   
+    lstData.DataSource = dataTable;
+    lstData.DataBind();
+    conn.Close();

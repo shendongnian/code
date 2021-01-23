@@ -1,0 +1,20 @@
+    public class PrefixAttribute : ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+           //try to modify text
+                try
+                {
+                    validationContext
+                    .ObjectType
+                    .GetProperty(validationContext.MemberName)
+                    .SetValue(validationContext.ObjectInstance, string.Format("{0}{1}", "pre_", value.ToString()), null);
+                }
+                catch (System.Exception)
+                {                                    
+                }
+    
+            //return null to make sure this attribute never say iam invalid
+            return null;
+        }
+    }

@@ -1,0 +1,12 @@
+    TagLib.File file = TagLib.File.Create(/*path to your mp3 file*/);
+    TagLib.Picture pic = new TagLib.Picture();
+    pic.Type = TagLib.PictureType.FrontCover;
+    pic.Description = "Cover";
+    pic.MimeType = System.Net.Mime.MediaTypeNames.Image.Jpeg;
+    MemoryStream ms = new MemoryStream();
+    /*your image*/.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+    ms.Position = 0;
+    pic.Data = TagLib.ByteVector.FromStream(ms);
+    file.Tag.Pictures = new TagLib.IPicture[] { pic };
+    file.Save();
+    ms.Close();

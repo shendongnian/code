@@ -1,0 +1,16 @@
+    DbModelBuilder builder = null;
+    builder = new DbModelBuilder();
+    builder.Entity<TestEntity>().ToTable(tableName);
+    DbModel model1 = null;
+    model1 = builder.Build(new DbProviderInfo("System.Data.SqlClient", "2012"));
+    builder.Entity<TestEntity>().ToTable(anotherTableName);
+    DbModel model2 = null;
+    model2 = builder.Build(new DbProviderInfo("System.Data.SqlClient", "2012"));
+    DbCompiledModel compiledModel1 = null;
+    DbCompiledModel compiledModel2 = null;
+    compiledMdoel1 = model1.Compile();
+    compiledMdoel2 = model2.Compile();
+    TestContext context1 = null;
+    TestContext context2 = null;
+    context1 = new TestContext(compiledModel1);
+    context2 = new TestContext(compiledModel2);
