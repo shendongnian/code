@@ -1,0 +1,10 @@
+        string sqlUpdate = "Update tbl_Slip SET RaiseBasic=@RaiseBasic, OtherDed=@OtherDed, Arrears=@Arrears, Notes=@Notes WHERE SlipNo=@SlipNo";
+        OleDbCommand UpdateCommand = new OleDbCommand(sqlUpdate, con);
+        UpdateCommand.Parameters.AddWithValue("@RaiseBasic", Convert.ToInt32(dRow[4].ToString()));
+        UpdateCommand.Parameters.AddWithValue("@OtherDed", Convert.ToInt32(dRow[5].ToString()));
+        UpdateCommand.Parameters.AddWithValue("@Arrears", Convert.ToInt32(dRow[7].ToString()));
+        UpdateCommand.Parameters.AddWithValue("@Notes", dRow[8].ToString());
+        UpdateCommand.Parameters.AddWithValue("@SlipNo", dRow[0].ToString());
+        con.Open();
+        UpdateCommand.ExecuteNonQuery();
+        con.Close();

@@ -1,0 +1,19 @@
+    class HorribleNameThatYouCannotSay {
+        public string wantedKey; // yes, a public field
+    }
+    ...
+    static void Sample()
+    {
+        var ctx = new HorribleNameThatYouCannotSay();
+        ctx.wantedKey = Console.ReadLine();
+        var p = Expresion.Parameter("c", typeof(SomeClass));
+        Expression<Func<SomeClass, bool>> expression =
+            Expression.Lambda<Func<SomeClass, bool>>(
+                Expression.Equals(
+                    Expression.PropertyOrField(p, "Key"),
+                    Expression.PropertyOrField(
+                        Expression.Constant(ctx), "wantedKey")
+                    )
+                ), p);
+        );
+    }

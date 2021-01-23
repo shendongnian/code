@@ -1,0 +1,10 @@
+    String conString = "Provider=OraOLEDB.Oracle.1;User ID=username;password=password;Data Source=your_tnsname;Persist Security Info=False";
+    String query = "Select 2 from dual";
+    OleDbConnection OleDbCon = new OleDbConnection(conString);
+    OleDbCon.Open();
+    OleDbCommand cmd = new OleDbCommand(query, OleDbCon);
+    OleDbDataReader reader = cmd.ExecuteReader();
+    reader.Read();
+    decimal dResult = reader.GetDecimal(0);
+    con.Close();
+    return Convert.ToInt32(dResult);

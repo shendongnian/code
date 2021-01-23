@@ -1,0 +1,6 @@
+       at System.Data.Odbc.OdbcStatementHandle.RowCount(SQLLEN& rowCount)
+       at System.Data.Odbc.OdbcDataReader.GetRowCount()
+       at System.Data.Odbc.OdbcDataReader.FirstResult()
+       at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader, Object[] methodArguments, SQL_API odbcApiMethod)
+       at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader)
+       at System.Data.Odbc.OdbcCommand.ExecuteNonQuery()

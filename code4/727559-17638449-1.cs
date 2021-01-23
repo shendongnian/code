@@ -1,0 +1,10 @@
+    using mshtml;
+        static private SHDocVw.WebBrowser_V1 Web_V1;
+        Web_V1 = (SHDocVw.WebBrowser_V1)webBrowser1.ActiveXInstance;
+        HTMLDocument pass = new HTMLDocument(Web_V1.Document);
+        HTMLInputElement passBox = (HTMLInputElement)pass.all.item("Passwd", 0);
+        passBox.value = "Password"; 
+        HTMLInputElement logBox = (HTMLInputElement)pass.all.item("Email", 0);
+        logBox.value = "Email";
+        HTMLInputElement submit = (HTMLInputElement)pass.all.item("signIn", 0);
+        submit.click();

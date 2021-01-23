@@ -1,0 +1,13 @@
+      TemplateField t = new TemplateField();
+            DynamicTemplate mt = new DynamicTemplate(ListItemType.Item);
+            HtmlImage img = new HtmlImage();
+            img.ID = "btnEdit";
+            img.Src = "~/images/image.gif";
+            img.Alt = "An image";
+            img.Attributes.Add("class", "cssimage");
+            mt.AddControl(img, "Text", "Edit");
+            t.ItemTemplate = mt;
+            t.HeaderText = "Activity";
+            GridView1.Columns.Add(t);
+            GridView1.DataSource = dtOutPutResult;
+            GridView1.DataBind();

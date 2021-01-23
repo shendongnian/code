@@ -1,0 +1,23 @@
+				DateTime UTCTime = DateTime.UtcNow;
+				tbInfo.AppendText(string.Format("Client Local Time: {0}\n", DateTime.Now.ToString("HH:mm:ss")));
+				tbInfo.AppendText(string.Format("Client UTC Time: {0}\n", UTCTime.ToString("HH:mm:ss")));
+				tbInfo.AppendText("\n\n");
+                HttpTransportBindingElement httpTransport = new HttpTransportBindingElement();
+				TransportSecurityBindingElement transportSecurity = new TransportSecurityBindingElement();
+				transportSecurity.EndpointSupportingTokenParameters.SignedEncrypted.Add(new UsernameTokenParameters());
+				transportSecurity.AllowInsecureTransport = true;
+				transportSecurity.IncludeTimestamp = false;
+				TextMessageEncodingBindingElement textMessageEncoding = new TextMessageEncodingBindingElement(MessageVersion.Soap12, Encoding.UTF8);
+				CustomBinding binding = new CustomBinding(transportSecurity, textMessageEncoding, httpTransport);
+				EndpointAddress serviceAddress = new EndpointAddress(addressDirect);
+				ChannelFactory<Device> channelFactory = new ChannelFactory<Device>(binding, serviceAddress);
+				UsernameClientCredentials credentials = new UsernameClientCredentials(new UsernameInfo(username, password));
+				channelFactory.Endpoint.Behaviors.Remove(typeof(ClientCredentials));
+				channelFactory.Endpoint.Behaviors.Add(credentials);
+				Device channel = channelFactory.CreateChannel();
+				
+				var unitTime = channel.GetSystemDateAndTime(new GetSystemDateAndTimeRequest());
+				tbInfo.AppendText(string.Format("Camera Local Time: {0}:{1}:{2}\n", unitTime.SystemDateAndTime.LocalDateTime.Time.Hour, unitTime.SystemDateAndTime.LocalDateTime.Time.Minute, unitTime.SystemDateAndTime.LocalDateTime.Time.Second));
+				tbInfo.AppendText(string.Format("Camera UTC Time: {0}:{1}:{2}\n", unitTime.SystemDateAndTime.UTCDateTime.Time.Hour, unitTime.SystemDateAndTime.UTCDateTime.Time.Minute, unitTime.SystemDateAndTime.UTCDateTime.Time.Second));
+				var info = channel.GetDeviceInformation(new GetDeviceInformationRequest());
+				MessageBox.Show(string.Format("Model: {0}", info.Model));

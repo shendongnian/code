@@ -1,0 +1,11 @@
+    GeoIp geoIp = new GeoIp();
+    var iso1 = geoIp.GetIso(1); // One
+    var iso2 = geoIp.GetIso(2); // One
+    var iso3 = geoIp.GetIso(3); // Three
+    var iso4 = geoIp.GetIso(4); // Three
+    var iso5 = geoIp.GetIso(5); // Three
+    var iso6 = geoIp.GetIso(6); // Six
+    var iso7 = geoIp.GetIso(7); // Seven
+    var iso11 = geoIp.GetIso(11); //
+    var iso15 = geoIp.GetIso(15); // Fifteen
+    var iso17 = geoIp.GetIso(17); //

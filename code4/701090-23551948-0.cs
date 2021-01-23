@@ -1,0 +1,17 @@
+    string c = color.ToString();
+    string redHex = c.Substring(0, 2);
+    string greenHex = c.Substring(2, 2);
+    string blueHex = c.Substring(4, 2);
+    string alphaHex = c.Substring(6, 2);
+    int red = Convert.ToInt32(redHex, 16);
+    int green = Convert.ToInt32(greenHex, 16);
+    int blue = Convert.ToInt32(blueHex, 16);
+    int alpha = Convert.ToInt32(alphaHex, 16);
+    alphaScroll.Value = alpha;
+    redScroll.Value = red;
+    greenScroll.Value = green;
+    blueScroll.Value = blue;
+    alphaResultLabel.Text = alphaScroll.Value.ToString();
+    redResultLabel.Text = redScroll.Value.ToString();
+    greenResultLabel.Text = greenScroll.Value.ToString();
+    blueResultLabel.Text = blueScroll.Value.ToString();

@@ -1,0 +1,6 @@
+    ...
+                    if (!comboBox8.IsKeyboardFocusWithin)
+                    {
+                        MessageBox.Show("Error description", "Error!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    ...

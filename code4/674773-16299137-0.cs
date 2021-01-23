@@ -1,0 +1,12 @@
+    var info = new ProcessStartInfo(path, string.Join(" ", args));
+    info.RedirectStandardInput = true;
+    info.RedirectStandardOutput = true;
+    info.UseShellExecute = false;
+    info.CreateNoWindow = true;
+    var p = Process.Start(info);
+    p.Start();
+    var base64image = p.StandardOutput.ReadToEnd();
+    var bytes = Convert.FromBase64CharArray(base64image.ToCharArray(), 0, base64image.Length);
+    p.WaitForExit();
+    context.Response.OutputStream.Write(bytes, 0, bytes.Length);
+    context.Response.ContentType = "image/PNG";

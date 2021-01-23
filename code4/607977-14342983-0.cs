@@ -1,0 +1,6 @@
+    List<Class> list1 = new List<Class>();
+    List<Class> list2 = new List<Class>();
+    // Add classes to lists...
+    list1.AddRange(list2);
+    // Order merged list...
+    list1.OrderByDescending(o => o.col1).ThenBy(o => o.col2);

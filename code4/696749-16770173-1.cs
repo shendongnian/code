@@ -1,0 +1,16 @@
+     string path = FileUpload1.PostedFile.FileName.ToString();
+            string FileName = FileUpload1.FileName.ToString();
+            string FileSize = FileUpload1.PostedFile.ContentLength.ToString();
+            string FileContent = FileUpload1.PostedFile.ContentType.ToString();
+            string filename = Path.GetFileName(path);
+            FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+            BinaryReader br = new BinaryReader(fs);
+            Byte[] bytes = br.ReadBytes((Int32)fs.Length);
+            br.Close();
+            fs.Close();
+            string strQuery = "INSERT INTO [testdb1].[dbo].[tblAttachment]([f_name],[fileSize],[attachment],[contentType]) VALUES(@f_name,@fileSize,@attachment,@contentType)";
+            SqlCommand cmd = new SqlCommand(strQuery);
+            cmd.Parameters.Add("@f_name", SqlDbType.VarChar).Value = FileName;
+            cmd.Parameters.Add("@fileSize", SqlDbType.VarChar).Value = Convert.ToInt32(FileSize);
+            cmd.Parameters.Add("@attachment", SqlDbType.Binary).Value = bytes;
+            cmd.Parameters.Add("@contentType", SqlDbType.VarChar).Value = FileContent;

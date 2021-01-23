@@ -1,0 +1,10 @@
+        System.Net.WebClient client = new System.Net.WebClient();
+        NameValueCollection postData = new NameValueCollection();
+        postData.Add("format","ncread");
+        postData.Add("mintime","2002/01/01,00:00:00");
+        postData.Add("minmag","3.0");
+        postData.Add("etype","E");
+        postData.Add("outputloc","web");
+        postData.Add("searchlimit","100000");
+        byte[] data = client.UploadValues(url, "POST", postData);
+        string html = System.Text.Encoding.UTF8.GetString(data);

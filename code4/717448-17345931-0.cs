@@ -1,0 +1,15 @@
+            var list1 = new List<Asd>();
+            var list2 = new List<Asd>();
+            var asd = new Asd() {Id = 1, Name = "asd"};
+            var asd2 = new Asd() {Id = 2, Name = "asd"};
+            var asd3 = new Asd() {Id = 3, Name = "asd"};
+            var asd4 = new Asd() {Id = 4, Name = "asd"};
+            var asd5 = new Asd() {Id = 5, Name = "asd"};
+            list1.Add(asd);
+            list1.Add(asd2);
+            list1.Add(asd3);
+            list2.Add(asd);
+            list2.Add(asd4);
+            list2.Add(asd5);
+            var onlyInFirstList = list1.Where(x => !list2.Any(y => y == x));
+            var onlyInSecondList = list2.Where(x => !list1.Any(y => y == x));

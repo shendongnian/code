@@ -1,0 +1,6 @@
+    // get client, database, collection ...
+    var col = Database.GetCollection<QuestionData>("questions");
+    // QuestionNote[] toModifyWith = ... 
+    var udb = Builders<QuestionData>.Update;
+    var fdb = Builders<QuestionData>.Filter;
+    var ur = await col.UpdateManyAsync(fdb.Empty, udb.Set(x => x.QuestionNotes, toModifyWith )); 

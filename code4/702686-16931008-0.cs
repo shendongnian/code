@@ -1,0 +1,14 @@
+            List<DataTable> dataTables = new List<DataTable>();
+            List<string> c = new List<string>();
+            c.Add("A");
+            c.Add("B");
+            c.Add("C");
+            dataTables.Add(ss(c));
+            List<string> c2 = new List<string>();
+            c2.Add("B");
+            c2.Add("C");
+            dataTables.Add(ss(c2));
+            List<string> c3 = new List<string>();
+            c3.Add("A");
+            c3.Add("B");
+            dataTables.Add(ss(c3));

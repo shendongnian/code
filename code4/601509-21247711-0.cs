@@ -1,0 +1,39 @@
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Newtonsoft.Json.Linq;
+    
+    namespace JsonNetTest
+    {
+    
+    
+    
+        class Program
+        {
+            static void Main(string[] args)
+            {
+    
+                string jsonString = @"{
+                    'disclaimer': 'Exchange rates provided for informational purposes only, with no guarantee whatsoever of accuracy, validity, availability, or fitness for any purpose; use at your own risk. Other than that, have fun! Usage subject to acceptance of terms: http://openexchangerates.org/terms/',
+                    'license': 'Data sourced from various providers with public-facing APIs; copyright may apply; not for resale; no warranties given. Usage subject to acceptance of license agreement: http://openexchangerates.org/license/',
+                    'timestamp': 1357268408,
+                    'base': 'USD',
+                    'rates': {
+                        'AED': 3.673033,
+                        'AFN': 51.5663,
+                        'ALL': 106.813749,
+                        'AMD': 403.579996
+    			    }
+                }";
+    
+                JObject parsed = JObject.Parse(jsonString);
+    
+                Dictionary<string, decimal> rates = parsed["rates"].ToObject<Dictionary<string, decimal>>();
+    
+                Console.WriteLine(rates["ALL"]);
+    
+                Console.ReadKey();
+    
+            }
+        }
+    }

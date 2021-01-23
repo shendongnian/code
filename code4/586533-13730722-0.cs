@@ -1,0 +1,9 @@
+     // Setting a cookie
+     HttpCookie myCookie = new HttpCookie("MyID");
+     DateTime now = DateTime.Now;
+     // Set the cookie value.
+     myCookie.Value = now.ToString();
+     // Set the cookie expiration date.
+     myCookie.Expires = now.AddMinutes(1);
+     // Add the cookie.
+     Response.Cookies.Add(myCookie);

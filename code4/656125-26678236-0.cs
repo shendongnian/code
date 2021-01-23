@@ -1,0 +1,20 @@
+    Exception: Sitecore.CodeDom.Compiler.CompilerException
+    Message: Source file 'C:\windows\TEMP\2vddx2j2.0.cs' could not be found
+    Source: File: , line 0
+       at Sitecore.CodeDom.Compiler.CSharpCompiler.AssertResults(String sourceFile, CompilerResults results)
+       at Sitecore.CodeDom.Compiler.CSharpCompiler.Compile(String sourceFile, String code, String assemblyFile, StringCollection referencedAssemblies)
+       at Sitecore.CodeDom.Compiler.CSharpCompiler.Compile(String code, StringCollection referencedAssemblies)
+       at Sitecore.CodeDom.Compiler.CSharpCompiler.SourceToMemory(String code, StringCollection referencedAssemblies)
+       at Sitecore.Web.UI.XmlControls.FolderControlSource.BuildControlAssembly(XmlNode fileNode, String& assemblyKey, String& assemblyFile)
+       at Sitecore.Web.UI.XmlControls.FolderControlSource.GetControlAssembly(String controlName, String& assemblyKey)
+       at Sitecore.Web.UI.XmlControls.FolderControlSource.ResolveType(String controlName, Boolean includeDynamicTypes)
+       at Sitecore.Web.UI.XmlControls.ControlSource.GetControlType(String namespacePrefix, String controlName, String mode, Boolean includeDynamicTypes)
+       at Sitecore.Web.UI.XmlControls.ControlFactory.GetControlType(String controlName, String mode, Boolean includeDynamicTypes)
+       at Sitecore.Web.UI.XmlControls.ControlFactory.GetControl(Control parent, String controlName, String mode, Object[] properties, AllowGenericControl allowGeneric)
+       at Sitecore.Web.UI.XmlControls.ControlFactory.GetControl(String controlName, String mode, Object[] properties, AllowGenericControl allowGeneric)
+       at Sitecore.Web.UI.XmlControls.ControlFactory.GetControl(String controlName, String mode, Object[] properties)
+       at Sitecore.Web.UI.XmlControls.ControlFactory.GetControl(String controlName, String mode)
+       at Sitecore.Web.UI.XmlControls.ControlFactory.GetControl(String controlName)
+       at Sitecore.Shell.DefaultPage.OnInit(EventArgs e)
+       at System.Web.UI.Control.InitRecursive(Control namingContainer)
+       at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)

@@ -1,0 +1,29 @@
+    public BitmapSource FlowDocumentToBitmap(FlowDocument document, Size size)
+    {
+        document = CloneDocument(document);
+        var paginator = ((IDocumentPaginatorSource)document).DocumentPaginator;
+        paginator.PageSize = size;
+        var visual = new DrawingVisual();
+        using (var drawingContext = visual.RenderOpen())
+        {
+            // draw white background
+            drawingContext.DrawRectangle(Brushes.White, null, new Rect(size));
+        }
+        visual.Children.Add(paginator.GetPage(0).Visual);
+        var bitmap = new RenderTargetBitmap((int)size.Width, (int)size.Height,
+                                            96, 96, PixelFormats.Pbgra32);
+        bitmap.Render(visual);
+        return bitmap;
+    }
+    public FlowDocument CloneDocument(FlowDocument document)
+    {
+        var copy = new FlowDocument();
+        var sourceRange = new TextRange(document.ContentStart, document.ContentEnd);
+        var targetRange = new TextRange(copy.ContentStart, copy.ContentEnd);
+        using (var stream = new MemoryStream())
+        {
+            sourceRange.Save(stream, DataFormats.XamlPackage);
+            targetRange.Load(stream, DataFormats.XamlPackage);
+        }
+        return copy;
+    }

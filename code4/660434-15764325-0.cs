@@ -1,0 +1,6 @@
+    public TransactionScope(TransactionScopeOption scopeOption, TimeSpan scopeTimeout)
+    {
+         ...
+         timeout = TransactionManager.ValidateTimeout(scopeTimeout);
+         ...
+    }

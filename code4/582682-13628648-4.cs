@@ -1,0 +1,19 @@
+    private async Task SetAlbumSourceAsync()
+    {
+        bmp = new BitmapImage();
+        var source = await AlbumThumbnail.OpenReadAsync();
+        bmp.SetSource(source);
+        RaisePropertyChanged("AlbumSource");
+    }
+    
+    BitmapImage bmp;
+    public BitmapImage AlbumSource
+    {
+        get
+        {
+            if (bmp == null) // might need a better sync mechanism to prevent reentrancy but you get the idea
+                SetAlbumSourceAsync();
+    
+            return bmp;
+        }
+    }

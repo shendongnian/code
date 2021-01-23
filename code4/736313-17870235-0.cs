@@ -1,0 +1,13 @@
+    var request = WebRequest.Create("http://www.conquerclub.com/login.php");
+    request.Method = "POST";
+    string content = "username=testuser1&password=testing&redirect=game.php%3Fgame%3D13025037&direct=63###www.conquerclub.com###&protocol=HTTP&submit=Login";
+    byte[] bytes = new byte[content.Length * sizeof(char)];
+    System.Buffer.BlockCopy(content.ToCharArray(), 0, bytes, 0, bytes.Length);
+    request.ContentLength = bytes.Length;
+    request.ContentType = "application/x-www-form-urlencoded";
+    Stream dataStream = request.GetRequestStream();
+    dataStream.Write( bytes, 0, bytes.Length );
+    dataStream.Close();
+    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+    StreamReader reader = new StreamReader(response.GetResponseStream());
+    string result = reader.ReadToEnd();

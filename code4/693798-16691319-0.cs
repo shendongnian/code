@@ -1,0 +1,6 @@
+    public class Main : B  // Second level layer
+    {
+        // ...
+        Console.WriteLine(B.token);
+        // ...
+    }

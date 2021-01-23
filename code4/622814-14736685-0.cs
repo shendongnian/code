@@ -1,0 +1,18 @@
+    Microsoft.Office.Interop.Excel.Application xl = null;
+                Microsoft.Office.Interop.Excel._Workbook wb = null;
+                xl = new Microsoft.Office.Interop.Excel.Application();
+                xl.SheetsInNewWorkbook = 1;
+                xl.Visible = true;
+                wb = (Microsoft.Office.Interop.Excel._Workbook)(xl.Workbooks.Add(Type.Missing));
+                wb.SaveAs(FileDropLocation + "\\" + workBook.Sheets[i + 1].Name, Microsoft.Office.Interop.Excel.XlFileFormat.xlExcel8, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                wb.Close(true, Type.Missing, Type.Missing);
+                xl.Quit();
+                Microsoft.Office.Interop.Excel.Workbook destWorkbook = null;
+                Microsoft.Office.Interop.Excel.Worksheet workSheet = null;
+                Microsoft.Office.Interop.Excel.Worksheet newWorksheet = null;
+                destWorkbook = app.Workbooks.Open(FileDropLocation + "\\" + workBook.Sheets[i + 1].Name + ".xls", false, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                workSheet = (Microsoft.Office.Interop.Excel.Worksheet)workBook.Sheets[i + 1];
+                newWorksheet = (Microsoft.Office.Interop.Excel.Worksheet)destWorkbook.Worksheets.Add(Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                app.DisplayAlerts = false;
+                workSheet.Copy(Type.Missing,newWorksheet);
+                destWorkbook.Save();

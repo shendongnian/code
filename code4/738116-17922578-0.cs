@@ -1,0 +1,9 @@
+    decimal val = decimal.Parse(poc_kli.Text);
+    SomeDatabaseMethod(val, ...other args);
+    ...
+    public void SomeDatabaseMethod(decimal pocKli, ... other parameters ...)
+    {
+        ...
+        prikaz.Parameters.AddWithValue("poc_kli", pocKli);
+        ...
+    }

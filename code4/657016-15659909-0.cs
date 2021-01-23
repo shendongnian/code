@@ -1,0 +1,11 @@
+    Response.ClearContent();
+                Response.Buffer = true;
+                Response.AddHeader("content-disposition", string.Format("attachment; filename={0}", DateTime.Today.ToShortDateString().Replace("/", "").Replace("-", "") + "_" + DateTime.Now.ToShortDateString() + ".doc"));
+                Response.ContentType = "application/ms-word";
+                StringWriter sw = new StringWriter();
+                HtmlTextWriter htw = new HtmlTextWriter(sw);
+                tblMain.RenderControl(htw);
+                string strPath = Request.PhysicalApplicationPath + "Test.doc";
+                StreamWriter sWriter = new StreamWriter(strPath);
+                sWriter.Write(sw.ToString());
+                sWriter.Close();

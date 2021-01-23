@@ -1,0 +1,11 @@
+    var columnA1 = new DataColumn("A", typeof (string));
+    var table1 = new DataTable();
+    table1.Columns.Add(columnA1);
+    table1.PrimaryKey = new[] {columnA1};
+    table1.Rows.Add("a");
+    table1.Rows.Add("b");
+    table1.Rows.Add("c");
+    var table2 = table1.Clone();
+    table2.Rows.Add("a");
+    table2.Rows.Add("c");
+    table2.Rows.Add("d");

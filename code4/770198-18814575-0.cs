@@ -1,0 +1,14 @@
+	    OracleConnection conn = new OracleConnection(oradb); 
+            conn.Open();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "PKG_NAME.INSERT_FUNC";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.BindByName = true;
+            cmd.Parameters.Add("Return_Value", OracleDbType.Int16).Direction = ParameterDirection.ReturnValue;
+            cmd.Parameters.Add("i_description", OracleDbType.Varchar2, 1000, ParameterDirection.Input).Value = promotionEventSetupDetails.PromotionDescription;
+            cmd.Parameters.Add("i_theme", OracleDbType.Varchar2, 80, ParameterDirection.Input).Value = promotionEventSetupDetails.PromotionTheme;
+            cmd.Parameters.Add("o_id", OracleDbType.Varchar2, 6).Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("o_error_msg", OracleDbType.Varchar2).Direction = ParameterDirection.Output;
+            OracleDataReader dr  = cmd.ExecuteReader();
+            conn.Dispose();

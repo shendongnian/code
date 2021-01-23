@@ -1,0 +1,18 @@
+    var table = new HtmlGenericControl("table");
+    var tbody = new HtmlGenericControl("tbody");
+    var tr = new HtmlGenericControl("tr");
+    var td = new HtmlGenericControl("td");
+    tr.Attributes.Add("data-filter", "featured");
+    td.InnerText = "Featured";
+    tr.Controls.Add(td);
+    tbody.Controls.Add(tr);
+    table.Controls.Add(tbody);
+    tbody = new HtmlGenericControl("tbody");
+    tr = new HtmlGenericControl("tr");
+    td = new HtmlGenericControl("td");
+    tr.Attributes.Add("data-filter", "featured");
+    td.InnerText = "Featured";
+    tr.Controls.Add(td);
+    tbody.Controls.Add(tr);
+    table.Controls.Add(tbody);
+    Page.Controls.Add(table);

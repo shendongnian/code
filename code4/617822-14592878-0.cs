@@ -1,0 +1,13 @@
+    class BaseRouter
+    {
+        ...
+        public double R { get { return r; } set { r = value; } }
+        public virtual bool ShouldSerializeR() { return true; }
+        ...
+    }
+    class DellRouter
+    {
+        ...
+        public override bool ShouldSerializeR() { return false; }
+        ...
+    }

@@ -1,0 +1,17 @@
+            string fileName;
+            byte[] fileread;
+            SqlCommand command;
+            SqlConnection connection = MyGetSqlConnection();
+            connection.Open();
+            command = new SqlCommand("Select dataElecMapName From AutoCadFiles  Where MapCode = @MapNumber", connection);
+            command.Parameters.Add("@MapNumber", SqlDbType.Int).Value = MapNumber;
+            fileName = (string)command.ExecuteScalar();
+            command.Dispose();
+            command = new SqlCommand("Select dataElecMap From AutoCadFiles  Where MapCode = @MapNumber", connection);
+            command.Parameters.Add("@MapNumber", SqlDbType.Int).Value = MapNumber;
+            fileread = (byte[])command.ExecuteScalar();
+            string tempPath = MyFunc.GetTempDirectory();
+            FileStream fs = new FileStream(tempPath + fileName, FileMode.Create);
+            fs.Write(fileread, 0, fileread.Length);
+            System.Diagnostics.Process.Start(tempPath + fileName);
+            fs.Close();

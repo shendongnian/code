@@ -1,0 +1,10 @@
+        DerivedXmlNodeConverter derived = new DerivedXmlNodeConverter();
+		derived.WriteArrayAttribute = false;
+		derived.DeserializeRootElementName = null;
+		derived.AttributeFormatStrings["valDouble"] = "{0:0.000}";
+		JsonSerializerSettings settings = new JsonSerializerSettings { Converters = new JsonConverter[] { derived } };
+		StringReader sr = new StringReader(test.ToString(Newtonsoft.Json.Formatting.Indented));
+		JsonReader reader = new JsonTextReader(sr);
+		JsonSerializer ser = JsonSerializer.CreateDefault(settings);
+		ser.CheckAdditionalContent = true;
+		XDocument intoXml = (XDocument)(ser.Deserialize(reader, typeof(XDocument)));

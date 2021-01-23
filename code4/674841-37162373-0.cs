@@ -1,0 +1,10 @@
+                ListItem item2 = new ListItem("Mitchel Street", "1");
+                item2.Attributes["OptionGroup"] = "Darwin";
+                ListItem item3 = new ListItem("Hunter Street", "2");
+                item3.Attributes["OptionGroup"] = "Sydney";
+                ListItem item4 = new ListItem("BroadwaY", "4");
+                item4.Attributes["OptionGroup"] = "Sydney";
+                venuedropdown.Items.Add(item1);
+                venuedropdown.Items.Add(item2);
+                venuedropdown.Items.Add(item3);
+                venuedropdown.Items.Add(item4);

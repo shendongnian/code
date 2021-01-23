@@ -1,0 +1,9 @@
+    public class Foo {
+        public Angles Angles { get { return angles; } }
+        ...
+    }
+    ...
+    public class Angles {
+        public double this[int index] { get { ... } }
+        ...
+    }

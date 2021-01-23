@@ -1,0 +1,10 @@
+    var dataPackage = Clipboard.GetContent();
+                var t = await dataPackage.GetBitmapAsync();
+                var t2 = await t.OpenReadAsync();
+                t2.AsStream();
+                t2.Seek(0);
+                BitmapImage bitmapImage = new BitmapImage();
+                bitmapImage.SetSource(t2);
+                Image image = new Image();
+                image.Source = bitmapImage;
+                image.Save("ImagePathToStore.png", System.Drawing.Imaging.ImageFormat.PNG);

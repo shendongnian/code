@@ -1,0 +1,14 @@
+            RedemptionLoader.DllLocation64Bit = Server.MapPath("~/bin/dlls/Redemption64.dll");
+            RedemptionLoader.DllLocation32Bit = Server.MapPath("~/bin/dlls/Redemption.dll");
+             Interop.Redemption.RDOSession session1 = RedemptionLoader.new_RDOSession();
+            var msg1 = session1.GetMessageFromMsgFile(templatePath);
+            msg1.Subject = String.Format("Report");
+            String ImageString = Server.MapPath("~\\FolderName") + "\\" + ImageName;
+            RDOAttachment Attach = msg1.Attachments.Add(ImageString);
+            Attach.ContentID = "image1";
+            String htb = "<html><head><title>The Title</title></head><body><h1>This is some text</h1>Image 1<br /><img src=cid:image1><br /></body></html>";
+            msg1.HTMLBody = htb;
+            msg1.Save();
+            Interop.Redemption.RDOSession session = RedemptionLoader.new_RDOSession();
+            var msg = session.GetMessageFromMsgFile(templatePath);
+            msg.SaveAs(newPath);

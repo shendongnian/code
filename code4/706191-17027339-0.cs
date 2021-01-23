@@ -1,0 +1,12 @@
+            byte[] pdfFile = File.ReadAllBytes("pdf file path here");
+            WebRequest request = WebRequest.Create("https://test.site.fr/Testfile");
+            request.Method = "POST";
+            request.ContentLength = pdfFile.Length;
+            request.ContentType = "application/pdf";
+            Stream stream = request.GetRequestStream();
+            stream.Write(pdfFile, 0, pdfFile.Length);
+            stream.Close();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            Console.WriteLine(reader.ReadToEnd());
+            reader.Close();

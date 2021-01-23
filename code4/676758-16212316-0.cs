@@ -1,0 +1,10 @@
+        Response.Clear();
+        Response.Buffer = true;
+        Response.ContentType = "application/ms-word";
+        string fileName = "Test.doc";
+        Response.AddHeader("Content-Disposition", "attachment; filename=" + fileName);
+        StreamReader reader = new StreamReader(memoryStream, System.Text.Encoding.UTF8, true);
+        string  strContents = reader.ReadToEnd();
+        Reader.Close();
+        Response.Write(strContents);
+        Response.End();

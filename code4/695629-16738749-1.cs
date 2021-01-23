@@ -1,0 +1,13 @@
+    Console.Write("12 / 3 = ");
+    Console.WriteLine((int)Math.Round(12d / 3d));
+    Console.WriteLine();
+    Console.Write("11 / 3 = ");
+    Console.WriteLine((int)Math.Round(11d / 3d));
+    Console.WriteLine();
+    Console.Write("10 / 3 = ");
+    Console.WriteLine((int)Math.Round(10d / 3d));
+    Console.WriteLine();
+    Console.Write("9 / 3 = ");
+    Console.WriteLine((int)Math.Round(9d / 3d));
+    Console.WriteLine();
+    Console.ReadKey();

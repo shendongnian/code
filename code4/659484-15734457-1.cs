@@ -1,0 +1,36 @@
+    ConcurrentBag<Player> Players;
+    
+    void Main()
+    {
+    	Players = new ConcurrentBag<Player>
+    	          {
+    			      new Player 
+                      {
+                             Id = "666", 
+                              //note Value is false for IsReady from start
+    	                     IsReady = new MonitoredValue<bool>(false)
+                      }
+                               
+    		 	  };
+    	
+    	//this will change the underlying object of IsReady
+    	LookupPlayerById("666").IsReady.Value = true;
+    	
+    	Player searchResut;
+    	if (Players.TryTake(out searchResut))
+    	{
+    		Console.WriteLine (searchResut.IsReady.Value); //prints true
+    	}
+    }
+    
+    public Player LookupPlayerById(string clientId)
+    {
+        var player = Players.FirstOrDefault(x => x.Id == clientId);
+        return player;
+    }
+    
+    public class Player
+    {
+    	public string Id { get; set; }
+    	public MonitoredValue<bool>  IsReady { get; set; }
+    }

@@ -1,0 +1,12 @@
+                    com = "Parameter";;
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                    startInfo.FileName = Properties.Settings.Default.pathTo + @"\Make\copy.cmd";
+                    startInfo.Arguments = com;
+                    startInfo.RedirectStandardOutput = true;
+                    startInfo.UseShellExecute = false;
+                    startInfo.CreateNoWindow = true;
+                    process.StartInfo = startInfo;
+                    process.Start();
+                    process.WaitForExit();
+                    Console.WriteLine(process.StandardOutput.ReadToEnd());

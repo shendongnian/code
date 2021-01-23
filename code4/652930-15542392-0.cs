@@ -1,0 +1,6 @@
+    public async Task GetBrands()
+    {
+        // ......
+        Brands = await _dataHelper.GetFavoriteBrands();
+        // ......
+    }

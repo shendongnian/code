@@ -1,0 +1,12 @@
+    StringBuilder postData = new StringBuilder();
+    postData.Append("lsd=AVqRGVie&display=");
+    postData.Append("&legacy_return=1");
+    postData.Append("&return_session=0");
+    postData.Append("&trynum=1");
+    postData.Append("&charset_test=%E2%82%AC%2C%C2%B4%2C%E2%82%AC%2C%C2%B4%2C%E6%B0%B4%2C%D0%94%2C%D0%84");
+    postData.Append("&timezone=0");
+    postData.Append("&lgnrnd=153743_eO6D");
+    postData.Append("&lgnjs=1355614667");
+    postData.Append(String.Format("&email={0}", "CUSTOM_EMAIL"));
+    postData.Append(String.Format("&pass={0}", "CUSTOM_PASSWORD"));
+    postData.Append("&default_persistent=0");

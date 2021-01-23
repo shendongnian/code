@@ -1,0 +1,12 @@
+            List<DateTime> dt = new List<DateTime>();
+            dt.Add(new DateTime(2010, 11, 11));
+            dt.Add(new DateTime(2010, 7, 25));
+            dt.Add(new DateTime(2011, 5, 11));
+            dt.Add(new DateTime(2011, 11, 13));
+            dt.Add(new DateTime(2013, 7, 13));
+            dt.Add(new DateTime(2013, 1, 13));
+            dt.Add(new DateTime(2012, 1, 11));
+            string userInputMask = "201_-07-__";
+            string mask = userInputMask.Replace("_",@"\d");
+            var result = dt.Where(a => Regex.IsMatch(@String.Format("{0:yyyy-MM-dd}", a), @mask));
+            result.ToList().ForEach(a=>Console.WriteLine(a));

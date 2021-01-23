@@ -1,0 +1,13 @@
+    List oList = web.Lists.GetByTitle("ListNameWhereFileExist");
+    clientContext.Load(oList);
+    clientContext.Load(oList.RootFolder);
+    clientContext.Load(oList.RootFolder.Files);
+    clientContext.ExecuteQuery();
+    FileCollection fileCollection = oList.RootFolder.Files;
+    File SP_file = fileCollection.GetByUrl("fileNameToDownloadWithExtension");
+    clientContext.Load(SP_file);
+    clientContext.ExecuteQuery();                
+    var Local_stream = System.IO.File.Open("c:/testing/" + SP_file.Name, System.IO.FileMode.CreateNew);
+    var fileInformation = File.OpenBinaryDirect(clientContext, SP_file.ServerRelativeUrl);
+    var Sp_Stream = fileInformation.Stream;
+    Sp_Stream.CopyTo(Local_stream);

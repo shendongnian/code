@@ -1,0 +1,5 @@
+    [AdminOnly]
+    public class AdminController
+    {
+        // ...
+    }

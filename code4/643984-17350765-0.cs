@@ -1,0 +1,16 @@
+            OConn = new OracleConnection();
+            OConn.ConnectionString = "Password=mypw; User ID=myid; Data Source=devdb;";
+            OConn.Open();
+            OComm = new OracleCommand(StoredProc, OConn);
+            OComm.CommandType = System.Data.CommandType.StoredProcedure;
+            OracleParameter msgTypeParam = new OracleParameter("msgType", OracleDbType.Varchar2);
+            msgTypeParam.Direction = System.Data.ParameterDirection.Output;
+            msgTypeParam.Value = "";
+            msgTypeParam.Size = 255;
+            OComm.Parameters.Add(msgTypeParam);
+            OracleParameter msgBodyParam = new OracleParameter("msgBody", OracleDbType.XmlType);
+            msgBodyParam.Direction = System.Data.ParameterDirection.Output;
+            OComm.Parameters.Add(msgBodyParam);
+                int Result = OComm.ExecuteNonQuery();
+                OConn.Close();
+                String msgType = msgTypeParam.Value.ToString();

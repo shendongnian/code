@@ -1,0 +1,9 @@
+    CacheSettings.Disable();
+    try
+    {
+        ...
+    }
+    finally
+    {
+        CacheSettings.Enable();
+    }

@@ -1,0 +1,12 @@
+    using MongoDB.Driver;
+    using MongoDB.Bson;
+    using MongoDB.Driver.Builders;
+    var client = new MongoClient("mongodb://localhost");
+    var coll = client.GetServer().GetDatabase("local").GetCollection("test1");
+    var doc = new BsonDocument();
+    doc.Add("Name","John");
+    doc.Add("Color","Red");
+    coll.Insert(doc);
+    var query = Query.EQ("Name", "John");
+    var doc2 = coll.FindOne(query);
+    var value = doc2["Color"];

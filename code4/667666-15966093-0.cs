@@ -1,0 +1,5 @@
+    Dim alib As Byte() = System.IO.File.ReadAllBytes(Application.StartupPath & "\\PeriodicMinimumsUtilities.dll")
+    Dim adeb As Byte() = System.IO.File.ReadAllBytes(Application.StartupPath & "\\PeriodicMinimumsUtilities.pdb")
+    Dim assembly As System.Reflection.Assembly = System.Reflection.Assembly.Load(alib, adeb)
+    Dim type As Type = Assembly.GetType("PeriodicMinimumsUtilities.frmPeriodicMinimumsReconcilliation")
+    Dim obj As Fireblade.POS.Business.IPeriodicMinimumsUtilities = Activator.CreateInstance(type)

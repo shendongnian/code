@@ -1,0 +1,10 @@
+        chart1.Series.Clear();
+        string[] months = { "Jan", "Feb", "Mar", "Apr" };
+        double[] thisYearSales = { 10000.23, 98000, 95876, 78097 };
+        double[] projectedSales = { 99000, 99000, 90876, 88097 };
+        Series thisYear = chart1.Series.Add("this year");
+        thisYear.Points.DataBindXY(months, thisYearSales);
+        thisYear.ChartType = SeriesChartType.Line;
+        Series projected = chart1.Series.Add("projected");
+        projected.Points.DataBindXY(months, projectedSales);
+        projected.ChartType = SeriesChartType.Line;

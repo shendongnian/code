@@ -1,0 +1,6 @@
+    class Dictionary<K,V> {
+        ...
+        public bool TryGetValue(K key, out V res) {
+            ...
+        }
+    }

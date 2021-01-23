@@ -1,0 +1,14 @@
+                String sql = "UPDATE STUDENT SET STUDENT_NAME = :STUDENT_NAME, STUDENT_ADDRESS= :STUDENT_ADDRESS WHERE STUDENT_ID= :STUDENT_ID";
+            OracleCommand query = new OracleCommand(sql, con);
+            OracleParameter p_studid = new OracleParameter();
+            OracleParameter p_studname = new OracleParameter();
+            OracleParameter p_studaddr = new OracleParameter();
+            p_studname.OracleDbType = OracleDbType.Varchar2;
+            p_studname.Value = TxtName.Text;
+            query.Parameters.Add(p_studname);
+            p_studaddr.OracleDbType = OracleDbType.Varchar2;
+            p_studaddr.Value = TxtAddress.Text;
+            query.Parameters.Add(p_studaddr);
+            p_studid.OracleDbType = OracleDbType.Int32;
+            p_studid.Value = TxtId.Text;
+            query.Parameters.Add(p_studid);

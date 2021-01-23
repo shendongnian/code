@@ -1,0 +1,9 @@
+    public class Parser
+    {
+        public static Order ParseOrderFrom(XElement invoice)
+        // ...
+        public static OrderItem ParseOrderItemFrom(XElement item)
+        // ...
+        public static Extras ParseExtrasFrom(XElement extra)
+        // ...
+    }

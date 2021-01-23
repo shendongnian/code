@@ -1,0 +1,6 @@
+    namespace SomeNamespace
+    {
+    ...
+        var myFile = SomeNamespace.Properties.Resources.MyFile;
+    ...
+    }

@@ -1,0 +1,14 @@
+        Console.WriteLine("Please enter the amount borrowed on your loan ");
+        var ABorrowed = decimal.Parse(Console.ReadLine());
+        Console.WriteLine("Please enter the interest rate for your loan ");
+        var AIR = decimal.Parse(Console.ReadLine());
+        Console.WriteLine("Please enter term of your loan in months ");
+        var Term = decimal.Parse(Console.ReadLine());
+        var MIR = AIR / 12;
+        var PMT = ABorrowed * (MIR/((1-Math.Pow((1/(1+MIR)), Term))));
+        var IP = ABorrowed * MIR;
+        var PP = PMT - IP;
+        Console.WriteLine("Your total payment for this month is " + PMT);
+        Console.WriteLine("Of that payment " + IP + " is interest rate");
+        Console.WriteLine("and the Payment Portion is " + PP);
+        Console.ReadLine();

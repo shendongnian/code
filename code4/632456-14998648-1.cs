@@ -1,0 +1,12 @@
+    Debug.WriteLine(Generate(5));
+    Thread.Sleep(50);
+    Debug.WriteLine(Generate(10));
+    Thread.Sleep(50);
+    Debug.WriteLine(Generate(20));
+    Thread.Sleep(50);
+    Debug.WriteLine(Generate(30));
+    Thread.Sleep(50);
+    Debug.WriteLine(Generate(40));
+    Thread.Sleep(50);
+    Debug.WriteLine(Generate(60));
+    Thread.Sleep(50);

@@ -1,0 +1,9 @@
+    public class HiLow
+    {
+        ...
+        public HiLow(int limit)
+        {
+            ...
+        }
+        ...
+    }

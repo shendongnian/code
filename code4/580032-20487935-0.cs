@@ -1,0 +1,10 @@
+                OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM [Sheet1$]", myConnection);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                string updateSQL = string.Format(@"UPDATE [Sheet1$] SET Status =? WHERE ID IN ( SELECT TOP 5 ID FROM [Sheet1$] WHERE Status <>? OR Status IS NULL )");
+                adapter.UpdateCommand = new OleDbCommand(updateSQL, myConnection);
+                adapter.UpdateCommand.Parameters.Add("@Status", OleDbType.Char, 255).SourceColumn = "Status";
+                adapter.UpdateCommand.Parameters.Add("@OldStatus", OleDbType.Char, 255, "Status").SourceVersion = DataRowVersion.Original;
+                dt.AsEnumerable().Take(5).ToList().ForEach(o => o.SetField("Status", @"Imported"));
+                dt.AcceptChanges();
+                adapter.Update(dt);

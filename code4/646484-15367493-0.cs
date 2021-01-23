@@ -1,0 +1,12 @@
+            string SelectOleDb = "SELECT Top 1 * From users Where [application_user_name]=? Order By application_user_id DESC";
+            OleDbConnection OleDbCon = new OleDbConnection("Provider=SQLOLEDB;Data Source=SERVER\\INSTANCE;Initial Catalog=samples;Trusted_Connection=yes");
+            OleDbDataAdapter OleDbAdpt = new OleDbDataAdapter();
+            OleDbCommand OleDbCom = new OleDbCommand(SelectOleDb, OleDbCon);
+            OleDbCom.Parameters.AddWithValue("@EmployeeName", "smith");
+            OleDbAdpt.SelectCommand = OleDbCom;
+            DataSet ExpediteDS = new DataSet();
+            DataSet FooDS = new DataSet();
+            OleDbCon.Open();
+            OleDbAdpt.Fill(ExpediteDS);
+            OleDbCon.Close();
+            OleDbCon.Dispose();

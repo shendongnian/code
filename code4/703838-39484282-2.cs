@@ -1,0 +1,8 @@
+    [DisplayBiz("ProductName")]
+    public string ProductName { get; set; }
+    
+    [DisplayBiz(StringNames.PhoneNumber)]
+    public string ProductName { get; set; }
+    
+    [DisplayWeb("EmailAddress")]
+    public string EmailAddress { get; set; }

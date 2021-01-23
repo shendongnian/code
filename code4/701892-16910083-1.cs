@@ -1,0 +1,6 @@
+    ...
+    [XmlAttribute]
+    public string Amount { get ; set ; }
+    [XmlText]
+    public string Value { get ; set ; }
+    ...

@@ -1,0 +1,6 @@
+        public class UserDetailsModel {
+            public UserDetailsModel(int userId) {
+               ... instantiation of properties goes here...
+             }
+            ... public properties/methods ...
+        }

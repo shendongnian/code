@@ -1,0 +1,6 @@
+	public override string GetName()
+	{
+		...
+		return responseContent.ReadAsStringAsync().GetResult;
+		...
+	}

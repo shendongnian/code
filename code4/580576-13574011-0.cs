@@ -1,0 +1,6 @@
+        public HttpResponseMessage Post(HttpRequestMessage req)
+        {
+            var data = req.Content.ReadAsStringAsync().Result; // using .Result here for simplicity...
+            ...
+            
+        }

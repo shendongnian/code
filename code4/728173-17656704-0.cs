@@ -1,0 +1,7 @@
+	public static class Helpers
+	{
+		public static void GetDropdowns(this Controller controller)
+		{
+			// do something with the "controller"
+		}
+	}

@@ -1,0 +1,11 @@
+    string selectStatement = "SELECT * FROM Contact";
+    System.Data.DataTable dt = new System.Data.DataTable();
+    SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString);
+    conn.Open();
+    SqlDataAdapter sqlDa = new SqlDataAdapter();
+    sqlDa.SelectCommand = new SqlCommand(selectStatement, conn);
+    SqlCommandBuilder cb = new SqlCommandBuilder(sqlDa);
+    sqlDa.Fill(dt);
+    dt.Rows[0]["Name"] = "Some new data here";
+    sqlDa.UpdateCommand = cb.GetUpdateCommand();
+    sqlDa.Update(dt);

@@ -1,0 +1,18 @@
+            HttpRequest httpRequest = HttpContext.Current.Request;
+            if (httpRequest.Browser.IsMobileDevice)
+            {
+                string path = httpRequest.Url.PathAndQuery;
+               bool isOnMobilePage = path.StartsWith("/Mobile/",
+                                                      StringComparison.OrdinalIgnoreCase);
+                if (!isOnMobilePage)
+                {
+                    string redirectTo = "~/Mobile/";
+                    // Could also add special logic to redirect from certain 
+                    // recognised pages to the mobile equivalents of those 
+                    // pages (where they exist). For example,
+                    // if (HttpContext.Current.Handler is UserRegistration)
+                    //     redirectTo = "~/Mobile/RegistrationMobile.aspx";
+                    HttpContext.Current.Response.Redirect(redirectTo);
+                }
+            }   
+        }

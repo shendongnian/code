@@ -1,0 +1,12 @@
+    var columnId = new DataColumn("ID", typeof (int));
+    var columnName = new DataColumn("Name", typeof (string));
+    var table1 = new DataTable();
+    table1.Columns.AddRange(new[] {columnId, columnName});
+    table1.PrimaryKey = new[] {columnId};
+    table1.Rows.Add(1, "A");
+    table1.Rows.Add(2, "B");
+    table1.Rows.Add(3, "C");
+    var table2 = table1.Clone();
+    table2.Rows.Add(1, "A");
+    table2.Rows.Add(2, "B");
+    table2.Rows.Add(4, "D");

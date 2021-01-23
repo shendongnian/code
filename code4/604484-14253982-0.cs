@@ -1,0 +1,9 @@
+    chart1.Series[0].Points.Add(new DataPoint(0,1));
+    chart1.Series[0].Points.Add(new DataPoint(1,0){IsEmpty=true});
+    chart1.Series[0].Points.Add(new DataPoint(2,0){IsEmpty=true});
+    chart1.Series[0].Points.Add(new DataPoint(3,0){IsEmpty=true});
+    chart1.Series[0].Points.Add(new DataPoint(4,0){IsEmpty=true});
+    chart1.Series[0].Points.Add(new DataPoint(5,0){IsEmpty=true});
+    chart1.Series[0].Points.Add(new DataPoint(6,0){IsEmpty=true});
+    chart1.Series[0].Points.Add(new DataPoint(7,1));
+    chart1.Series[0].Points.Add(new DataPoint(8,1));

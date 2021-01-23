@@ -1,0 +1,10 @@
+            Table tbl = aDoc.Tables[1];
+            Row toMove = tbl.Rows[src];
+            object beforeRow = tbl.Rows[dest];
+            Row newRow = tbl.Rows.Add(ref beforeRow);
+            toMove.Select();
+            wrd.Selection.Copy();
+            newRow.Select();
+            wrd.Selection.Paste();
+            toMove.Delete();
+            newRow.Delete();

@@ -1,0 +1,11 @@
+        Dictionary<int, object> baseDictionary = new Dictionary<int, object>();
+        baseDictionary.Add(0, new object[] { "a1" });
+        baseDictionary.Add(1, new Dictionary<int, object>());
+        baseDictionary.Add(2, new object[] { "a2" });
+        Dictionary<int, object> childDictionary = baseDictionary[1] as Dictionary<int, object>;
+        childDictionary.Add(0, new object[] { "b1" });
+        childDictionary.Add(1, new Dictionary<int, object>());
+        childDictionary.Add(2, new object[] { "b2" });
+        Dictionary<int, object> childTwoDictionary = childDictionary[1] as Dictionary<int, object>;
+        childTwoDictionary.Add(0, new object[] { "c1" });
+        childTwoDictionary.Add(1, new object[] { "c2" });

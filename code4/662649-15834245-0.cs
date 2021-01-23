@@ -1,0 +1,12 @@
+    var paramName = new SqlParameter("@name", "John Smith");
+    var paramAddress = new SqlParameter("@address", "123 Main St.");
+    var paramCity = new SqlParameter("@city", "Detroit");
+    var paramState = new SqlParameter("@state", "Michigan");
+    SqlCommand cmd = new SqlCommand(sqlStr.ToString(), conn);
+    cmd.Parameters.AddRange(new[]{paramName, paramAddress, paramCity, paramState});
+    cmd.ExecuteReader();
+    paramName.Value = "William Jones";
+    paramAddress.Value = "500 Blanchard Ave";
+    paramCity.Value = "Chicago";
+    paramState.Value = "Illinois";
+    cmd.ExecuteReader();

@@ -1,0 +1,12 @@
+            string SelectOleDb = "SELECT Top 1 * From [Employee Info] Where Employee_Name= @EmployeeName Order By ID DESC";
+            OleDbConnection OleDbCon = new OleDbConnection(EmployeeInfo.Properties.Settings.Default.cstrEmployeeInfoDatabase);
+            OleDbDataAdapter OleDbAdpt = new OleDbDataAdapter();
+            OleDbCommand OleDbCom = new OleDbCommand(SelectOleDb, OleDbCon);
+            OleDbCom.Parameters.AddWithValue("@EmployeeName", employee_NameComboBox.Text);
+            OleDbAdpt.SelectCommand = OleDbCom;
+                DataSet EmployeeInfoDS = new DataSet();
+                OleDbCon.Open();
+                OleDbAdpt.Fill(EmployeeInfoDS);
+                OleDbCon.Close();
+                OleDbCon.Dispose();
+                DataTable EmployeeInfoDT = EmployeeInfoDS.Tables[0];

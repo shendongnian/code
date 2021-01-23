@@ -1,0 +1,11 @@
+            DataTable dt = new DataTable();
+            dt.Columns.Add("checkbox");
+            dt.Rows.Add("chkCol0",1);
+            dt.Rows.Add("chkCol1", 1);
+            dt.Rows.Add("chkCol2", 1);
+            dt.Rows.Add("chkCol3", 1);
+            dt.Rows.Add("chkCol4", 1);
+            dt.Rows.Add("chkCol5", 1);
+            dt.Rows.Add("chkCol6", 1);
+            DataSet ds = new DataSet();
+            ds.Tables.Add(dt);

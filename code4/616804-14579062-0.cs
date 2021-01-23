@@ -1,0 +1,6 @@
+    ...
+            watch.Start();
+            int rows = engine.Add<TestInventory>(inventories);
+            GC.KeepAlive(engine); // Ensure that the engine remains alive until Add completes
+            watch.Stop();
+    ...

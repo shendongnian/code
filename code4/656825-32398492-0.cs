@@ -1,0 +1,15 @@
+                Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+                Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+                Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+                xlApp.Visible = true;
+                xlApp.UserControl = true;
+                xlApp.WindowState = Excel.XlWindowState.xlMaximized;
+                xlWorkBook = xlApp.Workbooks.Add(Type.Missing);
+               // xlWorkBook = xlApp.Workbooks.Open(excel_filename);
+                xlApp.ActiveWorkbook.Sheets[1].Activate();
+                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+                xlWorkSheet.PasteSpecial(Missing.Value, false, false, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+                xlWorkBook.SaveAs(save_file_name);
+                Console.WriteLine("saved file name" + save_file_name);
+                xlWorkBook.Close();
+                xlApp.Quit();

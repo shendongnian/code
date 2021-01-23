@@ -1,0 +1,6 @@
+    [System.Security.SecuritySafeCritical]  // auto-generated 
+    public virtual String GetString(String name, CultureInfo culture) {
+      //...
+      String value = rs.GetString(name, _ignoreCase);
+      //...
+    }

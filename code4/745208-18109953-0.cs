@@ -1,0 +1,15 @@
+    DataTable Customer = new DataTable();
+    Customer.Columns.Add("CustomerID");
+    Customer.Columns.Add("Name");
+    DataRow Stefan = Customer.NewRow();
+    Stefan["CustomerID"] = 1;
+    Stefan["Name"] = "Stefan";
+    Customer.Rows.Add(Stefan);
+    DataRow Robert = Customer.NewRow();
+    Robert["CustomerID"] = 2;
+    Robert["Name"] = "Robert";
+    Customer.Rows.Add(Robert);
+    DataRow William = Customer.NewRow();
+    William["CustomerID"] = 3;
+    William["Name"] = "William";
+    Customer.Rows.Add(William);

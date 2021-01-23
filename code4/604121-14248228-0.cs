@@ -1,0 +1,9 @@
+            _GeneratePrisForPortableLibraries;
+            _GetPriFilesFromPayload;
+            _ComputeInputPriFiles;
+            _GenerateProjectPriConfigurationFiles;
+            _CalculateInputsForGenerateProjectPriFileCore;
+            _GenerateProjectPriFileCore;
+            _AddFileReadsAndFileWritesForProjectPri;
+            _CreateProjectPriFileItem;
+            _ExpandPriFiles;

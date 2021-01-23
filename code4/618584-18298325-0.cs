@@ -1,0 +1,10 @@
+    GraphicsState backup = graphics.Save();
+    Bitmap bm = new Bitmap(srcControl.Width, srcControl.Height);
+    Graphics g = Graphics.FromImage(bm);
+    IntPtr destHdc = g.GetHdc();
+    const int flags = (int)(DrawingOptions.PRF_CHILDREN | DrawingOptions.PRF_CLIENT |     DrawingOptions.PRF_NONCLIENT);
+    NativeMethods.SendMessage(srcControl.Handle, (Int32)WM.WM_PRINT, destHdc,  (IntPtr)flags);
+    g.ReleaseHdc(destHdc);
+    graphics.DrawImage(bm, new Point(50,50));
+    graphics.DrawLine(Pens.Blue, new Point(), new Point(srcControl.Width, srcControl.Height));
+    graphics.Restore(backup);

@@ -1,0 +1,10 @@
+    layout.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(30) }); //add last row
+    DateTimeContinuousAxis graph = new DateTimeContinuousAxis();
+    graph.MinHeight = 12;
+    graph.Maximum = collection.Values[collection.Values.Count - 1].Date; //max/min DateTime values
+    graph.Minimum = collection.Values[0].Date;
+    graph.LabelInterval = 2;
+    graph.MaximumTicks = 3;
+    graph.LabelFormat = "hh:mm:ss";
+    graph.MajorStepUnit = Telerik.Charting.TimeInterval.Second;
+    graph.LineThickness = 1;

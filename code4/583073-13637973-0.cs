@@ -1,0 +1,24 @@
+        string arrayLine = "";
+         
+        try
+        {
+          StreamReader fileReader = new StreamReader("C:\\Numbers.txt");
+          string line = fileReader.ReadLine();
+          while (line != null)
+          {
+                 Console.WriteLine(line);
+                 arrayLine += line;     // Add the number lines together
+                 line = fileReader.ReadLine();    
+          }
+             fileReader.Close();
+        } 
+        catch (IOException IOEx)
+         {
+             throw new Exception("no file found");
+         }
+         catch (Exception ex)
+         {
+             throw new Exception("Other Exception found");
+         }
+        // Add the numbers into an array
+        int[] myNumberArray = SplitStringToNumbersArray(arrayLine);

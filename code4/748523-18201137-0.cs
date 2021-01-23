@@ -1,0 +1,15 @@
+    Rectangle rect = new Rectangle();
+    rect.Fill = new SolidColorBrush(Colors.Blue);
+    rect.Width = 100;
+    rect.Height = 200;
+    Canvas.SetLeft(rect, 200);
+    Canvas.SetTop(rect, 20);
+    LayoutRoot.Children.Add(rect);
+    Line line = new Line();
+    line.Stroke = new SolidColorBrush(Colors.White);
+    line.StrokeThickness = 1;
+    line.X1 = Canvas.GetLeft(rect) + rect.Width / 2;
+    line.X2 = Canvas.GetLeft(rect) + rect.Width / 2;
+    line.Y1 = Canvas.GetTop(rect);
+    line.Y2 = Canvas.GetTop(rect) + rect.Height;
+    LayoutRoot.Children.Add(line);

@@ -1,0 +1,22 @@
+    var bytes = Encoding.Default.GetBytes(@"$ico{$product[0]}{$user[1]}");
+    var hash = SHA256.Create().ComputeHash(bytes);
+    Console.WriteLine("ENC default:\n{0}", string.Concat(hash.Select(b => b.ToString("X2"))));
+    bytes = Encoding.Unicode.GetBytes(@"$ico{$product[0]}{$user[1]}");
+    hash = SHA256.Create().ComputeHash(bytes);
+    Console.WriteLine("ENC unicode:\n{0}", string.Concat(hash.Select(b => b.ToString("X2"))));
+    bytes = Encoding.BigEndianUnicode.GetBytes(@"$ico{$product[0]}{$user[1]}");
+    hash = SHA256.Create().ComputeHash(bytes);
+    Console.WriteLine("ENC be-unicode:\n{0}", string.Concat(hash.Select(b => b.ToString("X2"))));
+    bytes = Encoding.Convert(Encoding.Default, Encoding.Unicode, Encoding.Default.GetBytes(@"$ico{$product[0]}{$user[1]}"));
+    hash = System.Security.Cryptography.SHA256.Create().ComputeHash(bytes);
+    Console.WriteLine("CVT default to unicode:\n{0}", string.Concat(hash.Select(b => b.ToString("X2"))));
+    bytes = Encoding.Convert(Encoding.Default, Encoding.BigEndianUnicode, Encoding.Default.GetBytes(@"$ico{$product[0]}{$user[1]}"));
+    hash = SHA256.Create().ComputeHash(bytes);
+    Console.WriteLine("CVT default to be-unicode:\n{0}", string.Concat(hash.Select(b => b.ToString("X2"))));
+    bytes = Encoding.Convert(Encoding.Default, Encoding.BigEndianUnicode, Encoding.Unicode.GetBytes(@"$ico{$product[0]}{$user[1]}"));
+    hash = SHA256.Create().ComputeHash(bytes);
+    Console.WriteLine("CVT be-unicode to unicode:\n{0}", string.Concat(hash.Select(b => b.ToString("X2"))));
+    bytes = Encoding.Convert(Encoding.Unicode, Encoding.BigEndianUnicode, Encoding.Default.GetBytes("$ico{$product[0]}{$user[1]}"));
+    hash = System.Security.Cryptography.SHA256.Create().ComputeHash(bytes);
+    Console.WriteLine("CVT unicode to be-unicode:\n{0}", string.Concat(hash.Select(b => b.ToString("X2"))));
+    ... etc.

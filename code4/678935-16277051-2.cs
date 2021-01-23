@@ -1,0 +1,15 @@
+     const string Str = "×گض¸×¨ض´×™×،ض°×ک×•ض¹×ں";
+     Encoding defaultEncoding = Encoding.Default;
+     byte[] bytes = defaultEncoding.GetBytes(Str);
+     //Encoding encoding1 = Encoding.GetEncoding(862);
+     Encoding encoding2 = Encoding.GetEncoding(1255);
+     //Encoding encoding3 = Encoding.GetEncoding(10005);
+     //Encoding encoding4 = Encoding.GetEncoding(20424);
+     //Encoding encoding5 = Encoding.GetEncoding(28598);
+     //Encoding encoding6 = Encoding.GetEncoding(38598);
+     //string hebrewString1 = encoding1.GetString(bytes);
+     string hebrewString2 = encoding2.GetString(bytes);
+     //string hebrewString3 = encoding3.GetString(bytes);
+     //string hebrewString4 = encoding4.GetString(bytes);
+     //string hebrewString5 = encoding5.GetString(bytes);
+     //string hebrewString6 = encoding6.GetString(bytes);

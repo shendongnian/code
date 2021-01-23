@@ -1,0 +1,10 @@
+    MenuItem newMenuItem1 = new MenuItem("Employee Master");
+                MenuItem mnuSubMenuItem = new MenuItem();
+                newMenuItem1.ChildItems.Add(mnuSubMenuItem);
+                mnuSubMenuItem.Text = "Add User...";
+                mnuSubMenuItem.NavigateUrl = "ADDURL.aspx";
+                MenuItem mnuSubMenuItem1 = new MenuItem();
+                newMenuItem1.ChildItems.Add(mnuSubMenuItem1);
+                mnuSubMenuItem1.Text = "Edit User...";
+                mnuSubMenuItem1.NavigateUrl = "EDITURL.aspx";
+                this.MenuMaster.Items.Add(newMenuItem1);

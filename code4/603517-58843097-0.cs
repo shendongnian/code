@@ -1,0 +1,10 @@
+    				Response.Clear();
+				Response.AppendHeader("Content-Type", "Application/vnd.ms-excel");
+				Response.ContentEncoding = Encoding.UTF8;
+				Response.AppendHeader("Content-Disposition", "attachment; filename=filename1.csv");
+				var data = Encoding.UTF8.GetBytes("your content with chinese characters");
+				var result = Encoding.UTF8.GetPreamble().Concat(data).ToArray();
+				var str = Encoding.UTF8.GetString(result);
+				Response.Write(str);
+                Response.Flush();
+                Response.SuppressContent = true;

@@ -1,0 +1,11 @@
+        MailMessage mail = new MailMessage("a1@test.com", "foooo@gmail.com");
+        SmtpClient client = new SmtpClient();
+        client.Credentials = new NetworkCredential("a1@test.com", "test");
+        client.Port = 25;
+        client.EnableSsl = false;
+        client.DeliveryMethod = SmtpDeliveryMethod.Network;
+        client.UseDefaultCredentials = false;
+        client.Host = "...IPv4 Address from ipconfig...";
+        mail.Subject = "this is a test email.";
+        mail.Body = "this is my test email body";
+        client.Send(mail);

@@ -1,0 +1,6 @@
+    [assembly: AssemblyTitle("My Assembly Name")]
+    [assembly: AssemblyDescription("")]
+    [assembly: Guid("594dd732-1e7d-4981-ada3-efb341e5f918")]
+    [assembly: AssemblyVersion("1.0.0.0")]
+    [assembly: AssemblyFileVersion("1.0.0.0")]
+    [assembly: ComVisible(false)]

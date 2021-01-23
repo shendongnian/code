@@ -1,0 +1,14 @@
+    public static long CheckIfUserExist()
+    {                
+         long UserID = -1;
+         client.GetAsync("me");  
+         client.GetCompleted += (o, e) =>
+         {
+             // some code
+             if (Convert.ToInt64(eargs.Result) == 0)
+             {
+                   UserID = Convert.ToInt64(eargs.Result);
+             }
+             return UserID;
+         }
+     }

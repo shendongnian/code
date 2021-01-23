@@ -1,0 +1,11 @@
+            List<testClass> a = new List<testClass>();
+            List<testClass> b = new List<testClass>();
+            a.Add(new testClass() { ID = 1 });
+            a.Add(new testClass() { ID = 2 });
+            a.Add(new testClass() { ID = 3 });
+            a.Add(new testClass() { ID = 4 });
+            a.Add(new testClass() { ID = 5 });
+            b.Add(new testClass() { ID = 3 });
+            b.Add(new testClass() { ID = 5 });
+            a.Select<testClass, int>(x => x.ID);
+            var items = a.ExceptBYProperty(b, u => u.ID);

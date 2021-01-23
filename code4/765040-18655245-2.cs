@@ -1,0 +1,11 @@
+    var ds = new DataSet("Students");
+    var dt = ds.Tables.Add("Student");
+    dt.Columns.Add("id", typeof(int));
+    dt.Columns.Add("name", typeof(string));
+    dt.Columns.Add("number", typeof(string));
+    dt.Columns.Add("email", typeof(string));
+    dt.Rows.Add(1, "a", "123", "a@a.com");
+    dt.Tables[0].Rows.Add(2, "b", "321", "b@b.com");
+    dt.Tables[0].Rows.Add(3, "c", "432", "c@c.com");
+    var stream = new StringWriter();
+    ds.WriteXml(stream);

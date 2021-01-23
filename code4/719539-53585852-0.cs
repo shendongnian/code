@@ -1,0 +1,10 @@
+    <References>
+        <Reference>
+            <Assembly>System.dll</Assembly>
+        </Reference>
+    </References>
+    <Imports>
+        <Import>
+           <Namespace>System.Diagnostic</Namespace>
+        </Import>
+    </Imports>

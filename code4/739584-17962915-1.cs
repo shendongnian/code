@@ -1,0 +1,18 @@
+        try
+        {
+            //do submit
+            MailMessage emailMessage = new MailMessage();
+            emailMessage.From = new MailAddress("account2@gmail.com", "Account2");
+            emailMessage.To.Add(new MailAddress("account1@gmail.com", "Account1"));
+            emailMessage.Subject = "SUBJECT";
+            emailMessage.Body = "BODY";
+            emailMessage.Priority = MailPriority.Normal;
+            SmtpClient MailClient = new SmtpClient("smtp.gmail.com", 587);
+            MailClient.Credentials = new System.Net.NetworkCredential("account2@gmail.com", "password");
+            MailClient.EnableSsl = true;
+            MailClient.Send(emailMessage);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.ToString());
+        }

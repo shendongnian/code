@@ -1,0 +1,9 @@
+    for (int i = 0; i < a.Length; i++)
+                {
+                    ......
+                    if (j <= a.Length)
+                    {
+                         ......
+                    }
+                    ......
+                }

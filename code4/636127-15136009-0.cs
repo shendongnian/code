@@ -1,0 +1,12 @@
+    ExchangeService service = new ExchangeService(ExchangeVersion.Exchange2007_SP1);
+            service.AutodiscoverUrl("someone@somewhere.com");
+            ExtendedPropertyDefinition def = new ExtendedPropertyDefinition(DefaultExtendedPropertySet.PublicStrings, "AppointmenId", MapiPropertyType.String);
+            Guid testid = Guid.NewGuid ();
+            Appointment appointment = new Appointment(service);
+            appointment.Subject = "Test";
+            appointment.Start = DateTime.Now.AddHours(1);
+            appointment.End = DateTime.Now.AddHours(2);
+            appointment.SetExtendedProperty(def, testid.ToString());
+            appointment.Save(WellKnownFolderName.Calendar);
+            SearchFilter filter = new SearchFilter.IsEqualTo(def, testid.ToString());
+            FindItemsResults<Item> fir = service.FindItems(WellKnownFolderName.Calendar, filter, new ItemView(10));

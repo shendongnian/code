@@ -1,0 +1,12 @@
+    HttpClientHandler handler = new HttpClientHandler();
+    handler.UseDefaultCredentials = true;
+    HttpClient client = new HttpClient(handler);
+    client.DefaultRequestHeaders.Add("Accept", "application/json;odata=verbose");
+    client.DefaultRequestHeaders.Add("X-RequestDigest", GetFormDigest());
+    client.DefaultRequestHeaders.Add("X-HTTP-Method", "MERGE");
+    client.DefaultRequestHeaders.Add("IF-MATCH", "*");
+    HttpContent content = new StringContent(metadataString);
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+    content.Headers.ContentType.Parameters.Add(new NameValueHeaderValue("odata", "verbose"));
+    HttpResponseMessage response = await client.PostAsync(uri, content);
+    response.EnsureSuccessStatusCode();

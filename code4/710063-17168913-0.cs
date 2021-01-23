@@ -1,0 +1,6 @@
+    public class SomeEntity {
+       ...
+       public DateTime CreatedDate { get; set; }
+       public DateTime? ModifiedDate { get; set; }
+       ...
+    }

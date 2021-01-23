@@ -1,0 +1,9 @@
+    void SqlMapper.IDynamicParameters.AddParameters(System.Data.IDbCommand command,
+                                                    SqlMapper.Identity identity)
+    {
+        ...
+        // and then whatever the code is...
+        ((SqlCommand)command).Parameters
+            .AddWithValue(...,...).SqlDbType = System.Data.SqlDbType.Structured;
+        ...
+    }

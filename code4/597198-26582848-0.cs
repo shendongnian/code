@@ -1,0 +1,10 @@
+    SqlConnection dbConnect = new SqlConnection("your SQL connection string");    
+    string name = " 'ProjectName' ";
+    string strPrj = "Select e.type, (e.surname +' '+ e.name) as fulln from dbo.tblEmployees e where id_prj = " + name;
+            SqlCommand sqlcmd = new SqlCommand(strPrj, dbConnect);
+            SqlDataAdapter sda = new SqlDataAdapter(strPrj, dbConnect);
+            ds = new DataSet();
+            sda.Fill(ds);
+            dbConnect.Open();
+            sqlcmd.ExecuteNonQuery();
+            dbConnect.Close();

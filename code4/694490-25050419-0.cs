@@ -1,0 +1,10 @@
+        SqlCeConnection cnn = new SqlCeConnection(Properties.Settings.Default.CncConnectionString);
+                    FileInfo fileInfo = new FileInfo(fileDialog.FileName);
+                    byte[] SqlTypeBlob = File.ReadAllBytes(fileDialog.FileName);
+                    cncInfoDataGridView.Rows[dgvCell.RowIndex].Cells[1].Value = fileInfo.Name;
+                    SqlCeCommand cmd = new SqlCeCommand("INSERT INTO CncInfo (Drawings) VALUES (@DATA)", cnn);
+                    cmd.Parameters.Add("@DATA", SqlDbType.VarBinary);
+                    cmd.Parameters["@DATA"].Value = SqlTypeBlob;
+                    cnn.Open();
+                    cmd.ExecuteNonQuery();
+                    cnn.Close();

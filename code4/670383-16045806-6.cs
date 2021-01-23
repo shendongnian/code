@@ -1,0 +1,6 @@
+	public McDonalds(RichTextBoxDelegate sp)
+	{
+		Form1 f = new Form1();
+		sp("This is Test");
+	}
+	deleg("Test value");	// form McDonald's Form

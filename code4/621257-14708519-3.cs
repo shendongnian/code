@@ -1,0 +1,11 @@
+    <Page>
+    <Page.Resources>
+        <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary 
+                Source="FrameProductsPageStyle.xaml">
+            </ResourceDictionary>
+        </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    </Page>

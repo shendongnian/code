@@ -1,0 +1,17 @@
+        int[] ArrTotal(int[] a, int[] b)
+        {
+            if (a == null || b == null) 
+            {
+                return (int[])(a ?? b).Clone();
+            }
+            int length = Math.Max(a.Length, b.Length);
+            int[] result = new int[length];
+            for (int i = 0; i < length; i++)
+            {
+                int sum = 0;
+                if (a.Length > i) sum += a[i];
+                if (b.Length > i) sum += b[i];
+                result[i] = sum;
+            }
+            return result;
+        }

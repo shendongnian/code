@@ -1,0 +1,14 @@
+    public class Person
+    {
+        private string _name;
+        public Person() { }
+        public Person(string name)
+        {
+            this._name = name;
+        }
+        public string Name
+        {
+            get { return this._name; }
+            set { this._name = value; }
+        }
+    }

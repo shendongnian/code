@@ -1,0 +1,10 @@
+    DataGridView dgv = new DataGridView();
+    dgv.DataSource = dtusers;
+    DataGridViewColumn amount = new DataGridViewColumn();
+    amount.HeaderText = "Amount";
+    amount.Name = "Amount";
+    dgv.Columns.Insert(0, amount);
+    DataGridViewColumn narration = new DataGridViewColumn();
+    narration.HeaderText = "Narration";
+    narration.Name = "Narration";
+    dgv.Columns.Insert(0, narration);

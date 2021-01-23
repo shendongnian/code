@@ -1,0 +1,28 @@
+    string sql  = "INSERT INTO [dbo].[emp] ";
+    sql += "(Name, Age, DateOfBirth) ";
+    sql += "Values (@Name, @Age, @DateOfBirth)";
+    SqlCommand insertCommand = new SqlCommand();
+    insertCommand.CommandText = sql;
+    SqlParameter paramName = new SqlParameter();
+    paramName.ParameterName = "@Name";
+    paramName.DbType = DbType.AnsiString;
+    paramName.SqlDbType = SqlDbType.NVarChar;
+    paramName.SourceVersion = DataRowVersion.Current;
+    paramName.SourceColumn = "Name";
+                
+    SqlParameter paramAge = new SqlParameter();
+    paramAge.ParameterName = "@Age";
+    paramAge.DbType = DbType.Int32;
+    paramAge.SqlDbType = SqlDbType.Int;
+    paramAge.SourceVersion = DataRowVersion.Current;
+    paramAge.SourceColumn = "Age";
+    SqlParameter paramDoB = new SqlParameter();
+    paramDoB.ParameterName = "@DateOfBirth";
+    paramDoB.DbType = DbType.Date;
+    paramDoB.SqlDbType = SqlDbType.Date;
+    paramDoB.SourceVersion = DataRowVersion.Current;
+    paramDoB.SourceColumn = "DateOfBirth";
+    insertCommand.Parameters.Add(paramName);
+    insertCommand.Parameters.Add(paramAge);
+    insertCommand.Parameters.Add(paramDoB);
+    Adapter.InsertCommand = insertCommand;

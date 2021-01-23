@@ -1,0 +1,18 @@
+    Dictionary<string, Image> imgName = new Dictionary<string, Image>()
+    {
+        {"pic1",  Properties.Resources.pic1},
+        {"pic2",  Properties.Resources.pic2}
+        //and so on...
+    };
+    private void button1_Click(object sender, EventArgs e)
+    {
+        string name = textBox1.Text;
+        if (imgName.ContainsKey(name))
+        {
+            pictureBox1.Image = imgName[name];
+        }
+        else
+        {
+            MessageBox.Show("Inavlid picture name");
+        }
+    }

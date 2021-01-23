@@ -1,0 +1,12 @@
+    private void callback(IntPtr buffer, int length, Stirng filename)
+    {
+        try
+        {
+            FileStream file = new FileStream(filename, FileMode.Create, FileAccess.Write);
+            UnmanagedMemoryStream ustream = new UnmanagedMemoryStream((byte*)buffer, length);
+            ustream.CopyTo(file);
+            file.Close();
+            ustream.Close();
+        }
+        catch{/** To do: catch code **/}
+    }

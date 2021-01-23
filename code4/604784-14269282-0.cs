@@ -1,0 +1,6 @@
+    Application.Current.Dispatcher.BeginInvoke((ThreadStart)StopAnimation, DispatcherPriority.ApplicationIdle);
+    ...
+    private void StopAnimation()
+    {
+        ...
+    }

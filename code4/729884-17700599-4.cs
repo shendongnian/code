@@ -1,0 +1,6 @@
+    string str = "a=1,b=2,c=3,d=\"4=four\",e=Guid.NewGuid()";
+    ...
+    engine.AddReference(typeof(System.Guid).Assembly);
+    engine.ImportNamespace("System");
+    ...
+    dynamic d = engine.CreateSession().Execute(script);

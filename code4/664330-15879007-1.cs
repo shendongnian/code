@@ -1,0 +1,65 @@
+    using System;
+    using System.Threading;
+    
+    public class Worker
+    {
+        // This method will be called when the thread is started.
+        public void DoWork()
+        {
+            while (!_shouldStop)
+            {
+                Task.Factory.Start(() => 
+                   {
+                        // do you task async
+                   })
+                Thread.Sleep(300000);
+            }
+        }
+        
+        public void DoWork2()
+        {
+            var watch = new Stopwatch();
+            while (!_shouldStop)
+            {
+                Task.Factory.Start(() => 
+                   {
+                        // do you task async
+                   })
+                
+                watch.Start();
+                while(watch.Elapsed.Seconds < 300);
+                watch.Stop();
+                watch.Reset();
+            }
+        }
+        public void RequestStop()
+        {
+            _shouldStop = true;
+        }
+    
+        private volatile bool _shouldStop;
+    }
+    public class WorkerThreadExample
+    {
+        static void Main()
+        {
+            // Create the thread object. This does not start the thread.
+            Worker workerObject = new Worker();
+            Thread workerThread = new Thread(workerObject.DoWork);
+    
+            // Start the worker thread.
+            workerThread.Start();
+           
+            // Loop until worker thread activates.
+            while (!workerThread.IsAlive);
+            
+            while (true)
+            {
+                //do something to make it break
+            }
+            
+            // Request that the worker thread stop itself:
+            workerObject.RequestStop();
+            workerThread.Join();
+        }
+    }

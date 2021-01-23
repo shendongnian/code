@@ -1,0 +1,12 @@
+    public static class StringExtensions
+    {
+        public static Truncate(this string str, int length)
+        {
+            if (str == null)
+            {
+                return null;
+            }
+            int maxLength = Math.Min(str.Length, length);
+            return str.Substring(0, maxLength);
+        }
+    }

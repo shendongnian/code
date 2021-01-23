@@ -1,0 +1,12 @@
+            using System.Net.Mail;
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            mail.From = new MailAddress("sender@gmail.com");
+            mail.To.Add("reciever@gmail.com");
+            mail.Subject = ("e mail subject");
+           mail.Body = ("message body");
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("sender's username",            "sender's password");
+            SmtpServer.EnableSsl = true;
+            SmtpServer.Send(mail);
+            MessageBox.Show("mail Send");

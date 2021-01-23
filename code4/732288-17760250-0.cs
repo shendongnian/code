@@ -1,0 +1,13 @@
+    con.Open();
+                SqlCommand myCommand = new SqlCommand();
+                myCommand.Connection = con;
+                myCommand.Transaction = myTrans;
+                myCommand.CommandText = "insert into HSR_Purch_RETURN(PARTNER_ID,RTV_LOCTN) values(@partnerId,@rtv)";
+    			myCommand.Parameters.Add(new SqlParameter("partnerId",PARTNER_ID));
+    			myCommand.Parameters.Add(new SqlParameter("rtv",RTV_LOCTN));
+                myCommand.ExecuteNonQuery();
+                //con.Open();
+                //SqlCommand cmdd = new SqlCommand(insert, con);
+                //int value1 = cmdd.ExecuteNonQuery();
+                //values = string.Empty;
+    con.Close();

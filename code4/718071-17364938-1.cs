@@ -1,0 +1,11 @@
+        string residentId = (new GUID()).ToString();
+        string houseId  = (new GUID()).ToString();
+        HtmlTableRow detailRow = new HtmlTableRow();
+        detailRow.Attributes.Add("residentId", residentId);
+        detailRow.Attributes.Add("houseId", houseId);
+        HtmlTableCell dataCell = new HtmlTableCell();
+        TextBox tb = new TextBox();
+        tb.Attributes.Add("componentname", "tbMoveInDate");
+        tb.Attributes.Add("onchange", "updateMoveInDate(this)";
+        cell.Controls.Add(tb);
+        detailRow.Cells.Add(dataCell);

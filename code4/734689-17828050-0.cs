@@ -1,0 +1,10 @@
+    MySqlConnection myCon = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["mySQLCon"]);
+    MySqlDataAdapter dAdap = new MySqlDataAdapter();
+    dAdap.InsertCommand = new MySqlCommand("insert into PMduedates(eqpID,class,Duedate,MaintType) values(@eCId,@ECClass,@ddate,@PMType)", myCon);
+    dAdap.InsertCommand.Parameters.Add("@eCId", MySqlDbType.VarChar, 20, "eqpID");
+    dAdap.InsertCommand.Parameters.Add("@ECClass", MySqlDbType.VarChar, 100, "class");
+    dAdap.InsertCommand.Parameters.Add("@ddate", MySqlDbType.VarChar, 100, "MaintType");
+    dAdap.InsertCommand.Parameters.Add("@PMType", MySqlDbType.Date, 10, "Duedate");
+    myCon.Open();
+    dAdap.Update(dtDue);
+    myCon.Close();

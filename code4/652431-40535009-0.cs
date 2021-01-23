@@ -1,0 +1,10 @@
+            con.Open();
+            MySqlDataAdapter MyDA = new MySqlDataAdapter();
+            string sqlSelectAll = "SELECT * from dailyprice";
+            MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, con);
+            DataTable table = new DataTable();
+            MyDA.Fill(table);
+            BindingSource bSource = new BindingSource();
+            bSource.DataSource = table;
+            dataGridView1.DataSource = bSource;
+            con.Close();

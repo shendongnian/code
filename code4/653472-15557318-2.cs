@@ -1,0 +1,21 @@
+    private string[] get_news(string URL)
+    {
+        XmlTextReader textReader = new XmlTextReader(URL);
+        string[] newsy = null;
+        while (textReader.Read())
+        {
+            if (textReader.NodeType == XmlNodeType.Element)
+            {
+                if (textReader.Name == "news") {
+                    string News = textReader.ReadElementContentAsString();
+                    newsy = new string[] { News };
+                }
+                if (textReader.Name == "link")
+                {
+                    string Link = textReader.ReadElementContentAsString();
+                    newsy = new string[] { Link };
+                }
+            }
+        }
+        return newsy;
+    }

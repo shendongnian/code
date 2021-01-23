@@ -1,0 +1,9 @@
+    public class myclass{
+        public string arduinoData = "";
+        private void serialPort1_DataReceived(
+            object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            this.arduinoData = serialPort1.ReadLine(data, 0, data.Length);
+        }
+        //....The rest of your code, such as main methods, etc...
+    }

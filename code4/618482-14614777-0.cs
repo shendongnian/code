@@ -1,0 +1,6 @@
+    private static void Load<T>()
+    {
+       ...
+       var genericQuery = contexto.GetTable<T>();
+       ...
+    }

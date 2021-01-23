@@ -1,0 +1,10 @@
+    var button = new Button { Content = "Click Me" };
+    var action = new ActionMessage();
+    action.MethodName = "ModifyList";
+    action.Parameters.Add(new Parameter { Value = DataContext });
+    action.Attach(button);
+    var trigger = new System.Windows.Interactivity.EventTrigger();
+    trigger.EventName = "Click";
+    trigger.SourceObject = button;
+    trigger.Actions.Add(action);
+    Interaction.GetTriggers(button).Add(trigger);

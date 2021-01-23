@@ -1,0 +1,42 @@
+            #region Grid Column Names
+            dgvSubscriptions.AutoGenerateColumns = false;
+            dgvSubscriptions.ColumnCount = 1;
+            dgvSubscriptions.Columns[0].Name = "ID";
+            dgvSubscriptions.Rows.Clear();
+          
+            DataGridViewComboBoxColumn mntCmb = new DataGridViewComboBoxColumn();
+            mntCmb.HeaderText = "Month";
+            mntCmb.Name = "Month";
+            //mntCmb.DataSource = dt;
+            mntCmb.DisplayMember = "paidformonth";
+            mntCmb.DataPropertyName = "paidformonth";
+            //mntCmb.ValueMember = "paidformonth";
+            mntCmb.DefaultCellStyle.NullValue = "";
+            mntCmb.ReadOnly = true;
+            mntCmb.Items.Add("april");
+            mntCmb.Items.Add("jun");
+            mntCmb.Items.Add("jull");
+            dgvSubscriptions.Columns.Add(mntCmb);
+            DataGridViewComboBoxColumn yearCmb = new DataGridViewComboBoxColumn();
+            yearCmb.HeaderText = "Year";
+            yearCmb.Name = "Year";
+            //yearCmb.DataSource = dt;
+            yearCmb.DisplayMember = "paidforyear";
+            //yearCmb.ValueMember = "paidforyear";
+            yearCmb.DataPropertyName = "paidforyear";
+            yearCmb.DefaultCellStyle.NullValue = "";
+            yearCmb.Items.Add("2001");
+            yearCmb.Items.Add("2002");
+            yearCmb.Items.Add("2003");
+            yearCmb.ReadOnly = true;
+            dgvSubscriptions.Columns.Add(yearCmb);
+            DataGridViewTextBoxColumn amount = new DataGridViewTextBoxColumn();
+            amount.HeaderText = "Subscription Amount";
+            amount.Name = "Subscription Amount";
+            amount.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //amount.DataPropertyName = dt.Rows[i][2].ToString();
+            amount.DataPropertyName = "subamount";
+            amount.DefaultCellStyle.NullValue = "";
+            amount.ReadOnly = true;
+            dgvSubscriptions.Columns.Add(amount);
+            #endregion

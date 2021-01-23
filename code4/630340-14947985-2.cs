@@ -1,0 +1,13 @@
+    var pattern = "([a-z?])_?([A-Z])";
+    var input = "ThisIsATest";
+    var output = Regex.Replace(input, pattern, "$1 $2");
+    // output = " This Is A Test"
+    var input = "This_Is_A_Test";
+    var output = Regex.Replace(input, pattern, "$1 $2");
+    // output = " This Is A Test"
+    var input = "ThisIsAnInputString";
+    var output = Regex.Replace(input, pattern, "$1 $2");
+    // output = " This Is An Input String"
+    var input = "This_Is_An_Input_String";
+    var output = Regex.Replace(input, pattern, "$1 $2");
+    // output = " This Is An Input String"

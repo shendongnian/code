@@ -1,0 +1,10 @@
+            ColorAnimation colorChangeAnimation = new ColorAnimation();
+            colorChangeAnimation.From = VariableColour;
+             colorChangeAnimation.To = BaseColour;
+            colorChangeAnimation.Duration = timeSpan;
+            PropertyPath colorTargetPath = new PropertyPath("(Panel.Background).(SolidColorBrush.Color)");
+            Storyboard CellBackgroundChangeStory = new Storyboard();
+            Storyboard.SetTarget(colorChangeAnimation, BackGroundCellGrid);
+            Storyboard.SetTargetProperty(colorChangeAnimation, colorTargetPath);
+            CellBackgroundChangeStory.Children.Add(colorChangeAnimation);
+            CellBackgroundChangeStory.Begin();

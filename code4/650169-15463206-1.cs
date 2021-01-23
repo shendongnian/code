@@ -1,0 +1,10 @@
+    MailMessage message = new MailMessage();
+    message.IsBodyHtml = true;
+    message.From = new MailAddress("email@gmail.com");
+    message.To.Add(new MailAddress(TextBoxEadd.Text));
+    message.CC.Add(new MailAddress("email@gmail.com"));
+    message.Subject = "New User Registration ! ";
+    message.Body =  "HELLO";
+    sr.Close();
+    SmtpClient client = new SmtpClient();
+    client.Send(message);

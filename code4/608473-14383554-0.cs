@@ -1,0 +1,9 @@
+            XStyleFamiliesSupplier xSupplier = (XStyleFamiliesSupplier)xComponent;
+            XNameContainer xPageStyleCollection = (XNameContainer)xSupplier.getStyleFamilies().getByName("PageStyles").Value;
+            XPropertySet xPropertySet = (XPropertySet)xPageStyleCollection.getByName("Default").Value;
+            xPropertySet.setPropertyValue("LeftMargin", new Any((Int32)(5000))); //mm
+            xPropertySet.setPropertyValue("RightMargin", new Any((Int32)(9000))); //mm
+            xPropertySet.setPropertyValue("TopMargin", new Any((Int32)(6000))); //mm
+            xPropertySet.setPropertyValue("BottomMargin", new Any((Int32)(7000))); //mm
+            xPropertySet.setPropertyValue("Width", new Any((Int32)(25000))); //mm
+            xPropertySet.setPropertyValue("Height", new Any((Int32)(21000))); //mm

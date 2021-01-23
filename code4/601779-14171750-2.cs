@@ -1,0 +1,12 @@
+         Process process = new Process();
+         process.StartInfo.FileName = "\"" + pathToGame + "\"";
+         //process.StartInfo.Arguments = args;
+         process.StartInfo.RedirectStandardOutput = true;
+         process.StartInfo.RedirectStandardError = true;
+         process.StartInfo.UseShellExecute = false;
+         process.OutputDataReceived += new DataReceivedEventHandler(ReadOutput);
+         process.ErrorDataReceived += new DataReceivedEventHandler(ReadOutput);
+         process.Start();
+         process.BeginOutputReadLine();
+         process.BeginErrorReadLine();
+         //process.WaitForExit();

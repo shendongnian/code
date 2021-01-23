@@ -1,0 +1,10 @@
+	FilterExpression filter = new FilterExpression(LogicalOperator.Or);
+	FilterExpression filter1 = new FilterExpression(LogicalOperator.And);
+	filter1.Conditions.Add(new ConditionExpression("A_LogicalName", ConditionOperator.Equal, id1));
+	filter1.Conditions.Add(new ConditionExpression("B_LogicalName", ConditionOperator.Equal, id2));
+	FilterExpression filter2 = new FilterExpression(LogicalOperator.And);
+	filter2.Conditions.Add(new ConditionExpression("B_LogicalName", ConditionOperator.Equal, id2));
+	filter2.Conditions.Add(new ConditionExpression("C_LogicalName", ConditionOperator.Equal, id3));
+	filter.AddFilter(filter1);
+	filter.AddFilter(filter2);
+	query.Criteria = filter;

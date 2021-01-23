@@ -1,0 +1,16 @@
+        Launch.Start();  
+        IwebDriver driver = new ChromeDriver("D:/>SeleniumDrivers/ChromeDriver32");  
+        driver.Manage().Window.Maximize();  
+        driver.Navigate.GoToURL("http://www.csharpcorner.com/");  
+        Screen scr = new Screen();  
+        scr.Click(Image1, true);  
+        scr.wait(10);  
+        scr.Type(Image2, "string to Enter", KeyModifier.None);  
+        scr.wait(10);  
+        scr.Type(Image3, "string to enter", keyModifier.None);  
+        scr.wait(10);  
+        scr.Type(Image4, "string to enter", KeyModifier.None);  
+        scr.wait(10);  
+        scr.Type(Image5, "string to enter", KeyModifier.None);  
+        scr.wait(10);  
+        driver.quit();  

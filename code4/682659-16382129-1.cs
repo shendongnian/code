@@ -1,0 +1,6 @@
+    public class StaticProvider
+    {
+        ...
+        public string Address;
+        ...
+    }

@@ -1,0 +1,13 @@
+    public class MyTCPClient : IDisposable
+    {
+      ...
+      private CancellationTokenSource cancellationTokenSource = new CancellationTokenSource ();
+      ...
+      public string ReadData()
+      {
+         ...
+         byte[] dataHeader = new byte[12];
+         if (this.tcpClient.Connected)
+         {
+             stream.ReadAsync(dataHeader, 0, 12, cancellationTokenSource.Token).Wait();
+         } ...

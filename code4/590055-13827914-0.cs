@@ -1,0 +1,13 @@
+            ProcessStartInfo s_info = new ProcessStartInfo(@"sort.exe");
+            s_info.RedirectStandardInput = true;
+            s_info.RedirectStandardOutput = true;
+            s_info.UseShellExecute = false;
+            Process proc = new Process();
+            proc.StartInfo = s_info;
+            proc.Start();
+            proc.StandardInput.WriteLine("123");
+            proc.StandardInput.WriteLine("abc");
+            proc.StandardInput.WriteLine("456");
+            proc.StandardInput.Close();
+            String output = proc.StandardOutput.ReadToEnd();
+            System.Console.Write(output);

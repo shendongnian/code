@@ -1,0 +1,6 @@
+    void Page_Load(...)
+    {
+      ...
+      ((Button)this.formView.FindControl("edit_button")).Enabled = User.IsAdmin();
+      ...
+    }

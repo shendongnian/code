@@ -1,0 +1,10 @@
+    System.Threading.SynchronizationLockException: Object synchronization method was called from an unsynchronized block of code.
+       at System.Globalization.CultureTableRecord.GetCultureTableRecord(String name, Boolean useUserOverride)
+       at System.Globalization.CultureTableRecord.GetCultureTableRecord(Int32 cultureId, Boolean useUserOverride)
+       at System.Globalization.CultureInfo..ctor(Int32 culture, Boolean useUserOverride)
+       at System.Globalization.CultureInfo.GetCultureByLCIDOrName(Int32 preferLCID, String fallbackToString)
+       at System.Globalization.CultureInfo.InitUserDefaultCulture()
+       at System.Globalization.CultureInfo.get_UserDefaultCulture()
+       at System.Threading.Thread.get_CurrentCulture()
+       at System.Globalization.DateTimeFormatInfo.get_CurrentInfo()
+       at System.DateTime.ToString(String format)

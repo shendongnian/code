@@ -1,0 +1,6 @@
+    var timer = new Mock<ITimer>();
+    var factory = new Mock<ITimerFactory>();
+    factory.Setup(f => f.CreateTimer()).Returns(timer.Object);
+    ....
+    ....
+    timer.Verify(t => t.SetTime(expiredAt), Times.Once());

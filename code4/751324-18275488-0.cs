@@ -1,0 +1,6 @@
+    public partial class MainWindow : Window
+    {
+        //...
+        public static Dispatcher dispatcher = Dispatcher.CurrentDispatcher;
+        //...
+    }

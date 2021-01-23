@@ -1,0 +1,10 @@
+        Microsoft.Office.Interop.Excel.Application xlApp = null;
+        Microsoft.Office.Interop.Excel.Workbook xlWorkbook = null;
+        Microsoft.Office.Interop.Excel.Sheets xlSheets = null;
+        Microsoft.Office.Interop.Excel.Worksheet xlNewSheet = null;
+        xlApp = new Microsoft.Office.Interop.Excel.Application();
+        xlApp.Visible = true;
+        xlWorkbook = xlApp.Workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
+        xlSheets = xlWorkbook.Sheets as Microsoft.Office.Interop.Excel.Sheets;
+        xlNewSheet = xlSheets.Add(xlSheets[1], System.Type.Missing, System.Type.Missing, System.Type.Missing);
+        xlNewSheet.Name = "SheetName1";

@@ -1,0 +1,6 @@
+    public async Task ProcessData(IEnumerable<int> data)
+    {
+      ...
+      await Task.WhenAll(data.Select(d => ProcessData(d)));
+      ...
+    }

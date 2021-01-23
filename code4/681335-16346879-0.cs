@@ -1,0 +1,14 @@
+            dynamic txt = new TextBox();
+            txt.Name = "textbox" + n;
+            txt.Text = "";
+            txt.Size = new System.Drawing.Size(189, 26);
+            txt.Location = new Point(87, n2);
+            testelogico = txt.Name;
+            gpbCategoria.Controls.Add(txt);
+            txt.TextChanged += new EventHandler(new_onchange);
+            txt.Leave += new EventHandler(erase_onLeave);
+            dynamic lbl = new Label();
+            lbl.Name = "label" + n;
+            lbl.Text = "Acessório Nº" + n + ":";
+            lbl.Location = new Point(4, n2 + 5);
+            gpbCategoria.Controls.Add(lbl);

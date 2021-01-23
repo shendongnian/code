@@ -1,0 +1,11 @@
+    var list = new List<List<String>>();
+    var list1 = new List<String>();
+    list1.Add("Peter");
+    list1.Add("123");
+    list.Add(list1);
+    var list2 = new List<String>();
+    list2.Add("Peter");
+    list2.Add("123");
+    list.Add(list2);
+    var distinct = list.SelectMany(x => x).Distinct().ToList();
+    distinct.ForEach(x => Console.WriteLine(x));

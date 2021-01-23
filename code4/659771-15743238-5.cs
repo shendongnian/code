@@ -1,0 +1,26 @@
+    int num1;
+    
+    Console.WriteLine("Accept number:");
+    num1 = Convert.ToInt32(Console.ReadLine());
+    if(isPrime(num1))
+    {
+      Console.WriteLine("It is prime");
+    }
+    else
+    {
+      Console.WriteLine("It is not prime");
+    }       
+    
+    public static boolean isPrime(int number)
+    {
+        int b = Math.Ceiling(Math.Sqrt(number));
+        
+        if (number == 1) return false;
+        if (number == 2) return true;
+        
+        for (int i = 2; i <= b; ++i)  {
+            if (number % i == 0)  return false;
+        }
+        
+        return true;        
+    }

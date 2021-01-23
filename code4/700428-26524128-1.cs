@@ -1,0 +1,16 @@
+    DataGridViewColumn col1 = new DataGridViewTextBoxColumn();  
+    col1.DataPropertyName = "Service.Name";  
+    col1.HeaderText = "Service Name";  
+    dataGridView1.Columns.Add(col1);  
+    DataGridViewColumn col2 = new DataGridViewTextBoxColumn();  
+    col2.DataPropertyName = "City.Name";  
+    col2.HeaderText = "City Name";  
+    dataGridView1.Columns.Add(col2);  
+    DataGridViewColumn col3 = new DataGridViewTextBoxColumn();  
+    col3.DataPropertyName = "City.Name";  
+    col3.HeaderText = "Destiny Name";  
+    dataGridView1.Columns.Add(col3);  
+    DataGridViewColumn col4 = new DataGridViewTextBoxColumn();  
+    col4.DataPropertyName = "Price";  
+    col4.HeaderText = "Price";  
+    dataGridView1.Columns.Add(col4);  

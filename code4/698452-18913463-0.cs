@@ -1,0 +1,11 @@
+            dateTimePicker1.Format = DateTimePickerFormat.Time;
+            TaskService ts = new TaskService();
+            TaskDefinition td = ts.NewTask();
+            Trigger t = new TimeTrigger();
+            t.StartBoundary = System.DateTime.Now.Date +this.dateTimePicker1.Value.TimeOfDay;
+            td.Triggers.Add(t);
+            //string path1 = Path.GetDirectoryName(Application.ExecutablePath);
+            string path1 = Desktop + @"\Desktop\Release\ITWBackup.exe";
+            td.Actions.Add(new ExecAction(path1, null, null));
+            ts.RootFolder.RegisterTaskDefinition("ITWBackup", td);
+            ts.BeginInit();

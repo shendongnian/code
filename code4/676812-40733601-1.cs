@@ -1,0 +1,14 @@
+            Excel.Application xlApp = new Excel.Application();
+            Excel.Workbook xlBook;
+            Excel.Worksheet xlSheet;
+            string Path = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+            xlBook = xlApp.Workbooks.Open(Path + "\\myfile.xlsx");
+            xlApp.Visible = true;
+            xlSheet = xlBook.ActiveSheet;
+            string s = xlSheet.UsedRange.Cells[1, 7].Value.ToString();
+            string d = xlSheet.UsedRange.Cells[1, "G"].Value.ToString();
+            xlBook.Close();
+            xlApp.Quit();
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlSheet);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlBook);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);

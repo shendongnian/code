@@ -1,0 +1,16 @@
+    SqlConnection con = Helper.getconnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+                cmd.CommandType = CommandType.Text;
+                string PrjName = txtPrjNmae.Text;
+                string Description = txtPrjdescription.Text;
+               string Date = txtPrjDate.Text;
+                string Size = txtPrjSize.Text;
+                string Manager = txtPrjManager.Text;
+                cmd.CommandText = "Update Projects set Description='" + Description + "', DateStarted='" + Date + "',TeamSize='" + Size + "',Manager='" + Manager + "' where ProjectName= '" + PrjName + "' ";
+                MessageBox.Show("Project Details are updated");
+                dataGridView2.Update();
+                dataGridView2.Refresh();
+                cmd.ExecuteNonQuery();
+                con.Close();

@@ -1,0 +1,10 @@
+    string strProvider = "@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=F:\Database3.accdb";
+    string strSql = "Select * from score";
+    OleDbConnection con = new OleDbConnection(strProvider);
+    OleDbCommand cmd = new OleDbCommand(strSql, con);
+    con.Open();
+    cmd.CommandType = CommandType.Text;
+    OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+    DataTable scores = new DataTable();
+    da.Fill(scores);
+    dataGridView1.DataSource = scores;

@@ -1,0 +1,6 @@
+    public class baseClass {
+        public virtual void displaySomething() ...
+    }
+    public class subClass : baseClass {
+        public override void displaySomething() ...
+    }

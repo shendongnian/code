@@ -1,0 +1,12 @@
+     string connns = ConfigurationManager.AppSettings["conn"];
+                    SqlConnection sqlConn = new SqlConnection(ConfigurationManager.AppSettings["conn"]);
+                    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(connns);
+                    string password = builder.Password;
+                    string userid = builder.UserID;
+                    ServerConnection smoConn = new ServerConnection();
+                    smoConn.ServerInstance = sqlConn.DataSource;
+                    instanceServer = new Server(smoConn);
+                    instanceServer.ConnectionContext.LoginSecure = false;
+                    instanceServer.ConnectionContext.Login = userid;
+                    instanceServer.ConnectionContext.Password = password;
+                    projectDatabase = instanceServer.Databases[sqlConn.Database];

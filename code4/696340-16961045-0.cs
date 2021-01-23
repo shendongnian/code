@@ -1,0 +1,11 @@
+              DataGridViewComboBoxColumn colType = new DataGridViewComboBoxColumn();
+            BindingSource wizardBindingSource = new BindingSource();
+            wizardBindingSource.DataSource = dataSet; 
+            wizardBindingSource.DataMember = "protocol"; // This is the table in the set
+            colType.HeaderText = "Type";
+            colType.DropDownWidth = 90;
+            colType.Width = 90;
+            colType.DataPropertyName = "wizardProtocol";
+            colType.DataSource = wizardBindingSource;
+            colType.DisplayMember = "protocolName";
+            colType.ValueMember = "idprotocols"

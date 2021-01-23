@@ -1,0 +1,18 @@
+    var table = new Table() { BorderThickness = new Thickness(1), BorderBrush = Brushes.Black, CellSpacing = 0 };
+            var rowGroup = new TableRowGroup();
+            var tableRow = new TableRow();
+            var tableColumn1 = new TableColumn { Background = Brushes.Red };
+            var tableColumn2 = new TableColumn { Background = Brushes.Red };
+            var cell1 = new TableCell() { Background = Brushes.Red, BorderThickness = new Thickness(0, 0, 1, 0), BorderBrush = Brushes.Black };
+            var cell2 = new TableCell() { Background = Brushes.Red };
+            cell1.Blocks.Add(new Paragraph(new Run("Cell 1 ******************************************************************************")));
+            cell2.Blocks.Add(new Paragraph(new Run("Cell 2")));
+            tableRow.Cells.Add(cell1);
+            tableRow.Cells.Add(cell2);
+            rowGroup.Rows.Add(tableRow);
+            table.Columns.Add(tableColumn1);
+            table.Columns.Add(tableColumn2);
+            table.RowGroups.Add(rowGroup);
+            var flowDocument = new FlowDocument();
+            flowDocument.Blocks.Add(table);
+            Content = flowDocument;

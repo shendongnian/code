@@ -1,0 +1,9 @@
+    ManualResetEvent mre = new ManualResetEvent(false);
+    ...
+    someClassMock.Stub(sc => sc.HandleError()).WhenCalled(invocation => mre.Set());
+    ...
+    testedClass.TestedMethod(); // call your real code using someClassMock
+    ...
+    mre.WaitOne(timeoutErrorTime);
+    
+    someClassMock.AssertWasCalled(sc => sc.HandleError());

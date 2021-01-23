@@ -1,0 +1,10 @@
+            byte[] bytfile = Objects.GetFile(Convert.ToInt32(txtslno.Text.Trim()));
+            Response.Clear();
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("Content-Disposition", "attachment;filename="+filename);
+            Response.AddHeader("Content-Length", bytfile.Length.ToString());
+            Response.OutputStream.Write(bytfile, 0, bytfile.Length);
+            Response.Flush();
+            Response.End();

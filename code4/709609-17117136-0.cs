@@ -1,0 +1,10 @@
+     String FileName = "FileName.pdf";
+     String FilePath = Server.MapPath("~/yourPath");
+     System.Web.HttpResponse response = System.Web.HttpContext.Current.Response;
+     response.ClearContent();
+     response.Clear();
+     response.ContentType = "application/pdf";
+     response.AddHeader("Content-Disposition", "attachment; filename=" + FileName + ";");
+     response.TransmitFile(FilePath);
+     response.Flush();
+     response.End();

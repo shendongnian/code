@@ -1,0 +1,11 @@
+    System.Object
+      System.Exception
+        System.SystemException
+          System.IO.IOException
+            System.IO.DirectoryNotFoundException
+            System.IO.DriveNotFoundException
+            System.IO.EndOfStreamException
+            System.IO.FileLoadException
+            System.IO.FileNotFoundException
+            System.IO.PathTooLongException
+            System.IO.PipeException

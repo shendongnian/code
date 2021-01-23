@@ -1,0 +1,9 @@
+    using DevExpress.XtraGrid.Views.Grid;
+    //...
+    gridView1.RowClick += gridView_RowClick;
+    //...
+    void gridView_RowClick(object sender, RowClickEventArgs e) {
+        object id = ((GridView)sender).GetRowCellValue(e.RowHandle, "ID");
+        testBoxId.Text = id.ToString();
+        //...
+    }

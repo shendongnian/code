@@ -1,0 +1,10 @@
+            List<string> lines = new List<string>();
+            lines.Add("         ");
+            lines.Add("one");
+            lines.Add("two");
+            lines.Add("");
+            lines.Add("");
+            lines.Add("five");
+            lines.Add("");
+            lines.Add("       ");
+            lines.RemoveAll(string.IsNullOrWhiteSpace);

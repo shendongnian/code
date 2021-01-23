@@ -1,0 +1,6 @@
+    public interface IKey {}
+    public class KeyOne: IKey {...}
+    public class KeyTwo: IKey {...}
+    ...
+        var dict = new Dictionary<IKey, int>();
+    ...

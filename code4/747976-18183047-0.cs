@@ -1,0 +1,13 @@
+         this.richTextBox1.Location = new System.Drawing.Point(31, 12);
+         this.richTextBox1.Name = "richTextBox1";
+         this.richTextBox1.ReadOnly = true;
+         this.richTextBox1.Size = new System.Drawing.Size(100, 96);
+         this.richTextBox1.TabIndex = 0;
+         this.richTextBox1.Text = "tsglksklsmkld";
+         richTextBox1.ForeColor = Color.LightGreen;
+         richTextBox1.SelectionColor = Color.FromArgb(0, 0, 0);
+         richTextBox1.BorderStyle = BorderStyle.None;
+         richTextBox1.BackColor = Color.FromArgb(0, 0, 0);
+         richTextBox1.SelectionBackColor = Color.Transparent;
+         richTextBox1.Font = new Font("ModeSeven", 12);
+         richTextBox1.Multiline = false;

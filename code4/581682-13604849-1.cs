@@ -1,0 +1,11 @@
+    var table = new DataTable();
+    table.Columns.Add("Name");
+    table.Columns.Add("LastName");
+    var otherTable = new DataTable();
+    otherTable.Columns.Add("Name");
+    otherTable.Columns.Add("Product");
+    table.Rows.Add("a","aa");
+    table.Rows.Add("b","bb");
+    otherTable.Rows.Add("s","dd");
+    otherTable.Rows.Add("a","ss");
+    DataTable result = MergeOnRowIndex(table, otherTable);

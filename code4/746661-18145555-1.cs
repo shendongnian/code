@@ -1,0 +1,8 @@
+    var control = CreateControlDynamically(); // or whatever
+    control.MouseMove += MouseMoveHandler;
+    ...
+    private void MouseMoveHandler(object sender, MouseEventArgs e)
+    {
+        var control = (YourControlType)sender;
+        // handle mouse event
+    }

@@ -1,0 +1,16 @@
+    var dt = new DataTable();
+    dt.Columns.Add("Id", typeof(int));
+    dt.Columns.Add("Name", typeof(string));
+    dt.Columns.Add("ParentId", typeof(int));
+    dt.Rows.Add(1, "Menu 1", DBNull.Value);
+    dt.Rows.Add(11, "Menu 1-1", 1);
+    dt.Rows.Add(111, "Menu 1-1-1", 11);
+    dt.Rows.Add(112, "Menu 1-1-2", 11);
+    dt.Rows.Add(12, "Menu 1-2", 1);
+    dt.Rows.Add(121, "Menu 1-2-1", 12);
+    dt.Rows.Add(122, "Menu 1-2-2", 12);
+    dt.Rows.Add(123, "Menu 1-2-3", 12);
+    dt.Rows.Add(124, "Menu 1-2-4", 12);
+    dt.Rows.Add(2, "Menu 2", DBNull.Value);
+    dt.Rows.Add(21, "Menu 2-1", 2);
+    dt.Rows.Add(211, "Menu 2-1-1", 21);

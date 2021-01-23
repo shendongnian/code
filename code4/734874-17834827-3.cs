@@ -1,0 +1,12 @@
+            Panel visiblePanel = new Panel();
+            visiblePanel.Style.Add("background-color", "red");
+            visiblePanel.CssClass = "visiblePanel";
+            visiblePanel.Width = 10;
+            visiblePanel.Height = 10;
+            this.Controls.Add(visiblePanel);
+            Panel invisiblePanel = new Panel();
+            invisiblePanel.Width = 10;
+            invisiblePanel.Height = 10;
+            invisiblePanel.CssClass = "invisiblePanel";
+            invisiblePanel.Style.Add("background-color", "black");            
+            this.Controls.Add(invisiblePanel);

@@ -1,0 +1,6 @@
+    class NewPassword()
+    {
+       ...
+       public string Mode {get;set;}
+       ...
+    }

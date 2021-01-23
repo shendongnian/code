@@ -1,0 +1,6 @@
+    public partial class tARReportLogo : DomainObject<System.Guid>
+    {
+      ...
+      public virtual byte[] fImageValue { get; set; }  // image as a byte array
+      ...
+    }

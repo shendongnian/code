@@ -1,0 +1,11 @@
+    var array = new int[0];
+    var enumerator = array.GetEnumerator();
+    var enumeratorType = enumerator.GetType();
+    var propertyInfo = enumeratorType.GetProperty("Current");
+    var propertyType = propertyInfo.PropertyType;
+    Console.WriteLine(propertyType.Name); //prints "Object";
+    var otherEnumerator = ((IEnumerable<int>)array).GetEnumerator();
+    enumeratorType = otherEnumerator.GetType();
+    propertyInfo = enumeratorType.GetProperty("Current");
+    propertyType = propertyInfo.PropertyType;
+    Console.WriteLine(propertyType.Name); //prints "Int32";

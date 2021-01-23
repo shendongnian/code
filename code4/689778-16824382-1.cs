@@ -1,0 +1,12 @@
+    var selector = new Selector<Person>();
+    var pA = selector.AddToAddToItsInner(m => m.Address);
+        var aN = pA.InnerAddToConcatRest(m => m.Place);
+        var aS = aN.AddToAddToItsInner(m => m.ParentName);
+            var nI1 = aS.InnerAddToConcatRest(m => m.Id);
+            var nS11 = nI1.AddToConcatRest(m => m.FirstName);
+            var nS12 = nS11.AddToConcatRest(m => m.Surname);
+    var pN = selector.AddToAddToItsInner(m => m.Name);
+        var nI2 = pN.InnerAddToConcatRest(m => m.Id);
+        var nS21 = nI2.AddToConcatRest(m => m.FirstName);
+        var nS22 = nS21.AddToConcatRest(m => m.Surname);
+    var pI = selector.AddToConcatRest(m => m.Age);

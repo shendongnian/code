@@ -1,0 +1,18 @@
+    Popup popup = new Popup();
+            Grid panel = new Grid();
+            panel.Height = 250;
+            panel.Width = 250;
+            panel.Transitions = new TransitionCollection();
+            panel.Transitions.Add(new PopupThemeTransition());
+            WebView web = new WebView();
+            //web.HorizontalAlignment = HorizontalAlignment.Center;
+            //web.VerticalAlignment = VerticalAlignment.Center;
+            web.Navigate(item.PlayerUri);
+            popup.Child = panel;
+            panel.Children.Add(web);
+            popup.HorizontalAlignment = HorizontalAlignment.Center;
+            popup.VerticalAlignment = VerticalAlignment.Center;
+            popup.HorizontalOffset = (Window.Current.Bounds.Width / 2 - panel.Width / 2);
+            popup.VerticalOffset = (Window.Current.Bounds.Height / 2 - panel.Height / 2);
+            popup.IsOpen = true;
+            UpdateLayout(); 

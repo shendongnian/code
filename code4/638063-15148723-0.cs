@@ -1,0 +1,6 @@
+    ...
+    public GamePiece(IMouseClickable parent)
+    {
+       MouseClick += parent.HandleMouseClick;
+    }
+    ...

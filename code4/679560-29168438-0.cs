@@ -1,0 +1,7 @@
+        sQuery.AppendLine("SELECT * ")
+        sQuery.AppendLine(" FROM WorkItems ")
+        sQuery.AppendLine(" WHERE ")
+        sQuery.AppendLine("     [Team Project] = '" & pProject.Name & "' ")
+        sQuery.AppendLine("     AND [Iteration Path] = '" & currentSprint.IterationPath & "' ")
+        sQuery.AppendLine("     AND [Assigned To] = '[Replace with UserName]'")
+        Dim result = pProject.Store.Query(sQuery.ToString)

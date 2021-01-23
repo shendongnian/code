@@ -1,0 +1,6 @@
+    Class StatusViewModel
+        Public Property Progress() As Integer
+		...
+        Public Property Text() As String
+		...
+    End Class

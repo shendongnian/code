@@ -1,0 +1,10 @@
+        Excel.Range dataRange = chartSheet.get_Range("B2", "B" + chart.Rows.Count.ToString());
+        dataRange.NumberFormat = "#%";
+        dataRange = chartSheet.get_Range("C2", "C" +   chart.Rows.Count.ToString());
+                            dataRange.NumberFormat = "#%";
+        dataRange = chartSheet.get_Range("A1", "C" + chart.Rows.Count.ToString());
+        Excel.ChartObjects chartObjects = (Excel.ChartObjects)(excelWorksheet.ChartObjects(Type.Missing));
+        Excel.ChartObject newChartObject = (Excel.ChartObject)chartObjects.Add(0, 600, (100 * chart.Rows.Count), 300);
+        Excel.Chart chartPage = newChartObject.Chart;
+        chartPage.SetSourceData(dataRange, Type.Missing);
+        chartPage.ChartType = Excel.XlChartType.xlColumnClustered;

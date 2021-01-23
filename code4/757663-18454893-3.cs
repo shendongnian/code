@@ -1,0 +1,6 @@
+    public class Product
+    {
+        // ...
+        public IList<Category> Categories { get; set; }
+        // ...
+    }

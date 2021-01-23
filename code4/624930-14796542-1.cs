@@ -1,0 +1,10 @@
+    var model = ProtoBuf.Meta.RuntimeTypeModel.Default;
+    model.Add(typeof(MyClassSurrogate), true);
+    model.Add(typeof(MyClass), false).SetSurrogate(typeof(MyClassSurrogate));
+    var stream = new System.IO.MemoryStream();
+    var list = new List<MyClass>();
+    for (int x = 0; x < 10; x++) list.Add(new MyClass { Number = x });            
+    ProtoBuf.Serializer.Serialize(stream, list);
+    stream.Seek(0, SeekOrigin.Begin);
+    var xs = ProtoBuf.Serializer.Deserialize<List<MyClass>>(stream);
+    foreach (var x in xs) Debug.WriteLine(x.Number);

@@ -1,0 +1,12 @@
+            var result = new List<Result>();
+            var firstTask = new Task<IEnumerable<Result>>(this.GetSomeItemsA);
+            var secondTask = new Task<IEnumerable<Result>>(this.GetSomeItemsB);
+            var thirdTask = new Task<IEnumerable<Result>>(this.GetSomeItemsC);
+            firstTask.Start();
+            secondTask.Start();
+            thirdTask.Start();
+            Task.WaitAll(firstTask, secondTask, thirdTask);
+            result.AddRange(firstTask.Result);
+            result.AddRange(secondTask.Result);
+            result.AddRange(thirdTask.Result);
+            return result;

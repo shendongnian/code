@@ -1,0 +1,13 @@
+            MailMessage msg = new MailMessage(txtemail.Text, "shopover@vibrantinfosystems.com");
+            msg.Subject = "Contact Us";
+            string body = "Name: " + txtname.Text.Trim() + "";
+            body += "<br />Email:" + txtemail.Text + "";
+            body += "<br /><br /> Subject :" + txtsubject.Text + "";
+            body += "<br /><br />Message : " + txtmessage.Text + "";
+            msg.Body = body;
+            msg.IsBodyHtml = true;
+            SmtpClient client = new SmtpClient();
+            client.Host = "smtpout.secureserver.net.";
+            client.Send(msg);
+            client.Timeout = 10000;
+            ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Mail Sent Successfully!!');", true);

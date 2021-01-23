@@ -1,0 +1,14 @@
+    int empID = Convert.ToInt32(ddlEmployee.SelectedValue);
+    SqlConnection conn;
+    SqlCommand cmd = new SqlCommand();
+    string strSQL = "Insert INTO info (empid, day1,day2) Values (@empid, @day1,@day2)";
+    string bag_str = WebConfigurationManager.ConnectionStrings["asgdb01ConnectionString"].ConnectionString;
+    conn = new SqlConnection(bag_str);
+    conn.Open();
+    cmd.Connection = conn;
+    cmd.CommandText = strSQL;
+    cmd.Parameters.Add(new SqlParameter("@empid", empID));
+    cmd.Parameters.Add(new SqlParameter("@day1", TextBox1.Text));
+    cmd.Parameters.Add(new SqlParameter("@day2", TextBox2.Text));
+    int i = cmd.ExecuteNonQuery();
+    conn.Close();

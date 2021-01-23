@@ -1,0 +1,25 @@
+                DisposalEscrow disposal = new DisposalEscrow("temp1");
+                CobaltFilePartitionConfig content = new CobaltFilePartitionConfig();
+                content.IsNewFile = false;
+                content.HostBlobStore = new FileSystemHostBlobStore("C:\\tmp\\filestore\\", "filestore", new FileSystemHostBlobStore.Config(), disposal, true, false);
+                content.cellSchemaIsGenericFda = true;
+                content.CellStorageConfig = new CellStorageConfig();
+                content.Schema = CobaltFilePartition.Schema.ShreddedCobalt;
+                content.PartitionId = FilePartitionId.Content;
+                CobaltFilePartitionConfig wacupdate = new CobaltFilePartitionConfig();
+                wacupdate.IsNewFile = false;
+                wacupdate.HostBlobStore = new FileSystemHostBlobStore("C:\\tmp\\wacstore\\", "wacstore", new FileSystemHostBlobStore.Config(), disposal, true, false);
+                wacupdate.cellSchemaIsGenericFda = false;
+                wacupdate.CellStorageConfig = new CellStorageConfig();
+                wacupdate.Schema = CobaltFilePartition.Schema.ShreddedCobalt;
+                wacupdate.PartitionId = FilePartitionId.WordWacUpdate;
+                Dictionary<FilePartitionId, CobaltFilePartitionConfig> pd = new Dictionary<FilePartitionId, CobaltFilePartitionConfig>();
+                pd.Add(FilePartitionId.Content, content);
+                pd.Add(FilePartitionId.WordWacUpdate, wacupdate);
+		// custom locking store is my implementation of hostlockingstore
+                CobaltFile cobaltFile = new CobaltFiledisposal, pd, new CustomHostLockingStore(), null);
+                var src = FileAtom.FromExisting("C:\\tmp\\Test.docx", temp);
+                Cobalt.Metrics o1;
+                cobaltFile.GetCobaltFilePartition(FilePartitionId.Content).SetStream(RootId.Default.Value, src, out o1);
+                cobaltFile.GetCobaltFilePartition(FilePartitionId.Content).GetStream(RootId.Default.Value).Flush();
+                cobaltFile.CommitChanges();

@@ -1,0 +1,10 @@
+    UserDetails user = new UserDetails();
+    user.UserName = "bill";
+    user.UserID = "1";
+    dynamic dynamicUser = (System.Dynamic.ExpandoObject)user;
+    dynamicUser.newMember = "check this out!";
+    Console.WriteLine(user.UserName);
+    Console.WriteLine(user.UserID);
+    Console.WriteLine(dynamicUser.UserName);
+    Console.WriteLine(dynamicUser.UserID);
+    Console.WriteLine(dynamicUser.newMember);

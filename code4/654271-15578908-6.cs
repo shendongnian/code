@@ -1,0 +1,9 @@
+    System.Array
+    System.Tuple<T1>
+    System.Tuple<T1,T2>
+    System.Tuple<T1,T2,T3>
+    System.Tuple<T1,T2,T3,T4>
+    System.Tuple<T1,T2,T3,T4,T5>
+    System.Tuple<T1,T2,T3,T4,T5,T6>
+    System.Tuple<T1,T2,T3,T4,T5,T6,T7>
+    System.Tuple<T1,T2,T3,T4,T5,T6,T7,TRest>

@@ -1,0 +1,5 @@
+    <system.webServer>
+      <staticContent>
+        <clientCache cacheControlMode="UseExpires" httpExpires="Tue, 19 Jan 2038 03:14:07 GMT" />
+       </staticContent>
+    </system.webServer>

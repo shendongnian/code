@@ -1,0 +1,9 @@
+     this.radioButton1.AutoSize = true;
+     this.radioButton1.Location = new System.Drawing.Point(102, 162);
+     this.radioButton1.Name = "radioButton1";
+     this.radioButton1.Size = new System.Drawing.Size(85, 17);
+     this.radioButton1.TabIndex = 1;
+     this.radioButton1.TabStop = true;
+     this.radioButton1.Text = "radioButton1";
+     this.radioButton1.UseVisualStyleBackColor = true;
+     this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged); /* THis is the offending line! */

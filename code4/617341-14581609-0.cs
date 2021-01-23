@@ -1,0 +1,10 @@
+            TreeViewItem item1 = new TreeViewItem();
+            TreeViewItem item2 = new TreeViewItem();
+            item1.Items.Add("");
+            item1.Items.Add("");
+            item1.ItemTemplate = FindResource("My_Template") as HierarchicalDataTemplate;
+            item2.Items.Add("");
+            item2.Items.Add("");
+            item2.ItemTemplate = FindResource("My_Template") as HierarchicalDataTemplate;
+            trvRecordList.Items.Add(item1);
+            trvRecordList.Items.Add(item2);

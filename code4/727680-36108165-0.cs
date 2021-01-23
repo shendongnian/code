@@ -1,0 +1,12 @@
+            var k = new StandardKernel();
+            k.Bind<Application>().ToSelf().InSingletonScope().DefinesNamedScope("Application");
+            k.Bind<UserRepository>().ToSelf().InNamedScope("Application");
+            const string userScopeName = "User";
+            k.Bind<UserScope>().ToSelf().DefinesNamedScope(userScopeName);
+            k.Bind<User>().ToSelf().InNamedScope(userScopeName);
+            k.Bind<User.ChatService>().ToSelf().InNamedScope(userScopeName);
+            k.Bind<User.SheetService>().ToSelf().InNamedScope(userScopeName);
+            const string nestedScopeName = "UserSheet";
+            k.Bind<User.Sheet>().ToSelf().DefinesNamedScope(nestedScopeName);
+            k.Bind<User.Sheet.SheetInfo>().ToSelf().InNamedScope(nestedScopeName);
+            k.Bind<User.Sheet.SheetCalculator>().ToSelf().InNamedScope(nestedScopeName);

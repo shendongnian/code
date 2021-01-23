@@ -1,0 +1,5 @@
+    [ServiceContract]
+    public interface IServices
+    {
+        // ...
+    }

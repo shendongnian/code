@@ -1,0 +1,36 @@
+    public class PulseWaitExample
+    {
+        private Queue<object> queue;
+        private bool running;
+    
+        private void ProducerThreadProc()
+        {
+            while (running)
+            {
+                object produced = ...; // Do production stuff here.
+                lock (queue)
+                {
+                    queue.Enqueue(produced);
+                    Monitor.Pulse(queue);
+                }
+            }
+        }
+    
+        private void ConsumerThreadProc()
+        {
+            while (running)
+            {
+                object toBeConsumed;
+                lock (queue)
+                {
+                    // here is the fix
+                	if (queue.Count == 0)
+                    { 
+                       Monitor.Wait(queue);
+                    }
+                    toBeConsumed = queue.Dequeue();
+                }
+                // Do consuming stuff with toBeConsumed here.
+            }
+        }
+    }

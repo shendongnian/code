@@ -1,0 +1,13 @@
+            GraphPane pane = zedGraphControl1.GraphPane;
+            pane.Title.Text = "Graph By Alax Technology";
+            pane.XAxis.Title.Text = "EMPLOYEE";
+            pane.YAxis.Title.Text = "SALARY";
+            PieItem Attendence = pane.AddPieSlice(Convert.ToDouble(textBox1.Text), System.Drawing.Color.Orange, 0f, "Attendence");
+            PieItem Grown = pane.AddPieSlice(Convert.ToDouble(textBox2.Text), System.Drawing.Color.White, 0f, "Grown Up");
+            PieItem Salary = pane.AddPieSlice(Convert.ToDouble(textBox3.Text), System.Drawing.Color.Green, 0f, "Salary Increase");
+            Attendence.LabelType = PieLabelType.Value;
+            Grown.LabelType = PieLabelType.Value;
+            Salary.LabelType = PieLabelType.Value;
+            zedGraphControl1.AxisChange();
+            zedGraphControl1.Invalidate();
+            zedGraphControl1.Refresh();

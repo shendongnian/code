@@ -1,0 +1,24 @@
+                string filePath = "C:\someFile.xml";
+                XDocument testDoc = XDocument.Load(filePath);
+                
+                XmlDocument xDoc = new XmlDocument();
+                xDoc.Load(filePath);
+                string newDoc = xDoc.InnerXml.ToString();
+                ASCIIEncoding encoding = new ASCIIEncoding();
+                byte[] data = encoding.GetBytes(testDoc.ToString());
+                string localProfile = "http://localhost/WcfService/Service1.svc/ProfileRequest";
+                HttpWebRequest webrequest = (HttpWebRequest)WebRequest.Create(localProfile);
+                webrequest.Method = "POST";
+                webrequest.ContentType = "text/xml";
+                webrequest.ContentLength = data.Length;
+                Stream newStream = webrequest.GetRequestStream();
+                newStream.Write(data, 0, data.Length);
+                newStream.Close();
+                HttpWebResponse webresponse = (HttpWebResponse)webrequest.GetResponse();
+                string strResult = string.Empty;
+                Encoding enc = System.Text.Encoding.GetEncoding("UTF-8");
+                StreamReader loResponseStream = new StreamReader(webresponse.GetResponseStream(), enc);
+                strResult = loResponseStream.ReadToEnd();
+                loResponseStream.Close();
+                webresponse.Close();
+                Console.Write(strResult);

@@ -1,0 +1,15 @@
+    Rectangle _rect;
+                            _rect = new Rectangle(50, 100, 100, 100);
+                            PushbuttonField button = new PushbuttonField(writer, _rect, "button");
+                            PdfAnnotation widget = button.Field;
+                            button.BackgroundColor = new GrayColor(0.75f);
+                            button.BorderColor = GrayColor.GRAYBLACK;
+                            button.BorderWidth = 1;
+                            button.BorderStyle = PdfBorderDictionary.STYLE_BEVELED;
+                            button.TextColor = GrayColor.GRAYBLACK;
+                            button.FontSize = 11;
+                            button.Text = "Text";
+                            button.Layout = PushbuttonField.LAYOUT_ICON_LEFT_LABEL_RIGHT;
+                            button.ScaleIcon = PushbuttonField.SCALE_ICON_ALWAYS;
+                            button.ProportionalIcon = true;
+                            button.IconHorizontalAdjustment = 0;

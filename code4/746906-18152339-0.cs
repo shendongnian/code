@@ -1,0 +1,19 @@
+    class MyRecord {
+        public readonly int X;
+        public readonly int Y;
+        public readonly int Z;
+        public MyRecord(MyRecord prototype, int? x = 0, int? y = 0, int? z = 0) {
+            X = x ?? prototype.X;
+            Y = y ?? prototype.Y;
+            Z = z ?? prototype.Z;
+        }
+        public MyRecord(int x, int y, int z) {
+            X = x;
+            Y = y;
+            Z = z;
+        }
+    }
+    static void Main(string[] args) {
+        var rec1 = new MyRecord(1, 2, 3);
+        var rec2 = new MyRecord(rec1, y: 100, z: 2);
+    }

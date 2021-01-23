@@ -1,0 +1,5 @@
+    Dim table As New Data.DataTable("MyTable")
+    table.Columns.Add("DataName")
+    table.Columns.Add("33^Bamako_T")
+    table.Columns.Add("33^Bamako_A")
+    adapter.Fill( table )

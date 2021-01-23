@@ -1,0 +1,6 @@
+    using System.Linq;
+    .....
+    public static List<Opcode> SendOpcodes = new List<Opcode>();
+    .....
+    SendOpcodes.Add(new Opcode("Migrate", 11));
+    Opcode desiredOpcode = SendOpcodes.First(opcode => opcode.Name == "Migrate");

@@ -1,0 +1,13 @@
+    using System;
+    using System.IO;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.UI;
+    using System.Web.UI.WebControls;
+    using System.Web.Services;
+    using System.Web.Script.Services;
+    using System.Data.SqlClient;
+    using System.Web.Security;
+    using Newtonsoft.Json;
+    return JsonConvert.SerializeObject(credentials);

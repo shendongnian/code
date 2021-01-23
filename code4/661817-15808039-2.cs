@@ -1,0 +1,10 @@
+    Dictionary<string, object> documentsDictionary = new Dictionary<string, object>();
+            List<string> documentsDictionaryChildren = new List<string> { "Document1", "Document2", "Document3", "Document4", "Document5" };
+            documentsDictionary.Add("Title", "Documents");
+            documentsDictionary.Add("Children", documentsDictionaryChildren);
+            Dictionary<string, object> picturesDictionary = new Dictionary<string, object>();
+            List<string> picturesDictionaryChildren = new List<string> { "Picture1", "Picture2", "Picture3", "Picture4", "Picture5" };
+            picturesDictionary.Add("Title", "Pictures");
+            picturesDictionary.Add("Children", picturesDictionaryChildren);
+            Directories.Add(documentsDictionary);
+            Directories.Add(picturesDictionary);

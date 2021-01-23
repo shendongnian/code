@@ -1,0 +1,9 @@
+		a[8]=System.String
+		a[7]=System.Collections.Generic.IEnumerable`1[System.Char]
+		a[6]=System.Collections.IEnumerable
+		a[5]=System.ICloneable
+		a[4]=System.IComparable
+		a[3]=System.IConvertible
+		a[2]=System.IEquatable`1[System.String]
+		a[1]=System.IComparable`1[System.String]
+		a[0]=System.Object

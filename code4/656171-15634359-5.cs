@@ -1,0 +1,11 @@
+      var Germany = new Country();
+      Germany.CountryName = "Germany";
+      Germany.Regions = new List<CountryRegion>();
+      var Siemensweg = new Area();
+      Siemensweg.AreaName = "Siemensweg";
+      Siemensweg.Population = 14;
+      var Bernstr = new Area();
+      Bernstr.AreaName = "Bernstr";
+      Bernstr.Population = 4;
+      Germany.Regions.Add(new CountryRegion { RegionName = "Siemensweg", new List<Area> { Siemensweg } });
+      Germany.Regions.Add(new CountryRegion { RegionName = "Berlin", new List<Area> { Bernstr } });
