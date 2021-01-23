@@ -1,0 +1,21 @@
+    Generated sequence: {12, 5, 12, 15, 8, 20, 6, 5, 16, 6}
+    Number 1 generated 0 times.
+    Number 2 generated 0 times.
+    Number 3 generated 0 times.
+    Number 4 generated 0 times.
+    Number 5 generated 2 times.
+    Number 6 generated 2 times.
+    Number 7 generated 0 times.
+    Number 8 generated 1 times.    
+    Number 9 generated 0 times.
+    Number 10 generated 0 times.
+    Number 11 generated 0 times.
+    Number 12 generated 2 times.
+    Number 13 generated 0 times.
+    Number 14 generated 0 times.
+    Number 15 generated 1 times.
+    Number 16 generated 1 times.
+    Number 17 generated 0 times.
+    Number 18 generated 0 times.
+    Number 19 generated 0 times.
+    Number 20 generated 1 times.

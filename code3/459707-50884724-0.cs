@@ -1,0 +1,12 @@
+	var dataTable = new DataTable();
+	dataTable.Columns.Add("Id", typeof(int));
+	dataTable.Columns.Add("ParentId", typeof(int));
+	dataTable.Columns.Add("Name", typeof(String));
+	dataTable.Rows.Add(new Object[] { 1, 0, "Parent1" });
+	dataTable.Rows.Add(new Object[] { 2, 1, "Child1" });
+	dataTable.Rows.Add(new Object[] { 3, 2, "ChildA of Child1" });
+	dataTable.Rows.Add(new Object[] { 4, 2, "ChildB of Child1" });
+	dataTable.Rows.Add(new Object[] { 5, 1, "Child2" });
+	dataTable.Rows.Add(new Object[] { 6, 5, "ChildA of Child2" });
+	dataTable.Rows.Add(new Object[] { 7, 5, "ChildB of Child2" });	
+	dataTable.Rows.Add(new Object[] { 8, 0, "Parent2" });

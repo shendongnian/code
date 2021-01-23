@@ -1,0 +1,11 @@
+    MessageBox.Show(VistaPaths.GetUserFolderPath(UserFolder.Contacts));
+    MessageBox.Show(VistaPaths.GetUserFolderPath(UserFolder.Desktop));
+    MessageBox.Show(VistaPaths.GetUserFolderPath(UserFolder.Documents));
+    MessageBox.Show(VistaPaths.GetUserFolderPath(UserFolder.Downloads));
+    MessageBox.Show(VistaPaths.GetUserFolderPath(UserFolder.Favorites));
+    MessageBox.Show(VistaPaths.GetUserFolderPath(UserFolder.Links));
+    MessageBox.Show(VistaPaths.GetUserFolderPath(UserFolder.Music));
+    MessageBox.Show(VistaPaths.GetUserFolderPath(UserFolder.Pictures));
+    MessageBox.Show(VistaPaths.GetUserFolderPath(UserFolder.SavedGames));
+    MessageBox.Show(VistaPaths.GetUserFolderPath(UserFolder.Searches));
+    MessageBox.Show(VistaPaths.GetUserFolderPath(UserFolder.Videos));

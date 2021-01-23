@@ -1,0 +1,35 @@
+        static void Main()
+        {
+            int x = 1;
+            int length;
+            string a = "Press any key to continue";
+            string num=string.Empty;
+            while (x == 1)
+            {
+                Console.WriteLine("How many Characters would you like the Password to be? (Press -1 to Stop)");
+                length = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    for (int i = 0; i < length; i++)
+                    {
+                        int num1 = Number();
+                        Int32 ASCII = num1;
+                        num =num+ ((char)num1);
+                        
+                    }
+                    Console.WriteLine(num);
+                }
+                catch
+                {
+                    Console.WriteLine(a);
+                }
+                if (length == -1)
+                    break;
+            }
+        }
+        static Random _r = new Random();
+        static int Number()
+        {
+            return _r.Next(65, 90); // decimal
+        }
+    }

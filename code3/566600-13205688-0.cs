@@ -1,0 +1,11 @@
+    var a = new ClassA();
+    var timer = new Timer(a.Exec);
+    var refA = new WeakReference(a);
+    var refTimer = new WeakReference(timer);
+    a = null;
+    timer = null;
+    GC.Collect();
+    GC.WaitForPendingFinalizers();
+    GC.Collect();
+    Console.WriteLine(refA.IsAlive);
+    Console.WriteLine(refTimer.IsAlive);

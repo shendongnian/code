@@ -1,0 +1,10 @@
+    Context.Cache.Add(
+                "someComplexObject",
+                "foo",
+                null,
+                DateTime.Now.AddSeconds(seconds),
+                System.Web.Caching.Cache.NoSlidingExpiration,
+                System.Web.Caching.CacheItemPriority.NotRemovable,
+                null
+            );
+    Response.Write(Cache["someComplexObject").ToString());

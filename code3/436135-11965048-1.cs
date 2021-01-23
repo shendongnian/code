@@ -1,0 +1,11 @@
+    sourceFile.Read(getContent, 0, (int)sourceFile.Length);
+    sourceFile.Close();
+    Response.ClearContent();
+    Response.ClearHeaders();
+    Response.Buffer = true;
+    Response.ContentType = "application/vnd.ms-excel";
+    Response.AddHeader("Content-Length", getContent.Length.ToString());
+    Response.AddHeader("Content-Disposition", "attachment; filename=" + fileName);
+    Response.BinaryWrite(getContent);
+    Response.Flush();
+    Response.End();

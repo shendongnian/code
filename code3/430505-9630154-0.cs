@@ -1,0 +1,11 @@
+    System.Web.Helpers.WebMail.SmtpServer = smtp_server;
+                System.Web.Helpers.WebMail.SmtpPort = smtp_port;
+                System.Web.Helpers.WebMail.EnableSsl = true;
+                System.Web.Helpers.WebMail.From = "fromaddress";
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<table><tr><td>");            
+                sb.Append(msg);                     
+                sb.Append("</td></tr></table>");
+                string body = sb.ToString();
+                string To = toemail;
+                System.Web.Helpers.WebMail.Send(To,subject, body);

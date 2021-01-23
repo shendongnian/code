@@ -1,0 +1,7 @@
+     interface IInterface
+        {
+            void MyMethod()
+            {
+    
+            }
+        }

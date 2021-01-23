@@ -1,0 +1,13 @@
+    string tmpChartName = "test2.jpg";
+        string imgPath = HttpContext.Current.Request.PhysicalApplicationPath + tmpChartName;
+        Chart1.SaveImage(imgPath);
+        string imgPath2 = Request.Url.GetLeftPart(UriPartial.Authority) + VirtualPathUtility.ToAbsolute("~/" + tmpChartName);
+        Response.Clear();
+        Response.ContentType = "application/vnd.ms-excel";
+        Response.AddHeader("Content-Disposition", "attachment; filename=test.xls;");
+        StringWriter stringWrite = new StringWriter();
+        HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
+        string headerTable = @"<Table><tr><td><img src='" + imgPath2 + @"' \></td></tr></Table>";
+        Response.Write(headerTable);
+        Response.Write(stringWrite.ToString());
+        Response.End();

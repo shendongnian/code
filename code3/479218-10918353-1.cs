@@ -1,0 +1,6 @@
+    ...
+    public static Rectangle Widen(Rectangle rect, int widenByAmount)
+    {
+        return new Rectangle(rect.Height, rect.Width + widenByAmount);
+    }
+    ...

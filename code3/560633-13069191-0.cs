@@ -1,0 +1,79 @@
+    4. My solution that used data binding.
+    (1)-I Create an abstract object **Item** with (Name, Cost) properties. 
+    (2)-I Create a Concrete item i.e **ConcItem** that inherit **Item** 
+    (3)-I create a footer item i.e **FooterItem** that also inherits **Item**
+    (4)-A collection of Items i.e ItemList where you instantiate the footer item.
+    (5) Finally, just before you do data binding call the method that adds the footer item           
+    **Sample Code:(*Item, ConcItem, FooterItem,ItemList*)**
+    
+    public abstract class Item
+    {
+    public virtual string Name { get; set; }
+    public virtual int Cost { get; set; }
+    }
+    public  class ConcItem:Item
+    {
+    public override string Name { get; set; }
+    public override int Cost { get; set; }        
+    }
+    public  class FooterItem:Item 
+    {
+    public override string Name { get { return "Total"; } }
+    public override int Cost { get; set; }
+    }
+    public class ItemList : List<Item>
+    {
+    private FooterItem _footer;
+    public void SetFooter()
+    {
+    _footer = new FooterItem();            
+    foreach (var item in this)
+    {
+    _footer.Cost += item.Cost;              
+    }
+    this.Add(_footer);
+    }
+    }
+    public partial class Form1 : Form
+    {
+    Item _item;
+    ItemList _itemList;
+    public Form1()
+    {
+    InitializeComponent();
+    dgv.DataBindingComplete += dgv_DataBindingComplete;
+    _itemList = new ItemList();
+    SetSampleData();
+    }
+    private void SetSampleData()
+    {
+    _item = new ConcItem();
+    _item.Name = "Book";
+    _item.Cost = 250;
+    _itemList.Add(_item);
+    _item = new ConcItem();
+    _item.Name = "Table";
+    _item.Cost = 500;
+    _itemList.Add(_item);
+    _item = new ConcItem();
+    _item.Name = "PC";
+    _item.Cost = 700;
+    _itemList.Add(_item);
+    dgv.DataSource = null;
+    _itemList.SetFooter();  //Add the footer item b4  data binding
+    dgv.DataSource = _itemList;
+            
+    }
+    void dgv_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+    {
+    //If you want to do some formating on the footer row
+    int rowIndex = dgv.Rows.GetLastRow(DataGridViewElementStates.Visible);
+    if (rowIndex <= 0)
+    {
+    return;
+    }
+    dgv.Rows[rowIndex].DefaultCellStyle.BackColor = Color.Red;
+    dgv.Rows[rowIndex].DefaultCellStyle.SelectionBackColor = Color.Red;                    
+    }
+    }
+    

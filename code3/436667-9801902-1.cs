@@ -1,0 +1,6 @@
+    public void CustomMethod(params int[] foo, params int[] bar)
+    {
+        ...
+    }
+    // ...
+    CustomMethod(1, 2);

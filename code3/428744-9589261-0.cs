@@ -1,0 +1,10 @@
+    using Excel = Microsoft.Office.Interop.Excel;
+    using Microsoft.Office;
+    using Microsoft.Office.Core;
+            Excel.Application xlApp;
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+            xlApp = new Excel.Application();
+            xlApp.Workbooks.OpenText(@"c:\data.txt", Microsoft.Office.Interop.Excel.XlTextParsingType.xlDelimited);
+            xlApp.Visible = true;

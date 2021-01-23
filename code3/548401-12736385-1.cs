@@ -1,0 +1,6 @@
+    public MyEntities : DbContext, IMyEntitiesContext
+    {
+        public IDbSet<Profile> Profiles { get; set; }
+        ...
+        ...
+    }

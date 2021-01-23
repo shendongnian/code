@@ -1,0 +1,10 @@
+    return string.Format("{0}-{1}-{2}-{3}-{4}-{5}-{6}-{7}-{8}",
+                         CategoryId,
+                         Size ?? "null", 
+                         Colour ?? "null",
+                         LowerPrice != 0 ? LowerPrice.ToString() : "null",
+                         HigherPrice != 0 ? HigherPrice.ToString() : "null",
+                         SortExpression ?? "null",
+                         PageNumber != 0 ? PageNumber.ToString() : "null",
+                         PageSize != 0 ? PageSize.ToString() : "null", 
+                         OnlyClearance);

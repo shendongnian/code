@@ -1,0 +1,14 @@
+    Document document = new Document();
+                PdfWriter.GetInstance(document, new FileStream("c:\\Chap0501.pdf", FileMode.Create));
+                PdfPTable table = new PdfPTable(4);
+                document.Open();
+                PdfPCell LEFT = new PdfPCell(new Phrase("Left"));
+                LEFT.Colspan = 1;
+                LEFT.Rowspan = 2;
+                table.AddCell(LEFT);
+                PdfPCell RIGHT = new PdfPCell(new Phrase("Right"));
+                RIGHT.Colspan = 3;
+                RIGHT.Rowspan = 2;
+                table.AddCell(RIGHT);
+                document.Add(table);
+                document.Close();

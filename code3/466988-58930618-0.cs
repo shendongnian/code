@@ -1,0 +1,10 @@
+    			ObservableCollection<int> ints = new ObservableCollection<int>();
+    			ints.Add(3);
+    			ints.Add(4);
+    			ints.Add(5);
+    			ints.Add(6);
+    			ints.Add(3);
+    			ints.Add(4);
+    			ints.Add(1);
+    			ints.Add(2);
+    			var groupedInts = ints.Grouping(i=>i).Selecting(ig =>  new {Key=ig.Key, Count=ig.Count});

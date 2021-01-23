@@ -1,0 +1,6 @@
+    using (var stm = new MemoryStream(new byte[] { 0x16, 0x0d, 0x74, 0x65, 0x73, 0x74, 0x31, 0x40, 0x72, 0x73, 0x61, 0x2e, 0x63, 0x6f, 0x6d })) 
+    { 
+        Asn1Parser parser = new Asn1Parser(); 
+        parser.LoadData(stm); 
+        var decoded = parser.ToString(); 
+    } 

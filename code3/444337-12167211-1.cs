@@ -1,0 +1,12 @@
+    Microsoft.TeamFoundation.Client.dll
+    Microsoft.TeamFoundation.Common.dll
+    Microsoft.TeamFoundation.Common.Library.dll
+    Microsoft.TeamFoundation.dll
+    Microsoft.TeamFoundation.VersionControl.Client.dll
+    Microsoft.TeamFoundation.VersionControl.Common.dll
+    Microsoft.TeamFoundation.VersionControl.Common.Integration.dll
+    Microsoft.TeamFoundation.WorkItemTracking.Client.Cache.dll
+    Microsoft.TeamFoundation.WorkItemTracking.Client.DataStore.dll
+    Microsoft.TeamFoundation.WorkItemTracking.Client.dll
+    Microsoft.TeamFoundation.WorkItemTracking.Client.RuleEngine.dll
+    Microsoft.TeamFoundation.WorkItemTracking.Proxy.dll

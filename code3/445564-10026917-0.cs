@@ -1,0 +1,49 @@
+    <?xml version="1.0" encoding="UTF-16"?>
+    <Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+      <RegistrationInfo>
+        <Date>2012-04-05T13:28:54.2106589</Date>
+        <Author>DAVIDDOM\RoyiN</Author>
+      </RegistrationInfo>
+      <Triggers>
+        <CalendarTrigger>
+          <StartBoundary>2012-04-05T13:28:43.2046589</StartBoundary>
+          <Enabled>true</Enabled>
+          <ScheduleByDay>
+            <DaysInterval>1</DaysInterval>
+          </ScheduleByDay>
+        </CalendarTrigger>
+      </Triggers>
+      <Principals>
+        <Principal id="Author">
+          <RunLevel>LeastPrivilege</RunLevel>
+          <UserId>DAVIDDOM\RoyiN</UserId>
+          <LogonType>InteractiveToken</LogonType>
+        </Principal>
+      </Principals>
+      <Settings>
+        <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+        <DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>
+        <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
+        <AllowHardTerminate>true</AllowHardTerminate>
+        <StartWhenAvailable>false</StartWhenAvailable>
+        <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
+        <IdleSettings>
+          <Duration>PT10M</Duration>
+          <WaitTimeout>PT1H</WaitTimeout>
+          <StopOnIdleEnd>true</StopOnIdleEnd>
+          <RestartOnIdle>false</RestartOnIdle>
+        </IdleSettings>
+        <AllowStartOnDemand>true</AllowStartOnDemand>
+        <Enabled>true</Enabled>
+        <Hidden>false</Hidden>
+        <RunOnlyIfIdle>false</RunOnlyIfIdle>
+        <WakeToRun>false</WakeToRun>
+        <ExecutionTimeLimit>P3D</ExecutionTimeLimit>
+        <Priority>7</Priority>
+      </Settings>
+      <Actions Context="Author">
+        <Exec>
+          <Command>C:\Windows\system32\charmap.exe</Command>
+        </Exec>
+      </Actions>
+    </Task>

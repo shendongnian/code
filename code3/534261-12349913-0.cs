@@ -1,0 +1,18 @@
+	DateTime time = DateTime.Now;
+	Console.WriteLine(time.ToString("d"));
+	Console.WriteLine(time.ToString("D"));
+	Console.WriteLine(time.ToString("f"));
+	Console.WriteLine(time.ToString("F"));
+	Console.WriteLine(time.ToString("g"));
+	Console.WriteLine(time.ToString("G"));
+	Console.WriteLine(time.ToString("m"));
+	Console.WriteLine(time.ToString("M"));
+	Console.WriteLine(time.ToString("o"));
+	Console.WriteLine(time.ToString("O"));
+	Console.WriteLine(time.ToString("s"));
+	Console.WriteLine(time.ToString("t"));
+	Console.WriteLine(time.ToString("T"));
+	Console.WriteLine(time.ToString("u"));
+	Console.WriteLine(time.ToString("U"));
+	Console.WriteLine(time.ToString("y"));
+	Console.WriteLine(time.ToString("Y"));

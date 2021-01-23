@@ -1,0 +1,10 @@
+    Microsoft.Office.Interop.Excel.Application myExcel;
+    Microsoft.Office.Interop.Excel.Workbook myWorkbook;
+    Microsoft.Office.Interop.Excel.Worksheet worksheet;
+    myExcel = new Microsoft.Office.Interop.Excel.Application();
+    myExcel.Workbooks.Open(inputFileName.xls, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+    myWorkbook = myExcel.ActiveWorkbook;
+    worksheet = (Microsoft.Office.Interop.Excel.Worksheet)myWorkbook.Worksheets[1];
+    myWorkbook.SaveAs(outputFileName.txt, Microsoft.Office.Interop.Excel.XlFileFormat.xlTextWindows, Missing.Value, Missing.Value, Missing.Value, false, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+    myWorkbook.Close(false, Missing.Value, Missing.Value);
+    myExcel.Quit();

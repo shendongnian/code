@@ -1,0 +1,10 @@
+    XNamespace defaultNs = "http://www.tempuri.org/default";
+    XNamespace otherNs = "http://www.tempuri.org/other";
+    var root = new XElement(defaultNs + "root");
+    root.Add(new XAttribute(XNamespace.Xmlns + "otherNs", otherNs));
+    var parent = new XElement(otherNs + "parent");
+    root.Add(parent);
+    var child1 = new XElement(otherNs + "child1");
+    parent.Add(child1);
+    var child2 = new XElement(defaultNs + "child2");
+    parent.Add(child2);

@@ -1,0 +1,9 @@
+    PersianCalendar p = new PersianCalendar();
+            string PersianDate1 = textBox1.Text;
+            string[] parts = PersianDate1.Split('/', '-');
+            DateTime dta1 = p.ToDateTime(Convert.ToInt32(parts[0]), Convert.ToInt32(parts[1]), Convert.ToInt32(parts[2]), 0, 0, 0, 0);
+            string PersianDate2 = textBox2.Text;
+            string[] parts2 = PersianDate2.Split('/', '-');
+            DateTime dta2 = p.ToDateTime(Convert.ToInt32(parts2[0]), Convert.ToInt32(parts2[1]), Convert.ToInt32(parts2[2]), 0, 0, 0, 0);
+            string s = (dta2 - dta1).ToString().Replace(".00:00:00", "");
+            textBox3.Text = s; // Show the result into the textbox 

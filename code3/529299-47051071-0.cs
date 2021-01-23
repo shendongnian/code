@@ -1,0 +1,6 @@
+    HttpClientHandler handler = new HttpClientHandler();
+    handler.Proxy = System.Net.WebRequest.DefaultWebProxy;
+    handler.Proxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;
+    .....
+    HttpClient httpClient = new HttpClient(handler)
+    .... 

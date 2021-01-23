@@ -1,0 +1,6 @@
+    public override void PreExecute()
+    {
+        base.PreExecute();
+        a.Fill(AwardedVacTable, Variables.rsAwardedVac);
+    ...
+    ...

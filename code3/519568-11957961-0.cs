@@ -1,0 +1,6 @@
+    ...
+        context.Response.Clear();
+        context.Response.ContentType = System.Drawing.Imaging.ImageFormat.Png.ToString();
+        context.Response.OutputStream.Write(bmpBytes, 0, bmpBytes.Length);             
+        context.Response.End(); 
+    ...

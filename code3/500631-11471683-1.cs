@@ -1,0 +1,10 @@
+    var tables = new DataTable[4];
+    tables[0] = mynewtable;
+    tables[1] = mydataset.Tables[0];
+    tables[2] = mydataset.Tables[1];
+    tables[3] = mydataset.Tables[2];
+    mydataset.Tables.Clear();
+    mydataset.Tables.Add(Tables[0]);
+    mydataset.Tables.Add(Tables[1]);
+    mydataset.Tables.Add(Tables[2]);
+    mydataset.Tables.Add(Tables[3]);

@@ -1,0 +1,12 @@
+        Response.Clear();
+        Response.Buffer = true;
+        Response.AddHeader("content-disposition", "attachment;filename=fooreport.xls");
+        Response.Charset = "";
+        Response.ContentType = "application/ms-excel";
+        System.IO.StringWriter stringWrite = new System.IO.StringWriter();
+        System.Web.UI.HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
+        lstEarningReport.RenderControl(htmlWrite);
+        Response.Write("<table border='1' >  ");
+        Response.Write(stringWrite.ToString());
+        Response.Write("</table>");
+        Response.End();

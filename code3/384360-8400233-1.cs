@@ -1,0 +1,37 @@
+    private bool DoesIDExist(string ID)
+    {
+        string filePath = ""; //TODO
+        string hashShortPass = ""; //TODO
+        DataTable temp = new DataTable();
+        bool result = false;
+        
+        // Creating a connection string. Using placeholders make code
+        // easier to understand.
+        string connectionString =
+        @"Provider=Microsoft.ACE.OLEDB.12.0; Data Source={0};
+          Persist Security Info=False; Jet OLEDB:Database Password={1};";
+        
+        using (OleDbConnection connection = new OleDbConnection())
+        {
+            string sql = string.Format
+                ("SELECT FROM PersonalData WHERE DataID = '{0}'", ID);
+            using (OleDbCommand command = new OleDbCommand(sql, connection))
+            {
+                using (OleDbDataAdapter oda = new OleDbDataAdapter(command))
+                {
+                    try
+                    {
+                        oda.Fill(temp);
+        
+                        if (temp != null && temp.Rows.Count > 0)
+                            result = true; //ID exists
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+        }
+        return result;
+    }

@@ -1,0 +1,10 @@
+    SaveFormat format = SaveFormat.Excel2003;
+    Workbook book = ExcelWriter.Generate(report, format);
+    MemoryStream ms = new MemoryStream();
+    book.Save(ms, format);
+    Response.Clear();
+    Response.Buffer = true;
+    Response.ContentType = "application/vnd.ms-excel";
+    Response.AddHeader("Content-Disposition", "attachment; filename=\"Report.xls\"");
+    Response.BinaryWrite(ms.ToArray());
+    Response.End();

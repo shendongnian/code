@@ -1,0 +1,10 @@
+            Image img2x = new Bitmap(256*2, 256*2);
+            Graphics g2x = Graphics.FromImage(img2x);
+            g2x.SmoothingMode = SmoothingMode.AntiAlias;
+            g2x.DrawLine(new Pen(Color.Red, 0.5f*2), 0, 100*2, 255*2, 110*2);
+            Image img = new Bitmap(256, 256);
+            Graphics g = Graphics.FromImage(img);
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.DrawImage(img2x, 0, 0, 256, 256);
+            g.DrawLine(new Pen(Color.Red, 1f), 0, 110, 255, 120);
+            img.Save(@"c:\tmep\test.png", ImageFormat.Png);

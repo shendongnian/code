@@ -1,0 +1,5 @@
+    2012-01-25 23:04:21,539 [1] FATAL PowerGui.AddOn.PowerGuiComposer [(null)] - There was an unhandled exception! OMG WTF!
+    System.Windows.Markup.XamlParseException: The invocation of the constructor on type 'QuickConsole.MainWindow' that matches the specified binding constraints threw an exception. ---> System.IO.FileNotFoundException: Could not load file or assembly 'Engine, Version=3.1.0.2058, Culture=neutral, PublicKeyToken=a69c32b63191909f' or one of its dependencies. The system cannot find the file specified.
+       at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+       at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection, Boolean suppressSecurityChecks)
+       at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)

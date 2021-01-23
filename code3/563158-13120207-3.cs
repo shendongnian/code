@@ -1,0 +1,26 @@
+    public ObservableCollection<EEPROMSlotViewModel> SlotChildren { get; set; }
+    SlotChildren = new ObservableCollection<EEPROMSlotViewModel>();
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "0 : None", ID = 0 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "1 : None", ID = 1 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "2 : None", ID = 2 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "3 : None", ID = 3 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "4 : None", ID = 4 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "5 : None", ID = 5 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "6 : None", ID = 6 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "7 : None", ID = 7 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "8 : None", ID = 8 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "9 : None", ID = 9 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "10 : None", ID = 10 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "11 : None", ID = 11 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "12 : None", ID = 12 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "13 : None", ID = 13 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "14 : None", ID = 14 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "15: None", ID = 15 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "16 : None", ID = 16 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "17 : None", ID = 17 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "18 : None", ID = 18 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "19 : None", ID = 19 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "20 : None", ID = 20 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "21 : None", ID = 21 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "22 : None", ID = 22 });
+            SlotChildren.Add(new EEPROMSlotViewModel() { SlotButtons = "23 : None", ID = 23 }); 

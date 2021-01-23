@@ -1,0 +1,12 @@
+    System.Diagnostics.Process process = new System.Diagnostics.Process();
+    System.Diagnostics.ProcessStartInfo startinfo = new System.Diagnostics.ProcessStartInfo();
+    startinfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+    startinfo.FileName = @"PATH TO EXE";
+    startinfo.Arguments = "Arg1 Arg2 Arg3";
+    startinfo.ErrorDialog = false;
+    startinfo.RedirectStandardError = true;
+    startinfo.UseShellExecute = false;
+    process.StartInfo = startinfo;           
+    process.Start();
+    process.WaitForExit();
+    process.Kill();

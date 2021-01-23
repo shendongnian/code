@@ -1,0 +1,11 @@
+    while(true)
+                       {
+                         if(p.ProgressPercent==0)
+                            {
+                               Thread.sleep(1000);
+                            }
+                            else
+                             {
+                               progressBar1.Value=p.ProgressPercent;
+                             }
+                        }

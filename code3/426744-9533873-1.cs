@@ -1,0 +1,14 @@
+    var column = new DataGridViewComboBoxColumn();      
+    DataTable data = new DataTable(); 
+ 
+    data.Columns.Add(new DataColumn("Value", typeof(string))); 
+    data.Columns.Add(new DataColumn("Description", typeof(string))); 
+ 
+    data.Rows.Add("5", "6"); 
+    data.Rows.Add("51", "26"); 
+    data.Rows.Add("531", "63"); 
+    column.DataSource = data; 
+    column.ValueMember = "Value"; 
+    column.DisplayMember = "Description"; 
+ 
+    dataGridView1.Columns.Add(column); 

@@ -1,0 +1,11 @@
+    Page.Response.Clear();
+    Page.Response.Buffer = false;
+    Page.Server.ScriptTimeout = 3000;
+    Page.Response.ContentType = sContentType;
+    Page.Response.AddHeader("Content-Disposition", "attachment; filename=\"" + sFilename + "\"");
+    FileInfo oFileInfo = new FileInfo(sSourceFullPath);
+    long lfull_size = oFileInfo.Length;
+    oFileInfo = null;
+    Page.Response.AddHeader("Content-length", lfull_size.ToString());
+    Page.Response.WriteFile(sSourceFullPath);
+    Page.Response.End();

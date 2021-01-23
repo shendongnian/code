@@ -1,0 +1,5 @@
+    [assembly:System.Reflection.AssemblyTitleAttribute("title")] 
+    [assembly:System.Reflection.AssemblyDescriptionAttribute("description")] 
+    [assembly:System.Reflection.AssemblyCompanyAttribute("company")] 
+    [assembly:System.Reflection.AssemblyProductAttribute("product")] 
+    [assembly:System.Reflection.AssemblyFileVersionAttribute("1.2.3.4")]

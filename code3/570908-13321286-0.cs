@@ -1,0 +1,18 @@
+    System.Web.UI.HtmlControls.HtmlGenericControl Panel = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+        Panel.ID = "panel1";
+        Panel.Style.Add(HtmlTextWriterStyle.BackgroundColor, "White");
+        Panel.Style.Add(HtmlTextWriterStyle.Height, "680px");
+        Panel.Style.Add(HtmlTextWriterStyle.Width, "660px");
+        Panel.Style.Add(HtmlTextWriterStyle.BorderColor, "Black");
+        Panel.Style.Add(HtmlTextWriterStyle.BorderStyle, "Groove");
+        Panel.Style.Add(HtmlTextWriterStyle.BorderWidth, "2px");
+        System.Web.UI.HtmlControls.HtmlGenericControl div = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+        div.ID = "panel12";
+        div.Style.Add(HtmlTextWriterStyle.BackgroundColor, "White");
+        div.Style.Add(HtmlTextWriterStyle.Height, "70px");
+        div.Style.Add(HtmlTextWriterStyle.Width, "60px");
+        div.Style.Add(HtmlTextWriterStyle.BorderColor, "Black");
+        div.Style.Add(HtmlTextWriterStyle.BorderStyle, "Groove");
+        div.Style.Add(HtmlTextWriterStyle.BorderWidth, "2px");
+        this.Controls.Add(Panel);
+        Panel.Controls.Add(div);

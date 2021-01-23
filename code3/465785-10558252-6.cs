@@ -1,0 +1,16 @@
+    private string _connectionString = "yourconnectionstring"; // from web.config, or wherever you store it
+    public static SqlDataReader executeProcedure(string commandName, 
+                                             Dictionary<string, object> params)
+    {
+        SqlConnection conn = new SqlConnection(_connectionString);
+        conn.Open();
+        SqlCommand comm = conn.CreateCommand();
+        comm.CommandType = CommandType.StoredProcedure;
+        comm.CommandText = commandName;
+        if (params != null)
+        {
+            foreach(KeyValuePair<string, object> kvp in params)
+                comm.Parameters.Add(new SqlParameter(kvp.Key, kvp.Value));
+        }
+        return comm.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+    }

@@ -1,0 +1,7 @@
+       at ConsoleApplication1.Program.DumpStack()
+       at ConsoleApplication1.Program.Main(String[] args)
+       at System.AppDomain._nExecuteAssembly(RuntimeAssembly assembly, String[] args)
+       at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+       at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean ignoreSyncCtx)
+       at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+       at System.Threading.ThreadHelper.ThreadStart()

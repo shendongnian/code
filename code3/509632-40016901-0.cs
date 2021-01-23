@@ -1,0 +1,6 @@
+    public class MyDataObjectItem
+    {
+        //...
+        public MyDataObjectItem Self { get { return this; } }
+        //...
+    }

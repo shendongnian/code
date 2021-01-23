@@ -1,0 +1,16 @@
+    @using umbraco.MacroEngines
+    @inherits DynamicNodeContext
+    @{
+        var root = Model.AncestorOrSelf();
+        var links = root.FooterLinks.link;
+        <ul class="nav nav-pills">
+        <li><span>@Dictionary.RelatedLinks</span></li>
+        @foreach (var item in links)
+        {
+            var url = item.type == "internal" ? Library.NodeById(item.link).Url : item.link;
+            var rel = item.type == "external" ? " rel=\"external\"" : string.Empty;
+            var title = item.title;
+            <li><a href="@url"@Html.Raw(rel)>@title</a></li>
+        }
+        </ul>
+    }

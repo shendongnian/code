@@ -1,0 +1,10 @@
+            String conString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            OracleConnection con = new OracleConnection(conString);
+            string cmdStr = @" SELECT * FROM TABLE WHERE ROW = :param";
+            OracleCommand cmd = new OracleCommand(cmdStr, con);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            da.SelectCommand = cmd;
+            cmd.Parameters.Add("param", "yourValueHere");
+            DataSet ds = new DataSet("dataSet");
+            da.Fill(ds, "dataAdapter");
+            return ds;

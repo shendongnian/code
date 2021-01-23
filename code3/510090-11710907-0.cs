@@ -1,0 +1,22 @@
+              DataSet ds = new DataSet();
+            DataTable dtemploye = new DataTable();
+            DataColumn dcnameemploye = new DataColumn();
+            DataColumn dcIdemploye = new DataColumn();
+            dtemploye.Columns.AddRange(new DataColumn[]{dcnameemploye,dcIdemploye});
+            DataTable dtpayment = new DataTable();
+            DataColumn dtprice = new DataColumn();
+            DataColumn dtDate = new DataColumn();
+            DataColumn dcIdemployeprice = new DataColumn();
+            dtpayment.Columns.AddRange(new DataColumn[]{dcIdemployeprice,dtprice,dtDate});
+            
+            DataRow drrowemploy = dtemploye.NewRow();
+            drrowemploy[0] = "1";
+            drrowemploy[1] = "Employee 1";
+            dtemploye.Rows.Add(drrowemploy);
+            DataRow drrowpayment = dtpayment.NewRow();
+            drrowpayment[0] = "1";
+            drrowpayment[0] = "01/01/2012";
+            drrowpayment[1] = " 300";
+            DataRelation dr = new DataRelation("relemploy_payment", dcIdemploye, dcIdemployeprice);
+            ds.Tables.AddRange(new DataTable[]{dtemploye, dtpayment});
+            ds.Relations.Add(drrelation);

@@ -1,0 +1,11 @@
+    DataTable dt = new DataTable();
+    dt.Columns.Add("ID", typeof(int));
+    dt.Columns.Add("CategoryName");
+    cmbCategory.DisplayMember = "CategoryName";
+    cmbCategory.ValueMember = "ID";
+    cmbCategory.DataSource = dt;
+    DataRow dr = dt.NewRow();
+    dr["CategoryName"] = "Select";
+    dr["ID"] = 0;
+    dt.Rows.InsertAt(dr, 0);
+    cmbCategory.SelectedIndex = 0;

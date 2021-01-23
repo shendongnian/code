@@ -1,0 +1,13 @@
+        FlowDocument doc = new FlowDocument();
+        rtb.Document = doc;
+        rtb.IsReadOnly = true;
+        Paragraph para = new Paragraph();
+        doc.Blocks.Add(para);
+        Hyperlink link = new Hyperlink();
+        link.IsEnabled = true;
+        link.Inlines.Add("Hyperlink");
+        link.NavigateUri = new Uri("http://www.google.co.uk");
+        para.Inlines.Add(link);
+        Run run = new Run();
+        run.Text = " next words";
+        para.Inlines.Add(run);

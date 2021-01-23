@@ -1,0 +1,10 @@
+    connect();
+    SqlCommand cmd = new SqlCommand("sp_Arsenic_getSourceStatusCount", objConnection);
+    cmd.Parameters.Add(new SqlParameter("@status", status));
+    SqlParameter pCount = new SqlParameter("@count", 0);
+    pCount.Direction = System.Data.ParameterDirection.Output;
+    cmd.Parameters.Add(pCount);
+    cmd.ExecuteNonQuery();
+    disConnect();
+    int count = Convert.ToInt32(parameters[1].Value);
+    return count;

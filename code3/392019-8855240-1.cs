@@ -1,0 +1,16 @@
+        WSHttpBinding binding = new WSHttpBinding();
+        binding.Name = "WSHttpBinding_INameServiceVerification";
+        binding.HostNameComparisonMode = HostNameComparisonMode.StrongWildcard;
+        binding.ReliableSession.Enabled = false;
+        binding.TransactionFlow = false;
+        binding.Security.Mode = SecurityMode.Transport;
+        binding.Security.Message.ClientCredentialType = 
+            MessageCredentialType.Windows;
+    
+        string myServiceAddressUrl = 
+            RoleEnvironmentWrapper.GetConfigurationSettingValue(
+               "AdderssServiceURL.svc");
+        EndpointAddress myService = new EndpointAddress(myServiceAddressUrl);
+    
+        NameVerificationClient verificationClient = 
+            new NameVerificationClient(binding, myService );

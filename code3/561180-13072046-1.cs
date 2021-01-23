@@ -1,0 +1,10 @@
+    this.fileFullPath = filePath + @"\" + fileName;
+            this.fileSystemWatcher = new FileSystemWatcher(filePath);
+            this.fileSystemWatcher.Filter = fileName;
+            this.fileSystemWatcher.NotifyFilter = NotifyFilters.FileName;
+            this.fileSystemWatcher.Created += new FileSystemEventHandler(FileSystemWatcherCreated);
+            this.fileSystemWatcher.Changed += new FileSystemEventHandler(FileSystemWatcherChanged);
+            ////this.fileSystemWatcher.Error += new ErrorEventHandler(FileSystemWatcherError);
+            ////this.fileSystemWatcher.Renamed += new RenamedEventHandler(FileSystemWatcherRenamed);
+            ////this.fileSystemWatcher.Deleted += new FileSystemEventHandler(FileSystemWatcherDeleted);
+            this.fileSystemWatcher.EnableRaisingEvents = true;

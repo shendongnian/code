@@ -1,0 +1,10 @@
+            listView1.View = View.Details;
+            listView1.CheckBoxes = true;
+            listView1.Columns.Add("Col1", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Col2", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Col3", -2, HorizontalAlignment.Left);
+            ListViewItem oItem = new ListViewItem();
+            oItem.Text = "Col1 Text";
+            oItem.SubItems.Add("Col2 Text");
+            oItem.SubItems.Add("Col3 Text");
+            listView1.Items.Add(oItem);

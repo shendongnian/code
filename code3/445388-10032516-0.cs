@@ -1,0 +1,10 @@
+      var controller = GetController();
+      var httpContext = Utilities.MockControllerContext(true, false).Object;
+      controller.ControllerContext = new ControllerContext(httpContext, new RouteData(), controller);
+      var routes = new RouteCollection();
+      MvcApplication.RegisterRoutes(routes);
+      controller.Url = new UrlHelper(new RequestContext(httpContext, new RouteData()), routes);
+      var result = controller.DoMyStuff();
+      Assert.IsInstanceOfType(typeof(RedirectResult), result);
+      var actual = (RedirectResult)result;
+      Assert.AreEqual("/myurl", actual.Url.ToString());

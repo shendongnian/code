@@ -1,0 +1,13 @@
+    <ExtendedAttributes>
+      <EnableDisplayName>True</EnableDisplayName>
+      <EditorType>Enhanced</EditorType>
+      <EnableConversationNotifications>True</EnableConversationNotifications>
+      <EnableUserSignatures>True</EnableUserSignatures>
+      <CPPageSize>10</CPPageSize>
+      <EnableActivityMessageNewUserAvatar>True</EnableActivityMessageNewUserAvatar>
+      <EnableActivityMessageThirdPartyMessageType>True</EnableActivityMessageThirdPartyMessageType>
+      <EnableStartConversations>1</EnableStartConversations>
+      <avatarUrl>~/cfs-file.ashx/__key/communityserver-components-selectableavatars/03b2c875-fbfb-4d26-8000-ef001b9f4728/avatar.png</avatarUrl>
+      <EnableActivityMessageNewProfileComment>False</EnableActivityMessageNewProfileComment>
+      <EnableActivityMessageStatus>True</EnableActivityMessageStatus>
+    </ExtendedAttributes>

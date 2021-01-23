@@ -1,0 +1,11 @@
+	NotifiableConcurrentBag<string> s = new NotifiableConcurrentBag<string>();
+	Console.WriteLine("CHANGE --->");
+	s.Add("s");
+	ConcurrentBag<string> o = (ConcurrentBag<string>) s;
+	Console.WriteLine("CHANGE --->");
+	o.Add("s");
+	IProducerConsumerCollection<string> col = (IProducerConsumerCollection<string>) s;
+	Console.WriteLine("CHANGE --->");
+	col.TryAdd("s");
+	Console.WriteLine("Overloaded called {0} times", s.CountOfAdditions);
+	Console.WriteLine("In fact collection has {0} items", s.Count);

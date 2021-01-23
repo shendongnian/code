@@ -1,0 +1,11 @@
+            var doc = XDocument.Load("C:\\Test\\stovfl.xml");
+            var ns = doc.Root.GetDefaultNamespace();
+            var conn = doc.Root.Element(ns + "connection");
+            string s1 = conn.Element(ns + "sourceId").Value;
+            string s2 = conn.Element(ns + "username").Value;
+            var conn1 = doc.Root.Element("source");
+            var conn2 = conn1.Element("connectionContext");
+            string s6 = conn2.Element(ns + "organization").Value;
+            string s7 = conn2.Element(ns + "field").Value;
+            string s14 = conn2.Element(ns + "description").Value;
+            string s15 = conn2.Element(ns + "contextType").Value;

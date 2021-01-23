@@ -1,0 +1,10 @@
+    this.Size = new Size(100, 200);
+    this.Location = new Point(100, 100);
+    Button b = new Button();
+    b.Text = "Test";
+    b.Location = new Point(10, 10);
+    b.Size = new Size(75, 23);
+    //b.Anchor = AnchorStyles.Left | AnchorStyles.Top;
+    b.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+    this.Controls.Add(b);
+    this.Show();

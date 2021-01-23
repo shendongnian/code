@@ -1,0 +1,12 @@
+    chart1.Series.Add("Series1");
+    chart1.Series.Add("Series2");
+    SortedDictionary<string, double> sd1 = new SortedDictionary<string, double>();
+    SortedDictionary<string, double> sd2 = new SortedDictionary<string, double>();
+    sd1.Add("france", 65.52);
+    sd2.Add("france", 65.52);
+    sd1.Add("india", 200);
+    sd2.Add("italy", 40);
+    sd1.Add("italy", 50);
+    sd2.Add("india", 200);
+    chart1.Series["Series1"].Points.DataBindXY(sd1.Keys, sd1.Values);
+    chart1.Series["Series2"].Points.DataBindXY(sd2.Keys, sd2.Values);

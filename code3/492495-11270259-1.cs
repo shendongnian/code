@@ -1,0 +1,6 @@
+	Oid oid = new Oid("1.2.840.113549.1.1.1");
+	AsnEncodedData keyValue = new AsnEncodedData(getBytes("30818902818100EB11E7B4462E09BB3F907E2598BA2FC4F541925DABBFD8FF0B8E74C3F15E149E7FB6140655184DE42F6DDBCDEA142D8BF83DE95E07781F98988324E294DCDB392F82890145078C5C0379BB7434FFAC04AD1529E4C04CBD98AFF4B76D3FF1872FB5C6D8F8464755EDF5714E7E7A2DBE2E7549F0BB12B85796F93DD38A8FFF97730203010001"));
+	AsnEncodedData keyParam = new AsnEncodedData(new byte[] {05, 00});
+	PublicKey pubKeyRdr = new System.Security.Cryptography.X509Certificates.PublicKey(oid, keyParam, keyValue);
+	System.Diagnostics.Debug.WriteLine(pubKeyRdr.Key.KeyExchangeAlgorithm);
+	System.Diagnostics.Debug.WriteLine(pubKeyRdr.Key.KeySize);

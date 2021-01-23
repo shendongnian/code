@@ -1,0 +1,14 @@
+    SqlCommand com = new SqlCommand("Store-Jobs", con);
+    com.CommandType = CommandType.StoredProcedure;
+    com.Parameters.AddWithValue("ID", Request.QueryString("ID") == Null ? Request.QueryString("ID") : 0);    
+    com.Parameters.AddWithValue("Job", TextBox1.Text);
+    com.Parameters.AddWithValue("JobType", DropDownList1.Text);
+    com.Parameters.AddWithValue("StartDate", TextBox3.Text);
+    com.Parameters.AddWithValue("Time", TextBox2.Text);
+    com.Parameters.AddWithValue("JobID", TextBox1.Text.Substring(3).ToUpper());
+    com.Parameters.AddWithValue("CompanyID", Session["CompID"]);
+    com.Parameters.AddWithValue("PoistionFilled", answer);
+    com.Parameters.AddWithValue("Description", TextBox4.Text);
+    con.Open();
+    com.ExecuteNonQuery();
+    Labelinfo.Text = "Post successful.";

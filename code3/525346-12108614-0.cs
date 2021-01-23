@@ -1,0 +1,14 @@
+    private System.Drawing.Graphics g;
+    System.Drawing.Point[] p = new System.Drawing.Point[6];
+    p[0].X = 0;
+    p[0].Y = 0;
+    p[1].X = 53;
+    p[1].Y = 111;
+    p[2].X = 114;
+    p[2].Y = 86;
+    p[3].X = 34;
+    p[3].Y = 34;
+    p[4].X = 165;
+    p[4].Y = 7;
+    g = PictureBox1.CreateGraphics();
+    g.DrawPolygon(pen1, p);

@@ -1,0 +1,11 @@
+    System.Text.Encoding.Default
+    or
+    System.Text.Encoding.UTF7
+    or
+    System.Text.Encoding.Unicode
+    or 
+    System.Text.Encoding.GetEncoding(1251)
+    or 
+    System.Text.Encoding.GetEncoding(1252)
+    or
+    System.Text.Encoding.GetEncoding(20866)

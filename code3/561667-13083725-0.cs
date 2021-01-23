@@ -1,0 +1,10 @@
+    using (MySqlCommand dbCommand = new MySqlCommand("select EmerContact_id from [Table];", dbConnection))
+    {
+        using (MySqlDataReader dbReader = dbCommand.ExecuteReader())
+        {
+            while (dbReader.Read())
+            {
+                EmerContacts.Add((int)dbReader[0].ToString());
+             }
+        }
+    }

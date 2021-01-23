@@ -1,0 +1,11 @@
+        StreamReader sr = new StreamReader(Server.MapPath("Sendpage.htm"));
+        string body = sr.ReadToEnd();         
+        sr.Close();          
+        body = body.Replace("#NameFamily#", txtNameFamily.Text);     
+        body = body.Replace("#Email#", txtEmail.Text);        
+        body = body.Replace("#Tellphone#", txtTellphone.Text);   
+        body = body.Replace("#Text#", txtText.Text);       
+        body = body.Replace("#Date#", DateTime.Now);        
+        string Time = Convert.ToString(DateTime.Now.ToShortTimeString());    
+        body = body.Replace("#Time#", Time);        
+        SendMail("email that you want to send to it", body); 

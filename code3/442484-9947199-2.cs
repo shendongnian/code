@@ -1,0 +1,13 @@
+            listView1.ShowGroups = true;
+            listView1.View = View.Details;
+            int iFirstGroup = 0;
+            int iSecondGroup = 0;
+            iFirstGroup = listView1.Groups.Add(new ListViewGroup("Test 1"));
+            iSecondGroup = listView1.Groups.Add(new ListViewGroup("Test 2"));
+            listView1.Columns.Add("Test Col");
+            ListViewItem lvi1 = new ListViewItem("I'm in Group 1");
+            lvi1.Group = listView1.Groups[iFirstGroup];
+            ListViewItem lvi2 = new ListViewItem("I'm in Group 2");
+            lvi2.Group = listView1.Groups[iSecondGroup];
+            listView1.Items.Add(lvi1);
+            listView1.Items.Add(lvi2);

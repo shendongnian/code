@@ -1,0 +1,10 @@
+    System.Diagnostics.Process pProcess = new System.Diagnostics.Process();
+            pProcess.StartInfo.FileName = @"C:\Users\Vitor\Documents\Visual Studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe";
+            pProcess.StartInfo.Arguments = "olaa";
+            pProcess.StartInfo.UseShellExecute = false;
+            pProcess.StartInfo.RedirectStandardOutput = true;
+            pProcess.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            pProcess.StartInfo.CreateNoWindow = true;
+            pProcess.Start();
+            string output = pProcess.StandardOutput.ReadToEnd();
+            pProcess.WaitForExit();

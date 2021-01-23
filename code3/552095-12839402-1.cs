@@ -1,0 +1,31 @@
+    NameValueCollection objConfig = new NameValueCollection();
+    objConfig.Add("connectionStringName", "MyDatabase");
+    objConfig.Add("enablePasswordRetrieval", "false");
+    objConfig.Add("enablePasswordReset", "true");
+    objConfig.Add("requiresQuestionAndAnswer", "true");
+    objConfig.Add("applicationName", "MyApp");
+    objConfig.Add("requiresUniqueEmail", "true");
+    objConfig.Add("maxInvalidPasswordAttempts", "5");
+    objConfig.Add("passwordAttemptWindow", "10");
+    objConfig.Add("commandTimeout", "30");
+    objConfig.Add("passwordFormat", "Hashed");
+    objConfig.Add("name", "AspNetSqlMembershipProvider");
+    objConfig.Add("minRequiredPasswordLength", "8");
+    objConfig.Add("minRequiredNonalphanumericCharacters", "2");
+    objConfig.Add("passwordStrengthRegularExpression", "(?=^.{8,25}$)(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{\\":;'?/>.<,])(?!.*\\s).*$"));
+    
+    SqlMembershipProvider objSqlMembershipProvider = new SqlMembershipProvider();
+    objSqlMembershipProvider.Initialize(objConfig["name"], objConfig);
+    MembershipProviderCollection colMembershipProviders = new MembershipProviderCollection();
+    colMembershipProviders.Add(objSqlMembershipProvider);
+    colMembershipProviders.SetReadOnly();
+    
+    BindingFlags enuBindingFlags = BindingFlags.NonPublic | BindingFlags.Static;
+    Type objMembershipType = typeof(Membership);
+    objMembershipType.GetField("s_Initialized", enuBindingFlags).SetValue(null, true);
+    objMembershipType.GetField("s_InitializeException", enuBindingFlags).SetValue(null, null);
+    objMembershipType.GetField("s_HashAlgorithmType", enuBindingFlags).SetValue(null, "SHA1");
+    objMembershipType.GetField("s_HashAlgorithmFromConfig", enuBindingFlags).SetValue(null, false);
+    objMembershipType.GetField("s_UserIsOnlineTimeWindow", enuBindingFlags).SetValue(null, 15);
+    objMembershipType.GetField("s_Provider", enuBindingFlags).SetValue(null, objSqlMembershipProvider);
+    objMembershipType.GetField("s_Providers", enuBindingFlags).SetValue(null, colMembershipProviders);

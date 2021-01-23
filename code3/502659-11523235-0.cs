@@ -1,0 +1,10 @@
+    DbParameter param = df.CreateParameter();
+    param.ParameterName = "@name";
+    param.Value = txtname.Text;
+    param.ParameterName = "@address";
+    param.Value = txtadd.Text;
+    param.ParameterName = "@phone";
+    param.Value = txtphone.Text;
+    param.ParameterName = "@code";
+    param.Value = txtcode.Text;
+    daa.UpdateCommand.Parameters.Add(param);

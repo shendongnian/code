@@ -1,0 +1,10 @@
+    string assembly = "Ektron.Cms.ObjectFactory.dll";
+    string asspath = path + "bin\\" + assembly;
+    Assembly run_obj = Assembly.LoadFrom(@asspath);
+    PropertyInfo propertyInfo = run_obj.GetType("Ektron.Cms.Search.SearchContentProperty", true, true).GetProperty("Language");
+    PropertyExpression propertyExpression = new PropertyExpression(propertyInfo); // create the property expression here, I am unsure how to instantiate it.
+    paraObj[0] = propertyExpression;
+    paraObj[1] = longValue;
+    string equalExp = "Ektron.Cms.Search.Expressions.EqualsExpression";
+    Type objclass = run_obj.GetType(equalExp, true, true);       
+    object objObj = Activator.CreateInstance(objclass, paraObj);

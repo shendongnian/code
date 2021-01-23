@@ -1,0 +1,13 @@
+     PdfConverter pdfConverter = new PdfConverter();
+                //pdfConverter.LicenseKey = "put your license key here";
+                pdfConverter.LicenseKey = licenseKey;
+                pdfConverter.PdfDocumentOptions.EmbedFonts = false;
+                pdfConverter.PdfDocumentOptions.ShowFooter = false;
+                pdfConverter.PdfDocumentOptions.ShowHeader = false;
+                pdfConverter.PdfDocumentOptions.GenerateSelectablePdf = true;
+                pdfConverter.ActiveXEnabled = true;
+                pdfConverter.AvoidImageBreak = true;
+                pdfConverter.NavigationTimeout = 2147483647;
+                pdfConverter.ScriptsEnabled = true;
+                pdfConverter.PdfDocumentOptions.AutoSizePdfPage = true;
+                pdfConverter.SavePdfFromUrlToFile(html file path, output file path filepath);

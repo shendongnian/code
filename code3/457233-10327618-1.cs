@@ -1,0 +1,11 @@
+    string filePath = "c:\\Documents\\Stuff\\";
+    string fileName = "myPath.pdf";
+    byte[] bytes = System.IO.File.ReadAllBytes(filePath + fileName);
+    context.Response.Clear();
+    context.Response.ContentType = "application/pdf";
+    context.Response.Cache.SetCacheability(HttpCacheability.Private);
+    context.Response.Expires = -1;
+    context.Response.Buffer = true;
+    context.Response.AddHeader("Content-Disposition", string.Format("{0};FileName=\"{1}\"", "attachment", fileName));
+    context.Response.BinaryWrite(bytes);
+    context.Response.End(); 

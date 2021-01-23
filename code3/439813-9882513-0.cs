@@ -1,0 +1,9 @@
+    public TweetSearchCache() : base(CreateAuth()) {
+    // ...
+    }
+    
+    public static SingleUserAuthorizer CreateAuth() {
+        SingleUserAuthorizer createdAuth = ...
+        // ...
+        return createdAuth;
+    }

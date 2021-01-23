@@ -1,0 +1,6 @@
+    public static readonly fileLocks = new ConcurrentDictionary<string,object>();
+    ...
+    object lockObject = fileLocks.GetOrAdd(filename, k => new object());
+    lock (lockObject) {
+        ...
+    }

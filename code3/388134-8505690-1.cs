@@ -1,0 +1,10 @@
+        DataTable dt = new DataTable("ListItem");
+        dt.Columns.Add("Id", Type.GetType("System.Int32"));
+        dt.Columns.Add("Name", Type.GetType("System.String"));
+        dt.Rows.Add(new object[]{1,"apple"});
+        dt.Rows.Add(new object[]{2,"oranges"});
+        dt.Rows.Add(new object[]{3,"pairs"});
+        comboBox1.DataSource = dt;
+        comboBox1.DisplayMember = "Name";
+        comboBox1.ValueMember="Id";
+        textBox1.DataBindings.Add("Text", dt, "Id");

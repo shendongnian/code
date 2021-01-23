@@ -1,0 +1,10 @@
+    JavaScriptSerializer js = new JavaScriptSerializer();
+    dynamic d = js.Deserialize<dynamic>(json);
+    string key = d["key"];
+    string status = d["status"];
+    dynamic[] members = d["members"];
+    Console.WriteLine("key = {0}", key);
+    Console.WriteLine("status = {0}", status);
+    Console.WriteLine("members.length = {0}", members.Length);
+    Console.WriteLine("members type name = {0}", members.GetType().Name);
+    Console.WriteLine("d[\"members\"] type name = {0}", d["members"].GetType().Name);

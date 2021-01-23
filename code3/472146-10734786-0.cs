@@ -1,0 +1,10 @@
+    public class Person
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+    }
+    
+    public class Employee : Person
+    {
+        public string RoleName { get; set; }
+    }

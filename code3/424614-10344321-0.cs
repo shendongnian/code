@@ -1,0 +1,13 @@
+        WebBrowser wb = new WebBrowser();
+        //...
+        //...
+        //...
+        //...
+        HtmlElementCollection hec = wb.Document.All;
+        foreach (HtmlElement element in hec)
+        {
+            if (element.TagName == "OBJECT")
+            {
+                element.Enabled = false;
+            }
+        }

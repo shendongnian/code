@@ -1,0 +1,14 @@
+    connection = new SqlConnection(ConfigurationManager.AppSettings["ConnectionInfo"]); 
+    sql = "aStoredProc"; 
+    command = new SqlCommand(sql, connection); 
+    command.CommandType = CommandType.StoredProcedure; 
+    command.Parameter.Add(new SqlParameter("@FirstName", SqlDbType.VarChar)).Value = sFirstname; 
+    command.Parameter.Add(new SqlParameter("@SurName", SqlDbType.VarChar)).Value = sSurname; 
+    command.Parameter.Add(new SqlParameter("@SurName", SqlDbType.VarChar)).Value = sSurname; 
+    SqlParameter ParamId = cmd.Parameters.Add( "@Id", SqlDbType.Int);
+    vendor.Direction = ParameterDirection.InputOutput;
+    command.Parameter.Add(ParamId);
+    connection.Open();  
+    command.ExecuteNonQuery(); 
+    int ID = ParamId.Value;
+    connection.Close();

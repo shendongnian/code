@@ -1,0 +1,14 @@
+            Excel.Application xlApp ;
+            Excel.Workbook xlWorkBook ;
+            Excel.Worksheet xlWorkSheet ;
+            object misValue = System.Reflection.Missing.Value;
+            Application excel = new Application();
+	        Workbook wb = excel.Workbooks.Open("YOUR PATH..",Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            List<String> excelfile = new List<String>();
+	        excelfile.Add(xlWorkSheet.get_Range("A1","A1").Value2.ToString());
+            xlWorkBook.Close(true, misValue, misValue);
+            xlApp.Quit();
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);

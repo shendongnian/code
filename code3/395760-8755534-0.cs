@@ -1,0 +1,18 @@
+            string path = @"C:\Test2.xls";
+            string xlaPath = @"C:\Test2.xla";
+            Workbook theWorkbook;
+            Worksheet theWorksheet, theWorksheet2;
+            Range readRange;
+            Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+            app.Workbooks.Open(xlaPath);
+            theWorkbook = app.Workbooks.Open(path);
+            theWorksheet2 = (Worksheet)theWorkbook.Worksheets.get_Item("Sheet2");
+            theWorksheet2.get_Range("A3").Value = 7;
+            theWorksheet2.get_Range("A4").Value = 7;
+            theWorkbook.RefreshAll();
+            theWorksheet = (Worksheet)theWorkbook.Worksheets.get_Item("Sheet1");           
+            readRange = theWorksheet.get_Range("A1");
+            Console.WriteLine(Convert.ToString(readRange.Value));
+            Console.ReadLine();            //theWorkbook.Save();             
+            theWorkbook.Close();
+            app.Workbooks.Close();

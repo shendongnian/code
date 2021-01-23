@@ -1,0 +1,16 @@
+        JavaScriptSerializer jsSerializer = new JavaScriptSerializer(); 
+        BigCommerceOrderProducts a = new BigCommerceOrderProducts();
+        a.Data = new List<BigCommerceOrderProduct>();
+        BigCommerceOrderProduct b = new BigCommerceOrderProduct();
+        b.Id = 33;
+        b.Order_id = 230025;
+        a.Data.Add(b);
+        b = new BigCommerceOrderProduct();
+        b.Id = 34;
+        b.Order_id = 230025;
+        a.Data.Add(b);
+        string x = jsSerializer.Serialize(a);
+        Console.WriteLine(x);
+        a = jsSerializer.Deserialize<BigCommerceOrderProducts>(x);
+        Console.WriteLine(a.Data[0].Order_id);
+        Console.ReadLine();

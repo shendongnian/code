@@ -1,0 +1,11 @@
+    OleDbCommand system = new OleDbCommand();
+    system.CommandType = CommandType.Text;
+    system.CommandText = "DELETE FROM Student WHERE ID=@ID";
+    system.Parameters.AddWithValue("@ID", txtStudentIDnumber.Text);
+    system.Connection = mydatabase;
+    mydatabase.Open();
+    system.ExecuteNonQuery();
+    dataGridView1.Update();
+    this.tableAdapterManager.UpdateAll(csharrpfinalprojectDataSet);
+    mydatabase.Close();
+    MessageBox.Show("Student Record Deleted.", "deleting record...");

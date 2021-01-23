@@ -1,0 +1,23 @@
+            dataGridView1.ColumnCount = 4;
+            dataGridView1.Columns[0].Name = "Delete";
+            dataGridView1.Columns[1].Name = "Edit";
+            dataGridView1.Columns[2].Name = "User Name";
+            dataGridView1.Columns[3].Name = "Password";
+            DataGridViewCheckBoxColumn delete = new DataGridViewCheckBoxColumn();
+            DataGridViewCheckBoxColumn edit = new DataGridViewCheckBoxColumn();
+            dataGridView1.Columns.Insert(0,delete);
+            //dataGridView1.Columns.Add(delete);
+            delete.HeaderText = "Delete";
+            //dataGridView1.Columns.Add(edit);
+            dataGridView1.Columns.Insert(1,edit);
+            edit.HeaderText = "Edit";
+            
+            string[] row;
+            row = new string[] {"false","false", "1", "Product 1", "1000", "1" };
+            dataGridView1.Rows.Add(row);
+            row = new string[] { "false", "false", "2", "Product 4", "2000", "2" };
+            dataGridView1.Rows.Add(row);
+            row = new string[] { "false", "false", "3", "Product 5", "3000", "3" };
+            dataGridView1.Rows.Add(row);
+            row = new string[] { "false", "false", "4", "Product 6", "4000", "4" };
+            dataGridView1.Rows.Add(row);

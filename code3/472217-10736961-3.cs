@@ -1,0 +1,5 @@
+	.field public class AMG.JobBoard.WebServices.Controllers.JobsController/Foo '<>g__initLocal0'
+	.field public class AMG.JobBoard.WebServices.Controllers.JobsController/Foo '<>g__initLocal1'
+	.field public class AMG.JobBoard.WebServices.Controllers.JobsController/Foo '<>g__initLocal2'
+	.field public class AMG.JobBoard.WebServices.Controllers.JobsController/Foo '<>g__initLocal3'
+	.field public class AMG.JobBoard.WebServices.Controllers.JobsController/Foo '<>g__initLocal4'

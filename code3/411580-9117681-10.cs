@@ -1,0 +1,10 @@
+    Order order = new Order();
+    bool result = order.TryUpdateOrderStatus(Trigger.Completed);
+    Console.WriteLine("Attemp to complete order: {0}", result);
+    Console.WriteLine("Order status: {0}", order.Status);
+    result = order.TryUpdateOrderStatus(Trigger.ToBeShipped);
+    Console.WriteLine("Attemp to ship order: {0}", result);
+    Console.WriteLine("Order status: {0}", order.Status);
+    result = order.TryUpdateOrderStatus(Trigger.Cancelled);
+    Console.WriteLine("Attemp to cancel order: {0}", result);
+    Console.WriteLine("Order status: {0}", order.Status);

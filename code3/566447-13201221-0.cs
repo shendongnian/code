@@ -1,0 +1,35 @@
+		string ponumber = Request.QueryString["ponumber"].ToString();
+		string receiptno = Request.QueryString["receiptno"].ToString();
+		// Put Away Report
+		CrystalReportSource CrystalReportSource1 = new CrystalReportSource();
+		CrystalReportViewer CrystalReportViewer1 = new CrystalReportViewer();
+						
+		ParameterField paramField1 = new ParameterField();
+		ParameterField paramField2 = new ParameterField();
+		ParameterDiscreteValue paramDiscreteValue1 = new ParameterDiscreteValue();
+		ParameterDiscreteValue paramDiscreteValue2 = new ParameterDiscreteValue();
+		paramField1.Name = "@ponumber";
+		paramDiscreteValue1.Value = ponumber;
+		paramField1.CurrentValues.Add(paramDiscreteValue1);
+		paramField1.HasCurrentValue = true;
+		paramField2.Name = "@receiptno";
+		paramDiscreteValue2.Value = receiptno;
+		paramField2.CurrentValues.Add(paramDiscreteValue2);
+		paramField2.HasCurrentValue = true;
+		CrystalReportViewer1.ParameterFieldInfo.Add(paramField1);
+		CrystalReportViewer1.ParameterFieldInfo.Add(paramField2);
+		TableLogOnInfo logOnInfo = new TableLogOnInfo();
+		logOnInfo.ConnectionInfo.ServerName = ConfigurationManager.AppSettings["WarehouseReportServerName"];
+		logOnInfo.ConnectionInfo.DatabaseName = ConfigurationManager.AppSettings["WarehouseReportDatabaseName"];
+		logOnInfo.ConnectionInfo.UserID = ConfigurationManager.AppSettings["WarehouseReportUserID"];
+		logOnInfo.ConnectionInfo.Password = ConfigurationManager.AppSettings["WarehouseReportPassword"];
+		TableLogOnInfos infos = new TableLogOnInfos();
+		infos.Add(logOnInfo);
+		CrystalReportViewer1.LogOnInfo = infos;
+		maindiv.Controls.Add(CrystalReportSource1);
+		maindiv.Controls.Add(CrystalReportViewer1);
+		CrystalReportViewer1.ReportSource = CrystalReportSource1;
+		CrystalReportViewer1.EnableParameterPrompt = false;
+		CrystalReportSource1.Report.FileName = "Report3.rpt";
+		CrystalReportSource1.EnableCaching = false;
+		CrystalReportViewer1.DataBind();

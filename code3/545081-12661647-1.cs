@@ -1,0 +1,10 @@
+    dataGridView1.Columns.Add("columnName1", "Column 1 Header");
+    dataGridView1.Columns.Add("columnName2", "Column 2 Header");
+    var row1 = new DataGridViewRow();
+    row1.Cells.Add(new DataGridViewImageCell { Value = new Bitmap(@"C:\Path\to\image.jpg") });
+    row1.Cells.Add(new DataGridViewTextBoxCell { Value = "string" });
+    dataGridView1.Rows.Add(row1);
+    var row2 = new DataGridViewRow();
+    row2.Cells.Add(new DataGridViewTextBoxCell { Value = "string"});
+    row2.Cells.Add(new DataGridViewImageCell { Value = new Bitmap(@"C:\Path\to\image.jpg") });
+    dataGridView1.Rows.Add(row2);

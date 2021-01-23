@@ -1,0 +1,13 @@
+    public RandomController : Controller
+    {
+        ...
+        protected abstract IContext Db { get; }
+        ...
+    }
+    public MenuController : RandomController
+    {
+        private SomeContext db = new SomeContext();
+        ...
+        protected override IContext Db { get { return db; } }
+        ...
+    }

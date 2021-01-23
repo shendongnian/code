@@ -1,0 +1,25 @@
+                //XMLString = "<?xml version='1.0' encoding='utf-8' ?>";
+                XMLString += "<Document>";
+                XMLString += "<DocumentType>WO</DocumentType>";
+                XMLString += "<DocumentAction>Create</DocumentAction>";
+                XMLString += "<WorkOrder>";
+                XMLString += "<WO>123456</WO>";
+                XMLString += "<WOTask>1</WOTask>";
+                XMLString += "</WorkOrder>";
+                XMLString += "</Document>";
+                Console.WriteLine(XMLString.ToString());
+                oraCon.ConnectionString = s_connectionString;
+                oraCon.Open();
+                oraCommand.CommandType = CommandType.StoredProcedure;
+                oraCommand.CommandText = "LOUISETEST.GetActionType";
+                oraCommand.Connection = oraCon;
+                oraCommand.Parameters.Add("xml_document_i", OracleDbType.XmlType, XMLString, ParameterDirection.Input);
+               
+                OracleParameter result = new OracleParameter();
+                result.ParameterName = "action_i";
+                result.Direction = ParameterDirection.Output;
+                result.OracleDbType = OracleDbType.Varchar2;
+                result.Size = 256;
+                oraCommand.Parameters.Add(result);
+                oraCommand.ExecuteNonQuery();
+                Console.WriteLine("Result : " + result.Value.ToString());

@@ -1,0 +1,19 @@
+    //Sort unit properties by unit
+    var properites = new List<string>
+                         {
+                             unit.Composition,
+                             unit.WeaponSkill,
+                             unit.BallisticSkill,
+                             unit.Strength,
+                             unit.Initiative,
+                             unit.Toughness,
+                             unit.Wounds,
+                             unit.Attacks,
+                             unit.Leadership,
+                             unit.SaveThrow,
+                             unit.SpecialRules,
+                             unit.DedicatedTransport,
+                             unit.Options,
+                             unit.Armour,
+                             unit.Weapons
+                         };

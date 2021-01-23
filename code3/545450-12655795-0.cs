@@ -1,0 +1,9 @@
+    class nac
+    {
+       public decimal nr_zbor ...
+       public string airport ...
+       public string company ...
+    }
+    List<nac> nacs = new List<nac>();
+    Those properties are the columns
+    [ListView Class][1]

@@ -1,0 +1,13 @@
+    SqlConnection con = new SqlConnection("server=(local);DataBase=RIMS;User Id=sa;Password=Rootdb");
+    SqlCommand com = new SqlCommand("Select * from Master_City", con);
+    SqlDataAdapter da = new SqlDataAdapter(com);
+    DataSet ds = new DataSet();
+    da.Fill(ds, "city");
+    dataGridView1.DataSource = ds;
+    dataGridView1.DataMember = "city";
+    DataGridViewComboBoxColumn col = new DataGridViewComboBoxColumn();
+    col.HeaderText = "Name";
+    col.Name = "Name";
+    col.DataSource = ds.Tables[0];
+    col.DisplayMember = ds.Tables[0].Columns[1].ToString();
+    dataGridView1.Columns.Add(col);

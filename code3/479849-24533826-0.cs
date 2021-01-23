@@ -1,0 +1,6 @@
+    public class ScriptMain : UserComponent
+    {
+    OleDbDataAdapter a = new OleDbDataAdapter();
+    System.Data.DataTable AwardedVacTable = new System.Data.DataTable();
+    ...
+    ...

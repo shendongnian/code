@@ -1,0 +1,17 @@
+            string file = @"C:\Temp\temp.dat";
+            string[] _symbol = { "Hello", "the", "man" };
+            string _source = "\"Hello, Hello,\" the man said.\n\"Hello,\" the woman replied.";
+            string _expect = "\"\xF3, \xF3,\" \xF2 \xF1 said.\n\"\xF3,\" \xF2 wo\xF1 replied.";
+            //byte[] tblix = { 0xF3, 0x00 };
+            char c = (char)0xF300;
+            string _repl, _dest;
+            //_repl = System.Text.Encoding.UTF8.GetString(tblix, 0, 1);
+            _dest = _source.Replace(_symbol[0], c.ToString());
+            c -= (char)0x100;
+            //_repl = System.Text.Encoding.UTF8.GetString(tblix, 0, 1);
+            _dest = _dest.Replace(_symbol[1], c.ToString());
+            c -= (char)0x100;
+            //_repl = System.Text.Encoding.UTF8.GetString(tblix, 0, 1);
+            _dest = _dest.Replace(_symbol[2], c.ToString());
+            bool check = (_dest == _expect);
+            File.WriteAllText(file, _dest);

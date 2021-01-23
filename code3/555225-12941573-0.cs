@@ -1,0 +1,10 @@
+    chartSel.Legends[ySeries.Name].CellColumns.Add(new LegendCellColumn("", LegendCellColumnType.SeriesSymbol, ""));
+    chartSel.Legends[ySeries.Name].CellColumns[0].Alignment = ContentAlignment.TopLeft;
+    chartSel.Legends[ySeries.Name].CellColumns[0].Margins = new System.Windows.Forms.DataVisualization.Charting.Margins(0, 0, 1, 1);
+    chartSel.Legends[ySeries.Name].CellColumns[0].MinimumWidth = 250;
+    chartSel.Legends[ySeries.Name].CellColumns[0].MaximumWidth = 250;
+    chartSel.Legends[ySeries.Name].CellColumns.Add(new LegendCellColumn("", LegendCellColumnType.Text, ySeries.Name));
+    chartSel.Legends[ySeries.Name].CellColumns[1].Alignment = ContentAlignment.MiddleLeft;
+    chartSel.Legends[ySeries.Name].CellColumns[1].Margins = new System.Windows.Forms.DataVisualization.Charting.Margins(0, 0, 1, 1);
+    chartSel.Legends[ySeries.Name].CellColumns[1].MinimumWidth = 1500;
+    chartSel.Legends[ySeries.Name].CellColumns[1].MaximumWidth = 1500;

@@ -1,0 +1,16 @@
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Id", typeof(Int32));
+            dataTable.Columns.Add("Name", typeof(String));
+            dataTable.Rows.Add(1, "John");
+            dataTable.Rows.Add(2, "Mary");
+            dataTable.Rows.Add(3, "Peter");
+            dataTable.Rows.Add(4, "Helen");
+            var bindingSource = new BindingSource();
+            bindingSource.DataSource = dataTable;
+            var binding = new System.Windows.Data.Binding("Name");
+            binding.Source = bindingSource;
+            binding.UpdateSourceTrigger = System.Windows.Data.UpdateSourceTrigger.PropertyChanged;
+            var textBox = new System.Windows.Controls.TextBox();
+            textBox.SpellCheck.IsEnabled = true;
+            textBox.SetBinding(System.Windows.Controls.TextBox.TextProperty, binding);
+            elementHost1.Child = textBox;

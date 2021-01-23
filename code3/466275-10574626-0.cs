@@ -1,0 +1,20 @@
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(GetValue<int>("123"));
+            Console.WriteLine(GetValue<double>("123.123"));
+        }
+        static T GetValue<T>(string s)
+        {
+            var tryParse = typeof (T).GetMethods()
+                .FirstOrDefault(x => x.Name == "TryParse" && x.GetParameters().Length == 2);
+            if (tryParse == null)
+                throw new InvalidOperationException();
+            T t = default (T);
+            var parameters = new object[] {s, t};
+            var success = tryParse.Invoke(null, parameters);
+            if ((bool) success) t = (T)parameters[1];
+            return t;
+        }
+    }

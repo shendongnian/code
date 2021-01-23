@@ -1,0 +1,18 @@
+        Grid DynamicGrid = new Grid();
+        ColumnDefinition gridColDef0 = new ColumnDefinition();
+        ColumnDefinition gridColDef1 = new ColumnDefinition();
+        gridColDef1.Width = new GridLength(1, GridUnitType.Auto);
+        ColumnDefinition gridColDef2 = new ColumnDefinition();
+        DynamicGrid.ColumnDefinitions.Add(gridColDef0);
+        DynamicGrid.ColumnDefinitions.Add(gridColDef1);
+        DynamicGrid.ColumnDefinitions.Add(gridColDef2);
+        RowDefinition gridRowDef0 = new RowDefinition();
+        RowDefinition gridRowDef1 = new RowDefinition();
+        gridRowDef1.Height = new GridLength(1, GridUnitType.Auto);
+        RowDefinition gridRowDef2 = new RowDefinition();
+        DynamicGrid.RowDefinitions.Add(gridRowDef0);
+        DynamicGrid.RowDefinitions.Add(gridRowDef1);
+        DynamicGrid.RowDefinitions.Add(gridRowDef2);
+        Label label= new Label ();
+        Grid.SetColumn(label, 0);
+        Grid.SetRow(label, 0);

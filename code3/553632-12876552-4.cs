@@ -1,0 +1,6 @@
+    [TestCase("test1")]
+    [TestCase("test1.1")]
+    public void FooTest_One(String value) ...
+    [TestCase("test2")]
+    [TestCase("test2.1")]
+    public void FooTest_Two(String value) ...

@@ -1,0 +1,8 @@
+    Console.WriteLine("'{0}'", MyTrimEnd(text1, "where"));      // 'My hosue where sun shines'
+    Console.WriteLine("'{0}'", MyTrimEnd(text2, "where"));      // 'My'
+    Console.WriteLine("'{0}'", MyTrimEnd(text3, "where"));      // 'My where I'
+    Console.WriteLine("'{0}'", MyTrimEnd("WHERE", "where"));    // ''
+    Console.WriteLine("'{0}'", MyTrimEnd("WHE", "where"));      // 'WHE'
+    Console.WriteLine("'{0}'", MyTrimEnd("blablaWHERE", "where"));  //'blabla'
+    Console.WriteLine("'{0}'", MyTrimEnd(string.Empty, "where"));  //''
+    Console.WriteLine("'{0}'", MyTrimEnd("WHEREwherE", "where"));  //'WHERE'

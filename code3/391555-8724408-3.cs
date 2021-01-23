@@ -1,0 +1,12 @@
+    Response.Clear();
+    Response.Buffer = true;
+    Response.AddHeader("content-disposition", "attachment;filename=your_file.xls");
+    Response.Charset = "";
+    Response.ContentEncoding = System.Text.Encoding.Default;
+    Response.ContentType = "application/ms-excel";
+    StringWriter sw = new StringWriter();
+    HtmlTextWriter hw = new HtmlTextWriter(sw);
+    your_GridView.RenderControl(hw);
+    Response.Output.Write(sw.ToString());
+    Response.Flush();
+    Response.End();

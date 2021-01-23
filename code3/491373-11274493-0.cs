@@ -1,0 +1,16 @@
+    Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+    Workbooks workbooks;
+    _Workbook workbook;
+    _Workbook workbook2;
+    Sheets sheets;
+    _Worksheet worksheet;
+    app.Visible = false;
+    workbooks = app.Workbooks;
+    workbook = workbooks.Add(XlWBATemplate.xlWBATWorksheet);
+    sheets = workbook.Worksheets;
+    worksheet = (_Worksheet)sheets.get_Item(1);
+    worksheet.Cells[row, column] = value;
+    workbook.Saved = true;
+    workbook.SaveAs(output_file);
+    app.UserControl = false;
+    app.Quit();

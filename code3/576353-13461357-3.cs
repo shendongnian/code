@@ -1,0 +1,12 @@
+        public static void SetUserInfo(string userName)
+        {
+            var dsDirectoryEntry = new DirectoryEntry("LDAP://xxxx/DC=xx,DC=xxx", "ADusername", "ADpassword");
+    
+            var dsSearch = new DirectorySearcher(dsDirectoryEntry) { Filter = "(&(objectClass=user)(SAMAccountName=" + userName + "))" };
+    
+            var dsResults = dsSearch.FindOne();
+            var myEntry = dsResults.GetDirectoryEntry();
+            //myEntry.Properties[property].Value = value;
+            myEntry.Properties["telephoneNumber"].Value = "222-222-2222";
+            myEntry.CommitChanges();
+        }

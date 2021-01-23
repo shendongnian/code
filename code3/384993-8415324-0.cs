@@ -1,0 +1,6 @@
+    public void ApplyScale(int x, int Y, int value)
+    {
+        // ...
+        forecast.Formula = value;
+        // ...
+    }

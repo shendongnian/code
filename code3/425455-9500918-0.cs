@@ -1,0 +1,10 @@
+    Image image = null;
+    string URL = "https://graph.facebook.com/FacebookIDOrUserName/picture";
+    HttpWebRequest req = (System.Net.HttpWebRequest)HttpWebRequest.Create(URL);
+    req.AllowWriteStreamBuffering = true;
+    req.Timeout = 20000;
+    WebResponse resp = req.GetResponse();
+    System.IO.Stream stream = resp.GetResponseStream();
+    image = Image.FromStream(stream);
+    resp.Close();
+    resp.Close();

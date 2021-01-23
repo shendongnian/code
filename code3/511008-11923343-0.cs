@@ -1,0 +1,14 @@
+            var lines = new Series("lines");
+            lines.ChartType = SeriesChartType.Line;
+            lines.Points.Add(new DataPoint(1, 20));
+            lines.Points.Add(new DataPoint(2, 30));
+            lines.Points.Add(new DataPoint(3, 34));
+            lines.YAxisType = AxisType.Primary;
+            chart1.Series.Add(lines);
+            var branches = new Series("branches");
+            branches.ChartType = SeriesChartType.Line;
+            branches.Points.Add(new DataPoint(1, 5));
+            branches.Points.Add(new DataPoint(2, 6));
+            branches.Points.Add(new DataPoint(3, 8));
+            branches.YAxisType = AxisType.Secondary;
+            chart1.Series.Add(branches);

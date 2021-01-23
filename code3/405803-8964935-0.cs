@@ -1,0 +1,5 @@
+    public MyExternallySealedClass
+    {
+         internal MyExternallySealedClass() {...}
+         ...
+    }

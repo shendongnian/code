@@ -1,0 +1,10 @@
+    var doc = Solution.Create(SolutionId.CreateNewId()).AddCSharpProject("MyCompilation", "MyCompilation").AddMetadataReference(mscorlib).AddDocument("MyFile", code);
+    var semanticModel = (SemanticModel)doc.GetSemanticModel();
+    var root = (CompilationUnitSyntax)doc.GetSyntaxRoot();
+    SyntaxNode parent = null;
+    var oldStatementNode = (parent as ExpressionStatementSyntax); //some SyntaxNode in the tree
+    var oldExpressionNode = oldStatementNode.Expression;
+    var newExpressionNode = Syntax.ParenthesizedExpression(oldExpressionNode);
+    var newRootNode = root.ReplaceNode(oldExpressionNode, newExpressionNode);
+    doc = doc.UpdateSyntaxRoot(newRootNode);
+    semanticModel = (SemanticModel)doc.GetSemanticModel();

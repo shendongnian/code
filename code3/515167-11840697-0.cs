@@ -1,0 +1,10 @@
+    Test a = new Test();
+    a.Value = 10;
+    Test b = new Test();
+    b.Value = 20;
+    Console.WriteLine("Value of a before assignment: " + a.Value);
+    a = b;
+    Console.WriteLine("Value of a after assignment: " + a.Value);
+    Test c = null;
+    b = c;
+    Console.WriteLine("Value of a after doing (b = c) :" + a.Value);

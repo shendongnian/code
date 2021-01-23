@@ -1,0 +1,17 @@
+    Exception: System.Security.SecurityException: The data contract type 'SL_ButtonAndText.SerializableGameState' is not serializable because it is not public. Making the type public will fix this error. Alternatively, you can make it internal, and use the InternalsVisibleToAttribute attribute on your assembly in order to enable serialization of internal members - see documentation for more details. Be aware that doing so has certain security implications. ---> System.Security.SecurityException: Security error.
+       at System.Runtime.Serialization.CodeGenerator.BeginMethod(Type returnType, String methodName, Type[] argTypes, Boolean allowPrivateMemberAccess)
+       at System.Runtime.Serialization.CodeGenerator.BeginMethod(String methodName, Type delegateType, Boolean allowPrivateMemberAccess)
+       at System.Runtime.Serialization.XmlFormatWriterGenerator.CriticalHelper.GenerateClassWriter(ClassDataContract classContract)
+       --- End of inner exception stack trace ---
+       at System.Runtime.Serialization.ClassDataContract.RequiresMemberAccessForWrite(SecurityException securityException, String[] serializationAssemblyPatterns)
+       at System.Runtime.Serialization.XmlFormatWriterGenerator.CriticalHelper.GenerateClassWriter(ClassDataContract classContract)
+       at System.Runtime.Serialization.ClassDataContract.get_XmlFormatWriterDelegate()
+       at System.Runtime.Serialization.ClassDataContract.WriteXmlValue(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context)
+       at System.Runtime.Serialization.XmlObjectSerializerWriteContext.WriteDataContractValue(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+       at System.Runtime.Serialization.XmlObjectSerializerWriteContext.SerializeWithoutXsiType(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+       at System.Runtime.Serialization.DataContractSerializer.InternalWriteObjectContent(XmlWriterDelegator writer, Object graph)
+       at System.Runtime.Serialization.DataContractSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph)
+       at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph)
+       at System.Runtime.Serialization.XmlObjectSerializer.WriteObject(XmlDictionaryWriter writer, Object graph)
+       at System.Runtime.Serialization.XmlObjectSerializer.WriteObject(Stream stream, Object graph)
+       at SL_ButtonAndText.MainPage.Button_Click(Object sender, RoutedEventArgs e)

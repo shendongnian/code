@@ -1,0 +1,11 @@
+    var lines = File.ReadAllLines(path);
+    var NewAccount = new Account();
+    NewAccount.Name = lines.First();
+    NewAccount.Age = int.Parse(lines.ElementAt(1));
+    NewAccount.Balance = int.Parse(lines.ElementAt(2));
+    NewAccount.Address.Country = lines.ElementAt(3);
+    NewAccount.Address.City = lines.ElementAt(4);
+    NewAccount.Address.FirstLine = lines.ElementAt(5);
+    NewAccount.Address.SecondLine = lines.ElementAt(6);
+    NewAccount.Address.PostCode = lines.ElementAt(7);
+    NewAccount.AccountNumber = int.Parse(lines.ElementAt(8));

@@ -1,0 +1,13 @@
+        Process e = new Process();
+        e.StartInfo.UseShellExecute = false;
+        e.StartInfo.RedirectStandardOutput = true;
+        e.StartInfo.RedirectStandardError = true;
+        e.StartInfo.FileName = "C:\\Users\\Projects\\ot\\x64\\Debug\\ot.exe";
+        e.OutputDataReceived += (s, e) => Console.WriteLine(e.Data);
+        e.ErrorDataReceived += (s, e) => Console.WriteLine(e.Data);
+        e.Start();
+        e.BeginOutputReadLine();
+        e.BeginErrorReadLine();
+        e.WaitForExit();
+        e.CancelErrorRead();
+        e.CancelOutputRead();

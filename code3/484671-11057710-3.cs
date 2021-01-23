@@ -1,0 +1,6 @@
+    ...
+    format: @<text>@Html.DateTimeActionLink(
+                                        item.AssessmentDate,
+                                        "MM/dd/yyyy",
+                                        x => Html.ActionLink(item.AssessmentInfo + " | " + x, "Edit", "MdsAsmtSectionQuestions", new { mdsId = item.OngoingId }, null))</text>
+    ...

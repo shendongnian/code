@@ -1,0 +1,6 @@
+    public class OrderIndexViewModel
+    {
+        //...
+        public IEnumerable<HardwareOptionViewModel> HardwareOptions { get; set; }
+        //...
+    }

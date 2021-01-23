@@ -1,0 +1,11 @@
+        using WordNS = Microsoft.Office.Interop.Word;
+        WordNS.Document doc = _application.ActiveDocument;
+        WordNS.Paragraph p = doc.Paragraphs.Add();
+        p.Range.Text = "Some text   beff = 3.0";
+        int start = p.Range.Text.IndexOf("eff");
+        int end = p.Range.Text.IndexOf("=");
+        WordNS.Range range = doc.Range(start, end);
+        range.Select();
+        WordNS.Selection currentSelection = _application.Selection;
+        currentSelection.Font.Subscript = 1;
+        doc.SaveAs2("C:\\SubscriptInterop.docx");

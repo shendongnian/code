@@ -1,0 +1,47 @@
+    namespace SilverlightApplication2
+    {
+        public partial class MainPage : UserControl 
+        {
+            public ObservableCollection<Parent> ParentList { get; set; }
+    
+            public MainPage()
+            {
+                Populate();
+                InitializeComponent();
+            }
+    
+            private void Populate()
+            {
+                ParentList = new ObservableCollection<Parent>();
+                ParentList.Add(new Parent
+                {
+                    Name = "John",
+                    Children = new List<Child> { new Child { Name = "Paul" }, new Child { Name = "Pat" } }
+                });
+    
+                ParentList.Add(new Parent
+                {
+                    Name = "Mike",
+                    Children = new List<Child> { new Child { Name = "Bob" }, new Child { Name = "Alice" } }
+                });
+    
+                ParentList.Add(new Parent
+                {
+                    Name = "Smith",
+                    Children = new List<Child> { new Child { Name = "Ryan" }, new Child { Name = "Sue" }, new Child { Name = "Liz" } }
+                });
+            }
+        }
+    
+        public class Parent
+        {
+            public string Name { get; set; }
+            public List<Child> Children { get; set; }
+        }
+    
+        public class Child
+        {
+            public string Name { get; set; }
+            public bool IsSelected { get; set; }
+        }
+    }

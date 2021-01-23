@@ -1,0 +1,9 @@
+     this.listView1.FullRowSelect = true;
+     this.listView1.GridLines = true;
+     this.listView1.Location = new System.Drawing.Point(253, 160);
+     this.listView1.Name = "listView1";
+     this.listView1.Size = new System.Drawing.Size(428, 97);
+     this.listView1.TabIndex = 9;
+     this.listView1.UseCompatibleStateImageBehavior = false;
+     this.listView1.View = System.Windows.Forms.View.Details;
+     this.listView1.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.listView1_ColumnWidthChanging);

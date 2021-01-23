@@ -1,0 +1,15 @@
+    string path = Server.MapPath("emp.csv");
+                string header = "Yes";
+                string sql = string.Empty;
+                DataTable dt = null;
+                string fullpath = Path.GetDirectoryName(path);
+                string fileName = Path.GetFileName(path);
+                OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + fullpath + ";Extended Properties=\"Text;HDR=" + header + "\"");
+                OleDbDataAdapter da = new OleDbDataAdapter("select * from [" + fileName + "]", connection);
+                dt = new DataTable();
+                dt.Columns.Add("Name", typeof(string));
+                dt.Columns.Add("Age", typeof(int));
+                dt.Columns.Add("Salary", typeof(decimal));
+                da.Fill(dt);
+                GridView1.DataSource = dt;
+                GridView1.DataBind();

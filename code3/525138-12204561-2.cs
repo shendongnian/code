@@ -1,0 +1,23 @@
+    byte[] filedata = null;
+    using (BinaryReader readerr = new BinaryReader(File.OpenRead(pathToImage)))
+        filedata = readerr.ReadBytes((int)readerr.BaseStream.Length);
+    string boundary = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+    Stream stream = request.GetRequestStream();
+    request.ContentType = string.Format("multipart/form-data; boundary={0}", boundary);
+    StreamWriter writer = new StreamWriter(stream);   
+    writer.Write("--");
+    writer.WriteLine(boundary);
+    writer.WriteLine(@"Content-Disposition: form-data; name=""{0}""; filename=""{1}""", "your_name", "your_photo_file_name");
+    writer.WriteLine(@"Content-Type: application/octet-stream");
+    writer.WriteLine(@"Content-Length: " + filedata .Length);
+    writer.WriteLine();
+    writer.Flush();
+    Stream output = writer.BaseStream;
+    output.Write(filedata , 0, filedata .Length);
+    output.Flush();
+    writer.WriteLine();
+    writer.Write("--");
+    writer.Write(boundary);
+    writer.WriteLine("--");
+    writer.Flush();

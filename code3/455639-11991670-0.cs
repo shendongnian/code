@@ -1,0 +1,12 @@
+    MemoryStream PDFStream = new MemoryStream();
+    MemoryStream PDF = Derp.GeneratePdf(PDFStream);
+    byte[] byteArray1 = PDF.ToArray();
+    PDF.Flush();
+    PDF.Close();
+    Response.BufferOutput = true;
+    Response.Clear();
+    Response.ClearHeaders();
+    Response.AddHeader("Content-Disposition", "attachment; filename=Test.pdf");
+    Response.ContentType = "application/octet-stream";
+    Response.BinaryWrite(byteArray1);
+    Response.End();

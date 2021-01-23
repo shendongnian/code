@@ -1,0 +1,6 @@
+    public class Event
+    {
+        public Event() {} // public empty ctor 
+        ....
+        ....
+    }

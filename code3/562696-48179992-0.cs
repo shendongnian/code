@@ -1,0 +1,21 @@
+    public Interface ICarModels {
+    }
+    
+    public class Automobile : ICarModels {
+       string Color { get; set; }
+       string Model { get; set; }
+       string Year { get; set; }
+       public void AddAccessory(string accessory)
+       {
+          // Code to Add Accessory
+       }
+    
+       public void SellCar()
+       {
+          // Add code to sell car
+       }
+       public void LeaseCar()
+       {
+          // Add code to lease car
+       }
+    }

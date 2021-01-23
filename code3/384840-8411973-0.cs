@@ -1,0 +1,13 @@
+    public static class CacheManager {
+        static class TypeLock<T> {
+            public static readonly object SyncLock = new object();
+        }
+        ...
+        void SomeGenericMethod<TData>(args) {
+           ...
+           lock(TypeLock<TData>.SyncLock) {
+              ...
+           }
+           ...
+        }
+    }

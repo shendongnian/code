@@ -1,0 +1,10 @@
+    var qmr = new QueryByAllLocationDayTypeType();
+    qmr.ItemElementName = ItemChoiceType3.All;
+    qmr.Item = new QueryAllType();
+    qmr.day = Convert.ToDateTime("2012-11-16");
+    qmr.type = MarketQueryTypeType.Virtual;
+    var qr = new QueryRequest();
+    qr.ItemsElementName = new ItemsChoiceType1[1];
+    qr.ItemElementName[0] = ItemsChoiceType1.QueryMarketResults;
+    qr.Items = new object[1];
+    qr.Items[0] = qmr;

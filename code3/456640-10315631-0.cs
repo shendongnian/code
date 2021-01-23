@@ -1,0 +1,7 @@
+    Projections.ProjectionList()
+          .Add(Projections.Alias(Projections.Property("Name"), "Name"))
+          .Add(Projections.Alias(Projections.Property("Email"), "Email"))
+          .Add(Projections.Alias(Projections.Property("Telephone"), "Telephone"))
+          .Add(Projections.Alias(Projections.Property("DateOfBirth"), "DateOfBirth"))
+          .Add(Projections.Alias(Projections.Property("HospitalName"), "HospitalName"))
+          .Add(Projections.Alias(Projections.Property("Role"), "Role"))

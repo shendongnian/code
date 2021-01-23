@@ -1,0 +1,26 @@
+        protected virtual void
+        Dispose
+            (bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    if(TheThread != null)
+                    {
+                        // send a signal to stop the thread.
+                        _stopTheThread = true;
+                        startTheThreadEvent.Set();  
+                        // Join the thread - we could timeout here but it should be the
+                        // responsibility of the thread owner to ensure it exits
+                        // If this is hanging then the owning object hasn't terminated
+                        // its thread
+                        TheThread.Join();
+                        TheThread = null;
+                    }
+                }
+                // Now deal with unmanaged resources!
+                DestroySomeUnmangedResouces();
+            }
+            disposed = true;
+        }

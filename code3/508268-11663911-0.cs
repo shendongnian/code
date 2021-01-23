@@ -1,0 +1,10 @@
+            String regex = "^(\\+|-)?99\\.99$";
+            String str1 = "-99.99";
+            String str2 = "+99.99";
+            String str3 = "99.99";
+            String str4 = "+-99.99";
+            System.Console.WriteLine(Regex.IsMatch(str1, regex));
+            System.Console.WriteLine(Regex.IsMatch(str2, regex));
+            System.Console.WriteLine(Regex.IsMatch(str3, regex));
+            System.Console.WriteLine(Regex.IsMatch(str4, regex));
+            System.Console.ReadKey();

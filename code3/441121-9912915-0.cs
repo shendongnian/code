@@ -1,0 +1,10 @@
+    object o1 = new object();
+    object o2 = "I am a string.";
+    object o3 = 42;
+    Console.WriteLine(o1.GetType());
+    Console.WriteLine(o2.GetType());
+    Console.WriteLine(o3.GetType());
+    IComparable ic1 = "I am a string.";
+    IComparable ic2 = 42;
+    Console.WriteLine(ic1.GetType());
+    Console.WriteLine(ic2.GetType());

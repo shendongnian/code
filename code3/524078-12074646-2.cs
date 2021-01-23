@@ -1,0 +1,13 @@
+    static object NullableSafeChangeType(string input, Type type)
+    {
+        Type underlyingType = Nullable.GetUnderlyingType(type);
+        if (type == null) // Non-nullable; convert directly
+        {
+            return Convert.ChangeType(input, type);
+        }
+        else
+        {
+            return input == null || input == "" ? null
+                : Convert.ChangeType(input, underlyingType);
+        }
+    }

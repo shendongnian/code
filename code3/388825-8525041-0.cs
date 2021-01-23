@@ -1,0 +1,6 @@
+    TBoxMorse2.Text += dot.ToString();
+    // or more explicitly, if you're not familiar with the += operator...
+    TBoxMorse2.Text = TBoxMorse2.Text + dot.ToString();
+    // or if you want to use string.Format,
+    // since I once heard somewhere that it performs better than concatenation...
+    TBoxMorse2.Text = string.Format("{0}{1}", TBoxMorse2.Text, dot.ToString());

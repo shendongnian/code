@@ -1,0 +1,7 @@
+      class Progam
+      {
+           static ... Main()
+           {
+                ...
+           }
+      }

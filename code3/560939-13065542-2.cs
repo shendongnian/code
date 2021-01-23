@@ -1,0 +1,17 @@
+    string path = your file path;
+       using(StreamWriter sw = new StreamWriter(path,true)
+               {
+                    if (!File.Exists(path))
+                    {
+    
+                        sw = File.CreateText(path);
+                    }
+    
+                    else
+                    {
+                        sw = File.AppendText(path);
+    
+                    }
+    
+                sw.WriteLine("string here");
+             }

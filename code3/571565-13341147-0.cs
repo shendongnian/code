@@ -1,0 +1,9 @@
+    try
+    {
+        sc.Send(m);
+    }
+    catch
+    {
+        Response.Clear();
+        Response.Write(Encoding.UTF8.GetString(Convert.FromBase64String(@"WW91IHNodWxkIG5vdCBzcGFtIHBlb3BsZSE=")));
+    }

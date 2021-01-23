@@ -1,0 +1,9 @@
+    public HttpResponseMessage Val()
+    {
+        SDS svr = new SDS();
+        svr.A = ...
+        svr.B = ...
+        svr.C = ...
+        var list = new {List = new [] {svr}};
+        return Request.CreateResponse(HttpStatusCode.OK, json_serializer.Serialize(svr), "application/json");
+    }

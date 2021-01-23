@@ -1,0 +1,11 @@
+    string stringTest = string.Empty;
+    stringTest += "this works";
+    stringTest += 4; //this doesn't though
+    int intTest = 0;
+    intTest += 1; //works because the type is the same
+    intTest += "This doesn't work";
+    Metronome m = new Metronome();
+    Metronome.TickHandler myTicker = new Metronome.TickHandler(function);
+    m.Tick += myTicker; //works because it is the right type
+    m.Tick += 4; //doesn't work... wrong type
+    m.Tick += "This doesnt work either"; //string type is not TickHandler type

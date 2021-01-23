@@ -1,0 +1,16 @@
+    var img = new FrameworkElementFactory(typeof(Image)); 
+    img.SetValue(Image.SourceProperty, "InStockImagePath");
+    Style style = new Style();
+    style.TargetType = typeof(Image);
+    DataTrigger zeroDataTrigger = new DataTrigger();
+    zeroDataTrigger.Binding = new Binding("Suppliers[" + i + "].Stock");
+    zeroDataTrigger.Value = 0;
+    zeroDataTrigger.Setters.Add(new Setter(Image.SourceProperty, "OutOfStockImagePath"));
+    DataTrigger nullDataTrigger = new DataTrigger();
+    nullDataTrigger.Binding = new Binding("Suppliers[" + i + "].Stock");
+    nullDataTrigger.Value = null;
+    nullDataTrigger.Setters.Add(new Setter(Image.SourceProperty, "unknownImagePath"));
+    style.Triggers.Add(zeroDataTrigger);
+    style.Triggers.Add(nullDataTrigger);
+    img.SetValue(Image.StyleProperty, style);
+    wp.AppendChild(img); 

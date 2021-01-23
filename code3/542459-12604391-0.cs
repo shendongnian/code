@@ -1,0 +1,10 @@
+           int width = 0;
+            this.information.RowHeadersVisible = false;
+            for (int i = 0; i < information.Columns.Count; i++)
+                width += information.Columns[i].GetPreferredWidth(DataGridViewAutoSizeColumnMode.AllCells, true);
+            int rows = 0;
+            this.information.RowHeadersVisible = false;
+            for (int i = 0; i < information.Rows.Count; i++)
+                rows += information.Rows[i].GetPreferredHeight(i, DataGridViewAutoSizeRowMode.AllCells, true);
+            information.Size = new Size(width +20, rows+50);
+            this.Width = width + 50;

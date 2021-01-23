@@ -1,0 +1,11 @@
+     var binding = new NetTcpBinding();
+     binding.Security.Mode = SecurityMode.Transport;
+     binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
+     binding.Security.Transport.ProtectionLevel = ProtectionLevel.EncryptAndSign;
+     binding.Security.Message.ClientCredentialType = MessageCredentialType.Windows;
+     var identity = new DnsEndpointIdentity("localhost");
+     Uri uri = new Uri("tcp:URI goes here");
+     var address = new EndpointAddress(uri, identity, new AddressHeaderCollection());
+     _smFactory = new DuplexChannelFactory<IScannerManager>(instanceContext, binding, address);
+     _smFactory.Credentials.ClientCertificate.SetCertificate(StoreLocation.CurrentUser, StoreName.My, X509FindType.FindBySubjectName, "CustomCertificateNameHere");
+     _commsChannel = _smFactory.CreateChannel();

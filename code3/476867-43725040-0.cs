@@ -1,0 +1,11 @@
+    var a = (byte)5 / (byte)2;  // 2 (Int32)
+    var b = (short)5 / (byte)2; // 2 (Int32)
+    var c = 5 / 2;              // 2 (Int32)
+    var d = 5 / 2U;             // 2 (UInt32)
+    var e = 5L / 2U;            // 2 (Int64)
+    var f = 5L / 2UL;           // 2 (UInt64)
+    var g = 5F / 2UL;           // 2.5 (Single/float)
+    var h = 5F / 2D;            // 2.5 (Double)
+    var i = 5.0 / 2F;           // 2.5 (Double)
+    var j = 5M / 2;             // 2.5 (Decimal)
+    var k = 5M / 2F;            // Not allowed

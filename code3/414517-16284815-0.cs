@@ -1,0 +1,13 @@
+    MailMessage objeto_mail = new MailMessage();
+    SmtpClient client = new SmtpClient();
+    client.Port = 25;
+    client.Host = "smtp.internal.ericsson.com";
+    client.Timeout = 10000;
+    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+    client.UseDefaultCredentials = false;
+    client.Credentials = new System.Net.NetworkCredential("user", "Password");
+    objeto_mail.From = new MailAddress("from@server.com");
+    objeto_mail.To.Add(new MailAddress("to@server.com"));
+    objeto_mail.Subject = "Password Recover";
+    objeto_mail.Body = "Message";
+    client.Send(objeto_mail);

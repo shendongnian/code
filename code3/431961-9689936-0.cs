@@ -1,0 +1,13 @@
+            DataSet dataSet = new DataSet();
+            DataTable dataTable = database.Query("select sum(amount) as monthamount, month(transdate) as month from transaction where year(transdate)=" + balanceDateTimePicker.Value.Year + " group by month");
+            dataSet.Tables.Add(dataTable);
+            dataTable = database.Query("select sum(amount) as monthamount, month(transdate) as month from transaction where year(transdate)=" + balanceDateTimePicker.Value.AddYears(-1).Year + " group by month");
+            dataSet.Tables.Add(dataTable);
+            System.Windows.Forms.DataVisualization.Charting.Series series = reoccuranceChart.Series["Now"];
+            series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            //series.IsVisibleInLegend = false;
+            series.Points.DataBind(dataSet.Tables[0].DefaultView, "month", "monthamount", "");
+            series = reoccuranceChart.Series["Last year"];
+            series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            //series.IsVisibleInLegend = false;
+            series.Points.DataBind(dataSet.Tables[1].DefaultView, "month", "monthamount", "");

@@ -1,0 +1,10 @@
+    var objectContext = ((IObjectContextAdapter)dbContext).ObjectContext;
+    objectContext.ObjectMaterialized += (sender, e) => {
+        var context = sender as ObjectContext; 
+        var entity = e.Entity as ClassA;
+        if (entity != null) {
+           entity.AssociatedDPVs = context.DPVs
+                                          .Where(d => d.ClassName == "ClassA" && d.ObjectID == this.ID)
+                                          .ToDictionary(d => d.Name, d => d.Value);
+        }
+    };

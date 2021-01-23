@@ -1,0 +1,6 @@
+    // Assuming you remove the GC.SuppressFinalize call
+    myDisposable.Dispose();
+    GC.WaitForPendingFinalizers();
+    // Output:
+    // Disposing...
+    // Destructing...

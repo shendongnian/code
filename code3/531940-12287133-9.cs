@@ -1,0 +1,13 @@
+        void setItem(int index,MyObject newObject)
+        {
+            ...
+            myItems[index]=newObject;
+            ...
+        }
+        void setItem(int x, int y, MyObject newObject)
+        {
+            ...
+            int index = y*columns+x;
+            setItem(index,newObject);
+            ...
+        }

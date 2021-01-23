@@ -1,0 +1,10 @@
+        Microsoft.Office.Interop.Word.Document worddoc;
+        Microsoft.Office.Interop.Word.Application wordApp;
+        Microsoft.Office.Interop.Word.Range _range;              
+        object file = "1.doc";
+        wordApp = new Microsoft.Office.Interop.Word.Application();
+        worddoc = wordApp.Documents.Open(ref file); 
+        _range = worddoc.Content;
+        Microsoft.Office.Interop.Word.Range rng = _range; 
+        rng.Start = rng.End;
+        rng.InsertFile("2.doc");

@@ -1,0 +1,32 @@
+    XElement x = XElement.Load("In.xml");
+    IFormatProvider f = new System.Globalization.CultureInfo("en-US");
+    var info = x.Elements("User").Select(u => new
+    {
+        Name = u.Element("Name").Value,                   //user name
+        AverageAttempts = u.Elements("Attempts")          //select user's attempts 
+                           .GroupBy(a => a.Element("Place").Value) //group by place
+                           .Select(g => new         // create summary info by place
+                           {
+                              Place = g.Key,              //place
+                              BeginDate = g.Elements("Date") 
+                                           .Select(d => DateTime.Parse(d.Value, f))
+                                           .Min(),   //min date, i.e. first attempt
+                              EndDate = g.Elements("Date")   
+                                         .Select(d => DateTime.Parse(d.Value, f))
+                                         .Max(),   //max date, i.e. last attempt
+                              Distance = g.Elements("Distance")//average distance
+                                          .Average(d => decimal.Parse(d.Value))
+                           })
+    });
+    
+    foreach (var i in info)  //print info
+    {
+        Console.WriteLine(i.Name);
+        foreach (var aa in i.AverageAttempts)
+        {
+            Console.WriteLine(
+             string.Format(
+              "{0} [{1} - {2}]:\t{3}",aa.Place,aa.BeginDate,aa.EndDate,aa.Distance));
+        }
+        Console.WriteLine();
+    }

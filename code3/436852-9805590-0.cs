@@ -1,0 +1,10 @@
+    r.Cells[columnIndex].Attributes.Add("class", "text"); 
+        System.Text.StringBuilder style = new System.Text.StringBuilder();
+                    style.Append("<style>");
+                    style.Append("." + "text" + " { mso-number-format:" + "\\@;" + " }");
+                    style.Append("</style>");
+                    response.Clear();
+                    Response.Buffer = true;
+                    //response.Charset = "";
+                    //response.Write(sw.ToString());
+                    Response.Write(style.ToString());

@@ -1,0 +1,10 @@
+            WebRequest webRequest = WebRequest.Create(finalUrl);
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
+            CredentialCache credentialCache = new CredentialCache();
+            credentialCache.Add(new System.Uri(finalUrl), "Basic", new NetworkCredential(userName, password));
+            webRequest.Credentials = credentialCache;
+            webRequest.PreAuthenticate = true;
+            HttpWebResponse response = (HttpWebResponse)webRequest.GetResponse();
+            System.IO.Stream stream = response.GetResponseStream();
+            System.IO.StreamReader sReader = new System.IO.StreamReader(stream);
+            pageSource = sReader.ReadToEnd();

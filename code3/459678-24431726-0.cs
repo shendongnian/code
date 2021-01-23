@@ -1,0 +1,14 @@
+	using GLbitfield = System.UInt32;
+	using GLboolean = System.Boolean;
+	using GLbyte = System.SByte;
+	using GLclampf = System.Single;
+	using GLdouble = System.Double;
+	using GLenum = System.UInt32;
+	using GLfloat = System.Single;
+	using GLint = System.Int32;
+	using GLshort = System.Int16;
+	using GLsizei = System.Int32;
+	using GLubyte = System.Byte;
+	using GLuint = System.UInt32;
+	using GLushort = System.UInt16;
+	using GLvoid = System.IntPtr;

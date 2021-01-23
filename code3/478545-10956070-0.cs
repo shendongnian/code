@@ -1,0 +1,11 @@
+    System.Drawing.Rectangle dueDateRectangle = new System.Drawing.Rectangle(dueDateRect1, dueDateRect2, dueDateRect4 - dueDateRect1, dueDateRect3 - dueDateRect2);
+    System.Drawing.Imaging.PixelFormat format = image.PixelFormat;
+    Bitmap cloneBitmap = image.Clone(dueDateRectangle, format);
+    MemoryStream ms = new MemoryStream();
+    cloneBitmap.Save(ms, ImageFormat.Png);
+    ms.Position = 0;
+    BitmapImage dueDateImage = new BitmapImage();
+    dueDateImage.BeginInit();
+    dueDateImage.StreamSource = ms;
+    dueDateImage.EndInit();
+    dueDateImageBox.Source = dueDateImage;

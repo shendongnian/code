@@ -1,0 +1,11 @@
+      GraphicsDevice.SetRenderTarget(target);
+      GraphicsDevice.Clear(Color.Transparent);
+      spriteBatch.Begin();
+      spriteBatch.Draw(texture, target.Bounds, new Rectangle(50, 500, 100, 100), Color.White);
+      spriteBatch.End();
+      GraphicsDevice.SetRenderTarget(null);
+      GraphicsDevice.Clear(Color.CornflowerBlue);
+      spriteBatch.Begin();
+      spriteBatch.Draw(texture, new Rectangle(0, 0, 640, 480), texture.Bounds, Color.White);
+      spriteBatch.Draw(target, Vector2.Zero, target.Bounds, Color.White);
+      spriteBatch.End();

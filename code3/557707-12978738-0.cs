@@ -1,0 +1,6 @@
+    public Form1(string prepopulated)
+    {
+        // ...
+        IEnumerable<string> lines = prepopulated;
+        // ...
+    }

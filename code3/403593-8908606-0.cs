@@ -1,0 +1,13 @@
+    public class Product 
+    {
+       //...
+       public virtual ICollection<Order> InOrders { get; set; }
+       //...
+    }
+    
+    public class Order
+    {
+       //...
+       public virtual ICollection<Product> ProductsInOrder { get; set; }
+       //...
+    }

@@ -1,0 +1,8 @@
+    var prices = new Dictionary<int, int>();
+    prices.Add(1, 100);
+    prices.Add(2, 200);
+    prices.Add(3, 100);
+    prices.Add(4, 300);
+    Dictionary<int,List<int>> test  = 
+                       prices.GroupBy(r=> r.Value)
+                      .ToDictionary(t=> t.Key, t=> t.Select(r=> r.Key).ToList());

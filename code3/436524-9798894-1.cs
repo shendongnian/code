@@ -1,0 +1,8 @@
+    public void ClosedEventHandlerIsNotCalledAfterBeingRemoved()
+    {
+        MyLearningEvent Target = new MyLearningEvent();
+        EventHandler Target_Closed = new EventHandler((sender, e) => { Assert.Fail("Closed EventHandler was raised after being removed."); });
+        Target.Closed += Target_Closed;
+        Target.Closed -= Target_Closed;
+        Target.OnClosed();
+    }

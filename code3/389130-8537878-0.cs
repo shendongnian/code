@@ -1,0 +1,11 @@
+    var runspaceConfiguration = RunspaceConfiguration.Create();
+    var runspace = RunspaceFactory.CreateRunspace(runspaceConfiguration);
+    runspace.Open();
+    var pipeline = runspace.CreatePipeline();
+    var script = "param($p1,$p2) \"p1 is $p1, p2 is $p2\"";
+    var myCommand = new Command(script, true);
+    myCommand.Parameters.Add(new CommandParameter("p1", DateTime.Now));
+    myCommand.Parameters.Add(new CommandParameter("p2", Math.PI));
+    pipeline.Commands.Add(myCommand);
+    var result = pipeline.Invoke().FirstOrDefault();
+    Console.WriteLine(result);

@@ -1,0 +1,10 @@
+    var ensureItemsBatch = new TableBatchOperation();
+    ensureItemsBatch.InsertOrReplace(new MyEntity("MyItems", "123") { Active = false });
+    ensureItemsBatch.InsertOrReplace(new MyEntity("MyItems", "456") { Active = false });
+    ensureItemsBatch.InsertOrReplace(new MyEntity("MyItems", "789") { Active = false });
+    table.ExecuteBatch(ensureItemsBatch);
+    var deleteItemsBatch = new TableBatchOperation();
+    deleteItemsBatch.Delete(new MyEntity("MyItems", "123") { ETag = "*" });
+    deleteItemsBatch.Delete(new MyEntity("MyItems", "456") { ETag = "*" });
+    deleteItemsBatch.Delete(new MyEntity("MyItems", "789") { ETag = "*" });
+    table.ExecuteBatch(deleteItemsBatch);

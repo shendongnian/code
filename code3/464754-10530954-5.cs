@@ -1,0 +1,7 @@
+    rawData.Provider.CreateQuery<PDFDocument>(qb.rootExperession)
+    .ToList()
+    .GroupBy(b => b.ShortCode)
+    .Select(grouping => grouping.OrderByDescending(b => b.UploadDate))
+    .OrderByDescending(grouping => grouping.First().UploadDate)
+    .SelectMany(grouping => grouping)
+    .ToList()

@@ -1,0 +1,10 @@
+    try
+    {
+        panel.SuspendLayout();
+        panel.Controls.Remove(userControl1);
+        panel.Controls.Add(userControl2);
+    }
+    finally
+    {
+        panel.ResumeLayout();
+    }

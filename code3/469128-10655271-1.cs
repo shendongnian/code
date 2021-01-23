@@ -1,0 +1,16 @@
+    string userInput = "1394/02/31";
+    System.DateTime date = System.DateTime.Today;
+    System.Globalization.PersianCalendar p = new System.Globalization.PersianCalendar();
+    int year = p.GetYear(date);
+    int month = p.GetMonth(date);
+    int day = p.GetDayOfMonth(date);
+    System.DateTime currentDate = new System.DateTime(year, month, 1);
+    currentDate = currentDate.AddDays(day - 1);
+    // validation omitted
+    System.String[] userDateParts = userInput.Split(new[] { "/" }, System.StringSplitOptions.None);
+    int userYear = int.Parse(userDateParts[0]);
+    int userMonth = int.Parse(userDateParts[1]);
+    int userDay = int.Parse(userDateParts[2]);
+    System.DateTime userDate = new System.DateTime(userYear, userMonth, 1);
+    userDate = userDate.AddDays(userDay - 1);
+    System.TimeSpan difference = currentDate.Subtract(userDate);

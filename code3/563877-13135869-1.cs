@@ -1,0 +1,13 @@
+    ArrayList SortItems = new ArrayList();
+    SortItems.Add("Item1");
+    SortItems.Add("Item2");
+    SortItems.Add("Item3");
+    SortItems.Add("Item4");
+    SortItems.Add("Item5");
+    SortItems.Add("Item6");
+    SortItems.Add("Item7");
+    SortItems.Add("Item8");
+    SortItems.Add("Item9");
+    SortItems.Add("Item10");
+    SortItems.Add("Item11");
+    SortItems.Sort(new CusComparer());

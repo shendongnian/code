@@ -1,0 +1,13 @@
+    var Table1 = new DataTable();
+    var Table2 = new DataTable();
+    Table1.Columns.Add("Name");
+    Table1.Columns.Add("LastName");
+    Table2.Columns.Add("Name");
+    Table2.Columns.Add("Comment");
+    Table1.Rows.Add("Niki", "Row");
+    Table1.Rows.Add("Hube", "Slang");
+    Table1.Rows.Add("Koke", "Mi");
+    Table2.Rows.Add("Koke", "Hello");
+    Table2.Rows.Add("Niki", "Hi");
+    var tables = new DataTable[] { Table1, Table2 };
+    DataTable merged = tables.MergeAll("Name");

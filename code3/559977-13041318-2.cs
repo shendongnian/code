@@ -1,0 +1,14 @@
+    DateTime dt1 = DateTime.Now;
+    DateTime dt2 = DateTime.Now;
+    dt2 = dt2.AddMinutes(32);
+    ts = TimeSpan.FromTicks(dt2.Subtract(dt1).Ticks * (100 - 4) / 4);
+    Debug.WriteLine(ts.ToString());
+    dt2 = dt2.AddMinutes(16);
+    ts = TimeSpan.FromTicks(dt2.Subtract(dt1).Ticks * (100 - 6) / 6);
+    Debug.WriteLine(ts.ToString());
+    dt2 = dt2.AddMinutes(24);
+    ts = TimeSpan.FromTicks(dt2.Subtract(dt1).Ticks * (100 - 10) / 10);
+    Debug.WriteLine(ts.ToString());
+    dt2 = dt2.AddMinutes(30);
+    ts = TimeSpan.FromTicks(dt2.Subtract(dt1).Ticks * (100 - 14) / 14);
+    Debug.WriteLine(ts.ToString());

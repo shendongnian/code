@@ -1,0 +1,9 @@
+	class ExcelMagician : IExcelLayer {
+		...
+		bool ImportFrom(string fileName, string sheetName, out object[,] cells, bool skipHeaderRow = true)
+		{
+		     Excel.Application excelApp = new Excel.Application()
+		     ...
+		}
+		...
+	}

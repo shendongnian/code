@@ -1,0 +1,14 @@
+    DataTable tblEmail = new DataTable();
+    using (var con = new MySqlConnection(Properties.Settings.Default.MySQL))
+    using (var da = new MySqlDataAdapter("SELECT Email, Name FROM Email WHERE id=@id", con))
+    {
+        da.SelectCommand.Parameters.AddWithValue("@id", ID);
+        da.Fill(tblEmail);
+    }
+    if (tblEmail.Rows.Count == 1)
+    {
+        DataRow row  = tblEmail.Rows[0];
+        String email = row.Field<String>("Email");
+        String name  = row.Field<String>("Name");
+    }
+    

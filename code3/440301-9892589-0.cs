@@ -1,0 +1,5 @@
+    ProductDeliveryViewModel
+    {
+       // ProductModel
+       // DeliveryModel
+    }

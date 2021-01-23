@@ -1,0 +1,10 @@
+            RijndaelManaged alg = new RijndaelManaged();
+            alg.GenerateKey();
+            alg.GenerateIV();
+            byte[] key = alg.Key;
+            byte[] iv = alg.IV;
+            string text = "teststring";
+            string encrypted = EncryptWithAes(text, key, iv);
+            MessageBox.Show(encrypted);
+            String result = DecryptAesCryptoString(encrypted, key, iv);
+            MessageBox.Show(result);

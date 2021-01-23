@@ -1,0 +1,9 @@
+            FbConnectionStringBuilder cs = new FbConnectionStringBuilder();
+            cs.UserID = "SYSDBA";
+            cs.Password = "masterkey";
+            cs.Database = Form1.DataBaseFullPath;
+            cs.Charset = "UTF8";
+            cs.Pooling = false;
+            cs.Dialect = 3;
+            cs.ServerType = FbServerType.Embedded;
+            FbConnection Connection = new FbConnection(cs.ToString());

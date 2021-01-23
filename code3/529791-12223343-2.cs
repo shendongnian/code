@@ -1,0 +1,45 @@
+        You have to use a backgroundworker in order not to freeze UI when it process file 
+        set in DoWork method your process
+        and use Progress event to set your progress bar 
+        here an article that explains how
+        http://www.dotnetperls.com/progressbar
+    set your progressbar Maximum property to number of files that is filenames.Length
+    
+        public partial class Form1 : Form
+        {
+            public Form1()
+            {
+                InitializeComponent();
+                Shown += new EventHandler(Form1_Shown);
+         
+                // To report progress from the background worker we need to set this property
+                backgroundWorker1.WorkerReportsProgress = true;
+                // This event will be raised on the worker thread when the worker starts
+                backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
+                // This event will be raised when we call ReportProgress
+                backgroundWorker1.ProgressChanged += new ProgressChangedEventHandler(backgroundWorker1_ProgressChanged);
+            }
+            void Form1_Shown(object sender, EventArgs e)
+            {
+                // Start the background worker
+                backgroundWorker1.RunWorkerAsync();
+            }
+            // On worker thread so do our thing!
+            void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+            {
+               int i = 0; 
+                foreach (string file in filenames)    
+                {
+                    i++;
+                    // Report progress to 'UI' thread
+                    backgroundWorker1.ReportProgress(i);
+                   // Your background task goes here zip files
+                }
+            }
+            // Back on the 'UI' thread so we can update the progress bar
+            void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+            {
+                // The progress percentage is a property of e
+                progressBar1.Value = e.ProgressPercentage;
+            }
+        }

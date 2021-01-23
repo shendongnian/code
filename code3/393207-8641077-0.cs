@@ -1,0 +1,6 @@
+    //...
+    var column = attribute as ColumnAttribute;
+    if (column != null && column.IsPrimaryKey) {  // LINQ to SQL
+    	return true;
+    }
+    //...

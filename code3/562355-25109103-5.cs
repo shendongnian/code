@@ -1,0 +1,25 @@
+    public enum Season 
+    {
+       [Display(Name = "It's autumn")]
+       Autumn,
+    
+       [Display(Name = "It's winter")]
+       Winter,
+    
+       [Display(Name = "It's spring")]
+       Spring,
+    
+       [Display(Name = "It's summer")]
+       Summer
+    }
+    public class Foo 
+    {
+    	public Season season = Season.Summer;
+    	
+    	public void DisplayName()
+    	{
+    		var seasonDisplayName = season.GetAttribute<DisplayAttribute>();
+    		Console.WriteLine("Which season is it?");
+    		Console.WriteLine (seasonDisplayName.Name);
+    	} 
+    }

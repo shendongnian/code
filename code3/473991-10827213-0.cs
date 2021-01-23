@@ -1,0 +1,10 @@
+    ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
+    string url = "https://my.ooma.com";
+    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+    request.Method = "GET";
+    request.CookieContainer = new CookieContainer();
+    WebResponse myResponse = request.GetResponse();
+    StreamReader sr = new StreamReader(myResponse.GetResponseStream());
+    string result = sr.ReadToEnd();
+    sr.Close();
+    myResponse.Close();

@@ -1,0 +1,12 @@
+    string message = "Message: This is a message for Name of Client";
+    string[] parts = message.Split(':');
+    Label heading = new Label();
+    heading.Text = parts[0];
+    heading.Font= new Font("Times New Roman", 10, FontStyle.Underline);
+    heading.AutoSize = true;
+    flowLayoutPanel1.Controls.Add(heading);
+    Label message = new Label();
+    message.Text = parts[1];
+    message.Font = new Font("Times New Roman", 10, FontStyle.Regular);
+    message.AutoSize = true;
+    flowLayoutPanel1.Controls.Add(message);

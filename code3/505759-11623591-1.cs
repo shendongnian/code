@@ -1,0 +1,9 @@
+    BasicHttpBinding basicHttpBinding = new BasicHttpBinding(BasicHttpSecurityMode.TransportCredentialOnly);
+    basicHttpBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Windows;
+    basicHttpBinding.MaxReceivedMessageSize = 52428800;
+    System.Xml.XmlDictionaryReaderQuotas xmlDictionaryReaderQuotas = new XmlDictionaryReaderQuotas();
+    xmlDictionaryReaderQuotas.MaxNameTableCharCount = 2147483647;
+    basicHttpBinding.ReaderQuotas = xmlDictionaryReaderQuotas;
+    System.ServiceModel.Description.MetadataExchangeClient mexClient = new System.ServiceModel.Description.MetadataExchangeClient(basicHttpBinding);
+    mexClient.MaximumResolvedReferences = 1000;
+    System.ServiceModel.Description.MetadataSet metadataSet = mexClient.GetMetadata(endpointUri, System.ServiceModel.Description.MetadataExchangeClientMode.HttpGet);

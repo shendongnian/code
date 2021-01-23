@@ -1,0 +1,18 @@
+    string qry = "select * From ImagesStore";
+    
+    using(SqlConnection Cn=new SqlConnect(CnStr))
+    {
+      using(SqlCommand SqlCom = new SqlCommand(qry, CN))
+      {
+        Cn.Open();
+        using(SqlDataReader dr=SqlCom.ExecuteReader())
+        {
+          while(dr.Read())
+          {
+              string path="x:\\folder\\" + dr[0] + ".png";
+              byte []bytes=(byte[])dr[1];
+              System.IO.File.WriteAllBytes(path,bytes);
+           }
+        }
+      }
+    }

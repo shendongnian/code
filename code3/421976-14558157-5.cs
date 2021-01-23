@@ -1,0 +1,14 @@
+    try
+    {
+      XYZ()
+    }
+    catch(ExceptionXYZ)
+    {
+      DoX();
+      DoY();
+    }
+    catch(ExceptionCVZF)
+    {
+      DoZ();
+      DoV();
+    }

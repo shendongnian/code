@@ -1,0 +1,16 @@
+    public static class ControllerExtensions
+    {
+      public string GetMessage(this Controller instance)
+      {
+        string result = instance.TempData["Message"] as string;
+        if (result == null)
+        {
+          result = "some default value or throw null argument exception";  
+        }
+        return result;
+      }
+      public void SetMessage(this Controller instance, string value)
+      {
+        instance.TempData["Message"] = value;
+      }
+    }

@@ -1,0 +1,12 @@
+    HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+    request.Method = WebRequestMethods.Http.Post;
+    request.ContentLength = postData.Length;
+    request.ContentType = "application/x-www-form-urlencoded";
+    request.KeepAlive = false;
+    StreamWriter writer = new StreamWriter(request.GetRequestStream());
+    writer.Write(postData);
+    writer.Close();
+    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+    StreamReader reader = new StreamReader(response.GetResponseStream());
+    String responseString = reader.ReadToEnd();
+    response.Close();

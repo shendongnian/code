@@ -1,0 +1,5 @@
+    Encoding.ASCII.GetBytes("WA")
+    .Concat(new byte[] { 1, 2, 3, 4, 5 })
+    .Concat(Encoding.ASCII.GetBytes("iPhone-2.6.7-5222"))
+    .Concat(new byte[] { 6, 7, 8, 9, 10 })
+    .ToArray()

@@ -1,0 +1,7 @@
+    public TestClass
+    {
+        public TestClass ()
+        {
+        }
+        ...
+    }

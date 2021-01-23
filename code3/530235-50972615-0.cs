@@ -1,0 +1,12 @@
+    var queryString = new NameValueCollection();
+    var mockRequest = new Mock<HttpRequestBase>();
+    mockRequest.Setup(r => r.QueryString).Returns(queryString);
+    var mockHttpContext = new Mock<HttpContextBase>();
+    mockHttpContext.Setup(c => c.Request).Returns(mockRequest.Object);
+    var server = new Mock<HttpServerUtilityBase>();
+    server.Setup(m => m.MapPath("~/Data/data.html")).Returns("path/to/test/data");
+    mockHttpContext.Setup(m => m.Server).Returns(server.Object);
+    var mockControllerContext = new Mock<ControllerContext>();
+    mockControllerContext.Setup(c => c.HttpContext).Returns(mockHttpContext.Object);
+    var controller = new MyTestController();
+    controller.ControllerContext = mockControllerContext.Object;

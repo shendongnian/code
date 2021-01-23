@@ -1,0 +1,11 @@
+    using Excel = Microsoft.Office.Interop.Excel;
+    Excel.Application excel = new Excel.Application();
+    excel.Visible = true;
+    Excel.Workbook wb = excel.Workbooks.Open(excel_filename);
+    Excel.Worksheet sh = wb.Sheets.Add();
+    sh.Name = "TestSheet";
+    sh.Cells[1, "A"].Value2 = "SNO";
+    sh.Cells[2, "B"].Value2 = "A";
+    sh.Cells[2, "C"].Value2 = "1122";
+    wb.Close(true);
+    excel.Quit();            

@@ -1,0 +1,10 @@
+            Dim incomingEtag As String = context.Request.Headers("If-None-Match")
+            Dim freshness As New TimeSpan(100, 0, 0, 0)
+            context.Response.Cache.SetCacheability(HttpCacheability.Public)
+            context.Response.Cache.SetExpires(DateTime.Now.ToUniversalTime.Add(freshness))
+            context.Response.Cache.SetMaxAge(freshness)
+            context.Response.Cache.SetValidUntilExpires(True)
+            context.Response.Cache.VaryByHeaders("Accept-Encoding") = True
+            context.Response.Cache.SetRevalidation(HttpCacheRevalidation.AllCaches)
+            Dim outgoingEtag As String = context.Request.Url.Authority & context.Request.Url.Query.GetHashCode()
+            context.Response.Cache.SetETag(outgoingEtag)

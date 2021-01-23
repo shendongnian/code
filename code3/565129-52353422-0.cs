@@ -1,0 +1,10 @@
+                MemoryStream ms = new MemoryStream();
+                pkg.SaveAs(ms);
+                byte[] ba = ms.GetBuffer();
+                HttpContext.Current.Response.ClearContent();
+                HttpContext.Current.Response.AddHeader("Content-Disposition", "attachement; filename=ExportData.xlsx");
+                HttpContext.Current.Response.AddHeader("Content-Length", ba.Length.ToString());
+                HttpContext.Current.Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                HttpContext.Current.Response.BinaryWrite(ba);
+                HttpContext.Current.Response.Flush();
+                HttpContext.Current.Response.End();

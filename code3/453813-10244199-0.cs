@@ -1,0 +1,10 @@
+    SqlConnection con = new SqlConnection(connectionstring);
+    SqlCommand com = new SqlCommand("test", con);
+    com.CommandType = CommandType.StoredProcedure;
+    SqlParamter returnVal = new SqlParameter("RETURN_VALUE", SqlDbType.Int);
+    returnVal.Direction = ParameterDirection.ReturnValue;
+    com.Parameters.Add(returnVal);
+    com.Connection.Open();
+    com.ExecuteNonQuery();
+    int A = returnVal.value;
+    con.Close();

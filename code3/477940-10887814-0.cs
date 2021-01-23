@@ -1,0 +1,17 @@
+    TextBlock ControlTextBlock = new TextBlock();
+    ControlTextBlock.Text = @"ControlNameGoesHere";
+    ControlTextBlock.SetValue(Grid.ColumnProperty, 0);
+    ControlTextBlock.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+    CheckBox ControlCheckBox = new CheckBox();
+    ControlCheckBox.Margin = new Thickness(0, 0, 0, 0);
+    ControlCheckBox.SetValue(Grid.ColumnProperty, 1);
+    ControlCheckBox.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+    ColumnDefinition FirstColumn = new ColumnDefinition();
+    FirstColumn.Width = System.Windows.GridLength.Auto;
+    ColumnDefinition SecondColumn = new ColumnDefinition();
+    SecondColumn.Width = System.Windows.GridLength.Auto;
+    Grid ContentGrid = new Grid();
+    ContentGrid.ColumnDefinitions.Add(FirstColumn);
+    ContentGrid.ColumnDefinitions.Add(SecondColumn);
+    ContentGrid.Children.Add(ControlTextBlock);
+    ContentGrid.Children.Add(ControlCheckBox);

@@ -1,0 +1,23 @@
+    static class Throttle
+    {
+        public static void RunExclusive(ref int isRunning, Action action)
+        {
+            if (isRunning > 0) return;
+            bool locked = false;
+            try
+            {
+                try { }
+                finally
+                {
+                    if (locked = 
+                        Interlocked.CompareExchange(ref isRunning, 1, 0) > 0)
+                        action();
+                }
+            }
+            finally 
+            { 
+                if (locked) 
+                    Interlocked.Exchange(ref isRunning, 0); 
+            }
+        }
+    }

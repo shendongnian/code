@@ -1,0 +1,11 @@
+    doWorkState.Throttle.Enter();
+    try
+    {
+        doWorkState.MaxRegister.Increment();
+        Thread.Sleep(10);
+    }
+    finally
+    {
+        doWorkState.MaxRegister.Decrement();
+        doWorkState.Throttle.Exit();
+    }

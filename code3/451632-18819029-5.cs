@@ -1,0 +1,10 @@
+    System.Audio.Format = {00001610-0000-0010-8000-00AA00389B71}
+    System.Media.Duration = 00:44:08
+    System.Audio.EncodingBitrate = ?56kbps
+    System.Audio.SampleRate = ?32 kHz
+    System.Audio.SampleSize = ?16 bit
+    System.Audio.ChannelCount = 2 (stereo)
+    System.Audio.StreamNumber = 1
+    System.DRM.IsProtected = No
+    System.KindText = Music
+    System.Kind = Music

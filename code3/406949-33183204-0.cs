@@ -1,0 +1,12 @@
+    SqlConnection con = new SqlConnection("Data Source=.; uid=sa; pwd=sandesh;database=BeautyJunction;");
+            string strSQL = "Select BenificiaryType,BenificiaryName,DisttCode,IFSC,AC_No from BenificiaryMaster";
+            SqlDataAdapter dt = new SqlDataAdapter(strSQL, con);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "UserDetail");
+            string dat = String.Format("{0: MM_dd_yyyy}", DateTime.Now);
+            //string dat = Convert.ToString(DateTime.UtcNow.ToShortDateString());
+            sb.Append("~/Folder1/BenificiaryMaster_file_1" + dat + ".xml");
+            string path = sb.ToString();
+            ds.WriteXml(Server.MapPath(path));
+            LabelMessage.Text = "Your XML file has Been created with name 'BenificiaryMaster_file_1" + dat +"'  <a target='_blank' href=Folder1/BenificiaryMaster_file_1.xml>click here</a> to show Benificiary record file";
+            //GridView1.DataBind();

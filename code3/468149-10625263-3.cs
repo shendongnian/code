@@ -1,0 +1,5 @@
+    [SerializableAttribute]
+    public class SmallClass
+    {
+        // …
+    }

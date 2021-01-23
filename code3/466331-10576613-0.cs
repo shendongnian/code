@@ -1,0 +1,12 @@
+                DataTable dt = new DataTable();
+                dt.Columns.Add("UserID");
+                dt.Columns.Add("FullName");
+                dt.Columns.Add("DateBooked");
+                dt.Columns.Add("RoomQty");
+                dt.Columns.Add("NoofNights");
+                dt.Rows.Add(1, "John Doe", DateTime.Now.AddDays(-7).Date, 2, 3);
+                dt.Rows.Add(2, "Jack Sparrow", DateTime.Now.AddDays(-14).Date, 1, 1);
+                dt.Rows.Add(3, "Arthur Wilson", DateTime.Now.AddDays(-10).Date, 2, 2);
+                dt.Rows.Add(4, "Amy Jackson", DateTime.Now.AddDays(-5).Date, 4, 2);
+                dt.Rows.Add(5, "Tim Lee", DateTime.Now.AddDays(-1).Date, 1, 5);
+                dt.Rows.Add(2, "Jack Sparrow", DateTime.Now.AddDays(-5).Date, 3, 2);
