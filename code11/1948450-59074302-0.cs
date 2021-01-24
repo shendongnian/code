@@ -1,0 +1,16 @@
+    public class MyException<T> : MyException
+    {
+        public T Prop => (T)base._prop;
+        public MyException(T prop) : base(prop)
+        {
+             
+        }
+    }
+    public class MyException : Exception
+    {
+        protected object Prop { get; set; }
+        public MyException(object prop)
+        {
+             Prop = prop;
+        }
+    }

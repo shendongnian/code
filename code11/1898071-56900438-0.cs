@@ -1,0 +1,16 @@
+    DataGridTemplateColumn buttonColumn = new DataGridTemplateColumn();
+    buttonColumn.Header = "Actions";
+    buttonColumn.Width = 209;
+    DataTemplate buttonTemplate = new DataTemplate();
+    FrameworkElementFactory panelFactory = new FrameworkElementFactory(typeof(StackPanel));
+    buttonTemplate.VisualTree = panelFactory;
+    FrameworkElementFactory buttonAFactory = new FrameworkElementFactory(typeof(Button));
+    buttonAFactory.AddHandler(ButtonBase.ClickEvent, new RoutedEventHandler(Activate));
+    buttonAFactory.SetValue(ContentProperty, "A");
+    FrameworkElementFactory buttonBFactory = new FrameworkElementFactory(typeof(Button));
+    buttonBFactory.AddHandler(ButtonBase.ClickEvent, new RoutedEventHandler(Activate));
+    buttonBFactory.SetValue(ContentProperty, "B");
+    panelFactory.AppendChild(buttonAFactory);
+    panelFactory.AppendChild(buttonBFactory);
+    buttonColumn.CellTemplate = buttonTemplate;
+    dGrid_SavedData.Columns.Add(buttonColumn);

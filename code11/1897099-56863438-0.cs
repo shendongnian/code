@@ -1,0 +1,11 @@
+ System.ServiceModel.BasicHttpBinding binding = new System.ServiceModel.BasicHttpBinding();
+binding.MaxBufferSize = int.MaxValue;
+binding.ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max;
+binding.MaxReceivedMessageSize = int.MaxValue;
+binding.AllowCookies = true;
+binding.Security.Mode = System.ServiceModel.BasicHttpSecurityMode.Transport;
+binding.TransferMode = System.ServiceModel.TransferMode.Buffered;
+binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Basic;
+var endpoint = new EndpointAddress(uRL + "/AirService");
+//AirLowFareSearchPortTypeClient client = new AirLowFareSearchPortTypeClient(AirLowFareSearchPortTypeClient.EndpointConfiguration.AirLowFareSearchPort, uRL + "/AirService");
+AirLowFareSearchPortTypeClient client = new AirLowFareSearchPortTypeClient(binding, endpoint);

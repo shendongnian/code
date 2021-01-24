@@ -1,0 +1,6 @@
+//...
+void Update()
+{
+    transform.Rotate(new Vector3(0, 0, Random.Range(0, 30)* Time.deltaTime), Space.Self);
+}
+//...

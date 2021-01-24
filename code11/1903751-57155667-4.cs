@@ -1,0 +1,9 @@
+    public class MySettings {        
+        public Client[] Clients { get; set; }
+        //...other properties here
+    }
+    //...
+    //Startup.cs
+    //...
+    .AddInMemoryClients(settings.Clients);
+    //...

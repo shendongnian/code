@@ -1,0 +1,6 @@
+public class MyMethods{
+  public double Carporfen...
+...
+}
+You would call it in any other class like below. Make sure to use toString to convert double to string for console display
+Console.WriteLine($"{MyMethods.Carporfen(pet1).ToString()}ml");

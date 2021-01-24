@@ -1,0 +1,6 @@
+    public void query(string commandText, params (string, object)[] parameters) {
+       ...
+       foreach (var prm in parameters) 
+         command.Parameters.AddWithValue(prm.Item1, prm.Item2);
+       ...
+    }

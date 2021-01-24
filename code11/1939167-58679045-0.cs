@@ -1,0 +1,6 @@
+C#
+public partial class RegForm : Form
+{
+    public Server serverFormInstance {get; set;}//must be filled from caller code
+...
+...

@@ -1,0 +1,6 @@
+    services.AddSwaggerGen(c =>
+    {
+    ...
+    c.DocInclusionPredicate((_, api) => !string.IsNullOrWhiteSpace(api.GroupName));
+    ...
+    });

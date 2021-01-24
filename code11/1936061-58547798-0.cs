@@ -1,0 +1,14 @@
+                        TextBox tb = new TextBox();
+                        tb.ID = "tbNewExpireDate";
+                        tb.Text = dt.Rows[j][k].ToString();
+                        tb.TextMode = TextBoxMode.Date;
+                        tb.EnableViewState = false;
+                        hdOldExpireDate.Value = dt.Rows[j][k].ToString();
+                        Button btn = new Button();
+                        btn.OnClientClick += "return VerifyExpireDateSave()";
+                        btn.Click += btnSaveExpireDate_Click;
+                        btn.Text = "Save";
+                        Panel pnl1 = new Panel();
+                        pnl1.ID = "pnlExpiration";
+                        pnl1.Controls.Add(tb);
+                        pnl1.Controls.Add(btn);

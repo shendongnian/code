@@ -1,0 +1,6 @@
+    public static async Task DeleteErrorLog(List<string> LogID, string collectionName)
+    {
+        ...
+        await client.DeleteDocumentAsync(collectionUri);
+        ...
+    }

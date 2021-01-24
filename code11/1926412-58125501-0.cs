@@ -1,0 +1,11 @@
+    [IntentFilter(new[] { Intent.ActionView },
+    Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+    DataScheme = "https",
+    DataHost = "dev.mytestsite.com",
+    AutoVerify =true),
+    IntentFilter(new[] { Intent.ActionView },
+    Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+    DataScheme = "https",
+    DataHost = "dev.mytestsite.com",
+    DataPathPrefix = "/",
+    AutoVerify =true)]

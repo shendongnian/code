@@ -1,0 +1,13 @@
+    public void query(string commandText, params Tuple<string, object>[] parameters) {
+       ...
+       foreach (var prm in parameters) 
+         command.Parameters.AddWithValue(prm.Item1, prm.Item2);
+       ...
+    }
+    ...
+    query(sql, 
+      Tuple.Create("@line", comboBox4.Text),
+      Tuple.Create("@name", textBox2.Text),
+       ... 
+    );
+  

@@ -1,0 +1,10 @@
+var webRequest = WebRequest.Create(webService);
+                webRequest.Method = "POST";
+                webRequest.ContentType = "application/json";
+                string data = File.ReadAllText(filePath);
+                var jsonObject = new { data };
+                var serializedObject = JsonConvert.SerializeObject(jsonObject);
+                var bytes = Encoding.ASCII.GetBytes(serializedObject);
+                var requestStream = webRequest.GetRequestStream();
+                requestStream.Write(bytes, 0, bytes.Length);
+                HttpWebResponse response = (HttpWebResponse)webRequest.GetResponse();

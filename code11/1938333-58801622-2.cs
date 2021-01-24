@@ -1,0 +1,11 @@
+    var pdfReader = new PdfReader(@"SamplePDF.pdf");
+    int pageNumber = 1;
+    PdfDictionary pageDic = pdfReader.GetPageN(pageNumber);
+    PdfDictionary resourcesDic = pageDic.GetAsDict(PdfName.RESOURCES);
+    ITextExtractionStrategy renderListener = new SimpleTextExtractionStrategy();
+    PdfContentStreamProcessor processor = new PdfContentStreamProcessor(renderListener);
+    InvalidOperationExceptionIgnoringWrapper wrapper = new InvalidOperationExceptionIgnoringWrapper();
+    IContentOperator original = processor.RegisterContentOperator("EMC", wrapper);
+    wrapper.WrappedOperator = original;
+    processor.ProcessContent(ContentByteUtils.GetContentBytesForPage(pdfReader, pageNumber), resourcesDic);
+    var pageText = renderListener.GetResultantText();

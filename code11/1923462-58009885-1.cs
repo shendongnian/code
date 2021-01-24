@@ -1,0 +1,10 @@
+      string separatorDecimal = CultureInfo.CurrentUICulture.NumberFormat.NumberDecimalSeparator;
+      string str1 = "2.5";
+      string str2 = "2,5";
+      str1 = str1.Replace(".", separatorDecimal).Replace(",", separatorDecimal);
+      str2 = str2.Replace(".", separatorDecimal).Replace(",", separatorDecimal);
+      var v1 = double.Parse(str1);
+      var v2 = double.Parse(str2);
+      Console.WriteLine(v1.ToString());
+      Console.WriteLine(v2.ToString());
+      Console.ReadKey();

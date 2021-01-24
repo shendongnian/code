@@ -1,0 +1,17 @@
+    Microsoft.AspNetCore.Mvc.AcceptedAtActionResult
+    Microsoft.AspNetCore.Mvc.AcceptedAtRouteResult
+    Microsoft.AspNetCore.Mvc.AcceptedResult
+    Microsoft.AspNetCore.Mvc.BadRequestObjectResult
+    Microsoft.AspNetCore.Mvc.ConflictObjectResult
+    Microsoft.AspNetCore.Mvc.CreatedAtActionResult
+    Microsoft.AspNetCore.Mvc.CreatedAtRouteResult
+    Microsoft.AspNetCore.Mvc.CreatedResult
+    Microsoft.AspNetCore.Mvc.NotFoundObjectResult
+    Microsoft.AspNetCore.Mvc.OkObjectResult
+    Microsoft.AspNetCore.Mvc.UnauthorizedObjectResult
+    Microsoft.AspNetCore.Mvc.UnprocessableEntityObjectResult
+    System.Web.Http.BadRequestErrorMessageResult
+    System.Web.Http.ExceptionResult
+    System.Web.Http.InvalidModelStateResult
+    System.Web.Http.NegotiatedContentResult<T>
+    System.Web.Http.ResponseMessageResult

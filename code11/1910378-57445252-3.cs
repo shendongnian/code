@@ -1,0 +1,6 @@
+    public class HomeController : Controller {
+        //...    
+        [Transactional]
+        public IActionResult Test() { /*some code */ }
+        //...
+    }

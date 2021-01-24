@@ -1,0 +1,10 @@
+    Console.WriteLine("{0} ==> {1}", 1, 1.Ordinalize());
+    Console.WriteLine("{0} ==> {1}", 21, 21.Ordinalize());
+    Console.WriteLine("{0} ==> {1}", 31, 31.Ordinalize());
+    Console.WriteLine("{0} ==> {1}", 33, 33.Ordinalize());
+    Console.WriteLine("{0} ==> {1}", 2, 22.Ordinalize());
+    Console.WriteLine("{0} ==> {1}", 3, 3.Ordinalize());
+    Console.WriteLine("{0} ==> {1}", 4, 4.Ordinalize());
+    Console.WriteLine("{0} ==> {1}", 55, 55.Ordinalize());
+    Console.WriteLine("{0} ==> {1}", 1237, 1237.Ordinalize());
+    Console.WriteLine("{0} ==> {1}", 0, 0.Ordinalize());

@@ -1,0 +1,6 @@
+     using System.Linq; // OfType<T>() is declared as Linq extension method
+     ... 
+     // loop over not null cols only
+     foreach (System.Drawing.Color col in colList.OfType<System.Drawing.Color>()) {
+       ...
+     }

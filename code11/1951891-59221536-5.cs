@@ -1,0 +1,11 @@
+     var transformer = new AccumulateTransformer();
+     var inputs = new[] {1, 2, 1, 0, 3, 2,};
+     var results = transformer.TransformSequence(inputs);
+     Debug.WriteLine(string.Join(", ", from result in results select result.ToString() ));
+     transformer.Clear();
+     Debug.WriteLine(transformer.NextValue(1));
+     Debug.WriteLine(transformer.NextValue(2));
+     Debug.WriteLine(transformer.NextValue(1));
+     Debug.WriteLine(transformer.NextValue(0));
+     Debug.WriteLine(transformer.NextValue(3));
+     Debug.WriteLine(transformer.NextValue(2));

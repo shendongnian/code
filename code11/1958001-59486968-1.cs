@@ -1,0 +1,18 @@
+     var dt = new DataTable();
+        dt.Columns.Add("TransactionId", typeof(string));
+        dt.Columns.Add("TransactionDate", typeof(string));
+        dt.Columns.Add("TraceId", typeof(string));
+        dt.Columns.Add("Amount", typeof(Int64));
+        dt.Columns.Add("SenderName", typeof(string));
+        dt.Columns.Add("SenderIban", typeof(string));
+        dt.Columns.Add("SenderBank", typeof(string));
+        dt.Columns.Add("ReceiverIban", typeof(string));
+        dt.Columns.Add("ReceiverName", typeof(string));
+        dt.Columns.Add("Comment", typeof(string));
+        dt.Columns.Add("PayaCycle", typeof(string));
+        dt.Columns.Add("CycleTime", typeof(string));
+        dt.Columns.Add("PayId", typeof(string));
+        dt.Columns.Add("ReturnCausality", typeof(string));
+        dt.Columns.Add("ReturnId", typeof(string));
+        dt.Columns.Add("Rejected", typeof(string));
+        dt.Columns.Add("AdDate", typeof(string));

@@ -1,0 +1,7 @@
+    <h3>@Title</h3>
+    
+    @code {
+        [Parameter]
+        public string Title { get; set; }
+    
+    }

@@ -1,0 +1,26 @@
+    static BlockingCollection<int> streamOfBoth = 
+      new BlockingCollection<int>();
+    // Producer #1 
+    static void get1() {
+      while (true) {
+        System.Threading.Thread.Sleep(1000);
+        
+        streamOfBoth.Add(1);
+      }
+    }
+    // Producer #2
+    static void get2() {
+      while (true) {
+        System.Threading.Thread.Sleep(200);
+        streamOfBoth.Add(2);
+      }
+    }
+    ...
+    Task.Run(() => get1());
+    Task.Run(() => get2());
+    ...
+    // Cosumer: when either Producer #1 or Producer #2 create a value
+    // consumer can starts process it 
+    foreach(var item in streamOfBoth.GetConsumingEnumerable()) {
+      Console.WriteLine(item);
+    }

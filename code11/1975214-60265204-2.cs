@@ -1,0 +1,11 @@
+    var employees = new List<Employee>();
+    employees.Add(new Employee() { EmpID = 1, TrackTime = new TrackTime { EntryTime = new DateTime(2020, 02, 16, 1, 0, 0), ExitTime = new DateTime(2020, 02, 16, 2, 15, 0) }, CheckFlag = true });
+    employees.Add(new Employee() { EmpID = 1, TrackTime = new TrackTime { EntryTime = new DateTime(2020, 02, 16, 3, 15, 0), ExitTime = new DateTime(2020, 02, 16, 3, 30, 0) }, CheckFlag = false });
+    employees.Add(new Employee() { EmpID = 1, TrackTime = new TrackTime { EntryTime = new DateTime(2020, 02, 16, 3, 30, 0), ExitTime = new DateTime(2020, 02, 16, 3, 45, 0) }, CheckFlag = false });
+    employees.Add(new Employee() { EmpID = 1, TrackTime = new TrackTime { EntryTime = new DateTime(2020, 02, 16, 3, 45, 0), ExitTime = new DateTime(2020, 02, 16, 4, 15, 0) }, CheckFlag = false });
+    employees.Add(new Employee() { EmpID = 1, TrackTime = new TrackTime { EntryTime = new DateTime(2020, 02, 16, 4, 30, 0), ExitTime = new DateTime(2020, 02, 16, 5, 15, 0) }, CheckFlag = true });
+    employees.Add(new Employee() { EmpID = 2, TrackTime = new TrackTime { EntryTime = new DateTime(2020, 02, 16, 1, 0, 0), ExitTime = new DateTime(2020, 02, 16, 2, 15, 0) }, CheckFlag = true });
+    employees.Add(new Employee() { EmpID = 2, TrackTime = new TrackTime { EntryTime = new DateTime(2020, 02, 16, 3, 15, 0), ExitTime = new DateTime(2020, 02, 16, 3, 30, 0) }, CheckFlag = false });
+    employees.Add(new Employee() { EmpID = 2, TrackTime = new TrackTime { EntryTime = new DateTime(2020, 02, 16, 3, 30, 0), ExitTime = new DateTime(2020, 02, 16, 3, 45, 0) }, CheckFlag = false });
+    employees.Add(new Employee() { EmpID = 2, TrackTime = new TrackTime { EntryTime = new DateTime(2020, 02, 16, 3, 45, 0), ExitTime = new DateTime(2020, 02, 16, 4, 15, 0) }, CheckFlag = false });
+    employees.Add(new Employee() { EmpID = 2, TrackTime = new TrackTime { EntryTime = new DateTime(2020, 02, 16, 4, 30, 0), ExitTime = new DateTime(2020, 02, 16, 5, 15, 0) }, CheckFlag = true });

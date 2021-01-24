@@ -1,0 +1,17 @@
+    DataTable table1 = new DataTable("From");
+    table1.Columns.Add("a", typeof(double));
+    table1.Columns.Add("r", typeof(double));
+    table1.Columns.Add("g", typeof(double));
+    table1.Columns.Add("b", typeof(double));
+    table1.Rows.Add(255, 23, 234, 55);
+    table1.Rows.Add(255, 26, 234, 55);
+    DataTable table2 = new DataTable("To");
+    table2.Columns.Add("a", typeof(double));
+    table2.Columns.Add("r", typeof(double));
+    table2.Columns.Add("g", typeof(double));
+    table2.Columns.Add("b", typeof(double));
+    table2.Rows.Add(255, 23, 231, 7);
+    table2.Rows.Add(255, 27, 231, 7);
+    DataSet set = new DataSet("Distance");
+    set.Tables.Add(table1);
+    set.Tables.Add(table2);

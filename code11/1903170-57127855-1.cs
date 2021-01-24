@@ -1,0 +1,10 @@
+                    SmtpClient smtpClient = new SmtpClient();
+                    var smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
+                    MailMessage message = new MailMessage();
+                    message.From = new MailAddress(smtpSection.From);
+                    MailAddress to = new MailAddress("youremail@gmail.com");
+                    message.To.Add(to);
+                    message.Subject = "The subject";
+                    message.Body = "The message";
+                    smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtpClient.Send(message);

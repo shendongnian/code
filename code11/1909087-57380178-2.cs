@@ -1,0 +1,20 @@
+    [ResponseType(typeof(Session))]
+    [Route("api/v1/async")]
+    public Session async_status()
+    {
+        AsyncStatus();
+        return new Session() {...};
+    }
+    private async Task<int> AsyncStatus()
+    {
+        foreach (var something in OneMillionRows) {
+            ...
+        }
+        await SyncMethod();
+        return 42;
+    }
+    private async Task<int> SyncMethod()
+    {
+        await Task.Delay(60000);
+        return 42;
+    }

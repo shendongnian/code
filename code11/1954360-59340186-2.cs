@@ -1,0 +1,13 @@
+    var empSales = from emp in Shop.ShopDB.Tables["Employees"].AsEnumerable()
+                   join order in Shop.ShopDB.Tables["Orders"].AsEnumerable()
+                   on emp.Field<int>("EmployeeID") equals order.Field<int>("EmployeeID")
+                   group emp by emp.Field<int>("EmployeeID") into g
+                   select new 
+				   { 
+				       EmployeeID = g.Key,
+					   FullName = g.First().Field<string>("FName") + " " + 
+                                  g.First().Field<string>("MName") + " " + 
+                                  g.First().Field<string>("LName"),
+					   SalesNumber = g.Count()
+				   };
+    EmployeesSalesGridView.DataSource = empSales.ToList();

@@ -1,0 +1,19 @@
+     public Transform coin;
+         void Start()
+         {
+             for (int j = 0; j < coin.childCount; j++)
+             {
+                 coin.GetChild(j).gameObject.SetActive(false);
+             }
+         }
+    void Update()
+    {
+        if (tutorialcoins)
+        {
+            for (int j = 0; j < coin.childCount; j++)
+                 {
+                     coin.GetChild(j).gameObject.SetActive(false);
+                 }
+        }
+    
+     }

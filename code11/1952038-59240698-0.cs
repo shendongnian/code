@@ -1,0 +1,11 @@
+    		string url = "Url";
+			string UserLogin = "UserLogin";
+			string UserPassword = "UserPassword";
+			string UserDomain = "UserDomain";
+			string UserEmail = "UserEmail";
+			string EwsEndpoint = "https://yourserver.youneedtodefine.com/EWS/Exchange.asmx";
+			ExchangeService ews = new ExchangeService();
+			ews.Credentials = new WebCredentials(UserLogin, UserPassword, UserDomain);
+			ews.Url = new Uri(EwsEndpoint);
+			Folder inbox = Folder.Bind(ews, WellKnownFolderName.Inbox);
+			PropertySet propSet = new PropertySet(BasePropertySet.IdOnly, ItemSchema.Body);

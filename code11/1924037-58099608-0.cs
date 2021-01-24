@@ -1,0 +1,23 @@
+Given the API returns items for currentTime
+ 
+       
+        public class binding {
+        
+                public DateTime datetime;
+        
+    [Given(@"the API returns items for (.*)")]       
+     public void currentDatetime(DateTime dt)
+                {          
+                    log.Info("current time: " + datetime);
+                     log.Info("current date: " + datetime.Date);
+                    
+                }
+        
+              [StepArgumentTransformation]
+               public DateTime convertToDatetime(string c)
+                {
+                     datetime = DateTime.Now;
+                     return datetime;
+                }
+        
+        }

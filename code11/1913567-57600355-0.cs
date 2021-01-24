@@ -1,0 +1,10 @@
+    Data_Storage user = new Data_Storage();
+    Console.WriteLine("Please input First Name: ");
+    user.firstName = Console.ReadLine();
+    Console.WriteLine("Please input Last Name: ");
+    user.lastName = Console.ReadLine();
+    Console.WriteLine("Please input Gender: ");
+    user.gender = Console.ReadLine();
+    Console.WriteLine("Please input Age: ");
+    user.age = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine(user);

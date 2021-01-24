@@ -1,0 +1,11 @@
+    RDOSession session = new RDOSession();
+    session.MAPIOBJECT = outlookNameSpace.MAPIOBJECT;
+    RDOFolder folder = session.GetDefaultFolder(rdoDefaultFolders.olFolderSentMail);
+    RDOMail msg = folder.Items.Add("IPM.Note");
+    msg.Sent = true;
+    msg.ReceivedTime = DateRime.Now;
+    RDOMail originalMsg = (RDOMail)session.GetRDOObjectFromOUtlookObject(Item);
+    originalMsg.CopyTo(msg);
+    msg.Sender = session.CurrentUser;
+    msg.SentOnBehalfOf = session.CurrentUser;
+    msg.Save();

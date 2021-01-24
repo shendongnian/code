@@ -1,0 +1,6 @@
+    public void SetCustomFormat()
+    {
+        // Set the Format type and the CustomFormat string.
+        dateTimePicker1.Format = DateTimePickerFormat.Custom;
+        dateTimePicker1.CustomFormat = "MM/yyyy";
+    }

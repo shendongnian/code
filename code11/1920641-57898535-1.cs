@@ -1,0 +1,13 @@
+       var times = new List<DateTime>(70000000);
+            var sw = new Stopwatch();
+            var ticksPerFiveSeconds = TimeSpan.FromSeconds(5).Ticks;            
+            sw.Start();
+            DateTime p = new DateTime(1995, 12, 25, 12, 00, 00);
+            DateTime end = new DateTime(2005, 12, 25, 12, 00, 00);
+            while ( p <= end )
+            {
+                times.Add(p);
+                p = p.AddTicks(ticksPerFiveSeconds);            
+            }
+            sw.Stop();
+            Console.WriteLine($"{(decimal)sw.ElapsedMilliseconds/1000M} {times.Count} {times.Last()}");

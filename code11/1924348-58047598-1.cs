@@ -1,0 +1,6 @@
+    public void ConfigureServices(IServiceCollection services)
+    {
+        ...   
+        services.TryAddEnumerable(ServiceDescriptor.Transient<IApplicationModelProvider, ProduceResponseTypeModelProvider>());
+        ...
+    }

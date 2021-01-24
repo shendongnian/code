@@ -1,0 +1,16 @@
+    PdfReader pdfReader = new PdfReader(DOCUMENT_TO_SIGN);
+    PdfSigner pdfSigner = new PdfSigner(pdfReader, RESULT_STREAM, new StampingProperties().UseAppendMode());
+    pdfSigner.SetFieldName("Signature1");
+    ImageData imageData = ImageDataFactory.Create(SIGNATURE_IMAGE);
+    PdfSignatureAppearance sigAppearance = pdfSigner.GetSignatureAppearance();
+    sigAppearance.SetContact("ContactInfo");
+    sigAppearance.SetLocation("Location");
+    sigAppearance.SetPageNumber(1);
+    sigAppearance.SetPageRect(new Rectangle(100, 500, imageData.GetWidth() / 2, imageData.GetHeight() / 2));
+    sigAppearance.SetReason("SigningReason");
+    sigAppearance.SetSignatureGraphic(imageData);
+    sigAppearance.SetRenderingMode(RenderingMode.GRAPHIC);
+    sigAppearance.SetSignatureCreator("Malik");
+    pdfSigner.GetDocument().GetCatalog().SetModified();
+    int estimatedSize = 12000;
+    pdfSigner.SignExternalContainer(new ExternalServiceSignatureContainer(), estimatedSize);

@@ -1,0 +1,13 @@
+    var lazyInit = new LazyInitializer(() =>
+    {
+        //here your initialization code
+        ...
+        _myField1 = ...
+        _myField2 = ...
+        ...
+    });
+    //Create the initializer action
+    var initialize = lazyInit.CreateInitializer();
+    //use it like:
+    public object get_Field1() { initialize(); return _myfield1; }
+    public object get_Field2() { initialize(); return _myfield2; }

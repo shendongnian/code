@@ -1,0 +1,9 @@
+    public static async Task tempFunc(string username, string password)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine("Before work start : {0}", username + i);
+            await Task.Delay(2000);  //I have reduced it. OP can use his time
+            Console.WriteLine("After work complete : {0}", username + i);
+        }
+    }

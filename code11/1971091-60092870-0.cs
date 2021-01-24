@@ -1,0 +1,10 @@
+    using (HttpClient client = new HttpClient(clientHandler))
+    {
+        client.BaseAddress = new Uri(uriBuilder.ToString());
+        client.DefaultRequestHeaders.Accept.Clear();
+        client.DefaultRequestHeaders.Authorization = Request?.Headers?.Authorization;
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/css"));
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+        var content = await client.GetStringAsync(uriBuilder.Uri);
+        return Content(HttpStatusCode.OK, content);
+    }

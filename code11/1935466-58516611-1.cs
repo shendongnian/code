@@ -1,0 +1,6 @@
+    public void Filter()
+    {
+        ...
+        var result = myClasses.Where(c => numbers.Contains(c.id));
+        ...
+    }

@@ -1,0 +1,10 @@
+        RfcSessionManager.BeginContext(dest);
+        try
+        {
+            function.Invoke(dest);
+            transaction.Invoke(dest);
+        }
+        finally
+        {
+            RfcSessionManager.EndContext(dest);
+        }

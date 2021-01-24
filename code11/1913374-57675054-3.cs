@@ -1,0 +1,8 @@
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+      <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+      </ItemGroup>
+    </Project>

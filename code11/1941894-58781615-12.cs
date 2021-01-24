@@ -1,0 +1,16 @@
+    HashSet<List<int>> _hash = new HashSet<List<int>>();
+    _hash.Add(new List<int> { 1, 7 });
+    Console.WriteLine(_hash.ContainsValues(new List<int> { 1, 7 }));
+    Console.WriteLine(_hash.ContainsValues(new List<int> { 7, 1 }));
+    Console.WriteLine(_hash.ContainsValues(new List<int> { 1, 7, 5 }));
+    Console.WriteLine(_hash.ContainsValues(new List<int> { 1 }));
+    Console.WriteLine(_hash.ContainsValues(new List<int>()));
+    Console.WriteLine();
+    _hash.Clear();
+    Console.WriteLine(_hash.ContainsValues(new List<int> { 1, 7 }));
+    Console.WriteLine(_hash.ContainsValues(new List<int>()));
+    Console.WriteLine();
+    _hash.Add(new List<int>());
+    Console.WriteLine(_hash.ContainsValues(new List<int>()));
+    Console.WriteLine(_hash.ContainsValues(null));
+    Console.WriteLine(HashSetHelper.ContainsValues(null, null));

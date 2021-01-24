@@ -1,0 +1,6 @@
+        [NotMapped]
+        public string HeadOfHouseholdForeignKey
+        // ...
+        [NotMapped]
+        public string HeadOfHouseholdPrincipalKey
+        // ...

@@ -1,0 +1,14 @@
+            Localization.Resources.Language.Culture = new CultureInfo("ru");
+            Java.Util.Locale.Default = new Java.Util.Locale("ru", "RU");
+            Resources.Configuration.Locale = Java.Util.Locale.Default;
+            System.Diagnostics.Debug.WriteLine("Resource string.xml:" + Resources.GetText(Resource.String.test_string));
+            System.Diagnostics.Debug.WriteLine("Resource Language:" + Localization.Resources.Language.test_string);
+            Localization.Resources.Language.Culture = new CultureInfo("uk");
+            Java.Util.Locale.Default = new Java.Util.Locale("uk", "UA");
+            Resources.Configuration.Locale = Java.Util.Locale.Default;
+            Resources.UpdateConfiguration(Resources.Configuration, Resources.DisplayMetrics);
+            Finish();
+            Intent intent = new Intent(this, this.Class);
+            StartActivity(intent);
+            System.Diagnostics.Debug.WriteLine("Resource string.xml:" + Resources.GetText(Resource.String.test_string));
+            System.Diagnostics.Debug.WriteLine("Resource Language:" + Localization.Resources.Language.test_string);

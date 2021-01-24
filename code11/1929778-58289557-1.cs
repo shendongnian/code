@@ -1,0 +1,17 @@
+    buttonRect.ContentMode = UIViewContentMode.ScaleToFill;
+    UIView paddingViewRight = new UIView(new System.Drawing.RectangleF(0.0f, 0.0f, 30.0f, 18.0f));
+    paddingViewRight.AddSubview(buttonRect);
+    buttonRect.TranslatesAutoresizingMaskIntoConstraints = false;
+    buttonRect.CenterYAnchor.ConstraintEqualTo(paddingViewRight.CenterYAnchor).Active = true;
+    vUpdatedEntry.AddSubview(paddingViewRight);
+    paddingViewRight.TranslatesAutoresizingMaskIntoConstraints = false;
+    paddingViewRight.TrailingAnchor.ConstraintEqualTo(vUpdatedEntry.LayoutMarginsGuide.TrailingAnchor, 8.0f).Active = true;
+    paddingViewRight.HeightAnchor.ConstraintEqualTo(vUpdatedEntry.HeightAnchor).Active = true;
+    paddingViewRight.BottomAnchor.ConstraintEqualTo(vUpdatedEntry.LayoutMarginsGuide.BottomAnchor).Active = true;
+    paddingViewRight.TopAnchor.ConstraintEqualTo(vUpdatedEntry.LayoutMarginsGuide.TopAnchor, -8.0f).Active = true;
+    paddingViewRight.WidthAnchor.ConstraintEqualTo(buttonRect.WidthAnchor, 1.0f, 3.0f).Active = true;
+    vUpdatedEntry.TextContainerInset = new UIEdgeInsets(8.0f, 0.0f, 8.0f, paddingViewRight.Frame.Width + 5.0f);
+    Control.Layer.CornerRadius = 4;
+    Control.Layer.BorderColor = new CoreGraphics.CGColor(255, 255, 255);
+    Control.Layer.MasksToBounds = true;
+    vUpdatedEntry.TextAlignment = UITextAlignment.Left;

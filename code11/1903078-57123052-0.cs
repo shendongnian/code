@@ -1,0 +1,6 @@
+    [NonAction]
+    public virtual void Dispose(bool disposing)
+    // ...
+    [NonAction]
+    public void Dispose()
+    // ...

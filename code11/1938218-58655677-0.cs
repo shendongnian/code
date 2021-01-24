@@ -1,0 +1,17 @@
+    Uri uri = new Uri("http://10.157.13.69:16666");
+                BasicHttpBinding binding = new BasicHttpBinding();
+                ChannelFactory<ITestService> factory = new ChannelFactory<ITestService>(binding, new EndpointAddress(uri));
+                ITestService service = factory.CreateChannel();
+                using (new OperationContextScope((IClientChannel)service))
+                {
+                    //first method to add HTTP header.
+                    //HttpRequestMessageProperty request = new HttpRequestMessageProperty();
+                    //request.Headers["MyHttpheader"] = "myvalue";
+                    //OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = request;
+                    OperationContext oc = OperationContext.Current;
+                    WebOperationContext woc = new WebOperationContext(oc);
+                    woc.OutgoingRequest.Headers.Add("myhttpheader", "myvalue");
+                    //invocation, only valid in this request.
+                    var result = service.GetResult();
+                    Console.WriteLine(result);
+                }

@@ -1,0 +1,17 @@
+    private void OnTriggerEnter2D(Collider2D ball)
+    {
+        // The assignment of the GameObject
+        // was kind of redundant except
+        // you need the reference for something else later
+        var ballRb = ball.GetComponent<Rigidbody2D>();
+        // set position through RigidBody component
+        ballRb.position = this.transform.position;
+        // Rotate the ball using the Rigidbody component
+        // Was the int overload intented here? Returning int values 0-359
+        // otherwise rather use the float overload by passing float values as parameters
+        ballRb.rotation = Random.Range(0f, 360f);
+        // Start moving the ball again
+        // with a Vector different to Vector2.zero 
+        // depending on your setup e.g.
+        ballRb.velocity = ballRb.GetRelativeVector(Vector2.right * ballController.bulletSpeed);
+    }

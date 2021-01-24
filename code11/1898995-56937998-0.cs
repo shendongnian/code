@@ -1,0 +1,10 @@
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        ....
+        <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+        <AspNetCoreModuleModel>AspNetCoreModule</AspNetCoreModuleModel>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
+        ....
+        <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
+        ....
+    </PropertyGroup>

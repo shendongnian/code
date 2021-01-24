@@ -1,0 +1,10 @@
+	var timeUtc = Convert.ToDateTime("01-01-2019 22:53:32");
+	var easternZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+	var dt = DateTime.SpecifyKind(timeUtc, DateTimeKind.Utc);            
+	Console.WriteLine(TimeZoneInfo.ConvertTimeFromUtc(dt, easternZone));
+    Console.WriteLine(easternZone.GetUtcOffset(dt));
+	timeUtc = Convert.ToDateTime("07-07-2019 22:53:32");
+	easternZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+	dt = DateTime.SpecifyKind(timeUtc, DateTimeKind.Utc);            
+	Console.WriteLine(TimeZoneInfo.ConvertTimeFromUtc(dt, easternZone));
+    Console.WriteLine(easternZone.GetUtcOffset(dt));

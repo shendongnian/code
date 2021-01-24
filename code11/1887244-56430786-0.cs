@@ -1,0 +1,6 @@
+    protected void async MyButtonClickHandler(object sender, EventArgs args)
+    {
+        ...
+        KeyboardTextUsername = await NewGetKeyboard(Tokenusername, "Registration", "Username", "Choose a username", false);
+        ...
+    }

@@ -1,0 +1,6 @@
+    //...
+    if (await _uow.SaveAsync()){
+        var itemToReturn = _mapper.Map<ItemToReturnDto>(item);
+        return CreatedAtRoute("GetItem", new { userId, id = item.Id }, itemToReturn);
+    }
+    //...

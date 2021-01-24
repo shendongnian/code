@@ -1,0 +1,11 @@
+	var s = new Subject<Event<int>>();
+	var o = s.GroupEvents();
+	s.OnNext(new Event<int>(-1, EventType.Data, 1));
+	s.OnNext(new Event<int>(-1, EventType.BeginGroup, 2));
+	s.OnNext(new Event<int>(-1, EventType.Data, 3));
+	s.OnNext(new Event<int>(-1, EventType.BeginGroup, 4));
+	s.OnNext(new Event<int>(-1, EventType.Data, 5));
+	s.OnNext(new Event<int>(-1, EventType.EndGroup, 6));
+	s.OnNext(new Event<int>(-1, EventType.EndGroup, 7));
+	s.OnNext(new Event<int>(-1, EventType.Data, 8));
+	s.OnNext(new Event<int>(-1, EventType.Data, 9));

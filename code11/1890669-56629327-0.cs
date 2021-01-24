@@ -1,0 +1,12 @@
+                DataTemplate appointmentTemplate = new DataTemplate();
+                appointmentTemplate.DataType = typeof(ScheduleDaysAppointmentViewControl);
+                FrameworkElementFactory grid = new FrameworkElementFactory(typeof(Grid));
+                grid.SetValue(Grid.BackgroundProperty, new SolidColorBrush(Colors.Red));
+                grid.SetValue(StackPanel.OrientationProperty, Orientation.Horizontal);
+                FrameworkElementFactory rect = new FrameworkElementFactory(typeof(Rectangle));
+                rect.SetValue(Rectangle.FillProperty, new SolidColorBrush(Colors.White));
+                rect.SetValue(Rectangle.StrokeProperty, new SolidColorBrush(Colors.Black));
+                rect.SetValue(Rectangle.StrokeThicknessProperty, 3d);
+                grid.AppendChild(rect);
+                appointmentTemplate.VisualTree = grid;
+                schedule.AppointmentTemplate = appointmentTemplate;

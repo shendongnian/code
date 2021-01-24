@@ -1,0 +1,9 @@
+    //using XL = Microsoft.Office.Interop.Excel;
+    XL.Application application = new XL.Application();
+    application.Visible = true;
+    XL.Workbook book = application.Workbooks.Add();
+    XL.Worksheet sheet = (XL.Worksheet)book.Worksheets[1];
+    XL.Range range = sheet.Range[sheet.Cells[2, 2], sheet.Cells[4, 4]];
+    XL.Range cells = range.Cells;
+    XL.Range firstCellInRange = cells[cells.Column, cells.Row];
+    firstCellInRange.Value2 = "TEST";

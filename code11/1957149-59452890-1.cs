@@ -1,0 +1,10 @@
+    List<MarksA> listA = new List<MarksA>();
+			listA.Add(new MarksA(1, "A", 60, 70, 80));
+			listA.Add(new MarksA(2, "B", 40, 50, 60));
+			listA.Add(new MarksA(3, "C", 50, 80, 50));
+			List<MarksB> listB = new List<MarksB>();
+			listB.Add(new MarksB(3, "C", 60, 70, 80));
+			listB.Add(new MarksB(4, "D", 78, 80, 90));
+			listB.Add(new MarksB(5, "E", 60, 70, 60));
+			listB.Add(new MarksB(6, "F", 78, 55, 88));
+			var concatList = listA.Join(listB, xA => xA.Id, xB => xB.Id, (xA, xB ) => new { xA.Id, xA.Name, xA.Mark1, xA.Mark2, xA.Mark3, xB.Mark4, xB.Mark5, xB.Mark6 });

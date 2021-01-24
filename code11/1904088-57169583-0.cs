@@ -1,0 +1,12 @@
+    using System.IO;
+    using System.IO.Packaging;
+    using System.Windows.Xps.Packaging;
+    using System.Windows.Xps;
+    MemoryStream lMemoryStream = new MemoryStream();
+    Package package = Package.Open(lMemoryStream, FileMode.Create);
+    XpsDocument doc = new XpsDocument(package);
+    XpsDocumentWriter writer = XpsDocument.CreateXpsDocumentWriter(doc);
+    writer.Write(dp);
+    doc.Close();
+    package.Close();
+    var pdfXpsDoc = PdfSharp.Xps.XpsModel.XpsDocument.Open(lMemoryStream);

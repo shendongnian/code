@@ -1,0 +1,12 @@
+    protected void Application_BeginRequest(object sender, EventArgs e)
+            {
+                HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+                if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
+                {
+                    HttpContext.Current.Response.AddHeader("Cache-Control", "no-cache");
+                    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+                    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With,Accept");
+                    HttpContext.Current.Response.AddHeader("Access-Control-Max-Age", "1728000");
+                    HttpContext.Current.Response.End();
+                }
+            }

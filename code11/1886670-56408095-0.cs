@@ -1,0 +1,6 @@
+    public interface IUserProvider
+    {
+        int UserID { get; set; }
+    }
+    public class User : IUserProvider ...
+    public class Post : IUserProvider ...

@@ -1,0 +1,27 @@
+db.ApplicationLog.aggregate([
+	{
+		$match:{
+			$expr:{
+				$gt:[
+					"$CreatedTimestamp",
+					{
+						$toDate:{
+							$subtract:[
+								new Date(),
+								{
+									$multiply:[
+										"$RetentionDays",
+										86400000
+									]
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	},
+	{
+		$out:"ApplicationLog"
+	}
+])

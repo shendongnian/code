@@ -1,0 +1,30 @@
+    public static class MessageHandlerServiceCollectionExtensions
+    {
+        public static IServiceCollection AddMessageHandlers(this IServiceCollection services)
+        {
+            var factory = new MessageHandlerFactory();
+            void RegisterHandler<TMessageType, THandler>() 
+                where TMessageType : class
+                where THandler : IMessageHandler<TMessageType>
+            {
+                services.AddSingleton<TMessageType>();
+                services.AddSingleton(
+                    serviceProvider => new MessageHandlerWrapper<TMessageType>(serviceProvider.GetService<THandler>())
+                );
+            }
+            
+            // MessageTypeOneHander is the implementation of IMessageHandler<MessageTypeOne>
+            RegisterHandler<MessageTypeOne, MessageTypeOneHandler>();
+            RegisterHandler<MessageTypeTwo, MessageTypeTwoHandler>();
+            // some string constants for message types would be better.
+            services.AddSingleton<IMessageHandlerFactory>(serviceProvider =>
+            {
+                factory.RegisterHandler("messagetypeone",
+                    serviceProvider.GetService<MessageHandlerWrapper<MessageTypeOne>>);
+                factory.RegisterHandler("messagetypetwo",
+                    serviceProvider.GetService<MessageHandlerWrapper<MessageTypeTwo>>);
+                return factory;
+            });
+            return services;
+        }
+    }

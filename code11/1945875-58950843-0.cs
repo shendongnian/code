@@ -1,0 +1,6 @@
+    public void CallMethod<T>(Action<T> Function, T parameter)
+    {
+        ...
+        Function(parameter);
+        ...
+    }

@@ -1,0 +1,12 @@
+    Dictionary<string, string> d1 = new Dictionary<string, string>();
+    d1.Add("Joe", "2, Barfield Way");
+    d1.Add("Mike", "17, Apollo Avenue");
+    d1.Add("Jane", "69, Lance Drive");
+    Dictionary<string, string> d2 = new Dictionary<string, string>();
+    d2.Add("Joe", "2, Barfield Way");
+    d2.Add("Jane", "69, Lance Drive");
+    var diff = d1.Except(d2);
+    Dictionary<string, Dictionary<string, string>> d = new Dictionary<string, Dictionary<string, string>>();
+    d.Add("Test", d1);
+    d.Add("Test2", d2);
+    var diff1 = d.SelectMany(x => x.Value).GroupBy(x => new { x.Key, x.Value }).Where(x => x.Count() == 1).SelectMany(x => x.AsEnumerable());

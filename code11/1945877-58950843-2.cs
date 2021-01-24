@@ -1,0 +1,6 @@
+    public void CallMethod(Action action)
+    {
+        ...
+        action();
+        ...
+    }

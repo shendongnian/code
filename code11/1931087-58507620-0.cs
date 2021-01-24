@@ -1,0 +1,10 @@
+        MemoryStream stream = new MemoryStream();
+        PdfDocument outputDocument = new PdfDocument(new PdfWriter(stream));
+        PdfDocument pdfSource = new PdfDocument(new PdfReader("c:\\firstInput.pdf"));
+        pdfSource.CopyPagesTo(1, pdfSource.GetNumberOfPages(), outputDocument);
+        pdfSource = new PdfDocument(new PdfReader("c:\\secondInput.pdf"));
+        pdfSource.CopyPagesTo(1, pdfSource.GetNumberOfPages(), outputDocument);
+        pdfSource.Close();
+        outputDocument.Close();
+        MemoryStream outputStream = new MemoryStream(stream.ToArray());
+        outputDocument = new PdfDocument(new PdfReader(outputStream), new PdfWriter("c:\\result.pdf"));

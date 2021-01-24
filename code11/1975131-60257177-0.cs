@@ -1,0 +1,15 @@
+    double price = 110;
+    double xx = 15;
+    double result = 0;
+    result = Convert.ToDouble(new DataTable().Compute($"({price-(price*xx)/100})", null));
+    Console.WriteLine("{price - xx%} = " + result);
+    result = Convert.ToDouble(new DataTable().Compute($"({price + (price * xx) / 100})", null));
+    Console.WriteLine("{price + xx%} = " + result);
+    result = Convert.ToDouble(new DataTable().Compute($"({price}-{xx})", null));
+    Console.WriteLine("{price - xx} = " + result);
+    result = Convert.ToDouble(new DataTable().Compute($"({price}+{xx})", null));
+    Console.WriteLine("{price + xx} = " + result);
+    result = Convert.ToDouble(new DataTable().Compute($"({price}/{xx})", null));
+    Console.WriteLine("{price / xx} = " + result);
+    result = Convert.ToDouble(new DataTable().Compute($"({price}*{xx})", null));
+    Console.WriteLine("{price * xx} = " + result);

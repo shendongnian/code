@@ -1,0 +1,14 @@
+        string connectionString;
+        SqlClient.SqlDataAdapter db;
+        string strsql1;
+        SqlClient.SqlConnection con1;
+        DataSet ds = new DataSet();
+        connectionString = My.Settings.MyConnectionString;
+        strsql1 = "select * from tblUsers where UserName = '" + UN + "'";
+        con1 = new SqlClient.SqlConnection(connectionString);
+        con1.Open();
+        db = new SqlClient.SqlDataAdapter(strsql1, con1);
+        ds = new DataSet();
+        db.Fill(ds, "tblUsers");
+        ds.Dispose();
+        db.Dispose();

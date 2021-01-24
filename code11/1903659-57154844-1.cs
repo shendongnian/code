@@ -1,0 +1,6 @@
+    public void ConfigureServices(IServiceCollection services)
+    {
+        ...
+        app.UseSerilogRequestLogging(); // Added this line as per docs
+        ...
+    }

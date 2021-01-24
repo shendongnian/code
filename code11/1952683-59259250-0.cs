@@ -1,0 +1,6 @@
+public class MyMethods{
+  public double Carporfen...
+...
+}
+You would call it in any other class like
+Console.WriteLine($"{MyMethods.Carporfen(pet1)}ml");

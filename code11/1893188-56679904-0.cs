@@ -1,0 +1,16 @@
+    Restoring NuGet package bootstrap.3.0.0.
+    Restoring NuGet package Antlr.3.4.1.9004.
+    Restoring NuGet package jQuery.1.10.2.
+    Restoring NuGet package AutoMapper.8.0.0.
+    Restoring NuGet package jQuery.Validation.1.11.1.
+    Restoring NuGet package Microsoft.ApplicationInsights.2.2.0.
+    Restoring NuGet package Microsoft.ApplicationInsights.Agent.Intercept.2.0.6.
+    Restoring NuGet package Microsoft.ApplicationInsights.DependencyCollector.2.2.0.
+    Restoring NuGet package Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0.
+    Restoring NuGet package Microsoft.ApplicationInsights.Web.2.2.0.
+    Restoring NuGet package Microsoft.ApplicationInsights.WindowsServer.2.2.0.
+    Restoring NuGet package Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0.
+    Restoring NuGet package Microsoft.AspNet.Mvc.5.2.3.
+    Restoring NuGet package Microsoft.AspNet.Razor.3.2.3.
+    Restoring NuGet package Microsoft.AspNet.Web.Optimization.1.1.3.
+    Restoring NuGet package Microsoft.AspNet.WebApi.5.2.3.

@@ -1,0 +1,15 @@
+    WorkItemStore wistore = new WorkItemStore("<your_tfs_url>");
+    WorkItemLinkTypeEnd childLinkType = wistore.WorkItemLinkTypes.LinkTypeEnds["System.LinkTypes.Hierarchy-Forward"];
+    string CopmletedWorkFieldName = "Microsoft.VSTS.Scheduling.CompletedWork";
+    string TeamProjectName = "TestProject";
+    string TSK = "Task";
+    string FTT = "Feature";
+    WorkItem task = wistore.Projects[TeamProjectName].WorkItemTypes[TSK].NewWorkItem();
+    task.Title = "Task From C# Project";
+    task.Save();
+    WorkItem feature = wistore.Projects[TeamProjectName].WorkItemTypes[FTT].NewWorkItem();
+    feature.Title = "Feature From C# Project";
+    feature.WorkItemLinks.Add(new WorkItemLink(childLinkType, task.Id));
+    feature.Save();
+    task.Fields[CopmletedWorkFieldName].Value = 10;
+    task.Save();

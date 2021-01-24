@@ -1,0 +1,14 @@
+    var d = new D();
+    var dd = d.X();        // 4
+    var dc = ((C)d).X();   // 4
+    var db = ((B)d).X();   // 2
+    var da = ((A)d).X();   // 2
+    var c = new C();
+    var cc = c.X();        // 3
+    var cb = ((B)c).X();   // 2
+    var ca = ((A)c).X();   // 2
+    var b = new B();
+    var bb = b.X();        // 2
+    var ba = ((A)b).X();   // 2
+    var a = new A();
+    var aa = a.X();        // 1

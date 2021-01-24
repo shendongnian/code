@@ -1,0 +1,13 @@
+	var ds = new DataSet();
+	var dt = ds.Tables["Total Amount of Orders"] ?? new DataTable();
+	dt.Columns.Add("A");
+	dt.Rows.Add("A1");
+	dt.Rows.Add("A2");
+	var dt2 = ds.Tables["Total Value of Orders"]?? new DataTable();
+	dt2.Columns.Add("B");
+	dt2.Rows.Add("B1");
+	dt2.Rows.Add("B2");
+	var dt3 = ds.Tables["Total Value of Orders Not Invoiced"]?? new DataTable();
+	dt3.Columns.Add("C");
+	dt3.Rows.Add("C1");
+	dt3.Rows.Add("C2");

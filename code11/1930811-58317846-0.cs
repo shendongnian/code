@@ -1,0 +1,16 @@
+            Regex r = new Regex("[\r\n]");
+            var strBuilder = new StringBuilder();
+            strBuilder.Append(UtilityBillId);
+            strBuilder.Append("|B|");
+            strBuilder.Append(billId);
+            strBuilder.Append("|B|");
+            strBuilder.Append(paymentId);
+            strBuilder.Append("|B|");
+            strBuilder.Append(r.Replace(stepTitle, ""));
+            strBuilder.Append("|B|");
+            strBuilder.Append(resultCode);
+            strBuilder.Append("|B|");
+            strBuilder.Append(r.Replace(resultMessage, ""));
+            strBuilder.Append("|B|");
+            strBuilder.AppendLine(Common._getCurrentDateTime());
+            wr.WriteLine(strBuilder.ToString());

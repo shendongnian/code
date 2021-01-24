@@ -1,0 +1,6 @@
+    using xf = Xamarin.Forms;
+    using aa = Android.App;
+    
+    ...
+    
+    aa.Application.Context.ContentResolver...

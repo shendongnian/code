@@ -1,0 +1,13 @@
+    void textBox1_TextChanged(object sender, EventArgs e)
+    {
+        CallSQL(textBox1.Text);
+    }
+    
+    void CallSQL(string filterText)
+    {
+    ...
+    ...
+     string sql = string.Format("SELECT ... WHERE Personel.Ad = {0}", filterText);
+    ...
+    ...
+    }

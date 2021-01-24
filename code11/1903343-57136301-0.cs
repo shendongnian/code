@@ -1,0 +1,15 @@
+DataColumn dc;
+dc = new DataColumn();
+dc.DataType = System.Type.GetType("System.String");
+dc.ColumnName = "title";
+dc.ReadOnly = false;
+dc.Unique = true;
+dc.AutoIncrement = false;
+dt.Columns.Add(dc);
+dc = new DataColumn();
+dc.DataType = System.Type.GetType("System.String");
+dc.ColumnName = "link";
+dc.ReadOnly = false;
+dc.Unique = true;
+dc.AutoIncrement = false;
+dt.Columns.Add(dc);

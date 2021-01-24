@@ -1,0 +1,10 @@
+    string username = Convert.ToString(response.Username);
+    string description = Convert.ToString(response.Description);
+    ListViewItem item = new ListViewItem();
+    item.Text = process.Id.ToString();
+    item.SubItems.Add(process.ProcessName);
+    item.SubItems.Add(status);
+    item.SubItems.Add(username);
+    item.SubItems.Add(memsize.ToString() + " MB");
+    item.SubItems.Add(description);
+    listView1.Items.Add(item);

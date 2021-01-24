@@ -1,0 +1,14 @@
+    System.Runtime.CompilerServices.CompilationRelaxationsAttribute
+    System.Runtime.CompilerServices.RuntimeCompatibilityAttribute
+    System.Diagnostics.DebuggableAttribute
+    System.Reflection.AssemblyTitleAttribute
+    System.Reflection.AssemblyDescriptionAttribute
+    System.Reflection.AssemblyConfigurationAttribute
+    System.Reflection.AssemblyCompanyAttribute
+    System.Reflection.AssemblyProductAttribute
+    System.Reflection.AssemblyCopyrightAttribute
+    System.Reflection.AssemblyTrademarkAttribute
+    System.Runtime.InteropServices.ComVisibleAttribute
+    System.Runtime.InteropServices.GuidAttribute
+    System.Reflection.AssemblyFileVersionAttribute
+    System.Runtime.Versioning.TargetFrameworkAttribute

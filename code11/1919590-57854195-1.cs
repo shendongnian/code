@@ -1,0 +1,6 @@
+    //...
+    var iblobStorageRepositoryMoq = new Mock<IBlobStorageRepository>();
+    iblobStorageRepositoryMoq
+        .Setup(mock => mock.Add(It.IsAny<ILogger>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
+        .ThrowsAsync(new Exception("Function Add threw an exception"));
+    //...
