@@ -1,0 +1,13 @@
+    protected virtual void WndProc(ref Message m)
+    {
+        // ...
+        switch (m.Msg)
+        {
+            // ...
+    	    case 517:
+                WmMouseUp(ref m, MouseButtons.Right, 1);
+                return;
+            // ...
+        }
+        // ...
+    }

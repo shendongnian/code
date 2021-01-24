@@ -1,0 +1,12 @@
+    <Style>
+                <Setter Property="Control.Visibility" Value="Visible" />
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding Path=IsPropA}" Value="false" />
+                            <Condition Binding="{Binding Path=IsPropB}" Value="false" />
+                        </MultiDataTrigger.Conditions>
+                        <Setter Property="Control.Visibility" Value="Hidden" />
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>

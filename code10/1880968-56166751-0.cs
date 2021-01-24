@@ -1,0 +1,12 @@
+    var mock = new Mock<IFluent>();
+    var mock1 = new Mock<IFluent>();
+    var mock2 = new Mock<IFluent>();
+    mock.Setup(x => x.GetById(1)).Returns(mock1.Object); 
+    mock1.Setup(x => x.IncludeRecords()).Returns(mock1.Object)
+    mock1.Setup(x => x.IncludeMetaData()).Returns(mock1.Object)
+    mock1.Setup(x => x.Get()).Returns(c1);
+    mock.Setup(x => x.GetById(2)).Returns(mock2.Object); 
+    mock2.Setup(x => x.IncludeRecords()).Returns(mock2.Object)
+    mock2.Setup(x => x.IncludeMetaData()).Returns(mock2.Object)
+    mock2.Setup(x => x.Get()).Returns(c2);
+    var result = new ComputeClass().ComputeStuff(mock.Object);

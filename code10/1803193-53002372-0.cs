@@ -1,0 +1,11 @@
+    string connectionstring = ConfigurationManager.ConnectionStrings["myConnectionString2"].ConnectionString;
+            SqlConnection con = new SqlConnection(connectionstring);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataAdapter da = new SqlDataAdapter("Select Max(VchNo) from tran1 where VchType=9 ", con);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+           string vchno = ds.Tables[0].Rows[0][0].ToString();
+           string a = vchno;
+           a = vchno.Substring(0,(a.Length-8));
+           a = (int.Parse(a) + 1).ToString();
+           txtCIN.Text = a +"/2018-19";

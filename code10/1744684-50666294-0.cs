@@ -1,0 +1,16 @@
+    CompilationUnit()
+        .WithAttributeLists(
+            SingletonList<AttributeListSyntax>(
+                AttributeList(
+                    SingletonSeparatedList<AttributeSyntax>(
+                        Attribute(IdentifierName("MyAttribute")))) 
+                   .WithTarget(
+                        AttributeTargetSpecifier(
+                           Token(SyntaxKind.AssemblyKeyword))))) 
+        .WithMembers(
+            SingletonList<MemberDeclarationSyntax>(
+                NamespaceDeclaration(IdentifierName("S"))
+                    .WithMembers(
+                        SingletonList<MemberDeclarationSyntax>(
+                            ClassDeclaration("C")))))
+        .NormalizeWhitespace()

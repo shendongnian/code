@@ -1,0 +1,17 @@
+    if (CrossConnectivity.Current.IsConnected)
+    {
+        try { 
+            Ping ping = new Ping();
+            String host = "google.com";
+            byte[] buffer = new byte[32];
+            int timeout = 1000;
+            PingOptions pingOptions = new PingOptions();
+            PingReply reply = ping.Send(host, timeout, buffer, pingOptions);
+            if (reply.Status == IPStatus.Success){
+                // Your code here...
+            }
+        }
+        catch (Exception) {
+            return false;
+        }
+    }

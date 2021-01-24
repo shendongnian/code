@@ -1,0 +1,6 @@
+    public class Building
+    {
+        ...
+        BuildingType Type { get; set; }
+        ... 
+    }

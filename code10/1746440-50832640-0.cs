@@ -1,0 +1,12 @@
+			FileStream stream = File.OpenRead(@"C:\test7.csv");
+            byte[] fileBytes = new byte[stream.Length];
+            stream.Read(fileBytes, 0, fileBytes.Length);
+            stream.Close();
+            var byteArrayContent = new ByteArrayContent(fileBytes);
+            byteArrayContent.Headers.ContentType = MediaTypeHeaderValue.Parse("text/csv");
+            HttpClient httpClient = new HttpClient();
+            MultipartFormDataContent form = new MultipartFormDataContent();
+            form.Add(new StringContent("mypassword"), "secret");
+            form.Add(byteArrayContent, "file", "testT.csv");
+            HttpResponseMessage response = httpClient.PostAsync("https://www.apiurl.com", form).Result;
+            httpClient.Dispose();

@@ -1,0 +1,11 @@
+    OdbcConnection conn = new OdbcConnection(ConfigurationManager.ConnectionStrings["dbConnect3"].ConnectionString);
+    OdbcCommand dbComm = new OdbcCommand();
+    dbComm.Connection = conn;
+    dbComm.CommandType = CommandType.StoredProcedure;
+    dbComm.CommandText = "CountUsers";
+    dbComm.Parameters.AddWithValue("@cacLogin", "MAULDIN.THOMAS.C.12345");
+    var returnParameter = dbComm.Parameters.Add("@rowcount", OdbcType.Int);
+    returnParameter.Direction = ParameterDirection.ReturnValue;
+    conn.Open();
+    dbComm.ExecuteNonQuery();
+    var i = returnParameter.Value;

@@ -1,0 +1,5 @@
+    session.QueryOver<Category>()
+    .Left.JoinQueryOver<Subcategory>(c => c.Subcategories)
+    .Where(s => s.IsRetired == false)
+    .TransformUsing(Transformers.DistinctRootEntity)
+    .List<Category>()

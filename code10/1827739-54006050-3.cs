@@ -1,0 +1,11 @@
+    var lst = new List<dynamic>();
+    Dictionary<string, object> dict = new Dictionary<string, object>();
+    dict.Add("Name", "John");
+    dict.Add("CreateDate", DateTime.Now);
+    lst.Add(JsonConvert.DeserializeObject<ExpandoObject>(JsonConvert.SerializeObject(dict)));
+    dict.Clear();
+    dict.Add("Name", "Sara");
+    dict.Add("CreateDate", DateTime.Now);
+    lst.Add(JsonConvert.DeserializeObject<ExpandoObject>(JsonConvert.SerializeObject(dict)));
+    dict.Clear();
+    var res = LookUp(lst, "Name", "Sara");

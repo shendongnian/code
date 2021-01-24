@@ -1,0 +1,15 @@
+    ILGenerator genIM = mbIM.GetILGenerator();            
+    genIM.Emit(OpCodes.Ldarg_0);   
+    genIM.Emit(OpCodes.Ldc_I4_2);
+    genIM.Emit(OpCodes.Newarr, typeof(object));
+    genIM.Emit(OpCodes.Dup);
+    genIM.Emit(OpCodes.Ldc_I4_0);
+    genIM.Emit(OpCodes.Ldarg_1);
+    genIM.Emit(OpCodes.Stelem_Ref);
+    genIM.Emit(OpCodes.Dup);
+    genIM.Emit(OpCodes.Ldc_I4_1);
+    genIM.Emit(OpCodes.Ldarg_2);
+    genIM.Emit(OpCodes.Box, typeof(bool));
+    genIM.Emit(OpCodes.Stelem_Ref);
+    genIM.Emit(OpCodes.Call, classMethod);
+    genIM.Emit(OpCodes.Ret);

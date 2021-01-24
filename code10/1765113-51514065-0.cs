@@ -1,0 +1,6 @@
+    public class Form1 : Form
+    {
+        ...
+        public MainForm mf { get; set; }
+        ...
+    }

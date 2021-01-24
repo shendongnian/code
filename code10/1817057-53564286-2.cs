@@ -1,0 +1,6 @@
+    class Asset
+    {
+        ...
+        public AssetDescription AssetDescription {get;set;}
+        ...
+    }

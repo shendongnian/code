@@ -1,0 +1,6 @@
+    public class GraveDKIStore {
+    ...
+    [MaxLength(5)] // The issue is here so I changed it to 10.
+    public string MsgType { get; set; }
+    ...
+    }

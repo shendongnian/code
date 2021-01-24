@@ -1,0 +1,15 @@
+            MainClass dataTbl = new MainClass();
+            List<Data> lst1 = new List<Data>();
+            lst1.Add(new Data("data1OfLst1", "cat1"));
+            lst1.Add(new Data("data2OfLst1", "cat2"));
+            lst1.Add(new Data("data3Oflst1", "cat3"));
+            dataTbl.Id = 1;
+            dataTbl.Data = lst1;
+            List<Data> lst2 = new List<Data>();
+            lst2.Add(new Data("data1OfLst2", "cat1"));
+            lst2.Add(new Data("data2OfLst2", "cat2"));
+            lst2.Add(new Data("data3Oflst2", "cat3"));
+            dataTbl.Id = 2;
+            dataTbl.Data = lst2;
+            List<Data> cat1Data = new List<Data>();
+            cat1Data = dataTbl.Data.Where(i => i.Category.Contains("cat1")).ToList();

@@ -1,0 +1,15 @@
+    var editButtonColumn = new DataGridViewButtonColumn();
+    editButtonColumn.Text = "Edit";
+    editButtonColumn.UseColumnTextForButtonValue = true;
+    var deleteButtonColumn = new DataGridViewButtonColumn();
+    deleteButtonColumn.Text = "Delete";
+    deleteButtonColumn.UseColumnTextForButtonValue = true;
+    var idColumn = new DataGridViewTextBoxColumn();
+    idColumn.HeaderText = "ID";
+    var firstNameColumn = new DataGridViewTextBoxColumn();
+    firstNameColumn.HeaderText = "FirstName";
+    dgvPeople.Columns.Add(editButtonColumn);
+    dgvPeople.Columns.Add(deleteButtonColumn);
+    dgvPeople.Columns.Add(idColumn);
+    dgvPeople.Columns.Add(firstNameColumn);
+    dgvPeople.CellContentClick += DgvPeople_CellContentClick;

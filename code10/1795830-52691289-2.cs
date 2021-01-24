@@ -1,0 +1,30 @@
+    static int getMaxIndex(byte[] data, int byteLenght)
+            {
+                int MaxIndex = 0;
+                int signMax = data[byteLenght - 1] >> 7;// get sign
+                for (int i = byteLenght; i < data.Length; i += byteLenght)
+                {
+                    int step = byteLenght - 1;
+                    int compResult = 0;
+                    int signData = data[i + step] >> 7;
+                    compResult = signData - signMax;
+                    if (compResult < 0)
+                    {
+                        MaxIndex = i;
+                        signMax = data[MaxIndex + step] >> 7;
+                    }
+                    if (compResult != 0) continue;
+                
+                    while (compResult == 0 && step > -1)
+                    {
+                        compResult = data[MaxIndex + step] - data[i + step];
+                        if (compResult < 0)
+                        {
+                            MaxIndex = i;
+                            signMax = data[MaxIndex + step] >> 7;
+                        }
+                        step--;
+                    }
+                }
+                return MaxIndex;
+            }

@@ -1,0 +1,11 @@
+                                     LogId = l.LogId,
+                                     TimeStamp = l.Timestamp,
+                                     TenantId = t.TenantId,
+                                     TenantName = t.TenantName,
+                                     UserId = l.UserId,
+                                     UserName = u.Name + " " + u.Surname,
+                                     Description = l.Description,
+                                     OldValue = l.OldValue,
+                                     NewValue = l.NewValue
+                                 });`. Then I query it to find matching rows for given ProcessId number e.g. `query = "@NewValue.Contains(\"904,)\")";
+                            items = items.Where(query);`

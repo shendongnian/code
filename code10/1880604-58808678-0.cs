@@ -1,0 +1,10 @@
+    byte[] bin = File.ReadAllBytes(strPath);
+    Response.ClearHeaders();
+    Response.Clear();
+    Response.Buffer = true;
+    Response.ContentType = "application/pdf";
+    Response.AddHeader("content-length", bin.Length.ToString());
+    Response.AddHeader("content-disposition", "attachment;filename=\"GeneratedReport.pdf\"");
+    Response.OutputStream.Write(bin, 0, bin.Length);
+    Response.Flush();
+    HttpContext.Current.ApplicationInstance.CompleteRequest();

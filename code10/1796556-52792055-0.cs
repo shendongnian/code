@@ -1,0 +1,6 @@
+    public static byte[] ConvertRtbToBytes(string richTextBox)
+    {
+        // ...
+        TextRange tr = new TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd);
+        // ...
+    }

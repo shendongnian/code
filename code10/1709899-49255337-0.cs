@@ -1,0 +1,6 @@
+    public async Task<IActionResult> Index(Func<Ticket, object> sortOrder, string searchString)
+    {
+        ...
+        Tickets = Tickets.OrderBy(s => sortOrder(s));
+        ...
+    }

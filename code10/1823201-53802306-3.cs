@@ -1,0 +1,6 @@
+    public class Product
+    {
+        ...
+        public string ProductImageName { get; set; }
+        ...
+    }

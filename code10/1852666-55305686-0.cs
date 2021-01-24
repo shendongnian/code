@@ -1,0 +1,10 @@
+            string batchCode = this.GetBatchCode(requestContent);
+            var innerResponse = new HttpMessageContent(new HttpResponseMessage(HttpStatusCode.NotFound));
+            MultipartContent batchContent = new MultipartContent("mixed", "batch_" + batchCode);
+            innerResponse.Headers.Remove("Content-Type");
+            innerResponse.Headers.Add("Content-Type", "application/http");
+            innerResponse.Headers.Add("Content-Transfer-Encoding", "binary");
+            batchContent.Add(innerResponse);
+            var outerResponse = new HttpResponseMessage(HttpStatusCode.OK);
+            outerResponse.Content = batchContent;
+            return outerResponse;

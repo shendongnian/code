@@ -1,0 +1,6 @@
+    public AccessibleClass 
+    {
+    }
+    internal NonAccessibleClass 
+    {
+    }

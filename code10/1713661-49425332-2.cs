@@ -1,0 +1,13 @@
+        public static void Main(string[] args)
+        {
+            int N = 7;
+            Console.WriteLine("Sequence: " + string.Join(", ", genSequence(new List<int>(), N)));
+        }
+        
+        private static List<int> genSequence(List<int> lst, int n)
+        {
+            lst.Add(n);
+            if (n > 1)
+                genSequence(lst, n - 2).Add(n);
+            return lst;
+        }

@@ -1,0 +1,21 @@
+    Environment.SetEnvironmentVariable("PGPASSWORD", ConfiguracaoSistema.Password);
+            string caminhoArquivo = @Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\testesigep_vs.backup";
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = @Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\backup\\pg_restore.exe";
+            psi.RedirectStandardInput = true;
+            psi.RedirectStandardOutput = false;
+            psi.CreateNoWindow = true;
+            psi.Arguments = string.Format(@"-h {0} -p {1} -U {2} -d {3} -v {4}", caminhoServidor, ConfiguracaoSistema.Port, ConfiguracaoSistema.UserName, ConfiguracaoSistema.NomeDataBase, caminhoArquivo);
+            psi.UseShellExecute = false;
+            p = new Process { StartInfo = psi };
+            p.StartInfo.RedirectStandardError = true;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.EnableRaisingEvents = true;
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.CreateNoWindow = true;
+            p.OutputDataReceived += new DataReceivedEventHandler((s, e) => { Dispatcher.BeginInvoke(new Action(() => { textInformacao.Text += e.Data + "\r\n"; textInformacao.ScrollToEnd(); })); });
+            p.ErrorDataReceived += new DataReceivedEventHandler((s, e) => { Dispatcher.BeginInvoke(new Action(() => { textInformacao.Text += e.Data + "\r\n"; textInformacao.ScrollToEnd(); })); });
+            p.Exited += (sender, e) => { Dispatcher.BeginInvoke(new Action(() => { textInformacao.Text += "Processo Finalizado!"; })); };
+            p.Start();
+            p.BeginOutputReadLine();
+            p.BeginErrorReadLine();`

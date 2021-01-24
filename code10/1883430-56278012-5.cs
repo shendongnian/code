@@ -1,0 +1,14 @@
+    DataTable dt = new DataTable();
+    dt.Columns.Add("col1", typeof(string));
+    dt.Columns.Add("col2", typeof(string[]));
+    dt.Columns.Add("col3", typeof(int));
+    var row = dt.NewRow();
+    row.SetField<string>("col1",  "A");
+    row.SetField<string[]>("col2", new string[] { "abc", "xyz", "123" });
+    row.SetField<int>("col3", 23 );
+    dt.Rows.Add(row);
+    row = dt.NewRow();
+    row.SetField<string>("col1", "B");
+    row.SetField<string[]>("col2", new string[] { "a-b-c", "x+y+z", "1:2:3" });
+    row.SetField<int>("col3", 42);
+    dt.Rows.Add(row);

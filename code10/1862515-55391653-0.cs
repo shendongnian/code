@@ -1,0 +1,36 @@
+    public IActionResult DownloadExcel(IList<string> fields)
+    {
+        // get the required field list
+        var userType = typeof(UserTable);
+        fields = userType.GetProperties().Select(p => p.Name).Intersect(fields).ToList();
+        if(fields.Count == 0){ return BadRequest(); }
+        using (ExcelPackage package = new ExcelPackage())
+        {
+            IList<UserTable> userList = _context.UserTable.ToList();
+            ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("DbTableName");
+            // generate header line
+            for(var i= 0; i< fields.Count; i++ ){
+                var fieldName = fields[i];
+                var pi= userType.GetProperty(fieldName);
+                var displayName =  pi.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName;
+                worksheet.Cells[1,i+1].Value = string.IsNullOrEmpty(displayName ) ? fieldName : displayName ;
+            }
+            // generate row lines
+            int totalUserRows = userList.Count();
+            for(var r=0; r< userList.Count(); r++){
+                var row = userList[r];
+                for(var c=0 ; c< fields.Count;c++){
+                    var fieldName = fields[c];
+                    var pi = userType.GetProperty(fieldName);
+                    // because the first row is header 
+                    worksheet.Cells[r+2, c+1].Value = pi.GetValue(row);
+                }
+            }
+            var stream = new MemoryStream(package.GetAsByteArray());
+            return new FileStreamResult(stream,"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        }
+    }
+**Demo** :  
+passing a field list `fields[0]=fName&fields[1]=lName&fields[2]=Non-Exist` will generate an excel as below:
+[![enter image description here][1]][1]
+  [1]: https://i.stack.imgur.com/FrU7N.png

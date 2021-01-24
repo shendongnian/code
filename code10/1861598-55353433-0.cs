@@ -1,0 +1,9 @@
+    ulong ExtendedTimestamp = 99;
+    ulong timeStampInTicks = ExtendedTimestamp * TimeSpan.TicksPerMillisecond / 10;
+    var startDate = DateTime.Now;
+    string dateWithMicroseconds = startDate.AddTicks((long)timeStampInTicks).ToString("HH:mm:ss.ffffff");
+    string dateHHmmss = dateWithMicroseconds.Split('.')[0];
+    int precision = 3;
+    string milliSecs = dateWithMicroseconds.Split('.')[1].Substring(0, precision);
+    string microSecs = dateWithMicroseconds.Split('.')[1].Substring(precision, 3);
+    string customFormat = string.Format("{0}:{1}:{2}", dateHHmmss, milliSecs, microSecs);

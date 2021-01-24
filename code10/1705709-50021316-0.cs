@@ -1,0 +1,14 @@
+    var client = new RestClient(url);
+    ServicePointManager.Expect100Continue = true;
+    ServicePointManager.DefaultConnectionLimit = 9999;
+    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12 | SecurityProtocolType.Ssl3;
+    var certFile = Path.Combine(certificateFolder, "certificate.pfx");
+    X509Certificate2 certificate = new X509Certificate2(certFile, onboard.authentication.secret);
+    client.ClientCertificates = new X509CertificateCollection() { certificate };
+    client.Proxy = new WebProxy();
+    var restrequest = new RestRequest(Method.POST);
+    restrequest.AddHeader("Cache-Control", "no-cache");
+    restrequest.AddHeader("Accept", "application/json");
+    restrequest.AddHeader("Content-Type", "application/json");
+    restrequest.AddParameter("myStuff", ParameterType.RequestBody);
+    IRestResponse response = client.Execute(restrequest);

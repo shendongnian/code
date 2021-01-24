@@ -1,0 +1,6 @@
+         public ActionResult Create() {
+            ...
+            var inv = TempData["invoice"];
+            ...
+         }
+-------------------------------------------------------

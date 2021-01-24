@@ -1,0 +1,9 @@
+    BigInteger value = BigInteger.Parse(
+        "0"        + 
+        "62FA7AC4" + 
+        "2500" + 
+         DateTime.Today.ToString("ddMMyyyy"), 
+       NumberStyles.HexNumber);
+    string result = ToBase36(value);
+    BigInteger back = FromBase36(result);
+    Console.WriteLine(string.Join(Environment.NewLine, value, result, back));

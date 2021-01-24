@@ -1,0 +1,6 @@
+    //...
+    public void OnClick(object sender, EventArgs e) {
+        Clients.Remove(SelectedSocket); //raises collection changed
+        SelectedSocket = null; //raises property changed
+    }
+    //...

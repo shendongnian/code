@@ -1,0 +1,9 @@
+    private void AddQueue(string spName, List<SqlParameter> SqlParameters)
+    {
+        ...
+        SqlCommand cmd = new SqlCommand(spName, conn);
+        ...
+        if (SqlParameters.Count > 0)
+               cmd.Parameters.AddRange(SqlParameters.ToArray());
+        ...
+    }

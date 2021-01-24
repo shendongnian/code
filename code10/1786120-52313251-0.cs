@@ -1,0 +1,11 @@
+    var a= new DataTable("A");
+    DataColumn guid= new DataColumn("Guid", typeof(Guid));
+    billable.Columns.Add(Guid.NewGuid());
+    DataColumn id= new DataColumn("Id", typeof(int));
+    billablePriceMapId.AutoIncrement = true;
+    billable.Columns.Add(id);
+    DataColumn fee = new DataColumn("Fee", typeof(decimal));
+    billable.Columns.Add(fee);
+    DataColumn[] keys = new DataColumn[1];
+    keys[0] = id;
+    billable.PrimaryKey = keys;

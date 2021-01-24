@@ -1,0 +1,11 @@
+    List<List_Data> List1 = new List<List_Data>();
+    List1.Add(new List_Data { Material = "1", Batch = "B1", QTY = 5 });
+    List1.Add(new List_Data { Material = "1", Batch = "B2", QTY = 5 });
+    List1.Add(new List_Data { Material = "2", Batch = "B1", QTY = 15 });
+    List1.Add(new List_Data { Material = "3", Batch = "B1", QTY = null });
+    List1.Add(new List_Data { Material = "3", Batch = "B3", QTY = 4 });
+    List<List_Data> List2 = new List<List_Data>();
+    List2.Add(new List_Data { Material = "1", Batch = "B1", QTY = 2 });
+    List2.Add(new List_Data { Material = "3", Batch = "B1", QTY = 5 });
+    List2.Add(new List_Data { Material = "3", Batch = "B2", QTY = 15 });
+    List2.Add(new List_Data { Material = "3", Batch = "B3", QTY = null });

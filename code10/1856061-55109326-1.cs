@@ -1,0 +1,9 @@
+     public static RelayCommand NavigateToSignInPage => new RelayCommand(
+            actionParameter => Application.Instance.Navigation.NavigateTo(new LoginForm()));
+        public static RelayCommand NavigateToSignUpPage => new RelayCommand(
+            actionParameter => Application.Instance.Navigation.NavigateTo(new RegistrationForm()));
+        public static RelayCommand NavigateToStartPage => new RelayCommand(
+            actionParameter => Application.Instance.Navigation.NavigateTo(new StartPage()));
+        public static RelayCommand NavigateBack => new RelayCommand(
+            actionParameter => Application.Instance.Navigation.NavigateBack(),
+            actionPossibilityParameter => Application.Instance.Navigation.BackNavigationPossible);

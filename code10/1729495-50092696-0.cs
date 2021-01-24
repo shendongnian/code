@@ -1,0 +1,9 @@
+    public virtual DbSet<Municipalitys> Municipalitys { get; set; }
+    public virtual DbSet<Presentations> Presentations { get; set; }
+    public virtual DbSet<PriceSources> PriceSources { get; set; }
+    public virtual DbSet<Prices> Prices { get; set; }
+    public virtual DbSet<Products> Products { get; set; }
+    public virtual DbSet<States> States { get; set; }
+    public virtual DbSet<UserType> UserTypes { get; set; }
+    public virtual DbSet<Week> Weeks { get; set; }
+    public virtual DbSet<Year> Years1 { get; set; }

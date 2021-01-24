@@ -1,0 +1,6 @@
+    public ActionResult SaveNoValidate([CustomizeValidator(RuleSet="Empty")] Customer customer) {
+    // ...
+    }
+    public ActionResult SaveValidateNames([CustomizeValidator(RuleSet="Names")] Customer customer ) {
+    // ...
+    }

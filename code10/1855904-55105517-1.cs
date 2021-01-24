@@ -1,0 +1,12 @@
+        var ev = new Event();
+        EventDateTime start = new EventDateTime();
+        start.DateTime = new DateTime(2019, 3, 11, 10, 0, 0);
+        EventDateTime end = new EventDateTime();
+        end.DateTime = new DateTime(2019, 3, 11, 10, 30, 0);
+        ev.Start = start;
+        ev.End = end;
+        ev.Summary = "New Event";
+        ev.Description = "Description...";
+        var calendarId = "primary";
+        Event recurringEvent = service.Events.Insert(ev, calendarId).Execute();
+        Console.WriteLine("Event created: %s\n", e.HtmlLink);

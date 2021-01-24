@@ -1,0 +1,12 @@
+    try
+    {
+        File.WriteAllText(...);
+    }
+    catch(UnauthorizedAccessException)
+    {
+        ...
+    }
+    catch(IOException)
+    {
+        ...
+    }

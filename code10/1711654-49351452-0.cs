@@ -1,0 +1,12 @@
+    List<Block> ic = new List<Block>();
+    Paragraph para = new Paragraph();
+    InlineUIContainer iuic = new InlineUIContainer();
+    TextBlock hpb = new TextBlock();
+    hpb.Text = "link text";
+    hpb.Tag = "some tag to pass on to the click handler";
+    hpb.Tapped += ClickHandler;
+    hpb.TextDecorations = TextDecorations.Underline;
+    hpb.Foreground = new SolidColorBrush((Windows.UI.Color)page.Resources["SystemAccentColor"]);
+    iuic.Child = hpb;
+    para.Inlines.Add(iuic);
+    ic.Add(para);

@@ -1,0 +1,6 @@
+    public class myModel
+    {
+    	public string language { get; set; }
+        ....
+        ....
+    }

@@ -1,0 +1,9 @@
+    var innerProperty = Expression.PropertyOrField(parameter, PascalCase(f.PropertyName));
+    var innerParameter = Expression.Parameter(typeof(string), "y");
+    var toLowerMethod = typeof(string).GetMethod(nameof(string.ToLower), new Type[] { });
+    var startsWithMethod = typeof(string).GetMethod(nameof(string.StartsWith), new[] { typeof(string) });
+    var value = Expression.Constant(f.Value.ToLower());
+    var loweredProperty = Expression.Call(innerParameter, toLowerMethod);
+    var innerExp = Expression.Call(loweredProperty, startsWithMethod, value);
+    var predicate = Expression.Lambda<Func<string, bool>>(innerExp, innerParameter);
+    expression = Expression.Call(typeof(Enumerable), "Any", new[] { typeof(string) }, innerProperty, predicate);

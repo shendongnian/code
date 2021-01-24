@@ -1,0 +1,11 @@
+    var builder = new ContainerBuilder();
+    builder.RegisterType<Body>().As<IBody>();
+    builder.RegisterType<Display>().As<IDisplay>();
+    builder.RegisterType<Draw>().As<IDraw>();
+    builder.RegisterType<Food>().As<IFood>();
+    builder.RegisterType<Movement>().As<IMovement>().SingleInstance();
+    builder.RegisterType<SnakeGame>().As<ISnakeGame>();
+    builder.RegisterInstance<ISenseHat>(await SenseHatFactory.GetSenseHat().ConfigureAwait(false));
+    var container = builder.Build();
+    var snakeGame = container.Resolve<ISnakeGame>();
+    snakeGame.Run();

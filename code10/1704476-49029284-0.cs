@@ -1,0 +1,6 @@
+    private static Page GetPage(Type viewModelType, MenuViewModel menuViewModel)
+    {
+        //...
+        page.BindingContext = Activator.CreateInstance(viewModelType, new object[] { menuViewModel });
+        //...
+    }

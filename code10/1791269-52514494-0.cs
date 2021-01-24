@@ -1,0 +1,12 @@
+    ChartArea ca = chart4.ChartAreas[0];
+    ca.BackColor = Color.Transparent;
+    ca.AxisX.Minimum = -300;
+    ca.AxisX.Maximum = 300;
+    ca.AxisY.Minimum = -300;
+    ca.AxisY.Maximum = 300;
+    ca.AxisX.Crossing = 0;
+    ca.AxisY.Crossing = 0;
+    ca.AxisX.Interval = 100;
+    ca.AxisY.Interval = 100;
+    ca.AxisX.MajorGrid.LineColor = Color.LightGray;
+    ca.AxisY.MajorGrid.LineColor = Color.LightGray;

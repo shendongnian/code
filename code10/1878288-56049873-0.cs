@@ -1,0 +1,6 @@
+    IQueryable<TEntity> GetTEntities()
+    IQueryable<TEntity> GetTEntityById(id)
+    IQueryable<TRelatedEntity> GetTRelatedEntities()
+    TEntity CreateTEntity({all required properties/references})
+    void DeleteTEntity(entity)
+    TChildEntity CreateTChildEntity(TEntity, {all required properties/references})

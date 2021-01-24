@@ -1,0 +1,10 @@
+    Axis ax = chart1.ChartAreas[0].AxisX;
+    Axis ay = chart1.ChartAreas[0].AxisY;
+    ax.Maximum = 9;  // pick or calculate
+    ay.Maximum = 6;  // minimum and..
+    ax.Interval = 1; // maximum values..
+    ay.Interval = 1; // .. needed
+    ax.MajorGrid.Enabled = false;
+    ay.MajorGrid.Enabled = false;
+    Series s1 = chart1.Series.Add("A");
+    s1.ChartType = SeriesChartType.Point;

@@ -1,0 +1,12 @@
+            Border myborder = new Border();
+            myborder.BorderBrush = new SolidColorBrush(Colors.DarkGray);
+            myborder.BorderThickness = new Thickness(1);
+            GridKalkAuswahl.Children.Add(myborder);
+            Grid.SetRowSpan(myborder, 1);
+            Grid.SetColumnSpan(myborder, 4);
+            Border myborder2 = new Border();
+            myborder2.BorderBrush = new SolidColorBrush(Colors.Crimson);
+            myborder2.BorderThickness = new Thickness(1);
+            GridKalkAuswahl.Children.Add(myborder2);
+            Grid.SetRowSpan(myborder2, 1);
+            Grid.SetColumnSpan(myborder2, 3);

@@ -1,0 +1,6 @@
+    public class UserAnswerToQue {
+        // ...
+        public int Qu_Id => this._Qu_Id;
+        public string Title => this._Title;
+        // ...
+    }

@@ -1,0 +1,10 @@
+    var test1 = IsLegalUnicode("abcdeàèéìòù"); // true
+    var test2 = IsLegalUnicode("⭐ White Medium Star"); // true, Unicode 5.1
+    var test3 = IsLegalUnicode(" Beaming Face With Smiling Eyes"); // true, Unicode 6.0
+    var test4 = IsLegalUnicode(" Slightly Smiling Face"); // true, Unicode 7.0
+    var test5 = IsLegalUnicode(" Hugging Face"); // true, Unicode 8.0
+    var test6 = IsLegalUnicode(" Rolling on the Floor Laughing"); // false, Unicode 9.0 (2016)
+    var test7 = IsLegalUnicode(" Star-Struck"); // false, Unicode 10.0 (2017)
+    var test8 = IsLegalUnicode("\uFF00"); // false, undefined BMP UTF-16 unicode
+    var test9 = IsLegalUnicode(""[0] + "X"); // false, unpaired high surrogate pair
+    var test10 = IsLegalUnicode(""[1] + "X"); // false, unpaired low surrogate pair

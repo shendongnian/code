@@ -1,0 +1,6 @@
+    public async Task<ActionResult> all(Chapter chapter)
+    {
+       ....
+       await db.SaveChangesAsync(); 
+       ...
+    }

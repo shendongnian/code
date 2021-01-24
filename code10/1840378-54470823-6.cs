@@ -1,0 +1,9 @@
+    if (PersonEnum.HasFlag(PersonEnum.Name)) // Name is set. HasFlag is equivalent to (PersonEnum & PersonEnum.Name) != 0
+    {
+        person.Name = ...
+    }
+    if (PersonEnum.HasFlag(PersonEnum.Age)) // Age is set
+    {
+        person.Age = ...
+    }
+    ...

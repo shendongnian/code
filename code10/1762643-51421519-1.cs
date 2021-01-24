@@ -1,0 +1,12 @@
+    var list = Enumerable.Range(0, 100000000).ToList();
+    var seq = list.Skip(list.Count - 1);
+    var seq2 = list.Skip(list.Count - 1).Memoize();
+    var stopwatch = new Stopwatch();
+    seq.First();
+    stopwatch.Start();
+    seq.First();
+    Console.WriteLine(stopwatch.ElapsedTicks);
+    seq2.First();
+    stopwatch.Restart();
+    seq2.First();
+    Console.WriteLine(stopwatch.ElapsedTicks);

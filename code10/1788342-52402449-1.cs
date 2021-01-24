@@ -1,0 +1,12 @@
+    Invoice invoice = new Invoice() { InvoiceNumber = "Inv0100", Amount = 66m };
+    TransactionLog invoiceLog = new TransactionLog() { Amount = invoice.Amount, DocumentTypeId = 1 };
+    invoice.TransactionLog = invoiceLog;
+    _context.Invoices.Add(invoice);
+    CreditNote creditNote = new CreditNote() { CreditNoteNumber = "DN003", Amount = 99.99m };
+    TransactionLog creditNoteLog = new TransactionLog() { Amount = creditNote.Amount, DocumentTypeId = 2 };
+    creditNote.TransactionLog = creditNoteLog;
+    _context.CreditNotes.Add(creditNote);
+    DebitNote debitNote = new DebitNote() { DebitNoteNumber = "CN009", Amount = 77.77m };
+    TransactionLog debitNoteLog = new TransactionLog() { Amount = debitNote.Amount, DocumentTypeId = 3 };
+    debitNote.TransactionLog = debitNoteLog;
+    _context.DebitNotes.Add(debitNote);

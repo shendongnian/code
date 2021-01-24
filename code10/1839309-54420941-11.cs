@@ -1,0 +1,6 @@
+    public class IntChild : Child<int> {
+       ...
+       /// This method should be implemented in all Child<T> descendant classes
+       public override void AcceptVisitor(BaseClassVisitor visitor) { visitor.Visit(this); }
+       ...
+    }

@@ -1,0 +1,15 @@
+        var image = new Mat(path, ImreadModes.Grayscale);
+        int a = CvInvoke.GetOptimalDFTSize(image.Rows);
+        int b = CvInvoke.GetOptimalDFTSize(image.Cols);
+        var extended = new Mat();
+        CvInvoke.CopyMakeBorder(image, extended, 0, a - image.Rows, 0, b - image.Cols, BorderType.Constant, new MCvScalar(0));
+        extended.ConvertTo(extended, DepthType.Cv32F);
+        var vec = new VectorOfMat(extended, new Mat(extended.Size, DepthType.Cv32F, 1));
+        var complex = new Mat();
+        CvInvoke.Merge(vec, complex);
+        CvInvoke.Dft(complex, complex, DxtType.Forward, 0);
+        CvInvoke.Split(complex, vec);
+        vec[0].ConvertTo(vec[0], DepthType.Cv8U);
+        vec[1].ConvertTo(vec[1], DepthType.Cv8U);
+        CvInvoke.Imshow("Real", vec[0]);
+        CvInvoke.Imshow("Img", vec[1]);

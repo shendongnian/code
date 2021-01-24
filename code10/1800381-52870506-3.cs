@@ -1,0 +1,10 @@
+    Creating ConsoleApp8.A
+    Creating ConsoleApp8.A
+    Creating ConsoleApp8.B
+    Creating ConsoleApp8.B
+    Creating ConsoleApp8.B
+    Creating ConsoleApp8.B
+    Creating ConsoleApp8.C
+    ConsoleApp8.A 2
+    ConsoleApp8.C 1
+    ConsoleApp8.B 4

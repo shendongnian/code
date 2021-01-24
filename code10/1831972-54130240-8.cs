@@ -1,0 +1,6 @@
+    public async Task MyMethod()
+    {
+        ...
+        var ok=await ConnectAsync(_service);
+        ...
+    }

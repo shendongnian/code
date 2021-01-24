@@ -1,0 +1,11 @@
+    AppName.Domain.Model
+    AppName.Domain.Enum
+    AppName.Domain.Constant
+    AppName.Data.Repository
+    AppName.Data.Service
+    AppName.Business.Logic
+    AppName.Business.Helper
+    AppName.Web
+    AppName.Api
+    AppName.Mobile.Android
+    AppName.Mobile.iOS

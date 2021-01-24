@@ -1,0 +1,47 @@
+    public class Employee
+    {
+        private string Name;
+        private int Income;
+    
+        public string FullName
+        {
+            set { Name = value;}
+            get { return Name; }
+        }
+    
+        public int Salary
+        {
+            set { Income = value; }
+            get { return Income; }
+        }
+        public override string ToString()
+        {
+            return "Employee: ";
+        }
+    }
+    static void Main(string[] args)
+    {
+        PrintArray<Employee> pa = new PrintArray<Employee>();
+        Console.Write("\n\Employee: ");
+        Employee[] customArray = new Employee[3];
+        customArray[0] = new Employee()
+        {
+            FullName = "John Doe",
+            Salary = 100000
+        };
+        customArray[1] = new Employee()
+        {
+            FullName = "Mary Jane",
+            Salary = 50000
+        };
+        customArray[2] = new Employee()
+        {
+            FullName = "Tyler Smith",
+            Salary = 80000
+        };
+        for (int i = 0; i < employee.Length; i++)
+        {
+            Console.Write("\n" + employee[i].ToString());
+        }
+        Console.ReadLine();
+    }

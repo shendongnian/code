@@ -1,0 +1,6 @@
+     public async Task<IActionResult> OnGetAsync(int? id)
+        {
+          ...
+            _sessionHelper.AddRenewItem(this.ToString(), this);
+            ...
+        }

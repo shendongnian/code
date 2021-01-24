@@ -1,0 +1,17 @@
+        <Project Sdk="Microsoft.NET.Sdk.Web">
+          <PropertyGroup>
+            <TargetFramework>netcoreapp2.0</TargetFramework>
+          </PropertyGroup>
+          <ItemGroup>
+            <Folder Include="wwwroot\" />
+          </ItemGroup>
+          <ItemGroup>
+            <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+          </ItemGroup>
+          <ItemGroup>
+            <Content Update="appsettings.json">
+              <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            </Content>
+          </ItemGroup>
+    </Project>
+        

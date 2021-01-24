@@ -1,0 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+...
+services.AddDbContext<WebContext>(options => 
+    options.UseSqlite(Configuration.GetConnectionString("WebContext")));
+...
+And you also need to install the `Microsoft.EntityFrameworkCore.Sqlite` nuget package.

@@ -1,0 +1,6 @@
+    var client = new HttpClient();
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer","Token");
+    client.DefaultRequestHeaders.Authorization = 
+        new AuthenticationHeaderValue("Basic",
+        Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(
+            string.Format("{0}:{1}", "yourusername", "yourpwd"))));

@@ -1,0 +1,10 @@
+	Regex regex = new Regex(@"^[-+]?[0-9]\d*(\.\d+)?$");
+	Console.WriteLine("Allowed  = " + regex.IsMatch("123"));
+	Console.WriteLine("Allowed  = " + regex.IsMatch("12.3"));
+	Console.WriteLine("Allowed  = " + regex.IsMatch(".123"));
+	Console.WriteLine("Allowed  = " + regex.IsMatch("+.123"));
+	Console.WriteLine("Allowed  = " + regex.IsMatch("00123"));
+	Console.WriteLine("Allowed  = " + regex.IsMatch("1.2.3"));
+	Console.WriteLine("Allowed  = " + regex.IsMatch("12..3"));
+	Console.WriteLine("Allowed  = " + regex.IsMatch("+123"));
+	Console.WriteLine("Allowed  = " + regex.IsMatch("+-1123"));

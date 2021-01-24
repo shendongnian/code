@@ -1,0 +1,11 @@
+    EditorDefinition ed = new EditorDefinition();
+    PropertyDefinition pd = new PropertyDefinition();
+    pd.Name = "Value";
+    ed.PropertiesDefinitions.Add(pd);
+    FrameworkElementFactory fac = new FrameworkElementFactory(typeof(PropertyGridEditorIntegerUpDown));
+    fac.SetBinding(PropertyGridEditorIntegerUpDown.ValueProperty, new Binding("Value"));
+    fac.SetValue(PropertyGridEditorIntegerUpDown.IncrementProperty, 10);
+    DataTemplate dt = new DataTemplate { VisualTree = fac };
+    dt.Seal();
+    ed.EditorTemplate = dt;
+    pg.EditorDefinitions.Add(ed);

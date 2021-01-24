@@ -1,0 +1,15 @@
+        protected void Export_Click(object sender, EventArgs e) {
+            DataTable dt = GParam.GetreferentielContacts();
+            HttpContext context = HttpContext.Current;
+            context.Response.Clear();
+            context.Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            context.Response.AddHeader("content-disposition", "attachment;filename=" + HttpUtility.UrlEncode("Logs.xlsx", System.Text.Encoding.UTF8));
+            using (ExcelPackage pck = new ExcelPackage()) {
+                ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Logs");
+                ws.Cells["A1"].LoadFromDataTable(dt, true);
+                var ms = new System.IO.MemoryStream();
+                pck.SaveAs(ms);
+                ms.WriteTo(Response.OutputStream);
+            }
+            context.Response.End();
+        }

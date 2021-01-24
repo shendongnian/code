@@ -1,0 +1,6 @@
+    DataTable customerTable = ...
+    DataTable appointmentTable = ...
+    IEnumerable<Customer> customers = customerTable.ToCustomers();
+    IEnumerable<Appointment> appointments = appoitnmentTable.ToAppointments();
+    IEnumerable<AppointmentDetail> appointmentDetails = customers.ToAppointmentDetails(appointments);
+    DataTable appointmentDetailTables = appointmentDetails.ToDataTable(appointmentDetails);

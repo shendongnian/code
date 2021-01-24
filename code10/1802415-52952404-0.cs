@@ -1,0 +1,6 @@
+    {
+         "ConnectionStrings": {
+              dbExampleSystemConnection: "...",
+              dbSampleSystemConnection: "..."
+         }
+    }

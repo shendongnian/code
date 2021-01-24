@@ -1,0 +1,11 @@
+        object oCollapseEnd = Word.WdCollapseDirection.wdCollapseEnd;
+        rng.Collapse(ref oCollapseEnd);
+        Word.Table table = doc.Tables.Add(rng, 8, 3, ref missing, ref missing);
+        Word.Range range = table.Cell(1, 3).Range;
+        range.Text = "SomeText";
+        range.Font.Bold = -1;
+        range.InsertAfter(Environment.NewLine);
+        range.Collapse(ref oCollapseEnd);
+        range.MoveEnd(Word.WdUnits.wdCharacter, -1);
+        Word.ContentControl cc = range.ContentControls.Add();
+        cc.Tag = "someTag";

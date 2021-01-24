@@ -1,0 +1,6 @@
+        public void Configuration(IAppBuilder app)
+        {
+            // app.MapSignalR(); // Move this...
+            // ...
+            app.MapSignalR(); // ...here!
+        }

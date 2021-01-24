@@ -1,0 +1,10 @@
+    Line line = new Line();
+        Thickness thickness = new Thickness(101,-11,362,250);
+        line.Margin = thickness;
+        line.Visibility = System.Windows.Visibility.Visible;
+        line.StrokeThickness = 4;
+        line.Stroke = System.Windows.Media.Brushes.Black;
+        line.X1 = 10;
+        line.X2 = 40;
+        line.Y1 = 70;
+        line.Y2 = 70;

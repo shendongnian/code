@@ -1,0 +1,16 @@
+    private void StartDBUpdateAlarm() // Start the alarm manager for event reminder 
+    {
+        ...
+        ...
+        if ((eventos.Count > 0)) // Only create notification if there is an event
+        {
+            // Create the Intent to pass some info through it to the notification
+            Intent alarmIntent = new Intent(this, typeof(ReminderReciever));
+            
+            // MISSING LINE OF CODE
+            alarmIntent.PutExtra(GerirUtils.INTENT_ID, GerirUtils.NOTIFICATION_REMINDER_ID);
+            ...
+            ...
+            ...            
+        }
+    }

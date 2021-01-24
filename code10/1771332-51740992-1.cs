@@ -1,0 +1,13 @@
+    var coinCount = new Dictionary<int, double>();
+    coinCount[50] = double.Parse(txtMo50.Text);
+    coinCount[100] = double.Parse(txtMo100.Text);
+    // ...
+    var billCount = new Dictionary<int, double>();
+    billCount[1000] = double.Parse(txtBil1000.Text);
+    // ...
+    var coinAmount = new Dictionary<int, double>();
+    coinAmount[50] = 50*coinCount[50];
+    // ...
+    var billAmount = new Dictionary<int, double>();
+    billAmount[1000] = 1000*billCount[1000];
+    // ...

@@ -1,0 +1,7 @@
+       services.AddBot<MyBot>(options =>
+           {
+              var botConfig = BotConfiguration.Load(botFilePath ?? @".\MyBot.bot", secretKey);
+              services.AddSingleton(sp => botConfig ?? throw new InvalidOperationException($"The .bot config file could not be loaded. ({botConfig})"));
+              var connectedServices = new BotServices(botConfig);
+              services.AddSingleton<BotServices>(sp => connectedServices);
+           }

@@ -1,0 +1,6 @@
+    IEnumerable<OtherItem> otherList = ...
+    Dictionary<int, List<Channel>> dictionary = ...
+    IEnumerable<Newobject> extractedNewObjects = dictionary.ExtractNewObjects(otherList);
+    var someNewObjects = extractedNewObjects
+        .Take(5)      // here we see the benefit from the yield return
+        .ToList();

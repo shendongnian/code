@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+  <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 --></configSections>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+  </startup>
+  <entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+      <parameters>
+        <parameter value="v13.0" />
+      </parameters>
+    </defaultConnectionFactory>
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+      <provider invariantName="MySql.Data.MySqlClient" type="MySql.Data.MySqlClient.MySqlProviderServices, MySql.Data.Entity.EF6, Version=6.10.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+    </providers>
+  </entityFramework>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="MySql.Data" publicKeyToken="c5687fc88969c44d" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.10.7.0" newVersion="6.10.7.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <connectionStrings>
+    <add name="MyDB" connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=my.example.com;user id=NotMyRealUserID;password=NotMyRealPassword;persistsecurityinfo=True;database=MyDatabase&quot;" providerName="System.Data.EntityClient" />
+  </connectionStrings>
+</configuration>
+I'm not sure what created this, but I have a 'User variable' in my 'Environment Variables' named `MYSQLCONNECTOR_ASSEMBLIESPATH` with value `C:\Program Files (x86)\MySQL\MySQL Connector Net 6.10.7\Assemblies\v4.5.2`

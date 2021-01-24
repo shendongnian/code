@@ -1,0 +1,11 @@
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Subjects", typeof(string));
+                dt.Columns.Add("Index", typeof(int));
+                dt.Rows.Add(new object[] { "Math,English,Science",1 });
+                dt.Rows.Add(new object[] { "English,Science" ,2});
+                dt.Rows.Add(new object[] { "French,Science" ,3});
+                dt.Rows.Add(new object[] { "German,Science" ,4});
+                dt.Rows.Add(new object[] { "English,Science" ,5});
+                var groups = dt.AsEnumerable().Select(x => new { keys = x.Field<string>("Subjects").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries), row = x }).ToArray();
+                var rows = groups.Select(x => x.keys.Select(y => new { subject = y, row = x.row })).SelectMany(x => x).ToArray();
+                Dictionary<string, List<DataRow>> subjectDict = rows.GroupBy(x => x.subject).ToDictionary(x => x.Key, y => y.Select(z => z.row).ToList());

@@ -1,0 +1,10 @@
+	Image UnderlayingImage;
+    UnderLayingImage = new Bitmap(this.PictureBox1.Width, this.Picturebox1.Height);
+    Graphics g = Graphics.FromImage(UnderLayingImage);
+    SolidBrush bgBrush = new SolidBrush(Color.LightSlateGray);
+    SolidBrush bgBrushWhite = new SolidBrush(Color.White);
+    Pen shPen = new Pen(Color.Black);
+    RectangleF rect = new RectangleF(50, 50, 100, 100);
+    g.FillRectangle(bgBrush, rect);
+    g.DrawRectangle(Pens.Black, Rectangle.Round(rect));
+    this.PictureBoxDrawing.Image = UnderLayingImage;

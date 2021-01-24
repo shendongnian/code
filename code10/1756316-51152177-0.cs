@@ -1,0 +1,11 @@
+    FileInfo file = new FileInfo("C:\\Users\\example.sql");
+    string script = file.OpenText().ReadToEnd();
+    var connString = @"Data Source=serwer01;Initial Catalog=PolsatCyfrowy;Integrated Security=True;MultipleActiveResultSets=True";
+    SqlConnection conn = new SqlConnection(connString);
+    Server server = new Server(new ServerConnection(conn));
+    conn.Open();
+    SqlCommand SelectCommand = new SqlCommand(script, conn);
+    SqlDataAdapter sqlDataAdap = new SqlDataAdapter(SelectCommand);
+    DataTable dtRecord = new DataTable();
+    sqlDataAdap.Fill(dtRecord);
+    dataGridView1.DataSource = dtRecord;

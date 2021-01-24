@@ -1,0 +1,6 @@
+    [assembly: AssemblyTitle("Stack Overflow")]
+    [assembly: AssemblyDescription("")]
+    [assembly: AssemblyConfiguration("FooBar")]
+    [assembly: AssemblyCompany("")]
+    [assembly: AssemblyProduct("StackOverflow Test")]
+    [assembly: AssemblyCopyright("Copyright © fooBar  2018")]

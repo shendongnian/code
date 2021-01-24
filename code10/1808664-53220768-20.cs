@@ -1,0 +1,10 @@
+            Console.WriteLine("\nAlternative DI Example: ");
+            ioc = new UnityContainer();
+            ioc.RegisterType<IBusinessLogic, TypeABusinessLogic>("TypeA");
+            ioc.RegisterType<IApplicationLogic, TypeAApplicationLogic>("TypeA");
+            ioc.RegisterType<IStrategy, StrategyBase>("TypeA", new InjectionConstructor("TypeA", new ResolvedParameter<IBusinessLogic>("TypeA"), new ResolvedParameter<IApplicationLogic>("TypeA") ));
+            ioc.RegisterType<IBusinessLogic, TypeBBusinessLogic>("TypeB");
+            ioc.RegisterType<IApplicationLogic, TypeBApplicationLogic>("TypeB");
+            ioc.RegisterType<IStrategy, StrategyBase>("TypeB", new InjectionConstructor("TypeB", new ResolvedParameter<IBusinessLogic>("TypeB"), new ResolvedParameter<IApplicationLogic>("TypeB")));
+            c = ioc.Resolve<Context>();
+            c.Run();

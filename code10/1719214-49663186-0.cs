@@ -1,0 +1,20 @@
+    var list = new List<string>
+       {
+          "example.string.1",
+          "example.string.2",
+          "example.anotherstring.1",
+          "example.anotherstring.2",
+          "System",
+          "System.Diagnostics",
+          "System.Text",
+          "System.Collections.Generic",
+          "System.Linq",
+          "System.Diagnostics.1",
+          "System.Text.1",
+          "System.Collections.Generic.1",
+          "System.Linq.1",
+          "System.Diagnostics.2",
+          "System.Text.2",
+          "System.Collections.Generic.2",
+          "System.Linq.2"
+       };

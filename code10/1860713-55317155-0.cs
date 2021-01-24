@@ -1,0 +1,15 @@
+                        request += "SELECT * ";
+                    //SqlCommand GetCommand = new SqlCommand("SELECT  RA_BINAIRE FROM MR_RAPPORT WHERE RA_ID=@RA_ID");
+                    request += "FROM " + table + " WHERE " + searchcol + " = " + "@ID";
+                    //request += "FROM " + table + " WHERE CO_ID =12";
+                    SqlCommand GetCommand = new SqlCommand(request, connection);
+                    var convertedValue = this.ConvertByType(searchcolType, code);
+                    SqlDbType convertedValueHelper = SqlHelper.GetDbType(convertedValue.GetType());
+                    GetCommand.Parameters.Add("ID", convertedValueHelper).Value = convertedValue;
+                    GetCommand.Connection = connection;
+                    SqlDataAdapter sda = new SqlDataAdapter(GetCommand);
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+                    string jsonStr = Utils.DataTableToJsonObj(dt);
+                    connection.Close();
+                    return Ok(jsonStr);

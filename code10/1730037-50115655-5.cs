@@ -1,0 +1,9 @@
+	writer.WritePropertyName("WeaponSubType");
+	writer.WriteValue("LRM20");
+	writer.WritePropertyName("Description");
+	writer.WriteStartObject();
+	writer.WritePropertyName("Cost");
+	writer.WriteValue(180000);
+	writer.WritePropertyName("Rarity");
+	writer.WriteValue(0);
+	writer.WriteEndObject();

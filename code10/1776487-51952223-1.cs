@@ -1,0 +1,17 @@
+    <root>
+      <PatientLastName>Smith</PatientLastName>
+      <PatientDOB>1956-07-18</PatientDOB>
+      <PatientSSN>999999999</PatientSSN>
+      <Facility>TRANSLATED_VALUE</Facility>
+      <FacilityPatientID>AAA</FacilityPatientID>
+      <FacilityEncounterID>BBB</FacilityEncounterID>
+      <Interface>
+        <Patient>
+          <FirstName>Alex</FirstName>
+          <MiddleInitial>Ray</MiddleInitial>
+          <LastName>Smith</LastName>
+          <DOB>1956-07-18</DOB>
+          <Gender>TRANSLATED_VALUE</Gender>
+        </Patient>
+      </Interface>
+    </root>

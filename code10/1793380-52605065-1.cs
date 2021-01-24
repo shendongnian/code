@@ -1,0 +1,12 @@
+    double anglec = Convert.ToDouble(text_anglec.Text);
+    double angleb = Convert.ToDouble(text_angleb.Text);
+    //double anglea = Convert.ToDouble(text_anglea.Text);
+    double length1 = Convert.ToDouble(text_length1.Text);
+    //double length2 = Convert.ToDouble(text_length2.Text);
+    //double length3 = Convert.ToDouble(text_length3.Text);
+    double anglea = 180 - angleb - anglec;       
+    text_anglea.Text = anglea.ToString();
+    double length2 = length1 * Math.Sin(anglea * (Math.PI / 180));
+    text_length2.Text = length2.ToString();
+    double length3 = length1 *  Math.Cos(anglea * (Math.PI / 180));
+    text_length3.Text = length3.ToString();

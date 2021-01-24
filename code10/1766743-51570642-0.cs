@@ -1,0 +1,11 @@
+    List<Master> lstMaster = new List<Master>();
+            List<Update> lstUpdate = new List<Update>();
+            lstMaster.Add(new Master { ID = 1, Name = "Jai" });
+            lstMaster.Add(new Master { ID = 2, Name = "Ram" });
+            lstMaster.Add(new Master { ID = 3, Name = "Amit" });
+            lstMaster.Add(new Master { ID = 4, Name = "Mohan" });
+            lstMaster.Add(new Master { ID = 5, Name = "JAg" });
+            lstUpdate.Add(new Update { ID = 1, Name = "JaiU" });
+            lstUpdate.Add(new Update { ID = 2, Name = "RamU" });
+            lstUpdate.Add(new Update { ID = 3, Name = "ShyamU" });
+            lstMaster.RemoveAll(c => !lstUpdate.Any(x => x.ID == c.ID));

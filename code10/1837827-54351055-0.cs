@@ -1,0 +1,6 @@
+    ...
+    public float speed;
+    public Text countText;
+    public Text winText;
+    public int numberOfCoinsToWin;
+    ... 

@@ -1,0 +1,18 @@
+    public interface ITransactionRepository<TCategory, TCustomerId, TProduct, TDepartment>
+    {
+        void SearchTransactionbyCategoryCustomerId(TCategory Category, TCustomerId CustomerId ); // what should I write here?
+        void SearchTransactionbyProductDepartment(TProduct Product, TDepartment Department); 
+        ......
+    }
+    public class TransactionRepository1: IRepository<string, int, char, long>
+    {
+        void SearchTransactionbyCategoryCustomerId(string Category, int CustomerId);
+        void SearchTransactionbyProductDepartment(char Product, long Department); 
+        ......
+    }
+    public class TransactionRepository2: IRepository<char, double, double, string>
+    {
+        void SearchTransactionbyCategoryCustomerId(char Category, double CustomerId);
+        void SearchTransactionbyProductDepartment(double Product, string Department); 
+        ......
+    }

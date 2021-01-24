@@ -1,0 +1,12 @@
+            PrintPageEventArgs eOutput;
+            Graphics g;
+            string OutputText;
+            Font PrintFont;
+            Bitmap Output;
+            OutputText = "CERTIFICATION";
+            PrintFont = new Font("Times New Roman", 24, FontStyle.Regular);
+            Output = new Bitmap(850, 1100);
+            g = Graphics.FromImage(Output);
+            eOutput = new PrintPageEventArgs(g, new Rectangle(new Point(25, 25), new Size(new Point(825, 1075))), new Rectangle(new Point(0, 0), new Size(new Point(850, 1100))), new PageSettings());
+            eOutput.Graphics.DrawString(OutputText, PrintFont, Brushes.Black, 0, 0);
+            pictureBox1.Image = Output;

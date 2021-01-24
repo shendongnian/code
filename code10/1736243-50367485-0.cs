@@ -1,0 +1,11 @@
+    Button button = new Button();
+    button.Text = "Device B";
+    button.Clicked = Button_2_Clicked;
+    button.WidthRequest = 150.0;
+    button.HeightRequest = 50.0;
+    button.HorizontalOptions = Xamarin.Forms.LayoutOptions.Center;
+    button.VerticalOptions = Xamarin.Forms.LayoutOptions.Center;
+    button.Color = Xamarin.Forms.Color.White;
+    Grid.SetRow(button, 0);
+    Grid.SetColumn(button, 1);
+    MainGrid.Children.Add(button);

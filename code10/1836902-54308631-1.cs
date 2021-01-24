@@ -1,0 +1,12 @@
+    double[] bandLowerValues = {0, 1, 2, 5, 10};
+    Console.WriteLine(FindBand(-1, bandLowerValues));
+    Console.WriteLine(FindBand(0, bandLowerValues));
+    Console.WriteLine(FindBand(0.5, bandLowerValues));
+    Console.WriteLine(FindBand(1, bandLowerValues));
+    Console.WriteLine(FindBand(1.5, bandLowerValues));
+    Console.WriteLine(FindBand(2.5, bandLowerValues));
+    Console.WriteLine(FindBand(5, bandLowerValues));
+    Console.WriteLine(FindBand(8, bandLowerValues));
+    Console.WriteLine(FindBand(9.9, bandLowerValues));
+    Console.WriteLine(FindBand(10, bandLowerValues));
+    Console.WriteLine(FindBand(11, bandLowerValues));

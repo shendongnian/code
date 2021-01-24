@@ -1,0 +1,23 @@
+    static void Main(string[] args)
+    {
+        int total = 0;
+        int marksAbove50Count = 0;
+        for (int x = 1; x <= 5; x++)
+        {
+            Console.WriteLine("Enter your mark");
+            int mark = int.Parse(Console.ReadLine());
+            while (mark > 100 || mark < 0)
+            {
+                Console.WriteLine("Invalid mark,Enter your mark again");
+                int newmark = int.Parse(Console.ReadLine());
+                mark = newmark;
+            }
+            total += mark;
+            if(mark >= 50) marksAbove50Count++;
+        }
+        Console.WriteLine("sum = " + total);
+        double average = (total / 5) * 1.00;
+        Console.WriteLine("average = " + average);
+        Console.WriteLine("Marks above 50 count: " + marksAbove50Count);
+        Console.ReadLine();
+    }

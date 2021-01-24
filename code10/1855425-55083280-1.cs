@@ -1,0 +1,22 @@
+    SqlCommand cmd = new SqlCommand("SELECT TOP 1 * FROM [TableQC] ORDER BY id DESC", conn);
+    SqlDataReader reader = cmd.ExecuteReader();
+    while (reader.Read())
+    {
+        // create an array big enough to hold all columns
+        object[] qc = new object[reader.FieldCount];
+        // iterate over all columns of your reader
+        for (int i = 0; i < reader.FieldCount; i++)
+        {
+            if (reader[i] == reader["Comment"])
+            {
+                lblMessage1.Text = reader.GetSqlString(i).IsNull ? null : reader.GetSqlString(i).Value;
+            }
+            else
+            {
+                // add to array
+                qc[i] = reader.GetValue(i);
+            }
+        }
+        lblMessage.Text = string.Join("|", qc.OfType<double>());
+    }
+    conn.Close();

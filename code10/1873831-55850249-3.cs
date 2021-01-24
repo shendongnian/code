@@ -1,0 +1,6 @@
+            public BotController(..., ITypedClientService httpClient, ...)
+            {
+                ...
+                _httpClient = httpClient;
+                ...
+            }

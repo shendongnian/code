@@ -1,0 +1,14 @@
+    args.Add("@Clerk", sample.Clerk, DbType.String);
+    args.Add("@Comments", sample.Comments, DbType.String);
+    args.Add("@CommentsProd", sample.CommentsProd, DbType.String);
+    args.Add("@MassOff", sample.MassOff, DbType.String);
+    args.Add("@PalletID", sample.PalletID, DbType.String);
+    args.Add("@QCDate", sample.QCDate, DbType.Date);
+    args.Add("@QtyInspected ", sample.QtyInspected, DbType.Decimal);
+    args.Add("@StatusClerk", sample.StatusClerk, DbType.String);
+    args.Add("@StatusSupervisor", sample.StatusSupervisor, DbType.String);
+    args.Add("@Supervisor", sample.Supervisor, DbType.String);
+    args.Add("@PackOut", sample.PackOut, DbType.String);
+    args.Add("@GRV", sample.GRV, DbType.Int64);
+    args.Add("@PalletSeq", sample.PalletSeq, DbType.Int16);
+    args.Add("@SampleNo", sample.SampleNo, DbType.Int16);

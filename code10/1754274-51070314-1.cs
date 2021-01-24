@@ -1,0 +1,5 @@
+    CreateMap<Other.Namespace.VendorContact, VendorContact>()
+    .ForMember(dest => dest.Id, option => option.UseDestinationValue())
+    .ForMember(dest => dest.VendorId, option => option.UseDestinationValue())
+    .ForMember(dest => dest.UserProfile, option => option.UseDestinationValue())
+    .ForMember(dest => dest.UserProfile1, option => option.UseDestinationValue())

@@ -1,0 +1,6 @@
+    public abstract class BaseSchema
+    {
+        ...
+        public virtual bool IsFilterRequired { get; set; }
+        ...
+    }

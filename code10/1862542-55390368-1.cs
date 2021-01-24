@@ -1,0 +1,9 @@
+    public class Model : Notifier, IDataErrorInfo
+    {
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set { name = value; OnPropertyChanged(nameof(Name)); }
+        }
+    } 

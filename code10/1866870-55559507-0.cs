@@ -1,0 +1,11 @@
+            DataTable dt = new DataTable("Countries");
+            dt.Columns.Add(new DataColumn("CountryName"));
+            DataRow australia = dt.NewRow();
+            australia["CountryName"] = "Australia";
+            dt.Rows.Add(australia);
+            DataRow japan = dt.NewRow();
+            japan["CountryName"] = "Japan";
+            dt.Rows.Add(japan);
+            cmbAllData.DisplayMemberPath = "CountryName";
+            cmbAllData.SelectedValuePath = "Australia";
+            cmbAllData.ItemsSource = dt.DefaultView;

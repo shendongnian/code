@@ -1,0 +1,12 @@
+            string[] name = new string[1];
+            string[] sales = new string[1];
+            string[] comm = new string[1];
+            StringBuilder sbWrite = new StringBuilder();
+            name[0] = Console.ReadLine();
+            sbWrite.Append("Employee Name : " + name[0]);
+            sales[0] = Console.ReadLine();
+            sbWrite.Append(" Annual Sale :  " + sales[0]);
+            comm[0] = Console.ReadLine();
+            sbWrite.Append(" Sales Commission : " + comm[0]);
+            Console.WriteLine(sbWrite.ToString());
+            Console.ReadLine();

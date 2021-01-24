@@ -1,0 +1,13 @@
+    class Phone {...}
+    class Q {
+    ...
+      [XmlElement("phone")]
+      Phone Phone {get;set;}
+    ...
+    }
+    class QCalls{
+    ...
+      [XmlElement("Q")]
+      List<Q> QItems {get;set;}
+    ...
+    }

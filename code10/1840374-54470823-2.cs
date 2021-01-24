@@ -1,0 +1,9 @@
+    if ((PersonEnum & PersonEnum.Name) != 0) // Name is set
+    {
+        person.Name = ...
+    }
+    else if ((PersonEnum & PersonEnum.Age) != 0) // Age is set
+    {
+        person.Age = ...
+    }
+    ...

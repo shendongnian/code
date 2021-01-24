@@ -1,0 +1,6 @@
+	9   DropCounterFree 0x0000000100602cb8 throw_exception + 168
+	10  DropCounterFree 0x00000001004f10c8 System_Number_StringToNumber_string_System_Globalization_NumberStyles_System_Number_NumberBuffer__System_Globalization_NumberFormatInfo_bool + 504
+	11  DropCounterFree 0x00000001004efe74 System_Number_ParseInt32_string_System_Globalization_NumberStyles_System_Globalization_NumberFormatInfo + 196
+	12  DropCounterFree 0x00000001004edc48 int_Parse_string_System_IFormatProvider + 40
+	13  DropCounterFree 0x00000001004dcb8c System_Convert_ToInt32_string + 44
+	14  DropCounterFree 0x00000001004bf258 DropCounterFree_ViewController__Timer_Elapsedb__10_0 + 62040 (/<unknown>:1)

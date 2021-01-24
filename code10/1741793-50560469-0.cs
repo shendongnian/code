@@ -1,0 +1,6 @@
+    public string Username {get; set;}
+    public string FirstName {get; set;}
+    //....
+    //more User data
+    //....
+    public List<Product> FavouriteProduct {get; set;}

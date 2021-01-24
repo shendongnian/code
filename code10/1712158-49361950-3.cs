@@ -1,0 +1,10 @@
+            var ite = new ObservableCollection<string>();
+            ite.Add("#tag1");
+            ite.Add("#a");
+            ite.Add("#tag3");
+            ite.Add("#differ");
+            ite.Add("#tag5");
+            ite.Add("#longertag");
+            ite.Add("#verylongtag");
+            ite.Add("#tag1");
+            this.ItemGrid.ItemsSource = ite;

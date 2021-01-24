@@ -1,0 +1,6 @@
+    public void ConfigureServices(IServiceCollection services) 
+    { 
+        ...
+        services.AddSingleton<Microsoft.Extensions.Hosting.IHostedService, HostedTcpIpService>();
+        ...
+    }

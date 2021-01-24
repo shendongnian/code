@@ -1,0 +1,15 @@
+        List<News> collection = new List<News>();
+        collection.Add(new News());
+        collection.Add(new News());
+        collection.Add(new News());
+        collection.Add(new News());
+        List<string> tags = new List<string>();
+        tags.Add("tag1");
+        tags.Add("tag2");
+        tags.Add("tag3");
+        collection[0].tags = tags;
+        collection[0].tags.AddRange(tags);
+        collection[1].tags = new List<string>();
+        collection[2].tags = new List<string>();
+        collection[3].tags = new List<string>();
+        List<News> sample = collection.Where(x => x.tags.Intersect(tags).Count() > 0).ToList();

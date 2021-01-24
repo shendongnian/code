@@ -1,0 +1,6 @@
+    public async Task MyMethod()
+    {
+        ...
+        var msg=await _service.ConnectAsync();
+        ...
+    }

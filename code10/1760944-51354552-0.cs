@@ -1,0 +1,15 @@
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+      <PropertyGroup>
+        <TargetFramework>netcoreapp2.0</TargetFramework>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.3" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" />
+      </ItemGroup>
+      <ItemGroup>
+        <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+        <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+      </ItemGroup>
+    </Project>

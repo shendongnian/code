@@ -1,0 +1,23 @@
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Expander Grid.Row="0" IsExpanded="False" Background="Yellow" Margin="50,50,200,50" >
+            <Expander.Style>
+                <Style>
+                    <Setter Property="Expander.IsEnabled" Value="False" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=Flag}" Value="True">
+                            <Setter Property="Expander.IsEnabled" Value="True" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Expander.Style>
+            <Grid Background="Yellow">
+              :
+              :
+            </Grid>
+        </Expander>
+        <Button Grid.Row="1" Click="ButtonClick" Content="Click Me" />
+    </Grid>

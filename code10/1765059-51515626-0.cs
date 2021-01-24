@@ -1,0 +1,16 @@
+            DataTable dtNew, dt = new DataTable();
+            dt.Columns.Add("Id", typeof(string));
+            dt.Columns.Add("Category",typeof(string));
+            dt.Columns.Add("Type",typeof(string));
+            dtNew = dt.Clone();
+            dt.Rows.Add("323021", "Doors", "900");
+            dt.Rows.Add("323022", "Doors", "900");
+            dt.Rows.Add("323023", "Doors", "1000");
+            dt.Rows.Add("323024", "Doors", "1000");
+            dt.Rows.Add("323025", "Walls", "200");
+            dt.Rows.Add("323026", "Walls", "200");
+            dt.Rows.Add("323027", "Walls", "200");
+            dt.Rows.Add("323028", "Walls", "200");
+            dt.Rows.Add("323026", "Columns", "300x300");
+            dt.Rows.Add("323027", "Columns", "300x300");
+            dt.Rows.Add("323028", "Columns", "500x500");

@@ -1,0 +1,10 @@
+    NullReferenceException: Object reference not set to an instance of an object
+    System.Data.Common.DbConnectionStringBuilder.Remove (System.String keyword)
+    MySql.Data.MySqlClient.MySqlConnectionStringBuilder.Remove (System.String keyword)
+    MySql.Data.MySqlClient.MySqlConnectionStringOption.Clean (MySql.Data.MySqlClient.MySqlConnectionStringBuilder builder)
+    MySql.Data.MySqlClient.MySqlConnectionStringBuilder.SetValue (System.String keyword, System.Object value)
+    MySql.Data.MySqlClient.MySqlConnectionStringOption.<.ctor>b__0 (MySql.Data.MySqlClient.MySqlConnectionStringBuilder msb, MySql.Data.MySqlClient.MySqlConnectionStringOption sender, System.Object value)
+    MySql.Data.MySqlClient.MySqlConnectionStringBuilder.set_Item (System.String keyword, System.Object value)
+    MySql.Data.MySqlClient.MySqlConnectionStringBuilder.set_Server (System.String value)
+    mysql.SetupSQLConnection () (at Assets/mysql.cs:31)
+    fire_rate.Start () (at Assets/fire_rate.cs:18)

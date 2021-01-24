@@ -1,0 +1,15 @@
+     var _mailServer = new SmtpClient();
+     _mailServer.UseDefaultCredentials = false;
+     _mailServer.Credentials = new NetworkCredential("my email", "my password");
+     _mailServer.Host = "smtp.office365.com";
+     _mailServer.TargetName = "STARTTLS/smtp.office365.com"; 
+     _mailServer.Port = 587;
+     _mailServer.EnableSsl = true;
+    var eml = new MailMessage();
+    eml.Sender = new MailAddress("my email");
+    eml.From = eml.Sender;
+    eml.To.Add(new MailAddress(to));
+    eml.Subject = subject;
+    eml.IsBodyHtml = (bodyType == BodyType.HTML);
+    eml.Body = body;
+    _mailServer.Send(eml);

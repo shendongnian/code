@@ -1,0 +1,6 @@
+        // In a MonoBehaviour attached to the Particles GameObject
+        using UnityEngine.Experimental.VFX;
+        ...
+        private VisualEffect myEffect;
+        ... 
+        myEffect = GetComponent<VisualEffect>();

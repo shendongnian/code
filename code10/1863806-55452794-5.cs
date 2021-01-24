@@ -1,0 +1,6 @@
+    public PerValueInt MyVariable = new PerValueInt(50);
+    //...
+    Debug.Log(MyVariable.Value); //prints 50
+    MyVariable.Percent(90);
+    Debug.Log(MyVariable.Value); //prints 45
+    //...

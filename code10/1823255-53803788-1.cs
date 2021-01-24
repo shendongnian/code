@@ -1,0 +1,6 @@
+    public MainWindow()
+    {
+        InitializeComponent(); // here's the problem, i get stackoverflow exception...
+        Class2 cl2 = new Class2(); // instance of class2
+        ...
+    }

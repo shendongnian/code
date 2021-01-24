@@ -1,0 +1,11 @@
+    string mainconn = ConfigurationManager.ConnectionStrings["MY"].ConnectionString;
+            SqlConnection sqlconn = new SqlConnection(mainconn);
+            string sqlquery = "select * from [dbo].[sortcompany]";
+            SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
+            sqlconn.Open();
+            SqlDataAdapter sda = new SqlDataAdapter(sqlcomm);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            Company.ValueMember = "company_name";
+            Company.DisplayMember = "company_name";
+            Company.DataSource = dt;

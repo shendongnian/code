@@ -1,0 +1,6 @@
+    Task MessageReceived(SocketMessage message)
+    {
+	    // ...
+        var foundUsers = message.MentionedUsers.Select(u => u.Username).Intersect(UsersWithNotes());
+        // ...
+    }

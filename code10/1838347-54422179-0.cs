@@ -1,0 +1,21 @@
+    string strconc;
+                OleDbConnection objConnect = null;
+                strconc = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=c:\\Program Files\\TPMicroVix\\reg_tp.accdb;";
+                objConnect = new OleDbConnection(strconc);
+                objConnect.Open();
+                OleDbCommand cmm = new OleDbCommand("SELECT cnpj, nome_cl, portal, empresa, email, tel, canal, detalhe FROM tb_tp WHERE n_tp = '" + txbTp.Text + "';", objConnect);
+                
+                cmm.Parameters.Add("@n_tp", OleDbType.VarChar).Value = txbTp.Text;
+                cmm.CommandType = CommandType.Text;
+                OleDbDataReader reader;
+                reader = cmm.ExecuteReader();
+                reader.Read();
+                txbCnpj.Text = reader.GetString(0);
+                txbNome.Text = reader.GetString(1);
+                txbPortal.Text = reader.GetString(2);
+                txbEmpresa.Text = reader.GetString(3);
+                txbEmail.Text = reader.GetString(4);
+                txbTel.Text = reader.GetString(5);
+                cboCanal.Text = reader.GetString(6);
+                txbDetalhe.Text = reader.GetString(7);
+                objConnect.Close();

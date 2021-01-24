@@ -1,0 +1,17 @@
+            var sessionid = Driver.SessionId.ToString();
+            string reqString = "{\"status\":\"failed\", \"reason\":\"Incorrect Text Found\"}";
+            byte[] requestData = Encoding.UTF8.GetBytes(reqString);
+            Uri myUri = new Uri(string.Format($"https://api-cloud.browserstack.com/app-automate/sessions/{sessionid}.json"));
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+            WebRequest myWebRequest = HttpWebRequest.Create(myUri);
+            HttpWebRequest myHttpWebRequest = (HttpWebRequest)myWebRequest;
+            myWebRequest.ContentType = "application/json";
+            myWebRequest.Method = "PUT";
+            myWebRequest.ContentLength = requestData.Length;
+            using (Stream st = myWebRequest.GetRequestStream()) st.Write(requestData, 0, requestData.Length);
+            NetworkCredential myNetworkCredential = new NetworkCredential("<username>", "<AccessKey>");
+            CredentialCache myCredentialCache = new CredentialCache();
+            myCredentialCache.Add(myUri, "Basic", myNetworkCredential);
+            myHttpWebRequest.PreAuthenticate = true;
+            myHttpWebRequest.Credentials = myCredentialCache;
+            myWebRequest.GetResponse().Close();

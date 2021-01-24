@@ -1,0 +1,6 @@
+    public class DTO
+    {
+        public int PropA { get; set; }
+        .......
+        .......
+    }

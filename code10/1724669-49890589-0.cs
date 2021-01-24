@@ -1,0 +1,12 @@
+            var conn1 = new SqlConnection();
+            conn1.Open(); 
+            SqlCommand cmd = conn1.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Update [TABLE] set IsDeleted = 0 where ADD_UID= @TextBoxVal";
+            SqlParameter param = new SqlParameter();
+            param.ParameterName = "TextBoxVal";
+            param.Value = textBox1.Text;
+            cmd.Parameters.Add(param);
+            cmd.ExecuteNonQuery();
+            conn1.Close();
+            textBox1.Clear();

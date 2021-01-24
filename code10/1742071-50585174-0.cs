@@ -1,0 +1,16 @@
+    TextBlock popupText = new TextBlock();
+    popupText.Text = "Complete";
+    popupText.Background = Brushes.Transparent;
+    popupText.Foreground = Brushes.White;
+    popupText.Width = 130;
+    popupText.Height = 130;
+    popupText.FontSize = 30;
+    //popupText.IsHitTestVisible = false;
+    popupText.Cursor = Cursors.None;
+    Popup Popup = new Popup();
+    //Popup.AllowsTransparency = true;
+    Popup.PlacementRectangle = new Rect(1086, 16, 0, 0);
+    Popup.IsHitTestVisible = false;
+    Popup.Cursor = Cursors.None;
+    Popup.Child = popupText;
+    Popup.IsOpen = true;

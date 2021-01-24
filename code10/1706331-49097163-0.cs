@@ -1,0 +1,14 @@
+        container.Register(Component.For<IWrapper>().ImplementedBy<Alfa>()
+            .DependsOn(Property.ForKey<IRateLimiter>().Is("RateLimiterAlfa"))
+            .LifestyleSingleton().Named("Alfa1"));
+        container.Register(Component.For<IWrapper>().ImplementedBy<Alfa>()
+            .DependsOn(Property.ForKey<IRateLimiter>().Is("RateLimiterAlfa"))
+            .LifestyleSingleton().Named("Alfa2"));
+        container.Register(Component.For<IWrapper>().ImplementedBy<Beta>()
+            .DependsOn(Property.ForKey<IRateLimiter>().Is("RateLimiterBeta"))
+            .LifestyleSingleton().Named("Beta1"));
+        container.Register(Component.For<IWrapper>().ImplementedBy<Beta>()
+            .DependsOn(Property.ForKey<IRateLimiter>().Is("RateLimiterBeta"))
+            .LifestyleSingleton().Named("Beta2"));
+        container.Register(Component.For<IRateLimiter>().ImplementedBy<RateLimiter>().LifestyleSingleton().Named("RateLimiterAlfa"));
+        container.Register(Component.For<IRateLimiter>().ImplementedBy<RateLimiter>().LifestyleSingleton().Named("RateLimiterBeta"));

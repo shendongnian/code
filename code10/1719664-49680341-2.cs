@@ -1,0 +1,6 @@
+    public class jsonToObj
+    {
+      ...
+      public string[] inDND { get; set; }
+      ...
+    }

@@ -1,0 +1,11 @@
+    Dictionary<string, object> dic = new Dictionary<string, object>();
+            int voltage = 12;
+            double watts = 60;
+            double width = 12.5;
+            double cost = 10.2;
+            string name = "BCB";
+            dic.Add("voltage", watts);
+            dic.Add("watts", width);
+            dic.Add("height", voltage);
+            dic.Add("cost", cost);
+            dic.Add("name", name);

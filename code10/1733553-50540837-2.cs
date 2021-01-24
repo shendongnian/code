@@ -1,0 +1,13 @@
+                ServerConnection serverConnection = new ServerConnection("192.168.1.1", "user", "password");
+                Server server = new Server(serverConnection);
+                Database database = server.Databases["AdventureWorks"];
+                Backup backup = new Backup();
+                backup.Action = BackupActionType.Database;
+                backup.BackupSetDescription = "AdventureWorks - full backup";
+                backup.BackupSetName = "AdventureWorks backup";
+                backup.Database = "AdventureWorks";
+                BackupDeviceItem deviceItem = new BackupDeviceItem("AdventureWorks_Full_Backup.bak", DeviceType.File);
+                backup.Devices.Add(deviceItem);
+                backup.Incremental = false;
+                backup.LogTruncation = BackupTruncateLogType.Truncate;
+                backup.SqlBackup(server);

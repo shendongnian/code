@@ -1,0 +1,13 @@
+    ObservableCollectionEx.ToObservableChangeSet<ReactiveList<DataItem>, DataItem>(model.Children)
+                    .AddKey(d => d.GetLocalId())
+                    .Filter((d) => d.ViewClass == NormalizedType.TableRow)
+                    .Transform(d => new TableRow(d, this))
+                    .DisposeMany()
+                    .AsObservableCache()
+                    .Connect()
+                    .AutoRefresh(a => a.Index)
+                    .Sort(SortExpressionComparer<TableRow>.Ascending(a => a.Index))
+                    .ObserveOnDispatcher()
+                    .Bind(Rows)
+                 .Subscribe()
+        

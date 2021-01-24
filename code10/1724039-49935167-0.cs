@@ -1,0 +1,14 @@
+                        string path = Server.MapPath("Temp");
+                        System.Diagnostics.Process proc = new System.Diagnostics.Process();
+                        proc.StartInfo.WorkingDirectory = path;
+                        proc.StartInfo.UseShellExecute = false;
+                        proc.StartInfo.FileName = PCombine(path, "test.bat");
+                        proc.StartInfo.Arguments = String.Format("{0} {1}", PCombine(path, filename), PCombine(path, "new_" + filename));
+                        proc.StartInfo.CreateNoWindow = true;
+                        proc.StartInfo.RedirectStandardInput = true;
+                        proc.StartInfo.RedirectStandardOutput = true;
+                        proc.StartInfo.RedirectStandardError = true;
+                        proc.Start();
+                        proc.WaitForExit();
+                        proc.Close();
+                        proc.Dispose();
