@@ -1,0 +1,6 @@
+        void override OnMouseDoubleClick(...)
+        {
+            // ...
+            // Do Y
+            base.OnMouseDoubleClick(); // Does X among other things...
+        }

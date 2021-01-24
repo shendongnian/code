@@ -1,0 +1,14 @@
+            container.Register(Component.For<HomeV1Controller>()
+                .DependsOn(Property.ForKey<IHomeViewModelFactory>().Is("UserViewModelFactory1")));
+            container.Register(Component.For<HomeV2Controller>()
+                .DependsOn(Property.ForKey<IHomeViewModelFactory>().Is("UserViewModelFactory2")));
+            container.Register(Component.For<IHomeViewModelFactory>()
+                .ImplementedBy<UserViewModelFactory>()
+                .Named("UserViewModelFactory1")
+                .DependsOn(Property.ForKey<IHomeViewModelFactory>().Is("HomeV1ViewModelFactory")));
+            container.Register(Component.For<IHomeViewModelFactory>()
+                .ImplementedBy<UserViewModelFactory>()
+                .Named("UserViewModelFactory2")
+                .DependsOn(Property.ForKey<IHomeViewModelFactory>().Is("HomeV2ViewModelFactory")));
+            container.Register(Component.For<IHomeViewModelFactory>().ImplementedBy<HomeV1ViewModelFactory>().Named("HomeV1ViewModelFactory"));
+            container.Register(Component.For<IHomeViewModelFactory>().ImplementedBy<HomeV2ViewModelFactory>().Named("HomeV2ViewModelFactory"));

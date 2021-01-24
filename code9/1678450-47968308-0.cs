@@ -1,0 +1,6 @@
+    public static TestMethod(....,byte[] rowVersion)
+    {
+        .........
+        dbConnection_.AddInParameter(dbcommand, "@row_version", DbType.Binary,rowVersion);
+        ...........
+    }

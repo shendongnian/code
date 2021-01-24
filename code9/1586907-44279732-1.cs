@@ -1,0 +1,10 @@
+      List<int> list1 = new List<int>(new int[] { 19, 23, 29 });
+      List<int> list2 = new List<int>(new int[] { 1, 4, 29 });
+      List<int> list3 = new List<int>(new int[] { 1, 5, 23 });
+      List<int> list4 = new List<int>(new int[] { 2, 4, 19 });
+      List<string> andOrList = new List<string>();
+      andOrList.Add("AND");
+      andOrList.Add("OR");
+      andOrList.Add("AND");
+      var result = CombinatorOrAnd(new List<int>[] { list1, list2, list3, list4}, andOrList);
+      Console.Write(string.Join(", ", result.OrderBy(item => item)));

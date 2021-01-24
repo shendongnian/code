@@ -1,0 +1,18 @@
+    var weekDays = rad.SMSSentItems
+        .Where(x => x.Status == "DELIVRD")
+        .AsEnumerable()
+        .GroupBy(x => x.StatusDate.Value.DayOfWeek)
+        .Select(g => {
+            //Total items sent on this day of the week
+            var totalItemCount = g.Count();
+            //Total number if this distinct day of the week
+            var totalDaysCount = g.Select(x => x.StatusDate.Value.Date).Distinct().Count();
+            return new {
+                DayOfWeek = g.Key,
+                TotalItemCount = totalItemCount,
+                TotalDaysCount = totalDaysCount,
+                AverageItemPerDay = totalItemCount / totalDaysCount
+            };
+        })
+        .ToList();
+    

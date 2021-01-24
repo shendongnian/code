@@ -1,0 +1,10 @@
+    Console.WriteLine("enter 1st point x value:");
+    var p1x = (double)Console.ReadLine();
+    Console.WriteLine("enter 1st point y value:");
+    var p1y = (double)Console.ReadLine();
+    Console.WriteLine("enter 2nd point x value:");
+    var p2x = (double)Console.ReadLine();
+    Console.WriteLine("enter 2nd point y value:");
+    var p2y = (double)Console.ReadLine();
+    var p1 = new Point2d(p1x, p1y, "SomeName");
+    var p2 = new Point2d(p2x, p2y, "SomeOtherName");

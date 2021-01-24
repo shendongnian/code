@@ -1,0 +1,10 @@
+    // using static System.Console;
+    WriteLine( "elem[0]  = " + arr3[ 0, 0, 0 ] );
+    WriteLine( "elem[1]  = " + arr3[ 0, 0, 1 ] );
+    WriteLine( "elem[2]  = " + arr3[ 0, 1, 0 ] );
+    WriteLine( "elem[3]  = " + arr3[ 0, 1, 1 ] );
+    WriteLine( "..." );
+    WriteLine( "elem[-4] = " + arr3[ 8, 4, 0 ] );
+    WriteLine( "elem[-3] = " + arr3[ 8, 4, 1 ] );
+    WriteLine( "elem[-2] = " + arr3[ 8, 5, 0 ] );
+    WriteLine( "elem[-1] = " + arr3[ 8, 5, 1 ] );

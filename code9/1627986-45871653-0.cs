@@ -1,0 +1,12 @@
+                int a, b, c, d, e;
+            Console.WriteLine("1st Test Score: ");
+            a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("2nd Test Score: ");
+            b = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("3rd Test Score: ");
+            c = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("4th Test Score: ");
+            d = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("5th Test Score: ");
+            e = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Your Average Test Score is: {0}", Convert.ToInt32(a + b + c + d + e) / 5.0);

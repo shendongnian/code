@@ -1,0 +1,6 @@
+    public class MainObjectList : BindingList<MainObject> {
+        // ....
+    }
+    public class MainObject : INotifyPropertyChanged {
+        // ...
+    }

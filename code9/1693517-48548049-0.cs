@@ -1,0 +1,10 @@
+        DataTable dt = new DataTable();
+        dt.Columns.Add("Days", typeof(int));
+        dt.Columns.Add("Amount", typeof(decimal));
+        dt.Rows.Add(1, 10.00m);
+        dt.Rows.Add(2, 10.00m);
+        dt.Rows.Add(3, 10.00m);
+        dt.Rows.Add(4, 10.00m);
+        dt.Rows.Add(5, 10.00m);
+        dt.Rows.Add(24, 10.00m);
+        dataGridView1.DataSource = dt;

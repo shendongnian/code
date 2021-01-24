@@ -1,0 +1,13 @@
+            df_External_Name.Controls.Add(new LiteralControl("<tr>"));
+            df_External_Name.Controls.Add(new LiteralControl("<td>"));
+            df_External_Name.Controls.Add(title);
+            df_External_Name.Controls.Add(new LiteralControl("</td>"));
+            df_External_Name.Controls.Add(new LiteralControl("<td>"));
+            df_External_Name.Controls.Add(newTextbox);
+            df_External_Name.Controls.Add(new LiteralControl("</td>"));
+            df_External_Name.Controls.Add(new LiteralControl("</tr>"));
+            df_External_Name.Controls.Add(new LiteralControl("<tr>"));
+            df_External_Name.Controls.Add(new LiteralControl("<td>"));
+            df_External_Name.Controls.Add(newLabel);
+            df_External_Name.Controls.Add(new LiteralControl("</td>"));
+            df_External_Name.Controls.Add(new LiteralControl("</tr>"));

@@ -1,0 +1,15 @@
+     Microsoft.Office.Interop.Word._Application objWord;
+     object oMissing = System.Reflection.Missing.Value;
+     object oEndOfDoc = "\\endofdoc";
+     FolderBrowserDialog ff = new FolderBrowserDialog();
+     ff.ShowDialog();
+     string filename = "Sample";
+     Microsoft.Office.Interop.Word._Document objDoc;
+     objWord = new Microsoft.Office.Interop.Word.Application();
+     objWord.Visible = true;
+     objDoc = objWord.Documents.Add(ref oMissing, ref oMissing, ref oMissing, ref oMissing);
+     Microsoft.Office.Interop.Word.Range wrdRng = objDoc.Bookmarks.get_Item(ref oEndOfDoc).Range;
+     wrdRng.Text = "Simple Word";
+     this.Close();
+     string fp = ff.SelectedPath + "\\" + filename + ".docx";
+     objDoc.SaveAs2(fp);

@@ -1,0 +1,6 @@
+    public class OrderRepository{
+    //    ......
+        public Order loadOrderById(string orderId){
+    //        .....
+        }
+    }

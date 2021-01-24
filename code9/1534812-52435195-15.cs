@@ -1,0 +1,10 @@
+                Common.Logging.ILog log = Common.Logging.LogManager.GetLogger(typeof(Program));
+                IUnityContainer cont = new UnityContainer();
+                cont.RegisterInstance<ILog>(log);
+                cont.RegisterType<IShipper, FedExShipper>(FedExShipper.FriendlyName);
+                cont.RegisterType<IShipper, UspsShipper>(UspsShipper.FriendlyName);
+                cont.RegisterType<IShipper, UpsShipper>(UpsShipper.FriendlyName);
+                cont.RegisterType<IOrderProcessor, OrderProcessor>();
+                Order ord = new Order();
+                IOrderProcessor iop = cont.Resolve<IOrderProcessor>();
+                iop.ProcessOrder(FedExShipper.FriendlyName, ord);

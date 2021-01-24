@@ -1,0 +1,11 @@
+    OleDbCommand cmd = new OleDbCommand(" SELECT RemainingDept FROM Dept_Tbl  ", conn);
+    OleDbDataReader dr = cmd.ExecuteReader();
+    while ((dr.Read()))
+    {
+        var dept = new Department()
+        {
+            ID = Convert.ToInt32(dr["ID"]),
+            RemainingDept = Convert.ToInt32(dr["RemainingDept"]);
+        };
+        liste.Add(dept);
+    }

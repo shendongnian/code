@@ -1,0 +1,8 @@
+    class TableType
+    {
+       public TableType()
+       {
+       }
+ 
+       ...
+    }

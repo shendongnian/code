@@ -1,0 +1,18 @@
+            dgvDataViewer.ColumnCount = 1;
+            dgvDataViewer.Columns[0].Name = "Language";
+            string[] row = new string[] { "C#" };
+            dgvDataViewer.Rows.Add(row);
+            row = new string[] { "C++" };
+            dgvDataViewer.Rows.Add(row);
+            row = new string[] { "C" };
+            dgvDataViewer.Rows.Add(row);
+            DataGridViewComboBoxColumn cmb = new DataGridViewComboBoxColumn();
+            cmb.HeaderText = "HeaderText";
+            cmb.Name = "Name";
+            cmb.FlatStyle = FlatStyle.System;
+            dgvDataViewer.Columns.Add(cmb);
+            DataGridViewComboBoxCell dgvcbc = (DataGridViewComboBoxCell)dgvDataViewer.Rows[0].Cells[1];
+            dgvcbc.Items.Add("Apple");
+            dgvcbc.Items.Add("Google");
+            dgvcbc.Items.Add("Apache");
+            dgvcbc.Items.Add("Microsoft");

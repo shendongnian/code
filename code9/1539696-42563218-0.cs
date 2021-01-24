@@ -1,0 +1,6 @@
+    public IEnumarable<SomeModel> GetData()
+    {
+      IEnumarable<SomeModel> alltheListValues = ....
+      //...
+      return alltheListValues;
+    }

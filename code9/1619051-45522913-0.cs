@@ -1,0 +1,11 @@
+            //byte[] file = File.ReadAllBytes(@"c:\users\user\desktop\file.txt");
+            TcpListener listen = new TcpListener(IPAddress.Parse(mes),223);
+            listen.Start();
+            TcpClient client = listen.AcceptTcpClient();
+            NetworkStream ns = client.GetStream();
+            StreamReader sre = new StreamReader(ns);
+            string ende = sre.ReadLine();
+            string path = Path.Combine(@"c:\users\user\desktop\file2." + ende);
+            Console.WriteLine(path);
+            File.WriteAllBytes(path ,file);
+            listen.Stop();

@@ -1,0 +1,22 @@
+    AmazonSimpleNotificationServiceClient smsClient = new AmazonSimpleNotificationServiceClient(my_access_key, my_secret_key, Amazon.RegionEndpoint.APSoutheast2);
+                    var smsAttributes = new Dictionary<string, MessageAttributeValue>();
+                    MessageAttributeValue senderID = new MessageAttributeValue();
+                    senderID.DataType = "String";
+                    senderID.StringValue = "mySenderId";
+                    MessageAttributeValue sMSType = new MessageAttributeValue();
+                    sMSType.DataType = "String";
+                    sMSType.StringValue = "Transactional";
+                    MessageAttributeValue maxPrice = new MessageAttributeValue();
+                    maxPrice.DataType = "Number";
+                    maxPrice.StringValue = "0.5";
+                    CancellationTokenSource source = new CancellationTokenSource();
+                    CancellationToken token = source.Token;
+                    smsAttributes.Add("AWS.SNS.SMS.SenderID", senderID);
+                    smsAttributes.Add("AWS.SNS.SMS.SMSType", sMSType);
+                    smsAttributes.Add("AWS.SNS.SMS.MaxPrice", maxPrice);
+                    PublishRequest publishRequest = new PublishRequest();
+                    publishRequest.Message = "This is 2nd sample message";
+                    publishRequest.MessageAttributes = smsAttributes;
+                    publishRequest.PhoneNumber = "received phone no with + and country code";
+                    Task<PublishResponse> result = smsClient.PublishAsync(publishRequest, token);
+    

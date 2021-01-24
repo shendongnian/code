@@ -1,0 +1,10 @@
+    Console.WriteLine($"Local time .... {DateTime.Now}");
+    Console.WriteLine($"Remote time ... {remoteTimestamp}");
+    Console.WriteLine(new string('-', Console.WindowWidth));
+    Console.Write("Remote time is different by: ");
+    Console.Write($"{difference.Days} days, ");
+    Console.Write($"{difference.Hours} hours, ");
+    Console.WriteLine($"{difference.Minutes} minutes;");
+    Console.WriteLine($"or a total of {difference.TotalMinutes} minutes.");
+    Console.WriteLine("\nDone!\nPress any key to exit...");
+    Console.ReadKey();

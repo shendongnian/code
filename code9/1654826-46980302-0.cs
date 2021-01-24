@@ -1,0 +1,6 @@
+    public class MyDbContext : DbContext
+    {
+        // ...
+        public DbSet<Contact> Contacts { get; set; }
+        // ...
+    }

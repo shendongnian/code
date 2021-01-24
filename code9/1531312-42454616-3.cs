@@ -1,0 +1,10 @@
+            var builder = new ODataConventionModelBuilder();
+            config.Count().Filter().OrderBy().Expand().Select().MaxTop(null);
+            builder.EntitySet<Ticket>("Tickets");
+            builder.EntityType<Ticket>().HasKey(x => x.Id);
+            builder.EntitySet<Order>("Orders");
+            builder.EntityType<Order>().HasKey(x => x.Id);
+            builder.EntitySet<Event>("Events");
+            builder.EntityType<Event>().HasKey(x => x.Id);
+            IEdmModel model = builder.GetEdmModel();
+            config.MapODataServiceRoute("ODataRoute", "odata", model);

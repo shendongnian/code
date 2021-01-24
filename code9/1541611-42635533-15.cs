@@ -1,0 +1,10 @@
+    var m = new ValMgr<int>();
+    m.list = new List<int>() { 1 };
+    var test1 = m.GetAt(0); // 1
+    var test2 = m.GetAt(1); // null
+    var test2bis = m.GetAt(1,-1); // -1
+    var n = new RefMgr<string>();
+    n.list = new List<string>() { "1" };
+    var test3 = n.GetAt(0); // "1"
+    var test4 = n.GetAt(1); // null
+    var test4bis = n.GetAt(1,"--"); // --

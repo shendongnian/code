@@ -1,0 +1,6 @@
+    class Player
+    {
+    ....
+        public bool IsPlaying {get;set;}
+    ....
+    }

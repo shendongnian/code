@@ -1,0 +1,21 @@
+    <?xml version="1.0" encoding="utf-8"?>
+        <CountryData
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <Countries>
+                <Country>
+                    <CountryName>name</CountryName>
+                    <Countrycode>code</Countrycode>
+                    <PercentOfBusiness>12</PercentOfBusiness>
+                    <AverageBusiness>123</AverageBusiness>
+                    <SalesMade>120012</SalesMade>
+               </Country>
+               <Country>
+                    <CountryName>name2</CountryName>
+                    <Countrycode>code2</Countrycode>
+                    <PercentOfBusiness>34</PercentOfBusiness>
+                    <AverageBusiness>345</AverageBusiness>
+                    <SalesMade>453453543</SalesMade>
+               </Country>
+        </Countries>
+    </CountryData>

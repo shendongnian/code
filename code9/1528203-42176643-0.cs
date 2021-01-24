@@ -1,0 +1,12 @@
+    public class IntDecConverter : IValueConverter
+    {
+        Convert(Object value, Type type, Object parameter, CultureInfo CultureInfo)
+        {
+            return Convert.ToDecimal(value).ToString();
+        }
+    
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplemnentedException();
+        }
+    }

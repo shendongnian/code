@@ -1,0 +1,11 @@
+    MailMessage mail = new MailMessage("from", "to");
+    SmtpClient client = new SmtpClient();
+    client.EnableSsl = true;
+    client.Host = "smtp-mail.outlook.com";
+    client.UseDefaultCredentials = false;
+    client.Credentials = new System.Net.NetworkCredential("email", "password");
+    client.Port = 587;
+    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+    mail.Subject = "test";
+    mail.Body = "test";
+    client.Send(mail);

@@ -1,0 +1,10 @@
+    ArrayList list1 = new ArrayList();
+    ArrayList list2 = new ArrayList();
+    list1.Add(Enumerable.Range( 0, 10).Select(n => n.ToString()).ToArray());
+    list1.Add(Enumerable.Range(10, 10).Select(n => n.ToString()).ToArray());
+    list1.Add(Enumerable.Range(20, 10).Select(n => n.ToString()).ToArray());
+    list2.Add(Enumerable.Range( 0, 10).Select(n => n.ToString()).ToArray());
+    list2.Add(Enumerable.Range(10, 10).Select(n => n.ToString()).ToArray());
+    list2.Add(Enumerable.Range(20, 10).Select(n => n.ToString()).ToArray());
+    var comparer = Comparer<object>.Create((a, b) => ((string[]) a).SequenceEqual((string[]) b) ? 0 : 1);
+    CollectionAssert.AreEqual(list1, list2, comparer);

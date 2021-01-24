@@ -1,0 +1,12 @@
+    string queryString = "select Col_Length('Contents','Title') as columnLengthh";
+    string connectionString = "Your connection string";
+    
+    using (SqlConnection connection = new SqlConnection(connectionString))
+    {
+        using (SqlCommand command = new SqlCommand(queryString, connection));
+        {
+            connection.Open();
+            var result = command.ExecuteScalar();
+            Console.WriteLine("columnLengthh = {0}", result);
+        }
+    }

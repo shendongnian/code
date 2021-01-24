@@ -1,0 +1,10 @@
+    REngine.SetEnvironmentVariables();
+    REngine engine = REngine.GetInstance();
+    double[] data = new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+    NumericVector vector = engine.CreateNumericVector(data);
+    engine.Evaluate("library(changepoint)");
+    engine.SetSymbol("values", vector);
+    engine.Evaluate("values.ts = ts(values, frequency = 12, start = c(2017, 1))");
+    engine.Evaluate("chpoints = cpt.mean(values.ts, method=\"BinSeg\")");
+    var result = engine.GetSymbol("chpoints");
+    engine.Dispose();

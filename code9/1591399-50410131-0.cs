@@ -1,0 +1,5 @@
+    at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource) 
+    at System.Collections.Generic.List`1.get_Item(Int32 index)
+    at Microsoft.AspNetCore.Mvc.Routing.UrlHelper.get_Router()
+    at Microsoft.AspNetCore.Mvc.Routing.UrlHelper.GetVirtualPathData(String routeName, RouteValueDictionary values)
+    at Microsoft.AspNetCore.Mvc.Routing.UrlHelper.Action(UrlActionContext actionContext)

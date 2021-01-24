@@ -1,0 +1,14 @@
+                        StringBuilder errMsg = new StringBuilder();
+                    errMsg.AppendLine();
+                    errMsg.AppendLine("*************************");
+                    errMsg.AppendLine("TimeStamp: " + System.DateTime.Now.ToString());
+                    errMsg.AppendLine(errorMessage);
+                    errMsg.AppendLine("*************************");
+                    sw.WriteLine(errMsg.ToString());
+                    System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage();
+                    message.To.Add(System.Configuration.ConfigurationManager.AppSettings["siteAdmin"]);
+                    message.Subject = "Failure";
+                    message.From = new System.Net.Mail.MailAddress("support@support.com");
+                    message.Body = errMsg.ToString();
+                    System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.support.com");
+                    smtp.Send(message);

@@ -1,0 +1,11 @@
+            string strSQL = "SELECT * FROM AlmLotes WHERE Lote LIKE @PARAM1";
+            OleDbCommand cmd = new OleDbCommand(strSQL, connAccess);
+            OleDbParameter param = cmd.CreateParameter();
+            param.DbType = DbType.String;
+            param.Direction = ParameterDirection.Input;
+            param.OleDbType = OleDbType.VarChar;
+            param.ParameterName = "PARAM1";
+            param.Value = "###%";
+            cmd.Parameters.Add(param);
+            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter(cmd);
+            dtResultats = new DataTable();

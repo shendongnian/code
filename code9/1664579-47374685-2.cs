@@ -1,0 +1,6 @@
+    //...
+    Dictionary<ActionCode, Action> actions = new Dictionary<ActionCode, Action>();
+    //...
+    void ExecuteAction(ActionCode actionCode, byte[] data) {
+        actions[actionCode].Execute(data);
+    }

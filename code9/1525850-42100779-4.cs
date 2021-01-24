@@ -1,0 +1,30 @@
+    public abstract class RequiredStringValueObject : ValueObject<string>
+    {
+        private string _value;
+        protected string _fieldName;
+        protected byte _maxLength;
+        public string Value
+        {
+            get
+            {
+                return _value;
+            }
+            protected set
+            {
+                if (value == null || string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException(_fieldName, _fieldName + " must be supplied.");
+                }
+                value = value.Trim();
+                if (value.Length > _maxLength)
+                {
+                    throw new ArgumentOutOfRangeException(_fieldName, value, _fieldName + " can't be longer than " + _maxLength.ToString() + " characters.");
+                }
+                _value = value;
+            }
+        }
+        public override IEnumerable<object> GetEqualityCheckAttributes()
+        {
+            return new List<object> { Value };
+        }
+    }

@@ -1,0 +1,11 @@
+    public bool CompareRevisions { get; protected set; }
+    public bool Deep { get; protected set; }
+    public DateTime FromDate { get; protected set; }
+    public string LanguageName { get; protected set; }
+    public PublishMode Mode { get; protected set; }
+    public DateTime PublishDate { get; protected set; }
+    public List<string> PublishingTargets { get; protected set; }
+    public bool RepublishAll { get; protected set; }
+    public Guid RootItemId { get; protected set; }
+    public string SourceDatabaseName { get; protected set; }
+    public string TargetDatabaseName { get; protected set; }

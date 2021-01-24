@@ -1,0 +1,6 @@
+    [HttpPost]
+    public async Task<ActionResult> ChangePassword(ChangeUserViewModel model)
+    {
+       ......
+       ......
+    }

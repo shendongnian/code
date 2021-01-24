@@ -1,0 +1,11 @@
+    System.Diagnostics.ProcessStartInfo usbDevicesInfo = new System.Diagnostics.ProcessStartInfo("wmic", "path CIM_USBDevice get Caption");
+    usbDevicesInfo.RedirectStandardOutput = true;
+    usbDevicesInfo.UseShellExecute = false;
+    usbDevicesInfo.CreateNoWindow = true;
+    System.Diagnostics.Process process = new System.Diagnostics.Process();
+    process.StartInfo = usbDevicesInfo;
+    process.Start();
+    process.WaitForExit();
+    Console.WriteLine("ExitCode: " + process.ExitCode.ToString() + "\n");
+    result = process.StandardOutput.ReadToEnd();
+    Console.WriteLine(result);

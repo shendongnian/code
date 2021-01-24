@@ -1,0 +1,13 @@
+    public class Repository<TKey, TEntity>......
+    {
+      public TEntity Get<TEntity>(TKey key)....
+      public void Delete(TEntity instance)....
+      ...etc...
+    }
+    
+    public interface IPurchaseOrderRepository {
+      PurchaseOrder Get(int orderNumber);
+      // Note: No delete is exposed
+    }
+    
+    MyDependencyInjection.Register<IPurchaseOrderRepository, Repository<PurchaseOrder, int>>();

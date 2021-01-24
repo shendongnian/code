@@ -1,0 +1,13 @@
+    productsTableAdapter pta = new productsTableAdapter();
+    pta.Fill(dataset.products);
+    productsDataTable pdta = pta.GetDataByInvoiceID(invoiceID);
+    pdta.Columns.Remove("client_id");
+    pdta.Columns.Remove("id1");
+    pdta.Columns.Remove("units");
+    pdta.Columns.Remove("provider");
+    pdta.Columns.Remove("sub_categorie");
+    pdta.Columns.Remove("id_invoice");
+    pdta.Columns.Remove("id_product");
+    pdta.Columns.Remove("invoice_date");
+    pdta.Columns.Remove("collection_method");
+    InvoiceProductsDataGrid.ItemsSource = pdta.DefaultView;

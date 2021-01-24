@@ -1,0 +1,32 @@
+    public abstract class PointLayer
+    {
+        public abstract Type Type { get;}
+        public abstract string MapName { get; protected set; }
+        public abstract MapType MapType { get; protected set; }
+        public abstract Point Point { get; protected set; }
+    }
+    public class PointLayer<T> : PointLayer
+    {
+        #region PROPERTIES
+        public override Type Type { get; }
+        public override string MapName { get; protected set; }
+        public override MapType MapType { get; protected set; }
+        public override Point Point { get; protected set; }
+        #endregion
+    
+        #region C'TOR
+        /// <summary>
+        /// Constructor creating PointLayer
+        /// </summary>
+        /// <param name="mapName">Map name</param>
+        /// <param name="mapType">Map type</param>
+        /// <param name="point">Point</param>
+        public PointLayer(string mapName, MapType mapType, Point<T> point)
+        {
+            Type=typeof(T);
+            MapName = mapName;
+            Point = point;
+            MapType = mapType;
+        }
+        #endregion
+    }

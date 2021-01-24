@@ -1,0 +1,10 @@
+    var insts = new[] { new MyClass(), new MyClass(), new MyClass(), new MyClass() };
+    Console.WriteLine(string.Join(", ", (object[])insts));
+    insts[1].Delete();
+    Console.WriteLine(string.Join(", ", (object[])insts));
+    insts[3].Delete();
+    Console.WriteLine(string.Join(", ", (object[])insts));
+    insts[0].Delete();
+    Console.WriteLine(string.Join(", ", (object[])insts));
+    insts[2].Delete();
+    Console.WriteLine(string.Join(", ", (object[])insts));

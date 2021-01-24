@@ -1,0 +1,17 @@
+            CountOnlineUserModel p = new CountOnlineUserModel();
+            p.UserUniqueID = "IMW3";
+            p.Username = "Rahul";
+            Users.Add(p);
+            p = new CountOnlineUserModel();
+            p.UserUniqueID = "IMW4";
+            p.Username = "Raheem";
+            Users.Add(p);
+            p = new CountOnlineUserModel();
+            p.UserUniqueID = "IMW3";
+            p.Username = "Rahul";
+            Users.Add(p);
+            p = new CountOnlineUserModel();
+            p.UserUniqueID = "IMW4";
+            p.Username = "Raheem";
+            Users.Add(p);
+            Console.WriteLine(Users.Distinct());

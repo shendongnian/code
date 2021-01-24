@@ -1,0 +1,18 @@
+        public static void StoreUser()
+        {
+            if ( UserExists( "username" ) )
+            {
+                //Will stop here if user exists
+                return;
+            }
+            //Storing user code
+        }
+        public static bool UserExists(string userName)
+        {
+            if (userName == "EXISTS")
+            {
+                //Show error
+                return true;
+            }
+            return false;
+        }

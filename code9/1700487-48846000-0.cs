@@ -1,0 +1,6 @@
+    public class UserInfo
+    {
+        ...
+        public PictureID { get; set; } 
+        ...
+    }

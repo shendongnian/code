@@ -1,0 +1,6 @@
+    //...
+    Dictionary<ActionCode, Action> actions = new Dictionary<ActionCode, Action>();
+    //...
+    void ExecuteAction(ActionCode actionCode, object data) {
+        actions[actionCode].Execute(data);
+    }

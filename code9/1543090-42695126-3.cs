@@ -1,0 +1,60 @@
+    using System;
+    using System.ComponentModel;
+    using System.ComponentModel.Design;
+    using System.Drawing;
+    using System.Drawing.Design;
+    using System.Windows.Forms;
+    using System.Windows.Forms.Design;
+    
+    namespace WindowsFormsApplication1
+    {
+        // Example custom control
+        [Docking(System.Windows.Forms.DockingBehavior.Ask)]
+        class MyControl : Control
+        {
+            public MyControl()
+            {
+                BackColor = Color.White;
+            }
+    
+            // Example array property
+            [Editor(typeof(MyCollectionEditor), typeof(UITypeEditor))]
+            public MyObject[] MyObjectArray
+            {
+                get;
+                set;
+            }
+        }
+    
+        // This class requires System.Design assembly to be included in the project
+        class MyCollectionEditor : System.ComponentModel.Design.ArrayEditor
+        {
+            public MyCollectionEditor(Type type)
+                : base(type)
+            {
+            }
+    
+            protected override CollectionForm CreateCollectionForm()
+            {
+                Form form = base.CreateCollectionForm();
+                form.Text = "Here you can put your User Friendly Display Text";
+                return form as CollectionForm;
+            }
+        }
+    
+        // Example object
+        public class MyObject
+        {
+            // Following Reza Aghaei's comment I added overridden method
+            public override string ToString()
+            {
+                return "Friendly name";
+            }
+            [DisplayName("Friendly property name")]
+            public string Text
+            {
+                get;
+                set;
+            }
+        }
+    }

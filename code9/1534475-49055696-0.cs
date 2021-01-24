@@ -1,0 +1,23 @@
+    EmailCredentials credentials = new EmailCredentials();
+        credentials.Domain = "domain.com";
+        credentials.SMTPUser = "webmail@domain.com";
+        credentials.SMTPPassword = "pass";
+        int SmtpPort = 25;
+        string SmtpServer = "smtp.yandex.ru";
+        MailMessage EmailMsg = new MailMessage();
+        EmailMsg.From = new MailAddress("webmail@domain.com", "Domain");
+        EmailMsg.To.Add(new MailAddress("info@domain.mk", "info@domain.mk"));
+        EmailMsg.ReplyToList.Add("info@domain.com");
+        EmailMsg.Subject = "Welcome";
+        EmailMsg.Body = "HTML body code";
+        EmailMsg.IsBodyHtml = true;
+        EmailMsg.Priority = MailPriority.Normal;
+        System.Net.Mail.SmtpClient SMTP = new System.Net.Mail.SmtpClient();
+        SMTP.Host = SmtpServer;
+        SMTP.Port = SmtpPort;
+        SMTP.EnableSsl = true;
+        SMTP.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+        SMTP.UseDefaultCredentials = false;
+        SMTP.Credentials = new System.Net.NetworkCredential(credentials.SMTPUser, credentials.SMTPPassword);
+               
+        SMTP.Send(EmailMsg);

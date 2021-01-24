@@ -1,0 +1,9 @@
+    ...
+    public static PlayerLifeClass instance;
+    public List<GameObject> ObjectsInRange = new List<GameObject>();
+    ...
+    
+    void Start(){
+        instance = this;
+        ...
+    }

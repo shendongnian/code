@@ -1,0 +1,17 @@
+            Console.Write("How many eggs did chicken 1 lay?");
+            string sc1 = System.Console.ReadLine();
+            int c1 = int.Parse(sc1);
+            Console.Write("How many eggs did chicken 2 lay?");
+            string sc2 = System.Console.ReadLine();
+            int c2 = int.Parse(sc2);
+            Console.Write("How many eggs did chicken 3 lay?");
+            string sc3 = System.Console.ReadLine();
+            int c3 = int.Parse(sc3);
+            Console.Write("How many eggs did chicken 3 lay?");
+            string sc4 = System.Console.ReadLine();
+            int c4 = int.Parse(sc4);
+            int Sum = c1 + c2 + c3 + c4;
+            int Total = (Sum / 12);
+            System.Console.WriteLine("The sum of the eggs laid is  "  + Sum);
+            System.Console.WriteLine("Dozen =  " +Total );
+            System.Console.ReadLine();

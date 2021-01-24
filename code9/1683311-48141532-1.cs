@@ -1,0 +1,16 @@
+    var testClass = new TypeDefinition("ConsoleDemo", "Test", TypeAttributes.Class | TypeAttributes.Public, module.TypeSystem.Object);
+    var mainMethod = new MethodDefinition("Main", MethodAttributes.Public | MethodAttributes.Static, module.TypeSystem.Void);
+    mainMethod.Parameters.Add(new ParameterDefinition("args", ParameterAttributes.None, new ArrayType(module.TypeSystem.String)));
+    var writeLineMethod = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(int) });
+    var importedMethod = module.Import(writeLineMethod);
+    mainMethod.Body.Instructions.Add(Instruction.Create(OpCodes.Newobj, someClass.GetConstructors().First()));
+    mainMethod.Body.Instructions.Add(Instruction.Create(OpCodes.Call, someMethod));
+    mainMethod.Body.Instructions.Add(Instruction.Create(OpCodes.Call, importedMethod));
+    mainMethod.Body.Instructions.Add(Instruction.Create(OpCodes.Ret));
+    testClass.Methods.Add(mainMethod);
+    var mainClassCtor = new MethodDefinition(".ctor", MethodAttributes.SpecialName | MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.RTSpecialName, module.TypeSystem.Void);
+    mainClassCtor.Body.Instructions.Add(Instruction.Create(OpCodes.Ldarg_0));
+    mainClassCtor.Body.Instructions.Add(Instruction.Create(OpCodes.Call, objCtor));
+    mainClassCtor.Body.Instructions.Add(Instruction.Create(OpCodes.Ret));
+    testClass.Methods.Add(mainClassCtor);
+    module.Types.Add(testClass);

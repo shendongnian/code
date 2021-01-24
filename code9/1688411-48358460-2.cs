@@ -1,0 +1,10 @@
+        var commands = new List<string>();
+        commands.Add("/exit");
+        List<String> listOfString = commands.Select(Regex.Escape).ToList();
+        String joinTheWords = string.Join("|", listOfString);
+        var regexPattern = $@"(?:(?:(?<!/)\B)|\b(?=\w))({joinTheWords})\b";
+        var theRegex = new Regex(regexPattern, RegexOptions.IgnoreCase);
+        Console.WriteLine(theRegex);
+        Console.WriteLine(theRegex.Match("/exit").Success);
+        Console.WriteLine("Press any key to exit.");
+        Console.ReadLine();

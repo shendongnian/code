@@ -1,0 +1,6 @@
+    using (var stream = content)
+    {
+        ...
+        stream.Seek(0, SeekOrigin.Begin); // <-- The missing statement
+        ...
+    }

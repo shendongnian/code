@@ -1,0 +1,12 @@
+            int v = 0;
+            string age;
+            string name;
+            string status;
+            Console.WriteLine(v);
+            Console.WriteLine("Hei buddy! What is your name?");
+            name = Console.ReadLine();
+            Console.WriteLine("Nice to meet you {0}. My name is PAI!", name);
+            Console.WriteLine("How old are you {0}?", name);
+            age = Console.ReadLine();
+            Console.WriteLine("Wow. So you are {0}-years-old. That's a huge number, as I am only x day old.", age);
+            Console.ReadKey();

@@ -1,0 +1,6 @@
+    protected override void OnInitialized()
+    {
+        ...
+        Microsoft.Practices.Unity.UnityContainerExtensions.RegisterType<IMyViewModel, MyViewModel);
+        ...
+    }

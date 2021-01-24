@@ -1,0 +1,10 @@
+                Bitmap bmp = new Bitmap(file.InputStream);
+                Graphics graphicsobj = Graphics.FromImage(bmp);
+                Brush brush = new SolidBrush(Color.FromArgb(80, 255, 255, 255));
+                Point postionWaterMark = new Point((enter image description herebmp.Width / 6), (bmp.Height / 2));
+                graphicsobj.DrawString("Daphnisys Technology", new System.Drawing.Font("Arial", 30, FontStyle.Bold, GraphicsUnit.Pixel), brush, postionWaterMark);
+                Image img = (Image)bmp;
+                string filepath = HttpContext.Current.Server.MapPath("../admin/img/product_images/") + filename;
+                //image.Save(filepath);
+                img.Save(filepath, System.Drawing.Imaging.ImageFormat.Png);
+                graphicsobj.Dispose();

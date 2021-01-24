@@ -1,0 +1,10 @@
+            Stopwatch SW = new Stopwatch();
+            SW.Start();
+            string x = "2";
+            List<string> y = System.IO.File.ReadAllText("primes1.txt").Split(' ').ToList();
+            y.RemoveAll(xo => xo == " " || xo == "" || xo == "\r\r\n");
+            List <string> Matches = y.Where(xo => xo.StartsWith(x)).ToList();
+            SW.Stop();
+            Console.WriteLine("matches: " + Matches.Count);
+            Console.WriteLine("time taken: " + SW.Elapsed.TotalSeconds);
+            Console.Read();

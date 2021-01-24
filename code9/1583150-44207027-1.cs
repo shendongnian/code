@@ -1,0 +1,10 @@
+            ClientContext _ClientContext = new ClientContext("http://team/sites/Team1/");
+            _ClientContext.Credentials = new NetworkCredential("administrator", "*****", "corp");
+            Principal user = _ClientContext.Web.EnsureUser(@"corp\administrator");
+            var _List = _ClientContext.Web.Lists.GetByTitle("Shared Documents");
+            var _Item = _List.GetItemById(23);
+            var roleDefinition = _ClientContext.Site.RootWeb.RoleDefinitions.GetByType(RoleType.Reader);
+            var roleBindings = new RoleDefinitionBindingCollection(_ClientContext) { roleDefinition };
+            _Item.BreakRoleInheritance(false, true);
+            _Item.RoleAssignments.Add(user, roleBindings);
+            _ClientContext.ExecuteQuery();

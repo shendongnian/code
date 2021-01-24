@@ -1,0 +1,17 @@
+    ProcessStartInfo psi = new ProcessStartInfo("cmd");
+    psi.UseShellExecute = false;
+    psi.ErrorDialog = false;
+    psi.RedirectStandardError = true;
+    psi.RedirectStandardInput = true;
+    psi.RedirectStandardOutput = true;
+    Process plinkProcess = new Process();
+    plinkProcess.StartInfo = psi;
+    plinkProcess.Start();
+    StreamWriter inputWriter = plinkProcess.StandardInput;
+    StreamReader outputReader = plinkProcess.StandardOutput;
+    inputWriter.WriteLine("dism /online /get-packageinfo /packagename:WinEmb-File-Based-Write-Filter~31bf3856ad364e35~amd64~~6.1.7601.17514");
+    inputWriter.WriteLine("exit");
+    inputWriter.Flush();
+    plinkProcess.WaitForExit();
+    string strOutput = outputReader.ReadToEnd();
+    plinkProcess.Close();

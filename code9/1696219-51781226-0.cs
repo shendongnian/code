@@ -1,0 +1,6 @@
+    public class CreateModel : PageModel
+    {
+        ...
+        public SelectList CountryList { get; set; }
+        ...
+    }

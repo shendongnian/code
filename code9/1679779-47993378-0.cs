@@ -1,0 +1,67 @@
+	void Main()
+	{
+		using (var context = new YourContext())
+		{
+			var query = from item in context.Items
+						from suplier in item.Suppliers
+						where item.ItemId == 8
+						select new 
+						{
+							Name = suplier.Name, 
+							Adress = suplier.Address,
+							Email = suplier.Email,
+							Phone = suplier.Phone,
+							Zip = suplier.Zip,
+						};
+						
+			//...
+		}
+	}
+	
+	public class YourContext : DbContext
+	{
+		public DbSet<Item> Items { get; set; }
+		public DbSet<Supplier> Suppliers { get; set; }
+	
+		public YourContext() : base("MyDb")
+		{
+		}
+	
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Item>()
+				.HasMany(item => item.Suppliers)
+				.WithMany(supplier => supplier.Items)
+				.Map(m =>
+				{
+					m.MapLeftKey("ItemSub_ID");
+					m.MapRightKey("SupplierJunc_ID");
+					m.ToTable("Supp_Company");
+				});
+		}
+	}
+	
+	public class Item
+	{
+		public int ItemId { get; set; }
+		public string Name { get; set; }
+		public ICollection<Supplier> Suppliers { get; set; }
+	}
+	
+	public class Supplier
+	{
+		public int SupplierId { get; set; }
+		public string Name { get; set; }
+		public string Address { get; set; }
+		public string Email { get; set; }
+		public string Phone { get; set; }
+		public string Zip { get; set; }
+		public ICollection<Item> Items { get; set; }
+	}
+	
+	public class SupplierItem
+	{
+		public int ItemId { get; set; }
+		public int SupplierId { get; set; }
+	}
+ 

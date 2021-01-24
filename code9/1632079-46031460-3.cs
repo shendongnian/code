@@ -1,0 +1,5 @@
+    Console.WriteLine(NextCharacter(1, "ABCDEFG")); // 'A'
+    Console.WriteLine(NextCharacter(1, "ABCDEFG")); // 'B'
+    Console.WriteLine(NextCharacter(2, "ABCDEFG")); // 'A'
+    Console.WriteLine(NextCharacter(2, "ABCDEFG")); // 'B'
+    Console.WriteLine(NextCharacter(1, "TUVWXYZ")); // this will return 'V'

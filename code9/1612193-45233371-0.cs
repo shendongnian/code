@@ -1,0 +1,13 @@
+    IEnumerable<FileInfo> list1;
+    IEnumerable<FileInfo> list2;
+    if(allDirs)
+    {
+        list1 = ...
+        list2 = ...
+    }
+    else
+    {
+       list1 = ...
+       list2 = ...
+    }
+    // now you can access them here because they are declared in the same scope

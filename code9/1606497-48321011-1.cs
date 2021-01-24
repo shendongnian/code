@@ -1,0 +1,6 @@
+    public static IServiceProvider Build(IServiceCollection services)
+    {
+        //.....
+        services.AddSingleton<IHostedService, UpdateBackgroundService>();
+        //.....
+    }

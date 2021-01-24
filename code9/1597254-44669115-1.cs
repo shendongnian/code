@@ -1,0 +1,14 @@
+            TreeView t = new TreeView();
+            TreeViewItem root = new TreeViewItem();
+            root.Header = "all items";
+            root.Focusable = false;
+            TreeViewItem t1 = new TreeViewItem();
+            root.Header = "a";
+            TreeViewItem t2 = new TreeViewItem();
+            root.Header = "b";
+            TreeViewItem t3 = new TreeViewItem();
+            root.Header = "c";
+            root.Items.Add(t1);
+            root.Items.Add(t2);
+            root.Items.Add(t3);
+            t.Items.Add(root);

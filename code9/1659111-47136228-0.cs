@@ -1,0 +1,13 @@
+      addContactDetailsRequest.ContactDetails = new SITCustomerServiceReference.Phone();
+                SITCustomerServiceReference.Phone phoneContactDetails = new Phone();
+                phoneContactDetails.Number = "01772444444";
+                phoneContactDetails.PhoneType = SITCustomerServiceReference.PhoneType.Home;
+                string currentDateString = "2017/06/11T00:00:00";
+                DateTime currentDate = Convert.ToDateTime(currentDateString);
+                phoneContactDetails.DateDeleted = currentDate;
+                addContactDetailsRequest.UserName = "UserName ";
+                addContactDetailsRequest.Password = "Password ";
+                addContactDetailsRequest.SystemToken = systemToken;
+                addContactDetailsRequest.CustomerNumber = "00123456789";
+                addContactDetailsRequest.ContactDetails.SequenceNumber = 1;
+                addContactDetailsRequest.ContactDetails = phoneContactDetails;

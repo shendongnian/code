@@ -1,0 +1,10 @@
+    PrinterSettings ps = new PrinterSettings();
+    ps.PrinterName = "ZDesigner S4M-203dpi ZPL";
+    ps.Width = 203 * 4;
+    ps.Length = 203 * 6;
+    ps.Darkness = 30;
+    List<byte> page = new List<byte>();
+    page.AddRange(ZPLCommands.ClearPrinter(ps));
+    page.AddRange(ZPLCommands.TextWrite(10, 150, ElementDrawRotation.NO_ROTATION, ZebraFont.STANDARD_NORMAL, 15, "Hello World!"));
+    page.AddRange(ZPLCommands.PrintBuffer(1));
+    new SpoolPrinter(ps).Print(page.ToArray());

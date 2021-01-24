@@ -1,0 +1,15 @@
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+            AllocConsole();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ConsoleApplication.Program.Main(new string[] {"Hello world"});
+        }
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool AllocConsole();
+    }

@@ -1,0 +1,29 @@
+    var foo=_uow.GetRepository<ChangeSet>().Entities
+            .Join(_uow.GetRepository<ObjectChange>().Entities,
+            c=>c.Id,
+            o=>o.ChangeSetId,
+            (c,o)=>new{ChangeSet=c,ObjectChange=o})
+            .Join(_uow.GetRepository<PropertyChange>().Entities,
+            o=>o.ObjectChange.Id,
+            p=>p.ObjectChangeId,
+            (o,p)=>new{o.ChangeSet,o.ObjectChange,PropertyChange=p})
+            .Join(_uow.GetRepository<Users>().Entities,
+            c=>c.ChangeSet.Author_Id,
+            u=>u.Id,
+            (c,u)=>new{c.ChangeSet,c.ObjectChange,c.PropertyChange,User=u})
+            .Select(x=>new
+            {
+                 ChangeSetId=x.ChangeSet.Id,
+                 x.ChangeSet.Timestamp,
+                 x.ChangeSet.Author_Id,
+                 User=x.User.Name,
+                 ObjectChangeId=x.ObjectChange.id,
+                 x.ObjectChange.TypeName,
+                 EntityId=x.ObjectChange.ObjectReference,
+                 x.ObjectChange.DisplayName,
+                 PropertyChangeId=x.PropertyChange.Id,
+                 x.PropertyChange.PropertyName, 
+                 x.PropertyChange.ChangeType,
+                 x.PropertyChange.OriginalValue, 
+                 x.PropertyChange.Value
+            }).OrderByDescending(x=>x.ChangeSetId).ToList() //ChangeSetId=c.Id

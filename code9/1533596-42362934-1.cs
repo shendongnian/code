@@ -1,0 +1,9 @@
+    using System.Web.UI.WebControls;
+    ....
+    protected void rptVisitedItem_OnItemDataBound(object sender, RepeaterItemEventArgs e)
+    {
+        ....
+        LinkButton lbn = (LinkButton)e.Item.FindControl("btnGroup");
+        lbn.Attributes.Add("onkeypress", "$(this).click()");
+        ....
+    }

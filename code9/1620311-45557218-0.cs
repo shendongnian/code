@@ -1,0 +1,11 @@
+    TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+    byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0 };
+    var input = SoapHexBinary.Parse("9876543210123456FFFFFFFFFFFFFFFF").Value;
+    tdes.IV = iv;
+    tdes.Key = SoapHexBinary.Parse("09F15B103BC56A6FA705E71F0850EE6D").Value;
+    tdes.Mode = CipherMode.CBC;
+    tdes.Padding = PaddingMode.None;
+    ICryptoTransform cTransform = tdes.CreateEncryptor();
+    byte[] resultArray = cTransform.TransformFinalBlock(input, 0, input.Length);
+    tdes.Clear();
+    var resTemp = BitConverter.ToString(resultArray, 0, resultArray.Length);

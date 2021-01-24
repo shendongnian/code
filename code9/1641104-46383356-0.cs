@@ -1,0 +1,28 @@
+    public async Task<List<MyClass>> ProcessDownloads(IEnumerable<string> uris, 
+                                                      int concurrentDownloads)
+    {
+        var result = new List<MyClass>();
+        var downloadData = new TransformBlock<string, string>(async uri =>
+        {
+            using (var client = new HttpClient())
+            {
+                return await client.GetStringAsync(uri);
+            }
+        }, new ExecutionDataflowBlockOptions{MaxDegreeOfParallelism = concurrentDownloads});
+        var processData = new TransformBlock<string, MyClass>(
+              json => JsonConvert.DeserializeObject<MyClass>(json), 
+              new ExecutionDataflowBlockOptions {MaxDegreeOfParallelism = DataflowBlockOptions.Unbounded});
+        var collectData = new ActionBlock<MyClass>(
+              data => result.Add(data)); //When you don't specifiy options dataflow processes items one at a time.
+        downloadData.LinkTo(processData, new DataflowLinkOptions {PropagateCompletion = true});
+        processData.LinkTo(collectData, new DataflowLinkOptions {PropagateCompletion = true});
+        //Load the data in to the first transform block to start off the process.
+        foreach (var uri in uris)
+        {
+            await downloadData.SendAsync(uri).ConfigureAwait(false);
+        }
+        downloadData.Complete(); //Signal you are done adding data.
+        //Wait for the last object to be added to the list.
+        await collectData.Completion.ConfigureAwait(false);
+        return result;
+    }

@@ -1,0 +1,6 @@
+    public async Task<ActionResult> SomeAction()
+    {
+        // ...
+        var sequenceToCancel = await queueClient.ScheduleMessageAsync(message, postEventTimeToSendEmail);
+        // ...
+    }

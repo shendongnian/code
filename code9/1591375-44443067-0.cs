@@ -1,0 +1,5 @@
+    [Route("")]
+    public ActionResult YourAction()
+    {
+    ...
+    }

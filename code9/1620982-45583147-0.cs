@@ -1,0 +1,12 @@
+     sqlMetaData[0] = new SqlMetaData("HotelID", SqlDbType.Int);
+        sqlMetaData[1] = new SqlMetaData("RequestReference", SqlDbType.VarChar, 15);
+        sqlMetaData[2] = new SqlMetaData("FromDate", SqlDbType.DateTime);
+        sqlMetaData[3] = new SqlMetaData("ToDate", SqlDbType.DateTime);
+        sqlMetaData[4] = new SqlMetaData("Nights", SqlDbType.Int);
+        sqlMetaData[5] = new SqlMetaData("MealPlan", SqlDbType.VarChar, 10);
+        sqlMetaData[6] = new SqlMetaData("StarCategory", SqlDbType.Int);
+        sqlMetaData[7] = new SqlMetaData("Status", SqlDbType.Int);
+        sqlMetaData[8] = new SqlMetaData("LastUpdatedBy", SqlDbType.VarChar, 50);
+        sqlMetaData[9] = new SqlMetaData("LastUpdatedDate", SqlDbType.DateTime);
+        sqlMetaData[10] = new SqlMetaData("CreatedDateTime", SqlDbType.DateTime);
+        sqlMetaData[10] = new SqlMetaData("CreatedUserId", SqlDbType.VarChar, 15);

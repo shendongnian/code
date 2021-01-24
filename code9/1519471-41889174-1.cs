@@ -1,0 +1,11 @@
+      objWord.Selection.ParagraphFormat.TabStops.Add(objWord.InchesToPoints(1), Word.WdAlignmentTabAlignment.wdLeft, Word.WdTabLeader.wdTabLeaderDots);
+      objWord.Selection.ParagraphFormat.TabStops.Add(objWord.InchesToPoints(2), Word.WdAlignmentTabAlignment.wdLeft, Word.WdTabLeader.wdTabLeaderDots);
+      objWord.Selection.ParagraphFormat.TabStops.Add(objWord.InchesToPoints(3.5f), Word.WdAlignmentTabAlignment.wdLeft, Word.WdTabLeader.wdTabLeaderDots);
+      objWord.Selection.TypeText("\t");
+      objWord.Selection.TypeText("before");
+      objWord.Selection.TypeText("\t");
+      objWord.Selection.TypeText("after");
+      objWord.Selection.TypeText("\t");
+      objWord.Selection.TypeText("after2");
+      objWord.Selection.TypeText("\t");
+      objWord.Selection.TypeText("after3");

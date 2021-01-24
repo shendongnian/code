@@ -1,0 +1,13 @@
+        StringWriter stringwriter = new StringWriter();
+        XmlTextWriter xmlwriter = new XmlTextWriter(stringwriter);
+        xmlwriter.Formatting = Formatting.Indented;
+        xmlwriter.WriteStartDocument();
+        xmlwriter.WriteStartElement("root");
+        xmlwriter.WriteStartElement("information");
+        xmlwriter.WriteEndElement();
+        xmlwriter.WriteEndDocument();
+        XmlDocument docSave = new XmlDocument();
+        docSave.LoadXml(stringwriter.ToString());
+        System.IO.FileInfo file = new System.IO.FileInfo(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "xml//"));
+        file.Directory.Create();
+        docSave.Save(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "xml//") + Guid.NewGuid().ToString() + ".xml");

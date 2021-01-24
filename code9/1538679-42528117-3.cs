@@ -1,0 +1,10 @@
+    ViewModel vm = new ViewModel();
+    vm.Items.Add(new Person { Name = "Bob" });
+    vm.Items.Add(new Person { Name = "Marie" });
+    vm.Items.Add(new Person { Name = "John" });
+    Window1 w1 = new Window1();
+    w1.DataContext = vm;
+    Window2 w2 = new Window2();
+    w2.DataContext = vm;
+    w1.Show();
+    w2.Show();

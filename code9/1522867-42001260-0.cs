@@ -1,0 +1,13 @@
+    DataTable dtAddedItems = new DataTable();
+    DataColumn column = new DataColumn();
+    column.DataType = System.Type.GetType("System.Int32");
+    column.AutoIncrement = true;
+    column.AutoIncrementSeed = 1;
+    column.AutoIncrementStep = 1;
+    dtAddedItems.Columns.Add(column);
+    dtAddedItems.Columns.Add("ItemHeadId");
+    dtAddedItems.Columns.Add("ItemName");
+    dtAddedItems.Columns.Add("IssuedQty");
+    DataView dv = dtAddedItems.DefaultView;
+    dv.AllowNew=false;
+    dtgItems.DataSource = dv;   

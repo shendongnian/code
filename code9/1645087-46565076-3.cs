@@ -1,0 +1,13 @@
+    { Date = 20/01/2014 00:00:00, ProviderID = 1080ZX, GroupID = 0 }
+    { Date = 01/07/2015 00:00:00, ProviderID = 9080AB, GroupID = 2 }
+    { Date = 01/07/2015 00:00:00, ProviderID = 9080AB, GroupID = 2 }
+    { Date = 02/10/2015 00:00:00, ProviderID = 9080AB, GroupID = 0 }
+    { Date = 23/11/2016 00:00:00, ProviderID = 6080AB, GroupID = 0 }
+    { Date = 01/01/2017 00:00:00, ProviderID = 2161DV, GroupID = 5 }
+    { Date = 01/01/2017 00:00:00, ProviderID = 2161DV, GroupID = 5 }
+    { Date = 01/01/2017 00:00:00, ProviderID = 2161DV, GroupID = 5 }
+    { Date = 20/04/2017 00:00:00, ProviderID = 8733ZZ, GroupID = 6 }
+    { Date = 20/04/2017 00:00:00, ProviderID = 8733ZZ, GroupID = 6 }
+    { Date = 20/05/2017 00:00:00, ProviderID = 8733ZZ, GroupID = 7 }
+    { Date = 20/05/2017 00:00:00, ProviderID = 8733ZZ, GroupID = 7 }
+    { Date = 20/06/2017 00:00:00, ProviderID = 8733ZZ, GroupID = 0 }

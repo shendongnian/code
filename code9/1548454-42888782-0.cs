@@ -1,0 +1,11 @@
+    AlternateView view = AlternateView.CreateAlternateViewFromString(body, null, MediaTypeNames.Text.Html);
+    LinkedResource inline = new LinkedResource(filename, MediaTypeNames.Image.Jpeg);
+    inline.ContentId = "image@email";
+    view.LinkedResources.Add(inline);
+    MailMessage mail = new MailMessage();
+    mail.From = new MailAddress(username);
+    mail.To.Add(address);
+    mail.Subject = subject;
+    mail.IsBodyHtml = true;
+    mail.AlternateViews.Add(view);
+    await smtpClient.SendMailAsync(mail);

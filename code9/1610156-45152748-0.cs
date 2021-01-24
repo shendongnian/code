@@ -1,0 +1,11 @@
+    SqlConnection conn = new SqlConnection(connectionString);
+    string sql = "SELECT * FROM Table WHERE DOB > @startdate and DOB < @enddate";
+    SqlCommand cmd = new SqlCommand(sql, conn);
+    cmd.Parameters.Add(new SqlParameter("@startdate", DateTimePicker1.Date));
+    cmd.Parameters.Add(new SqlParameter("@enddate", DateTimePicker2.Date));
+    SqlDataAdapter da = new SqlDataAdapter();
+    da.SelectCommand = cmd;
+    DataSet ds = new DataSet();
+    da.Fill(ds);
+    DataGridView1.DataSource = ds.Tables[0];
+    DataGridView1.DataBind();

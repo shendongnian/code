@@ -1,0 +1,5 @@
+    [CheckSession]
+    public ActionResult Purchase()
+    {
+     ....
+    }

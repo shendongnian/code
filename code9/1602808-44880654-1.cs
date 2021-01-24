@@ -1,0 +1,10 @@
+    DateTime d1 = DateTime.Parse("3 July 2017 10:00:00");
+    DateTime d2 = d1.AddTicks(100);
+    double o2 = d2.ToOADate();
+    Console.WriteLine(o2);
+    DateTime d3 = d1.AddTicks(1000);
+    double o3 = d3.ToOADate();
+    Console.WriteLine(o3);
+    DateTime d4 = d1.AddTicks(10000); 
+    double o4 = d4.ToOADate();
+    Console.WriteLine(o4);

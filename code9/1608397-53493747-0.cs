@@ -1,0 +1,10 @@
+                SqlDataReader rdr = cmd.ExecuteReader();
+                //sqlDatoToJson(rdr);
+                var datatable = new DataTable();
+                datatable.Load(rdr);
+                string JsonResponse = string.Empty;
+                JsonResponse = JsonConvert.SerializeObject(datatable);
+                System.Diagnostics.Debug.WriteLine("3");
+                System.Diagnostics.Debug.WriteLine(rdr);
+                con.Close();
+                return new JsonResult() { Data = JsonResponse,JsonRequestBehavior = JsonRequestBehavior.AllowGet };

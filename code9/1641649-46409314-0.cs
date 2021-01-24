@@ -1,0 +1,14 @@
+    var mainMenu = new NSMenu();
+    var appMenuItem = new NSMenuItem();
+    mainMenu.AddItem(appMenuItem);
+    var editMenuItem = new NSMenuItem();
+    mainMenu.AddItem(editMenuItem);
+    var editSubMenu = new NSMenu("Edit");
+    editSubMenu.SetSubmenu(editSubMenu, editMenuItem);
+    var cutMenuItem = new NSMenuItem("Cut", new Selector("cut:"), "x");
+    editSubMenu.AddItem(cutMenuItem);
+    var copyMenuItem = new NSMenuItem("Copy", new Selector("copy:"), "c");
+    editSubMenu.AddItem(copyMenuItem);
+    var pasteMenuItem = new NSMenuItem("Paste", new Selector("paste:"), "v");
+    editSubMenu.AddItem(pasteMenuItem);
+    NSApplication.SharedApplication.MainMenu = mainMenu;

@@ -1,0 +1,12 @@
+    using System.Configuration;
+    using System.Reflections;
+    string appPath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string appName = Environment.GetCommandLineArgs()[0];
+            string configFile = System.IO.Path.Combine(appPath, appName + ".config");
+            ExeConfigurationFileMap configFileMap = new ExeConfigurationFileMap();
+            configFileMap.ExeConfigFilename = configFile;
+            System.Configuration.Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configFileMap, ConfigurationUserLevel.None);
+            var sezione = (ConnectionStringsSection)config.GetSection("connectionStrings");<br>sezione.ConnectionStrings["MyProjectName.Properties.Settings.MyDataSetConnectionString"].ConnectionString = "Data Source=" + txtDataSource.Text + ";Initial Catalog=" + txtInitialCatalog.Text + ";Persist Security Info=True;User ID=" + txtUserID.Text + ";Password=" + txtPassword.Text + ";";
+            config.Save();
+            ConfigurationManager.RefreshSection("connectionStrings");
+            this.Close();

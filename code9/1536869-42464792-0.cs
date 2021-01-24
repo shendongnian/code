@@ -1,0 +1,12 @@
+            Dictionary<string, object> dict = new Dictionary<string, object>();
+            var user = new Dictionary<string, string>();
+            user.Add("Info", "Your info");
+            user.Add("Profile", "Profile");
+            var menu = new Dictionary<string, object>();
+            var system = new Dictionary<string, string>();
+            system.Add("Task", "Tasks");
+            menu.Add("System", system);
+            dict.Add("User", user);
+            dict.Add("Menu", menu);
+            string output = JsonConvert.SerializeObject(dict);
+            Console.WriteLine(output);

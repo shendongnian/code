@@ -1,0 +1,11 @@
+    MailMessage mailMsg = new MailMessage();
+    SmtpClient client = new SmtpClient();
+    var imageData = Convert.FromBase64String(data);
+    var contentId = Guid.NewGuid().ToString();
+    var linkedResource = new LinkedResource(new MemoryStream(imageData), "image/svg+xml");
+    linkedResource.ContentId = contentId;
+    linkedResource.TransferEncoding = TransferEncoding.Base64;
+    var body = string.Format("<img src=\"cid:{0}\" />", contentId);
+    var htmlView = AlternateView.CreateAlternateViewFromString(body, null, "text/html");
+     htmlView.LinkedResources.Add(linkedResource);
+     mailMsg.AlternateViews.Add(htmlView);

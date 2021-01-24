@@ -1,0 +1,10 @@
+    DataGridViewButtonColumn buttonColEdit = new DataGridViewButtonColumn();
+    buttonColEdit.Name = "Edit";
+    buttonColEdit.Text = "Edit";
+    buttonColEdit.UseColumnTextForButtonValue = true;
+    DataGridViewButtonColumn buttonColDelete = new DataGridViewButtonColumn();
+    buttonColDelete.Name = "Delete";
+    buttonColDelete.Text = "Delete";
+    buttonColDelete.UseColumnTextForButtonValue = true;
+    dataGridFoodMenu.Columns.Add(buttonColEdit);
+    dataGridFoodMenu.Columns.Add(buttonColDelete);

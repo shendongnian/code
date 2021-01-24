@@ -1,0 +1,11 @@
+            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            pictureBox1.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+            RectangleF rectf = new RectangleF(70, 90, 90, 50);
+            Graphics g = Graphics.FromImage(bmp);
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            g.DrawString("yourText", new Font("Tahoma", 8), Brushes.Black, rectf);
+            g.Flush();
+            pictureBox1.Image = bmp;
+            bmp.Save("c:\\bitmap_images\\NewTest.jpeg", ImageFormat.Jpeg);

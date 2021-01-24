@@ -1,0 +1,27 @@
+                 var smsAttributes = new Dictionary<string, MessageAttributeValue>();
+                MessageAttributeValue senderID = new MessageAttributeValue();
+                senderID.DataType = "String";
+                senderID.StringValue = "mySenderId";
+                MessageAttributeValue sMSType = new MessageAttributeValue();
+                sMSType.DataType = "String";
+                sMSType.StringValue = "Promotional";
+                ////MessageAttributeValue maxPrice = new MessageAttributeValue();
+                ////maxPrice.DataType = "Number";
+                ////maxPrice.StringValue = "0.1";
+                CancellationTokenSource source = new CancellationTokenSource();
+                CancellationToken token = source.Token;
+                smsAttributes.Add("AWS.SNS.SMS.SenderID", senderID);
+                smsAttributes.Add("AWS.SNS.SMS.SMSType", sMSType);
+                ////smsAttributes.Add("AWS.SNS.SMS.MaxPrice", maxPrice);
+                PublishRequest publishRequest = new PublishRequest();
+                publishRequest.Message = vm.Message;
+                publishRequest.MessageAttributes = smsAttributes;
+                publishRequest.PhoneNumber = vm.PhoneNumber;
+                AmazonSimpleNotificationServiceClient client = new AmazonSimpleNotificationServiceClient(vm.AccessKey, vm.SecretKey, config);
+                AmazonSNSResponse resp = new AmazonSNSResponse();
+                await client.PublishAsync(publishRequest);
+                AmazonSNSResponse response = new AmazonSNSResponse();
+                response.Status = HttpStatusCode.OK.ToString();
+                response.Message = "Success";
+                return response;
+            

@@ -1,0 +1,6 @@
+    ...
+    [ExpandableObject]
+    public CDisplaySettings CDisplaySettings { get; set; }
+    [ExpandableObject]
+    public CIOSettings CIOSettings { get; set; }
+    ...

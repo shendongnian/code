@@ -1,0 +1,10 @@
+    Dictionary<string,object> dict1 = new Dictionary<string, object>();
+            dict1.Add("id", 1);
+            dict1.Add("name", "Some");
+            dict1.Add("age", 30);
+            Dictionary<string, object> dict2 = new Dictionary<string, object>();
+            dict2.Add("id", 1);
+            dict2.Add("sales", 58);
+            dict2.Add("age", 30);
+            Dictionary<string, object> dict3 = new Dictionary<string, object>();
+            dict3 = dict1.Union(dict2).ToDictionary(c => c.Key, c => c.Value);

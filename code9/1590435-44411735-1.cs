@@ -1,0 +1,72 @@
+    // AddRange()
+    List<Student> stud = new List<Student>(2);
+    stud.Add(new Student("s1", "ss1", 1));
+    stud.Add(new Student("s2", "ss2", 2));
+    List<Teacher> teac = new List<Teacher>(2);
+    teac.Add(new Teacher("t1", "ts1", "subject1"));
+    teac.Add(new Teacher("t2", "ts2", "subject2"));
+    List<Base> bas = new List<Base>(4);
+    bas.AddRange(stud);
+    bas.AddRange(teac);
+    Debug.Print($"{Environment.NewLine}AddRange():");
+    Debug.Print($"Base List:{Environment.NewLine}{bas[0]}{Environment.NewLine}{bas[1]}{Environment.NewLine}{bas[2]}{Environment.NewLine}{bas[3]}");
+            
+    stud[0] = new Student("s3_changed", "ss3_changed", 3);
+    stud[1].Name = "s4_changed";
+    stud[1].Surname = "ss4_changed";
+    stud[1].StudentID = 4;
+    bas[2].Name = "b3_changed";
+    bas[2].Surname = "bs3_changed";
+    ((Teacher)bas[2]).TeachingSubject = "bsub3_changed";
+    bas[3] = new Teacher("t4_changed", "ts4_changed", "tsbu4_changed");
+    Debug.Print($"{Environment.NewLine}After Change:");
+    Debug.Print($"Student List:{Environment.NewLine}{stud[0]}{Environment.NewLine}{stud[1]}");
+    Debug.Print($"Teacher List:{Environment.NewLine}{teac[0]}{Environment.NewLine}{teac[1]}");
+    Debug.Print($"Base List:{Environment.NewLine}{bas[0]}{Environment.NewLine}{bas[1]}{Environment.NewLine}{bas[2]}{Environment.NewLine}{bas[3]}");
+    // Concat()
+    List<Student> stud2 = new List<Student>(2);
+    stud2.Add(new Student("s1", "ss1", 1));
+    stud2.Add(new Student("s2", "ss2", 2));
+    List<Teacher> teac2 = new List<Teacher>(2);
+    teac2.Add(new Teacher("t1", "ts1", "subject1"));
+    teac2.Add(new Teacher("t2", "ts2", "subject2"));
+    List<Base> bas2 = new List<Base>();
+    bas2 = bas2.Concat(stud2).Concat(teac2).ToList();
+    Debug.Print($"{Environment.NewLine}Concat:");
+    Debug.Print($"Base List:{Environment.NewLine}{bas2[0]}{Environment.NewLine}{bas2[1]}{Environment.NewLine}{bas2[2]}{Environment.NewLine}{bas2[3]}");
+    stud2[0] = new Student("s3_changed", "ss3_changed", 3);
+    stud2[1].Name = "s4_changed";
+    stud2[1].Surname = "ss4_changed";
+    stud2[1].StudentID = 4;
+    bas2[2].Name = "b3_changed";
+    bas2[2].Surname = "bs3_changed";
+    ((Teacher)bas2[2]).TeachingSubject = "bsub3_changed";
+    bas2[3] = new Teacher("t4_changed", "ts4_changed", "tsbu4_changed");
+    Debug.Print($"{Environment.NewLine}After Change:");
+    Debug.Print($"Student List:{Environment.NewLine}{stud2[0]}{Environment.NewLine}{stud2[1]}");
+    Debug.Print($"Teacher List:{Environment.NewLine}{teac2[0]}{Environment.NewLine}{teac2[1]}");
+    Debug.Print($"Base List:{Environment.NewLine}{bas2[0]}{Environment.NewLine}{bas2[1]}{Environment.NewLine}{bas2[2]}{Environment.NewLine}{bas2[3]}");
+    // AddRange() clone
+    List<Student> stud3 = new List<Student>(2);
+    stud3.Add(new Student("s1", "ss1", 1));
+    stud3.Add(new Student("s2", "ss2", 2));
+    List<Teacher> teac3 = new List<Teacher>(2);
+    teac3.Add(new Teacher("t1", "ts1", "subject1"));
+    teac3.Add(new Teacher("t2", "ts2", "subject2"));
+    List<Base> bas3 = new List<Base>(4);
+    bas3.AddRange(stud3.Select(x => (Student)x.Clone()).ToList());  // Clone
+    bas3.AddRange(teac3.Select(x => new Teacher(x)).ToList());  // Copy c'tor
+    Debug.Print($"{Environment.NewLine}AddRange() clone:");
+    Debug.Print($"Base List:{Environment.NewLine}{bas3[0]}{Environment.NewLine}{bas3[1]}{Environment.NewLine}{bas3[2]}{Environment.NewLine}{bas3[3]}");
+    stud3[0] = new Student("s3_changed", "ss3_changed", 3);
+    stud3[1].Name = "s4_changed";
+    stud3[1].Surname = "ss4_changed";
+    stud3[1].StudentID = 4;
+    bas3[2].Name = "b3_changed";
+    bas3[2].Surname = "bs3_changed";
+    ((Teacher)bas3[2]).TeachingSubject = "bsub3_changed";
+    bas3[3] = new Teacher("t4_changed", "ts4_changed", "tsbu4_changed");
+    Debug.Print($"{Environment.NewLine}After Change:");
+    Debug.Print($"Student List:{Environment.NewLine}{stud3[0]}{Environment.NewLine}{stud3[1]}");
+    Debug.Print($"Teacher List:{Environment.NewLine}{teac3[0]}{Environment.NewLine}{teac3[1]}");
+    Debug.Print($"Base List:{Environment.NewLine}{bas3[0]}{Environment.NewLine}{bas3[1]}{Environment.NewLine}{bas3[2]}{Environment.NewLine}{bas3[3]}");

@@ -1,0 +1,27 @@
+    private void txt_pay2_TextChanged(object sender, EventArgs e) {
+      // Contract:
+      if ((String.IsNullOrEmpty(txt_pay2.Text)) {
+        MessageBox.Show("Enter A Amount Please !!");
+    
+        return;
+      } 
+    
+      // Try to get values:
+      int Pay_Dues;
+      int Pay;
+    
+      if (!int.TryParse(pay_dues.Text, out Pay_Dues))
+        return; // Bad pay_dues.Text format
+      else if (!int.TryParse(txt_pay2.Text, out Pay))
+        return; // Bad txt_pay2.Text format 
+    
+      // We don't want a cascade of txt_pay2.TextChanged events
+      txt_pay2.TextChanged -= txt_pay2_TextChanged;
+    
+      try {
+        txt_pay2.Text = (Pay_Dues - Pay).ToString(); 
+      }
+      finally {
+        txt_pay2.TextChanged -= txt_pay2_TextChanged;
+      }
+    }

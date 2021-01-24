@@ -1,0 +1,16 @@
+            List<Department> departmentList = new List<Department>();
+            departmentList.Add(new Department { ID = 1, Description = "HR" });
+            departmentList.Add(new Department { ID = 2, Description = "IT" });
+            departmentList.Add(new Department { ID = 3, Description = "Sales" });
+            departmentList.Add(new Department { ID = 4, Description = "Accounting" });
+            departmentList.Add(new Department { ID = 5, Description = "Marketing" });
+            departmentList.Add(new Department { ID = 6, Description = "Fun" });
+            departmentList.Add(new Department { ID = 7, Description = "Games" });
+            departmentList.Add(new Department { ID = 8, Description = "Awesome" });
+            departmentList.Add(new Department { ID = 9, Description = "Confusing" });
+            Department item4 = departmentList[3];
+            Department item6 = departmentList[5];
+            departmentList.Remove(item4);
+            departmentList.Remove(item6);
+            departmentList.Add(item4);
+            departmentList.Add(item6);

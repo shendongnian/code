@@ -1,0 +1,11 @@
+    string abc = "abc";
+            string def = "123";
+            System.Diagnostics.Process proc = new System.Diagnostics.Process();
+            proc.StartInfo.FileName = "C:\\Users\\90008121\\Desktop\\ClassPathbatch.bat";
+            proc.StartInfo.Arguments = String.Format("{0} {1}", abc, def);
+            proc.StartInfo.RedirectStandardError = false;
+            proc.StartInfo.RedirectStandardOutput = false;
+            proc.StartInfo.UseShellExecute = false;
+            proc.Start();
+            proc.WaitForExit();
+            Console.ReadLine(); 

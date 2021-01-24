@@ -1,0 +1,6 @@
+    public async Task<ActionResult> TestSSN()
+    {
+        //...
+        string responseBody = await apiResponse.Content.ReadAsStringAsync();
+        //...
+    }

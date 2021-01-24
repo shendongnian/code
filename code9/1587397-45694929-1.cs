@@ -1,0 +1,11 @@
+    var builder = new EmbedBuilder();
+    builder.WithTitle("Ice Wizard Stats");
+    builder.AddInlineField("Cost", "3");
+    builder.AddInlineField("HP", "665");
+    builder.AddInlineField("DPS", "42");
+    builder.AddInlineField("Hit Speed", "1.5sec");
+    builder.AddInlineField("SlowDown", "35%");
+    builder.AddInlineField("AOE", "63");
+    builder.WithThumbnailUrl("url");
+    builder.WithColor(Color.Red);
+    await Context.Channel.SendMessageAsync("", false, builder);

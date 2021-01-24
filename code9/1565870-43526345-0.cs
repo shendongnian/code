@@ -1,0 +1,5 @@
+    val_par_Decimal_Min = Math.Round(Convert.ToDecimal(string.IsNullOrEmpty(dsTabDados.Tables[EquipTrigger[TGR]].Compute("MIN(" + col.ColumnName + ")", col.ColumnName + "<>" + 0).ToString()) ? "0" : dsTabDados.Tables[EquipTrigger[TGR]].Compute("MIN(" + col.ColumnName + ")", col.ColumnName + "<>" + 0).ToString()), 2).ToString().Replace(",", ".");
+    
+    val_par_Decimal_Max = Math.Round(Convert.ToDecimal(string.IsNullOrEmpty(dsTabDados.Tables[EquipTrigger[TGR]].Compute("MAX(" + col.ColumnName + ")", col.ColumnName + "<>" + 0).ToString()) ? "0" : dsTabDados.Tables[EquipTrigger[TGR]].Compute("MAX(" + col.ColumnName + ")", col.ColumnName + "<>" + 0).ToString()), 2).ToString().Replace(",", ".");
+    
+    val_par_Decimal_Med = Math.Round(Convert.ToDecimal(string.IsNullOrEmpty(dsTabDados.Tables[EquipTrigger[TGR]].Compute("AVG(" + col.ColumnName + ")", col.ColumnName + "<>" + 0).ToString()) ? "0" : dsTabDados.Tables[EquipTrigger[TGR]].Compute("AVG(" + col.ColumnName + ")", col.ColumnName + "<>" + 0).ToString()), 2).ToString().Replace(",", ".");

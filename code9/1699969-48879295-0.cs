@@ -1,0 +1,10 @@
+    GhostscriptPngDevice dev = new GhostscriptPngDevice(GhostscriptPngDeviceType.Png256);
+    dev.GraphicsAlphaBits = GhostscriptImageDeviceAlphaBits.V_4;
+    dev.TextAlphaBits = GhostscriptImageDeviceAlphaBits.V_4;
+    dev.ResolutionXY = new GhostscriptImageDeviceResolution(290, 290);
+    dev.InputFiles.Add(result + j + ".pdf");
+    dev.Pdf.FirstPage = 1;
+    dev.Pdf.LastPage = 1;
+    dev.PostScript = string.Empty;
+    dev.OutputPath = Server.MapPath(@"~/TempPDF" + "\\" + imageModal.FileName);
+    dev.Process();

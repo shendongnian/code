@@ -1,0 +1,11 @@
+    Original orig = new Original(7, 20);
+    LikeOriginal casted = ForceCastCS<Original, LikeOriginal>(orig) ?? default(LikeOriginal);
+    Console.WriteLine("Casted Original to LikeOriginal");
+    Console.WriteLine(casted.cG + ", " + casted.dG);
+    Console.WriteLine(casted.ToString());
+    casted.Add(3);
+    Console.WriteLine("added 3");
+    orig = ForceCastSC<LikeOriginal, Original>(casted);
+    Console.WriteLine("Casted LikeOriginal back to Original");
+    Console.WriteLine(orig.a + ", " + orig.b);
+    Console.ReadLine();

@@ -1,0 +1,11 @@
+    public SQLiteConnection dbConnection = new SQLiteConnection(@"Data Source=E:\Foldername\myDatabase.s3db;");
+     SQLiteConnection cnn = new SQLiteConnection(dbConnection);
+                cnn.Open();
+    string sql = "SELECT * FROM Tble_UserSetUp";
+    DataSet ds = new DataSet();
+     SQLiteCommand mycommand = new SQLiteCommand(cnn);
+                mycommand.CommandText = sql;
+     SQLiteDataAdapter da = new SQLiteDataAdapter();
+                da.SelectCommand = mycommand;
+                da.Fill(ds);
+     cnn.Close();

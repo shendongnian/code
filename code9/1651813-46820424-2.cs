@@ -1,0 +1,12 @@
+    _costRecords.Add(new CostRecord { Name = "Passenger delay cost",
+                                      ComputationFunction = passengerDelayCost });
+    _costRecords.Add(new CostRecord { Name = "Outbound cancellation cost",
+                                      ComputationFunction = outboundCancelCost });
+    _costRecords.Add(new CostRecord { Name = "Inbound cancellation cost",
+                                      ComputationFunction = inboundCancelCost });
+    _costRecords.Add(new CostRecord { Name = "Cancellation Legal Compensation Cost",
+                                      ComputationFunction = cancelLegalCost });
+    _costRecords.Add(new CostRecord { Name = "Delay legal cost",
+                                      ComputationFunction = delayLegalCost });
+    _costRecords.Add(new CostRecord { Name = "Flight operating cost decrease",
+                                      ComputationFunction = flightOperatingCostDecrease });

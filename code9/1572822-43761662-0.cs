@@ -1,0 +1,10 @@
+    var pt1 = new Point(25, 25);
+    var pt2 = new Point(280, 75);
+    var ptMed = new Point((pt1.X + pt2.X) / 2, (pt1.Y + pt2.Y) / 2);
+    var g = this.CreateGraphics();
+    var lbl = "1";
+    var offset = (int)g.MeasureString(lbl, this.Font).Height + 2;
+    ptMed.Y -= offset;
+    var p = new Pen(Brushes.White);
+    g.DrawLine(p, pt1, pt2);
+    g.DrawString(lbl, this.Font, Brushes.White, ptMed);

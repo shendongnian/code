@@ -1,0 +1,10 @@
+     Uri filename = new Uri(@"http://server//oshirodev/Library1/Folder1/File1.docx");
+     string server = filename.AbsoluteUri.Replace(filename.AbsolutePath, "");
+     Microsoft.SharePoint.Client.ClientContext clientContext = new Microsoft.SharePoint.Client.ClientContext(server);
+    _ClientContext.Credentials = new NetworkCredential("user", "pass", "oshirowanen.com");
+    _SharePoint.Principal user = _ClientContext.Web.EnsureUser(@"oshirowanen\tom");
+    var roleDefinition = _ClientContext.Site.RootWeb.RoleDefinitions.GetByType(_SharePoint.RoleType.Reader);
+    var roleBindings = new _SharePoint.RoleDefinitionBindingCollection(_ClientContext) { roleDefinition };
+    _Item.BreakRoleInheritance(false,true);
+    _Item.RoleAssignments.Add(user, roleBindings);
+    _ClientContext.ExecuteQuery();

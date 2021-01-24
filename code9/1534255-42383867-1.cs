@@ -1,0 +1,14 @@
+    var connector = new ConnectorClient(new Uri(incomingMessage.ServiceUrl));
+    List<ChannelAccount> participants = new List<ChannelAccount>();
+    participants.Add(new ChannelAccount("joe@contoso.com", "Joe the Engineer"));
+    participants.Add(new ChannelAccount("sara@contso.com", "Sara in Finance"));
+    ConversationParameters cpMessage = new ConversationParameters(message.Recipient, true, participants, "Quarter End Discussion");
+    var conversationId = await connector.Conversations.CreateConversationAsync(cpMessage);
+    IMessageActivity message = Activity.CreateMessageActivity();
+    message.From = botAccount;
+    message.Recipient = new ChannelAccount("lydia@contoso.com", "Lydia the CFO"));
+    message.Conversation = new ConversationAccount(id: conversationId.Id);
+    message.ChannelId = incomingMessage.ChannelId;
+    message.Text = "Hey, what's up everyone?";
+    message.Locale = "en-Us";
+    await connector.Conversations.SendToConversationAsync((Activity)message);

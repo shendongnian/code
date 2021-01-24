@@ -1,0 +1,6 @@
+    public ActionResult EmptyCart(string userEmail = "")
+    {
+        var cartItems = db.Carts.Where(o => o.Email.Contains(userEmail));
+        ....
+        ....
+    }

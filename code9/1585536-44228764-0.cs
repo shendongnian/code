@@ -1,0 +1,9 @@
+    public Guid Id { get; set; }
+    public string Subject { get; set; }
+    public string ViewerCounter { get; set; }
+    public string Content { get; set; }
+    public DateTime SubmitDateTime { get; set; }
+    public DateTime ModifiedDateTime { get; set; }
+    public string PublisherName { get; set; }
+    public string PictureAddress { get; set; }
+    public string TypeOfNews  { get; set; }

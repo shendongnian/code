@@ -1,0 +1,12 @@
+     Rectangle rect = new Rectangle();
+     rect.Opacity = 0.3;
+     rect.SetValue(Grid.RowProperty, r);
+     rect.SetValue(Grid.ColumnSpanProperty, 3);
+     rect.Fill = new SolidColorBrush(Colors.Azure);  
+     Grid flGrid = new Grid();
+     TextBlock flTb1 = new TextBlock();
+     flTb1.Text = "testname"+r;
+     flGrid.Children.Add(flTb1); 
+     rect.SetValue(ToolTipService.ToolTipProperty, flGrid); 
+     rect.Margin = new Thickness(2);
+     MyGrid.Children.Add(rect);

@@ -1,0 +1,10 @@
+	DataTable dt = new DataTable();
+	dt.Clear();	
+	dt.Columns.Add("verNumber");
+	object[] o = { "1.2.1" };
+	dt.Rows.Add(new object[] { "1.1.1" });
+	dt.Rows.Add(new object[] { "1.4" });
+	dt.Rows.Add(new object[] { "2" });
+	dt.Rows.Add(new object[] { "4.1.4" });
+	string maxVal = (string)dt.Compute( "MAX(verNumber)", string.Empty);
+	Console.WriteLine(maxVal);

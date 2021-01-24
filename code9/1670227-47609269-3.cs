@@ -1,0 +1,11 @@
+        dataset.Tables.Add("OutputResults");
+        dataset.Tables["OutputResults"].Columns.Add("Value1", typeof(string));
+        dataset.Tables["OutputResults"].Columns.Add("Value2", typeof(string));
+        dataset.Tables["OutputResults"].Columns.Add("Value3", typeof(string));
+        dataset.Tables["OutputResults"].Columns.Add("Value4", typeof(string));
+        var outputRow = dataset.Tables["OutputResults"].NewRow();
+        outputRow["Value1"] = command.Parameters["@Value1"].Value;
+        outputRow["Value2"] = command.Parameters["@Value2"].Value;
+        outputRow["Value3"] = command.Parameters["@Value3"].Value;
+        outputRow["Value4"] = command.Parameters["@Value4"].Value;
+        dataset.Tables["OutputResults"].Rows.Add(outputRow);

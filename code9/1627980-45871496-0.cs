@@ -1,0 +1,6 @@
+        ...
+        public void OnCycle()
+        {
+            while (_browser == null)
+            {
+        ...

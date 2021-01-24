@@ -1,0 +1,11 @@
+    <Project>
+    <ProjectExtensions>
+        <VisualStudio>
+          <FlavorProperties>
+            <WebProjectProperties>
+              <IISUrl>http://localhost:50380/</IISUrl>
+            </WebProjectProperties>
+          </FlavorProperties>
+        </VisualStudio>
+    </ProjectExtensions>
+    </Project>

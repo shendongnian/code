@@ -1,0 +1,12 @@
+    var myList = Enumerable.Range (0, 100000000).ToList();
+    var trueCopy = new List<int> (myList);
+    var time = Environment.TickCount;
+    var copyOne = myList.CreateCopyReflection().ToList();
+    Console.WriteLine($"Reflection copy: {Environment.TickCount - time}");
+    time = Environment.TickCount;
+    var copyTwo = myList.CreateCopyLinq ().ToList();
+    Console.WriteLine ($"Linq copy: {Environment.TickCount - time}");
+    time = Environment.TickCount;
+    var copyThree = myList.CreateCopyEnumeration ().ToList();
+    Console.WriteLine ($"Enumeration copy: {Environment.TickCount - time}");
+    time = Environment.TickCount;

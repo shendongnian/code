@@ -1,0 +1,14 @@
+    string text = "ABC";
+    var aes = System.Security.Cryptography.Aes.Create();
+    aes.GenerateKey();
+    aes.GenerateIV();
+    aes.Mode = CipherMode.CBC;
+    aes.Padding = PaddingMode.PKCS7;
+    var desEncrypter = aes.CreateEncryptor();
+    var buffer = System.Text.ASCIIEncoding.ASCII.GetBytes(text);
+    var finalV = Convert.ToBase64String(desEncrypter.TransformFinalBlock(buffer, 0, buffer.Length));
+    var desDecrypter = aes.CreateDecryptor();
+    var buff = Convert.FromBase64String(finalV);
+    var origValue = desDecrypter.TransformFinalBlock(buff, 0, buff.Length);
+    string result = Encoding.ASCII.GetString(origValue);
+    Console.WriteLine(result);

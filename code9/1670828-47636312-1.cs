@@ -1,0 +1,6 @@
+    public class PhraseSource {
+        ...
+        public int OneHash { get { return Id.GetHashCode() % 10; } }
+        public int TwoHash { get { return Id.GetHashCode() % 100; } }
+        ...
+    }

@@ -1,0 +1,6 @@
+    public class Item
+    {
+        ...
+        public decimal price_usd { get; set; }
+        ...
+    }

@@ -1,0 +1,6 @@
+    [assembly: XmlnsDefinition("urn:foobar", "System.Windows.Controls")]
+    [assembly: XmlnsDefinition("urn:foobar", "System.Windows.Documents")]
+    [assembly: XmlnsDefinition("urn:foobar", "System.Windows.Shapes")]
+    // ...
+    [assembly: XmlnsDefinition("urn:foobar", "FoobarLibrary.Controls")]
+    // ...

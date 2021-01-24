@@ -1,0 +1,11 @@
+    caPanel.Controls.Add(new LiteralControl("<div class='col-md-6'>"));
+    CheckBox aCheckBox = new CheckBox();
+    aCheckBox.ID = dt.Rows[i]["ID"].ToString();
+    caPanel.Controls.Add(aCheckBox);
+    Button checkboxButton = new Button();
+    checkboxButton.ID = "Button"+dt.Rows[i]["ID"].ToString();
+    checkboxButton.Text = dt.Rows[i]["NAME"].ToString();
+    checkboxButton.CssClass = "caButton";
+    checkboxButton.Click += new EventHandler(ALinkClick);
+    caPanel.Controls.Add(checkboxButton);
+    caPanel.Controls.Add(new LiteralControl("</div>"));

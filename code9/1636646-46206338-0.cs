@@ -1,0 +1,6 @@
+    public async Task<List<string>> GetText(HttpRequestMessage request)
+    {
+        ...
+        await content.CopyToAsync(ms);
+        ...
+    }

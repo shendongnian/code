@@ -1,0 +1,6 @@
+    public class UserInfo
+    {
+        ...
+        public ImageSource PictureID { get; set; } 
+        ...
+    }

@@ -1,0 +1,6 @@
+    public void Serialize(object obj, string Address)
+    {
+        ...
+        XmlSerializer serializer = new XmlSerializer(obj.GetType());
+        ...
+    }

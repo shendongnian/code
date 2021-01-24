@@ -1,0 +1,10 @@
+               DataTable dt = new DataTable();
+                dt.Columns.Add("ID", typeof(int));
+                dt.Columns.Add("col_1", typeof(int));
+                dt.Columns["col_1"].AllowDBNull = true;
+                dt.Rows.Add(new object[] { 1, 12345});
+                dt.Rows.Add(new object[] { 1, null});
+                dt.Rows.Add(new object[] { 1, null});
+                dt.Rows.Add(new object[] { 2, 67891});
+                int id = 1;
+                DataTable dt2 = dt.AsEnumerable().Where(x => x.Field<int>("ID") == id).CopyToDataTable();

@@ -1,0 +1,9 @@
+    using System.Web.UI.WebControls;
+    ....
+    protected void rptVisitedItem_OnItemDataBound(object sender, RepeaterItemEventArgs e)
+    {
+        ....
+        HtmlInputButton lbn = (HtmlInputButton)e.Item.FindControl("btnGroup");
+        lbn.Attributes.Add("onkeypress", "$(this).click()");
+        ....
+    }

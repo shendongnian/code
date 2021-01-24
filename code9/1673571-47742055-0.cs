@@ -1,0 +1,6 @@
+    public void Serialize<T>(List<T> CT, string Address)
+    {
+        ...
+        XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
+        ...
+    }

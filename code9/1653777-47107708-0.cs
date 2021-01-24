@@ -1,0 +1,10 @@
+    NpgsqlConnectionStringBuilder sb = new NpgsqlConnectionStringBuilder();
+    sb.ApplicationName = "Tableau " + Environment.GetEvironmentVariable("USERNAME");
+    sb.Host = "1.2.3.4";
+    sb.Port = 5432;
+    sb.Username = "foo";
+    sb.Password = "bar";
+    sb.Database = "postgres";
+    sb.Pooling = false;
+    sb.Timeout = 120;
+    conServer = new NpgsqlConnection(sb.ToString());

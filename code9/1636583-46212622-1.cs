@@ -1,0 +1,7 @@
+	var d0 = MakeGenericType(typeof(Dictionary<,>), typeof(Tuple<,>)); // Dictionary`2[Tuple`2[T1,T2],TValue]
+	var d1 = MakeGenericType(d0, typeof(double));                      // Dictionary`2[Tuple`2[Double,T2],TValue]
+	var d2 = MakeGenericType(d1, typeof(float));                       // Dictionary`2[Tuple`2[Double,Single],TValue]
+	var d3 = MakeGenericType(d2, typeof(Func<,,>));                    // Dictionary`2[Tuple`2[Double,Single],Func`3[T1,T2,TResult]]
+	var d4 = MakeGenericType(d3, typeof(short));                       // Dictionary`2[Tuple`2[Double,Single],Func`3[Int16,T2,TResult]]
+	var d5 = MakeGenericType(d4, typeof(object));                      // Dictionary`2[Tuple`2[Double,Single],Func`3[Int16,Object,TResult]]
+	var d6 = MakeGenericType(d5, typeof(int));                         // Dictionary`2[Tuple`2[Double,Single],Func`3[Int16,Object,Int32]]

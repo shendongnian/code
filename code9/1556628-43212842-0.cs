@@ -1,0 +1,11 @@
+    var messages = new List<ObjectMessage>();
+    messages.Add(new ObjectMessage { Id = 1000, Body = "AAA", DateSent = new DateTime(2017, 01, 14, 0, 0, 0), Unread = false, FromUserId = 1, ToUserId = 6 });
+    messages.Add(new ObjectMessage { Id = 1001, Body = "BBB", DateSent = new DateTime(2017, 01, 14, 0, 0, 0), Unread = false, FromUserId = 3, ToUserId = 2 });
+    messages.Add(new ObjectMessage { Id = 1002, Body = "CCC", DateSent = new DateTime(2017, 01, 14, 0, 0, 0), Unread = false, FromUserId = 7, ToUserId = 6 });
+    messages.Add(new ObjectMessage { Id = 1003, Body = "DDD", DateSent = new DateTime(2017, 01, 15, 0, 0, 0), Unread = false, FromUserId = 1, ToUserId = 6 });
+    messages.Add(new ObjectMessage { Id = 1004, Body = "EEE", DateSent = new DateTime(2017, 02, 18, 0, 0, 0), Unread = false, FromUserId = 2, ToUserId = 3 });
+    messages.Add(new ObjectMessage { Id = 1005, Body = "FFF", DateSent = new DateTime(2017, 01, 14, 0, 0, 0), Unread = false, FromUserId = 1, ToUserId = 7 });
+    messages.Add(new ObjectMessage { Id = 1006, Body = "GGG", DateSent = new DateTime(2017, 02, 20, 0, 0, 0), Unread = false, FromUserId = 8, ToUserId = 9 });
+    messages.Add(new ObjectMessage { Id = 1007, Body = "HHH", DateSent = new DateTime(2017, 03, 11, 0, 0, 0), Unread = false, FromUserId = 9, ToUserId = 8 });
+    messages.Add(new ObjectMessage { Id = 1008, Body = "III", DateSent = new DateTime(2017, 03, 12, 0, 0, 0), Unread = false, FromUserId = 8, ToUserId = 1 });
+    messages.Add(new ObjectMessage { Id = 1009, Body = "JJJ", DateSent = new DateTime(2017, 03, 13, 0, 0, 0), Unread = false, FromUserId = 7, ToUserId = 8 });

@@ -1,0 +1,13 @@
+            var client = new RestClient(_freshdeskUrl);
+            client.Authenticator = new HttpBasicAuthenticator(_apiKey, "X");
+            var request = new RestRequest("", Method.POST);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Content-Type", "multipart/form-data");
+            request.AddParameter("email", "example@example.com");
+            request.AddParameter("subject", "Subject");
+            request.AddParameter("description", "Description");
+            request.AddParameter("name", "Name");
+            request.AddParameter("status", "2");
+            request.AddParameter("priority", "1");
+            request.AddFile("attachments[]", bytes, "Logs.txt", "text/plain");
+            var response = client.Execute(request);

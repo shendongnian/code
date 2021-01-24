@@ -1,0 +1,12 @@
+	string excelConnectString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\...\\Book2.xlsx;Extended Properties=\"Excel 12.0 Xml;HDR=NO\";";
+	OleDbConnection objConn = new OleDbConnection(excelConnectString);
+	OleDbCommand objCmd1 = new OleDbCommand("Select * From [Sheet1$C6:C10]", objConn);
+	OleDbCommand objCmd2 = new OleDbCommand("Select * From [Sheet1$D6:D10]", objConn);
+	OleDbDataAdapter objDatAdap = new OleDbDataAdapter();
+	objDatAdap.SelectCommand = objCmd1;
+	DataTable dt = new DataTable();
+	objDatAdap.Fill(dt);
+	objDatAdap.SelectCommand = objCmd2;
+	DataTable dt2 = new DataTable();
+	objDatAdap.Fill(dt2);
+	dt.Merge(dt2);

@@ -1,0 +1,9 @@
+    var param = Expression.Parameter(typeof(Foo));
+    var bar = MemberExpression.Property(param, "Bar");
+    Type dictionaryType = typeof(Foo).GetProperty("Bar").PropertyType;
+    PropertyInfo indexerProp = dictionaryType.GetProperty("Item");
+    var dictKeyConstant = Expression.Constant("entryName");
+    var dictAccess = Expression.MakeIndex(bar, indexerProp, new[] {dictKeyConstant});
+    var propertyType = indexerProp.PropertyType;
+    var right = Expression.Constant(Convert.ChangeType("newValue", propertyType ));
+    var expression = Expression.MakeBinary(ExpressionType.Equal, dictAccess, right);    

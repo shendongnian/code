@@ -1,0 +1,12 @@
+        single_pressure_LS.DependentRangeAxis = new LinearAxis {
+            Orientation = AxisOrientation.Y,
+            Location = AxisLocation.Left,
+            Title = "Volumenstrom Q",
+            Minimum = 1,
+            Maximum = 4 };
+        single_flow_rate_LS.DependentRangeAxis = new LinearAxis {
+            Orientation = AxisOrientation.Y,
+            Location = AxisLocation.Right,
+            Title = "Druck p",
+            Minimum = 3,
+            Maximum = 5 };

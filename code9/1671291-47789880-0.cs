@@ -1,0 +1,10 @@
+            TfsTeamProjectCollection ttpc = new TfsTeamProjectCollection(new Uri("http:/tfserver:8080/tfs/DefaultCollection/"));
+            ITestManagementService itms = ttpc.GetService<ITestManagementService>();
+            ITestManagementTeamProject project = itms.GetTeamProject("EmptyTFVC");
+            ITestCaseResult result = project.TestResults.Find(1, 100000);
+            string contentstring = "This is test string for attachment.";
+            byte[] conBytes = Encoding.ASCII.GetBytes(contentstring);
+            ITestAttachment attachment = result.CreateAttachment(conBytes,0,conBytes.Length);
+            attachment.Name = "test.txt";
+            result.Attachments.Add(attachment);
+            result.Save();

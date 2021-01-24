@@ -1,0 +1,10 @@
+    // using static System.Console;
+    WriteLine( arr3[ 0, 0, 0 ] );
+    WriteLine( arr3[ 0, 0, 1 ] );
+    WriteLine( arr3[ 0, 1, 0 ] );
+    WriteLine( arr3[ 0, 1, 1 ] );
+    WriteLine( "..." );
+    WriteLine( arr3[ 8, 4, 0 ] );
+    WriteLine( arr3[ 8, 4, 1 ] );
+    WriteLine( arr3[ 8, 5, 0 ] );
+    WriteLine( arr3[ 8, 5, 1 ] );

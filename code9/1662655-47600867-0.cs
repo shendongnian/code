@@ -1,0 +1,12 @@
+    var clientContext = new ClientContext(SPContext.Current.Web.Url);
+    var oList = clientContext.Web.Lists.GetByTitle("Risks");
+    var itemCreateInfo = new ListItemCreationInformation();
+    var oListItem = oList.AddItem(itemCreateInfo);
+    oListItem["Title"] = title.Text;
+    oListItem["Risk"] = risk.Text;
+    oListItem["Probability"] = probability.Text;
+    oListItem["Severity"] = severity.Text;
+    oListItem["ChangeReference"] = int.Parse(this.Page.Request.QueryString["ItemId"]);
+    oListItem.Update();
+    clientContext.Load(oListItem);
+    clientContext.ExecuteQuery();

@@ -1,0 +1,16 @@
+    public abstract class BaseRepository<TEntity>
+    {
+        protected DbContext context;
+    
+        protected BaseRepository(MyDbContext context) 
+        {
+            this.context = context;
+        }
+    
+        public List<TEntity> GetAll() where TEntity : class
+        {
+            // Set<TEntity> provides you an access to entity DbSet
+            // Just like if you call context.Users or context.[AnyTableName]
+            return context.Set<TEntity>().ToList();
+        }
+    }

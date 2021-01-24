@@ -1,0 +1,10 @@
+    Mgr<int> m = new Mgr<int>();
+    m.list = new List<int>() { 1 };
+    var test1 = m.GetAt1<int>(0); // 1
+    var test2 = m.GetAt1<int>(1); // null
+    var test2bis = m.GetAt1<int>(1,-1); // -1
+    Mgr<string> n = new Mgr<string>();
+    n.list = new List<string>() { "1" };
+    var test3 = n.GetAt2<string>(0); // "1"
+    var test4 = n.GetAt2<string>(1); // null
+    var test4bis = n.GetAt2<string>(1,"--"); // --

@@ -1,0 +1,12 @@
+    var _List = _ClientContext.Web.Lists.GetByTitle("Library1");
+    var _Item = _List.LoadItemByUrl("/sites/oshirodev/Library1/Folder1");
+    _ClientContext.Load(_Item);
+    _ClientContenxt.ExecuteQuery(); 
+    var roleDefinition = _ClientContext.Site.RootWeb.RoleDefinitions.GetByType(_SharePoint.RoleType.Reader);
+    _ClientContext.Load(roleDefinition);
+    _ClientContenxt.ExecuteQuery();
+    var roleBindings = new _SharePoint.RoleDefinitionBindingCollection(_ClientContext) { roleDefinition };
+    _Item.BreakRoleInheritance(false,true);
+    _Item.RoleAssignments.Add(user, roleBindings);
+    _ClientContext.Load(_Item);
+    _ClientContext.ExecuteQuery();

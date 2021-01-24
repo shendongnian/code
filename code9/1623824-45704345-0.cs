@@ -1,0 +1,6 @@
+      // web.config 
+      <system.Web> 
+         <httpRuntime targetFramework="4.5" />
+      </system.Web>
+     // enabling anti-xss 
+       <httpRuntime targetFramework="4.5" encoderType="System.Web.Security.AntiXss.AntiXssEncoder,System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
